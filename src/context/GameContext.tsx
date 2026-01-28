@@ -9,17 +9,23 @@ export type GameCharacter = {
   classSlug: string;
   type: "player" | "npc";
   createdAt: number;
+  level: number;
+  hp: string;
+  ac: string;
+  notes: string;
 };
 
 type GameState = {
   characters: GameCharacter[];
-  addCharacter: (char: Omit<GameCharacter, "id" | "createdAt">) => void;
+  addCharacter: (char: Omit<GameCharacter, "id" | "createdAt" | "level" | "hp" | "ac" | "notes">) => void;
+  updateCharacter: (id: string, updates: Partial<GameCharacter>) => void;
   removeCharacter: (id: string) => void;
 };
 
 const GameContext = createContext<GameState>({
   characters: [],
   addCharacter: () => {},
+  updateCharacter: () => {},
   removeCharacter: () => {},
 });
 
@@ -32,7 +38,19 @@ export function GameProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     try {
       const raw = localStorage.getItem(STORAGE_KEY);
-      if (raw) setCharacters(JSON.parse(raw));
+      if (raw) {
+        const parsed = JSON.parse(raw);
+        // Migrate old entries missing new fields
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const migrated = parsed.map((c: any) => ({
+          level: 1,
+          hp: "",
+          ac: "",
+          notes: "",
+          ...c,
+        })) as GameCharacter[];
+        setCharacters(migrated);
+      }
     } catch {}
     setHydrated(true);
   }, []);
@@ -44,21 +62,27 @@ export function GameProvider({ children }: { children: ReactNode }) {
   }, [characters, hydrated]);
 
   const addCharacter = useCallback(
-    (char: Omit<GameCharacter, "id" | "createdAt">) => {
+    (char: Omit<GameCharacter, "id" | "createdAt" | "level" | "hp" | "ac" | "notes">) => {
       setCharacters((prev) => [
         ...prev,
-        { ...char, id: crypto.randomUUID(), createdAt: Date.now() },
+        { ...char, id: crypto.randomUUID(), createdAt: Date.now(), level: 1, hp: "", ac: "", notes: "" },
       ]);
     },
     []
   );
+
+  const updateCharacter = useCallback((id: string, updates: Partial<GameCharacter>) => {
+    setCharacters((prev) =>
+      prev.map((c) => (c.id === id ? { ...c, ...updates } : c))
+    );
+  }, []);
 
   const removeCharacter = useCallback((id: string) => {
     setCharacters((prev) => prev.filter((c) => c.id !== id));
   }, []);
 
   return (
-    <GameContext.Provider value={{ characters, addCharacter, removeCharacter }}>
+    <GameContext.Provider value={{ characters, addCharacter, updateCharacter, removeCharacter }}>
       {children}
     </GameContext.Provider>
   );

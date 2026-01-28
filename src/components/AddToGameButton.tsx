@@ -13,15 +13,16 @@ export function AddToGameButton({
   const { addCharacter } = useGame();
   const [open, setOpen] = useState(false);
   const [name, setName] = useState("");
-  const [type, setType] = useState<"player" | "npc">("player");
+  const [type, setType] = useState<"player" | "npc" | null>(null);
   const [added, setAdded] = useState<string | null>(null);
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (!name.trim()) return;
+    if (!name.trim() || !type) return;
     addCharacter({ name: name.trim(), className, classSlug, type });
     setAdded(name.trim());
     setName("");
+    setType(null);
     setOpen(false);
     setTimeout(() => setAdded(null), 3000);
   }
@@ -59,6 +60,7 @@ export function AddToGameButton({
             className="w-full border border-[var(--border)] rounded-lg px-3 py-2 text-sm bg-[var(--bg)] text-[var(--text)] outline-none focus:border-[var(--accent)] mb-3"
           />
 
+          <div className="text-xs text-[var(--text-dim)] mb-1.5">Is this a player or NPC?</div>
           <div className="flex gap-1 mb-4">
             {(["player", "npc"] as const).map((t) => (
               <button
@@ -79,14 +81,14 @@ export function AddToGameButton({
           <div className="flex gap-2">
             <button
               type="submit"
-              disabled={!name.trim()}
+              disabled={!name.trim() || !type}
               className="bg-[var(--accent)] text-white rounded-lg px-4 py-2 text-sm font-semibold cursor-pointer border-0 hover:opacity-90 transition-opacity disabled:opacity-40"
             >
               Add to Game
             </button>
             <button
               type="button"
-              onClick={() => setOpen(false)}
+              onClick={() => { setOpen(false); setType(null); }}
               className="text-sm text-[var(--text-dim)] cursor-pointer bg-transparent border-0 hover:text-[var(--text)]"
             >
               Cancel
