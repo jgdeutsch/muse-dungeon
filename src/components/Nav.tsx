@@ -1,8 +1,59 @@
 "use client";
 
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { useGame } from "@/context/GameContext";
 import { useAuth } from "@/context/AuthContext";
+import type { User } from "firebase/auth";
+
+function UserMenu({ user, signOut }: { user: User; signOut: () => Promise<void> }) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function onClickOutside(e: MouseEvent) {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+    }
+    document.addEventListener("mousedown", onClickOutside);
+    return () => document.removeEventListener("mousedown", onClickOutside);
+  }, []);
+
+  return (
+    <div className="relative" ref={ref}>
+      <button
+        onClick={() => setOpen(!open)}
+        className="flex items-center gap-1.5 bg-transparent border border-[var(--border)] rounded-full pl-1 pr-3 py-1 cursor-pointer hover:border-[var(--accent)] transition-colors"
+        title={`Signed in as ${user.displayName}`}
+      >
+        {user.photoURL ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={user.photoURL} alt="" className="w-5 h-5 rounded-full" referrerPolicy="no-referrer" />
+        ) : (
+          <span className="w-5 h-5 rounded-full bg-[var(--accent)] text-white text-[10px] flex items-center justify-center font-bold">
+            {(user.displayName || "U")[0]}
+          </span>
+        )}
+        <span className="text-[11px] text-[var(--text-dim)]">
+          {(user.displayName || "User").split(" ")[0]}
+        </span>
+      </button>
+      {open && (
+        <div className="absolute right-0 top-full mt-2 bg-[var(--bg)] border border-[var(--border)] rounded-lg shadow-lg py-1 min-w-[160px] z-50">
+          <div className="px-3 py-2 border-b border-[var(--border)]">
+            <div className="text-xs font-medium truncate">{user.displayName}</div>
+            <div className="text-[10px] text-[var(--text-dim)] truncate">{user.email}</div>
+          </div>
+          <button
+            onClick={() => { signOut(); setOpen(false); }}
+            className="w-full text-left px-3 py-2 text-xs text-[var(--red)] bg-transparent border-0 cursor-pointer hover:bg-[var(--bg-card)] transition-colors"
+          >
+            Sign out
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
 
 export function Nav() {
   const { characters } = useGame();
@@ -46,23 +97,7 @@ export function Nav() {
         </Link>
         {!loading && (
           user ? (
-            <button
-              onClick={signOut}
-              className="flex items-center gap-1.5 bg-transparent border border-[var(--border)] rounded-full pl-1 pr-3 py-1 cursor-pointer hover:border-[var(--accent)] transition-colors"
-              title={`Signed in as ${user.displayName}`}
-            >
-              {user.photoURL ? (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img src={user.photoURL} alt="" className="w-5 h-5 rounded-full" referrerPolicy="no-referrer" />
-              ) : (
-                <span className="w-5 h-5 rounded-full bg-[var(--accent)] text-white text-[10px] flex items-center justify-center font-bold">
-                  {(user.displayName || "U")[0]}
-                </span>
-              )}
-              <span className="text-[11px] text-[var(--text-dim)]">
-                {(user.displayName || "User").split(" ")[0]}
-              </span>
-            </button>
+            <UserMenu user={user} signOut={signOut} />
           ) : (
             <div className="flex flex-col items-end gap-1">
               <button
