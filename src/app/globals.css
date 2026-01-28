@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #0F0F13;
+  --bg-card: #1A1A22;
+  --bg-card-hover: #22222E;
+  --text: #E8E6E3;
+  --text-dim: #9B978F;
+  --accent: #C9A84C;
+  --accent-glow: rgba(201, 168, 76, 0.15);
+  --border: #2A2A35;
+  --red: #C45B5B;
+  --blue: #5B8DC4;
+  --green: #5BC47A;
+  --purple: #9B6BC4;
+  --orange: #C4855B;
+}
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Reference tables */
+.ref-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+  font-size: 0.85rem;
+}
+.ref-table th {
+  text-align: left;
+  padding: 10px 12px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.ref-table td {
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+}
+.ref-table tr:nth-child(even) td {
+  background: rgba(26, 26, 34, 0.5);
+}
