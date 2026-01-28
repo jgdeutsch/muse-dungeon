@@ -800,6 +800,84 @@ function SpellSlotTracker({ charId, slots }: { charId: string; slots: SpellSlots
 }
 
 // ---------------------------------------------------------------------------
+// Remove Confirmation Modal — requires typing REMOVE to confirm
+// ---------------------------------------------------------------------------
+
+function RemoveConfirmModal({
+  charName,
+  onConfirm,
+  onCancel,
+}: {
+  charName: string;
+  onConfirm: () => void;
+  onCancel: () => void;
+}) {
+  const [value, setValue] = useState("");
+
+  useEffect(() => {
+    function onKey(e: KeyboardEvent) {
+      if (e.key === "Escape") onCancel();
+    }
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [onCancel]);
+
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    return () => { document.body.style.overflow = ""; };
+  }, []);
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50" onClick={onCancel}>
+      <div
+        className="bg-[var(--bg)] border border-[var(--border)] rounded-2xl p-6 max-w-sm w-[90vw] shadow-2xl"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <h3 className="font-['Cinzel'] text-lg font-bold mb-2">Remove Character</h3>
+        <p className="text-sm text-[var(--text-dim)] mb-1">
+          You are about to permanently remove <strong className="text-[var(--text)]">{charName}</strong> from your game. All tracked spells, items, conditions, and notes for this character will be lost.
+        </p>
+        <p className="text-sm text-[var(--text-dim)] mb-4">
+          This action is <strong className="text-[var(--red)]">not reversible</strong>.
+        </p>
+        <label className="text-xs text-[var(--text-dim)] block mb-1.5">
+          Type <strong className="text-[var(--text)] font-mono">REMOVE</strong> to confirm
+        </label>
+        <input
+          autoFocus
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" && value === "REMOVE") onConfirm();
+          }}
+          placeholder="REMOVE"
+          className="w-full border border-[var(--border)] rounded-lg px-3 py-2 text-sm bg-[var(--bg-card)] text-[var(--text)] outline-none focus:border-[var(--red)] font-mono tracking-wider mb-4"
+        />
+        <div className="flex gap-2 justify-end">
+          <button
+            onClick={onCancel}
+            className="px-4 py-2 text-sm bg-[var(--bg-card)] border border-[var(--border)] rounded-lg cursor-pointer text-[var(--text)] hover:bg-[var(--bg-card-hover)] transition-colors"
+          >
+            Cancel
+          </button>
+          <button
+            onClick={onConfirm}
+            disabled={value !== "REMOVE"}
+            className={`px-4 py-2 text-sm rounded-lg border-0 cursor-pointer transition-colors ${
+              value === "REMOVE"
+                ? "bg-[var(--red)] text-white hover:opacity-90"
+                : "bg-[var(--bg-card)] text-[var(--text-dim)] cursor-not-allowed opacity-50"
+            }`}
+          >
+            Remove permanently
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
 // Character Detail — the expanded edit view
 // ---------------------------------------------------------------------------
 
@@ -818,7 +896,9 @@ function CharacterDetail({
     updateCharacter(char.id, updates);
   }
 
-  function handleRemove() {
+  const [showRemoveConfirm, setShowRemoveConfirm] = useState(false);
+
+  function handleRemoveConfirmed() {
     removeCharacter(char.id);
     onClose();
   }
@@ -964,12 +1044,20 @@ function CharacterDetail({
 
       <div className="flex items-center justify-end">
         <button
-          onClick={handleRemove}
+          onClick={() => setShowRemoveConfirm(true)}
           className="text-xs text-[var(--red)] cursor-pointer bg-transparent border-0 hover:underline"
         >
           Remove from game
         </button>
       </div>
+
+      {showRemoveConfirm && (
+        <RemoveConfirmModal
+          charName={char.name}
+          onConfirm={handleRemoveConfirmed}
+          onCancel={() => setShowRemoveConfirm(false)}
+        />
+      )}
     </div>
   );
 }
