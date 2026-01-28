@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { useGame } from "@/context/GameContext";
 
 export function AddRaceToGame({
@@ -34,7 +35,8 @@ export function AddRaceToGame({
     <div className="my-4">
       {added && (
         <div className="flex items-center gap-2 bg-[var(--green-bg)] border border-[var(--green-border)] text-[var(--green)] rounded-lg px-4 py-2 mb-3 text-sm font-medium">
-          <span>&#10003;</span> Added <strong>{raceName}</strong> character to your game
+          <span>&#10003;</span> Added <strong>{raceName}</strong> character to your game &mdash;{" "}
+          <Link href="/game/" className="text-[var(--green)] underline font-semibold">View your party &rarr;</Link>
         </div>
       )}
 
