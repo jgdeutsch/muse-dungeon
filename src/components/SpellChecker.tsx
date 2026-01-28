@@ -186,7 +186,7 @@ export function SpellChecker({ spell }: { spell: SpellInfo }) {
     return (
       <button
         onClick={() => { setOpen(true); reset(); }}
-        className="w-full mt-4 py-3 px-4 rounded-lg font-semibold text-sm bg-[var(--accent)] text-[#111118] hover:brightness-110 transition-all cursor-pointer"
+        className="w-full mt-4 py-3 px-4 rounded-lg font-semibold text-sm bg-[var(--accent)] text-white hover:brightness-110 transition-all cursor-pointer"
       >
         Will the spell work?
       </button>
@@ -198,7 +198,7 @@ export function SpellChecker({ spell }: { spell: SpellInfo }) {
       className="fixed inset-0 z-50 flex items-center justify-center p-4"
       onClick={() => setOpen(false)}
     >
-      <div className="absolute inset-0 bg-black/70" />
+      <div className="absolute inset-0 bg-black/40" />
       <div
         className="relative bg-[var(--bg-card)] border border-[var(--border)] rounded-xl max-w-md w-full p-6 shadow-2xl"
         onClick={(e) => e.stopPropagation()}
@@ -243,13 +243,13 @@ export function SpellChecker({ spell }: { spell: SpellInfo }) {
             <div className="flex gap-3">
               <button
                 onClick={() => handleAnswer(true)}
-                className="flex-1 py-2.5 rounded-lg font-semibold text-sm bg-[var(--green)] text-[#111118] hover:brightness-110 transition-all cursor-pointer"
+                className="flex-1 py-2.5 rounded-lg font-semibold text-sm bg-[var(--green)] text-white hover:brightness-110 transition-all cursor-pointer"
               >
                 Yes
               </button>
               <button
                 onClick={() => handleAnswer(false)}
-                className="flex-1 py-2.5 rounded-lg font-semibold text-sm bg-[var(--red)] text-[#111118] hover:brightness-110 transition-all cursor-pointer"
+                className="flex-1 py-2.5 rounded-lg font-semibold text-sm bg-[var(--red)] text-white hover:brightness-110 transition-all cursor-pointer"
               >
                 No
               </button>
@@ -260,8 +260,8 @@ export function SpellChecker({ spell }: { spell: SpellInfo }) {
             {/* Result */}
             <div className={`rounded-lg p-5 mb-5 ${
               result.pass
-                ? "bg-[rgba(96,208,128,0.1)] border border-[rgba(96,208,128,0.3)]"
-                : "bg-[rgba(208,96,96,0.1)] border border-[rgba(208,96,96,0.3)]"
+                ? "bg-[var(--green-bg)] border border-[var(--green-border)]"
+                : "bg-[var(--red-bg)] border border-[var(--red-border)]"
             }`}>
               <div className={`text-2xl font-bold font-['Cinzel'] mb-2 ${
                 result.pass ? "text-[var(--green)]" : "text-[var(--red)]"

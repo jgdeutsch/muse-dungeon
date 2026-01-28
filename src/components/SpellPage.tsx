@@ -77,7 +77,7 @@ export function SpellPage({ spell }: { spell: Spell }) {
         <h1 className="font-['Cinzel'] text-3xl font-bold mb-2 leading-tight">
           {spell.name}
         </h1>
-        <p className="text-[var(--text-dim)] text-[0.95rem]">
+        <p className="text-[var(--text-dim)] text-base leading-relaxed">
           {spell.description}
         </p>
       </div>

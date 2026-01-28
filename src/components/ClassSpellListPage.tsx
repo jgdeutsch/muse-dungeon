@@ -30,7 +30,7 @@ export function ClassSpellListPage({ data }: { data: SpellListPage }) {
         <h1 className="font-['Cinzel'] text-3xl font-bold mb-2 leading-tight">
           {data.name}
         </h1>
-        <p className="text-[var(--text-dim)] text-[0.95rem]">
+        <p className="text-[var(--text-dim)] text-base leading-relaxed">
           {data.description}
         </p>
       </div>
@@ -38,7 +38,7 @@ export function ClassSpellListPage({ data }: { data: SpellListPage }) {
       <AtAGlance stats={stats} />
 
       {/* Unique Mechanic */}
-      <div className="bg-[var(--accent-glow)] border border-[rgba(201,168,76,0.3)] rounded-lg px-4 py-3 my-4 text-sm">
+      <div className="bg-[var(--accent-light)] border border-[var(--accent)] border-opacity-25 rounded-lg px-4 py-3 my-4 text-sm">
         <div className="font-bold text-[var(--accent)] text-xs uppercase tracking-wider mb-1">
           Unique Mechanic
         </div>

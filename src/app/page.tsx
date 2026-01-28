@@ -6,7 +6,7 @@ const groups = [
     icon: "\u2728",
     title: "Spells & Magic",
     count: "87 guides",
-    color: "rgba(155, 107, 196, 0.15)",
+    color: "rgba(123, 71, 166, 0.1)",
     href: "/spells/",
     categories: [
       { name: "Cantrips", count: 9, href: "/spells/cantrips/" },
@@ -22,7 +22,7 @@ const groups = [
     icon: "\u2694",
     title: "Character Options",
     count: "71 guides",
-    color: "rgba(91, 141, 196, 0.15)",
+    color: "rgba(0, 102, 204, 0.08)",
     href: "/characters/",
     categories: [
       { name: "Classes & Subclasses", count: 24, href: "/characters/classes/" },
@@ -36,7 +36,7 @@ const groups = [
     icon: "\uD83D\uDC7A",
     title: "Monsters & Lore",
     count: "18 guides",
-    color: "rgba(196, 91, 91, 0.15)",
+    color: "rgba(191, 59, 48, 0.08)",
     href: "/monsters/",
     categories: [
       { name: "Monsters & Creatures", count: 13, href: "/monsters/creatures/" },
@@ -49,7 +49,7 @@ const groups = [
     icon: "\uD83D\uDEE1",
     title: "Items & Gear",
     count: "15 guides",
-    color: "rgba(201, 168, 76, 0.15)",
+    color: "rgba(139, 94, 60, 0.08)",
     href: "/items/",
     categories: [
       { name: "Equipment & Weapons", count: 9, href: "/items/equipment/" },
@@ -61,7 +61,7 @@ const groups = [
     icon: "\uD83D\uDCD6",
     title: "Rules & Systems",
     count: "17 guides",
-    color: "rgba(91, 196, 122, 0.15)",
+    color: "rgba(36, 138, 61, 0.08)",
     href: "/rules/",
     categories: [
       { name: "Core Mechanics", count: 7, href: "/rules/core-mechanics/" },
