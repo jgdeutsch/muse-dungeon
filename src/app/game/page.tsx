@@ -1115,33 +1115,37 @@ function CharacterDetail({
         </div>
       </div>
 
-      {/* HP row — compact single row */}
+      {/* HP row — compact single row with arrow key support */}
       <div className="grid grid-cols-3 gap-3 mb-4">
         <div>
           <label className="text-xs text-[var(--text-dim)] block mb-1">Current HP</label>
           <input
+            type="number"
             value={char.hp}
             onChange={(e) => upd({ hp: e.target.value })}
-            placeholder="e.g. 45"
-            className="w-full border border-[var(--border)] rounded-lg px-3 py-2 text-sm bg-[var(--bg)] text-[var(--text)] outline-none focus:border-[var(--accent)]"
+            placeholder="0"
+            className="w-full border border-[var(--border)] rounded-lg px-3 py-2 text-sm bg-[var(--bg)] text-[var(--text)] outline-none focus:border-[var(--accent)] [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
           />
         </div>
         <div>
           <label className="text-xs text-[var(--text-dim)] block mb-1">Max HP</label>
           <input
+            type="number"
             value={char.hpMax}
             onChange={(e) => upd({ hpMax: e.target.value })}
-            placeholder="e.g. 52"
-            className="w-full border border-[var(--border)] rounded-lg px-3 py-2 text-sm bg-[var(--bg)] text-[var(--text)] outline-none focus:border-[var(--accent)]"
+            placeholder="0"
+            className="w-full border border-[var(--border)] rounded-lg px-3 py-2 text-sm bg-[var(--bg)] text-[var(--text)] outline-none focus:border-[var(--accent)] [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
           />
         </div>
         <div>
           <label className="text-xs text-[var(--text-dim)] block mb-1">Temp HP</label>
           <input
+            type="number"
             value={char.hpTemp}
             onChange={(e) => upd({ hpTemp: e.target.value })}
             placeholder="0"
-            className="w-full border border-[var(--border)] rounded-lg px-3 py-2 text-sm bg-[var(--bg)] text-[var(--text)] outline-none focus:border-[var(--accent)]"
+            min="0"
+            className="w-full border border-[var(--border)] rounded-lg px-3 py-2 text-sm bg-[var(--bg)] text-[var(--text)] outline-none focus:border-[var(--accent)] [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
           />
         </div>
       </div>
