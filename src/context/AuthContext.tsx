@@ -1,20 +1,20 @@
 "use client";
 
 import { createContext, useContext, useState, useEffect, useCallback, type ReactNode } from "react";
-import { onAuthStateChanged, signInWithPopup, signOut as fbSignOut, type User } from "firebase/auth";
+import { onAuthStateChanged, signInWithRedirect, getRedirectResult, signOut as fbSignOut, type User } from "firebase/auth";
 import { auth, googleProvider } from "@/lib/firebase";
 
 type AuthState = {
   user: User | null;
   loading: boolean;
-  signIn: () => Promise<void>;
+  signIn: () => void;
   signOut: () => Promise<void>;
 };
 
 const AuthContext = createContext<AuthState>({
   user: null,
   loading: true,
-  signIn: async () => {},
+  signIn: () => {},
   signOut: async () => {},
 });
 
@@ -23,6 +23,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    // Handle redirect result first
+    getRedirectResult(auth).catch(() => {});
+
     const unsub = onAuthStateChanged(auth, (u) => {
       setUser(u);
       setLoading(false);
@@ -30,12 +33,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return unsub;
   }, []);
 
-  const signIn = useCallback(async () => {
-    try {
-      await signInWithPopup(auth, googleProvider);
-    } catch (e) {
-      console.error("Sign-in error:", e);
-    }
+  const signIn = useCallback(() => {
+    signInWithRedirect(auth, googleProvider);
   }, []);
 
   const signOut = useCallback(async () => {
