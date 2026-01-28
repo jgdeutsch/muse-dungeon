@@ -178,5 +178,191 @@ export const reactionDefenseSpells: {
     ],
     category: "reaction-defense",
     searchVolume: 9700
+  },
+  {
+    slug: "hellish-rebuke-5e",
+    name: "Hellish Rebuke",
+    level: "1st",
+    school: "Evocation",
+    castingTime: "1 reaction, which you take in response to being damaged by a creature within 60 feet of you that you can see",
+    range: "60 feet",
+    components: "V, S",
+    duration: "Instantaneous",
+    concentration: false,
+    ritual: false,
+    classes: ["Warlock"],
+    description: "You point your finger, and the creature that damaged you is momentarily surrounded by hellish flames. The creature must make a Dexterity saving throw. It takes 2d10 fire damage on a failed save, or half as much damage on a successful one.",
+    damage: "2d10 fire",
+    savingThrow: "Dexterity",
+    higherLevels: "When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d10 for each slot level above 1st.",
+    commonMistakes: [
+      "Forgetting it's a reaction when you take damage, not when you're attacked",
+      "Not using it because you're saving spell slots - it's excellent damage for a 1st-level spell",
+      "Thinking you can use it after taking damage from any source - the creature must be within 60 feet and visible",
+      "Forgetting it scales well with higher spell slots"
+    ],
+    dmTips: [
+      "Iconic warlock spell that makes attacking them dangerous",
+      "Average damage of 11 at 1st level is excellent",
+      "Can discourage enemies from focusing the warlock",
+      "The fire damage is thematic but can be resisted by some creatures"
+    ],
+    category: "reaction-defense",
+    searchVolume: 11400
+  },
+  {
+    slug: "protection-from-evil-and-good-5e",
+    name: "Protection from Evil and Good",
+    level: "1st",
+    school: "Abjuration",
+    castingTime: "1 action",
+    range: "Touch",
+    components: "V, S, M (holy water or powdered silver and iron, which the spell consumes)",
+    duration: "Concentration, up to 10 minutes",
+    concentration: true,
+    ritual: false,
+    classes: ["Cleric", "Paladin", "Warlock", "Wizard"],
+    description: "Until the spell ends, one willing creature you touch is protected against certain types of creatures: aberrations, celestials, elementals, fey, fiends, and undead. The protection grants several benefits. Creatures of those types have disadvantage on attack rolls against the target. The target also can't be charmed, frightened, or possessed by them. If the target is already charmed, frightened, or possessed by such a creature, the target has advantage on any new saving throw against the relevant effect.",
+    damage: null,
+    savingThrow: null,
+    higherLevels: null,
+    commonMistakes: [
+      "Forgetting it doesn't work against humanoids, beasts, or most common enemies",
+      "Not using it when facing the specific creature types it protects against",
+      "Thinking it prevents all charm/fear/possession - only from the listed creature types",
+      "Forgetting it requires concentration"
+    ],
+    dmTips: [
+      "Very situational but powerful when facing extraplanar creatures",
+      "Essential for dealing with possession or charm effects",
+      "The disadvantage on attacks can save lives against powerful fiends or undead",
+      "Consider telegraphing when this spell would be useful"
+    ],
+    category: "reaction-defense",
+    searchVolume: 8600
+  },
+  {
+    slug: "armor-of-agathys-5e",
+    name: "Armor of Agathys",
+    level: "1st",
+    school: "Abjuration",
+    castingTime: "1 action",
+    range: "Self",
+    components: "V, S, M (a cup of water)",
+    duration: "1 hour",
+    concentration: false,
+    ritual: false,
+    classes: ["Warlock"],
+    description: "A protective magical force surrounds you, manifesting as a spectral frost that covers you and your gear. You gain 5 temporary hit points for the duration. If a creature hits you with a melee attack while you have these hit points, the creature takes 5 cold damage.",
+    damage: "5 cold (when hit in melee)",
+    savingThrow: null,
+    higherLevels: "When you cast this spell using a spell slot of 2nd level or higher, both the temporary hit points and the cold damage increase by 5 for each slot level above 1st.",
+    commonMistakes: [
+      "Forgetting the damage only triggers on melee attacks, not ranged",
+      "Thinking the damage continues after the temp HP are gone - it doesn't",
+      "Not realizing this scales incredibly well at higher levels",
+      "Forgetting it lasts 1 hour without concentration"
+    ],
+    dmTips: [
+      "One of the best warlock defensive spells, especially at higher levels",
+      "At 5th level (using a 3rd-level slot), grants 15 temp HP and deals 15 damage per hit",
+      "Encourages enemies to use ranged attacks instead of melee",
+      "The cold damage is automatic - no save or attack roll needed"
+    ],
+    category: "reaction-defense",
+    searchVolume: 9200
+  },
+  {
+    slug: "mage-armor-5e",
+    name: "Mage Armor",
+    level: "1st",
+    school: "Abjuration",
+    castingTime: "1 action",
+    range: "Touch",
+    components: "V, S, M (a piece of cured leather)",
+    duration: "8 hours",
+    concentration: false,
+    ritual: false,
+    classes: ["Sorcerer", "Wizard"],
+    description: "You touch a willing creature who isn't wearing armor, and a protective magical force surrounds it until the spell ends. The target's base AC becomes 13 + its Dexterity modifier. The spell ends if the target dons armor or if you dismiss the spell as an action.",
+    damage: null,
+    savingThrow: null,
+    higherLevels: null,
+    commonMistakes: [
+      "Thinking it stacks with armor - it doesn't work if the target is wearing armor",
+      "Not casting it at the start of the day for 8 hours of protection",
+      "Forgetting it sets base AC to 13 + Dex, which might be lower than some calculations",
+      "Thinking it requires concentration - it lasts 8 hours without concentration"
+    ],
+    dmTips: [
+      "Essential spell for wizards and sorcerers with no armor",
+      "With +3 Dex it gives AC 16, which is decent",
+      "The 8-hour duration means it should almost always be active",
+      "Can be cast on other unarmored allies like monks"
+    ],
+    category: "reaction-defense",
+    searchVolume: 14800
+  },
+  {
+    slug: "fire-shield-5e",
+    name: "Fire Shield",
+    level: "4th",
+    school: "Evocation",
+    castingTime: "1 action",
+    range: "Self",
+    components: "V, S, M (a bit of phosphorus or a firefly)",
+    duration: "10 minutes",
+    concentration: false,
+    ritual: false,
+    classes: ["Sorcerer", "Wizard"],
+    description: "Thin and wispy flames wreathe your body for the duration, shedding bright light in a 10-foot radius and dim light for an additional 10 feet. You can end the spell early by using an action to dismiss it. The flames provide you with a warm shield or a chill shield, as you choose. The warm shield grants you resistance to cold damage, and the chill shield grants you resistance to fire damage. In addition, whenever a creature within 5 feet of you hits you with a melee attack, the shield erupts with flame. The attacker takes 2d8 fire damage from a warm shield, or 2d8 cold damage from a chill shield.",
+    damage: "2d8 fire or cold (when hit in melee)",
+    savingThrow: null,
+    higherLevels: null,
+    commonMistakes: [
+      "Forgetting the damage only triggers on melee attacks within 5 feet",
+      "Not choosing the shield type based on expected enemy damage",
+      "Forgetting it sheds light, which can be a disadvantage for stealth",
+      "Thinking the damage requires a reaction - it's automatic"
+    ],
+    dmTips: [
+      "Excellent defensive spell that provides both resistance and damage",
+      "The damage is automatic - no save for the attacker",
+      "Can discourage melee attackers from targeting the caster",
+      "The light emission can be both helpful and problematic depending on situation"
+    ],
+    category: "reaction-defense",
+    searchVolume: 7400
+  },
+  {
+    slug: "stoneskin-5e",
+    name: "Stoneskin",
+    level: "4th",
+    school: "Abjuration",
+    castingTime: "1 action",
+    range: "Touch",
+    components: "V, S, M (diamond dust worth 100 gp, which the spell consumes)",
+    duration: "Concentration, up to 1 hour",
+    concentration: true,
+    ritual: false,
+    classes: ["Druid", "Ranger", "Sorcerer", "Wizard"],
+    description: "This spell turns the flesh of a willing creature you touch as hard as stone. Until the spell ends, the target has resistance to nonmagical bludgeoning, piercing, and slashing damage.",
+    damage: null,
+    savingThrow: null,
+    higherLevels: null,
+    commonMistakes: [
+      "Forgetting it only protects against nonmagical physical damage",
+      "Not considering the 100 gp material cost",
+      "Thinking it protects against magical weapons - it doesn't",
+      "Forgetting it requires concentration, competing with other powerful spells"
+    ],
+    dmTips: [
+      "Very useful at lower levels, less so at higher levels when magic weapons are common",
+      "The material cost makes it feel significant",
+      "Great for protecting the party tank in dungeons with many nonmagical threats",
+      "Consider whether the concentration is worth it compared to other options"
+    ],
+    category: "reaction-defense",
+    searchVolume: 8100
   }
 ];

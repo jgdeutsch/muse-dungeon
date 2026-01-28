@@ -637,5 +637,377 @@ export const offensiveSpells: {
     ],
     category: "offensive",
     searchVolume: 4690
+  },
+  {
+    slug: "chromatic-orb-5e",
+    name: "Chromatic Orb",
+    level: "1st",
+    school: "Evocation",
+    castingTime: "1 action",
+    range: "90 feet",
+    components: "V, S, M (a diamond worth at least 50 gp)",
+    duration: "Instantaneous",
+    concentration: false,
+    ritual: false,
+    classes: ["Sorcerer", "Wizard"],
+    description: "You hurl a 4-inch-diameter sphere of energy at a creature that you can see within range. You choose acid, cold, fire, lightning, poison, or thunder for the type of orb you create, and then make a ranged spell attack against the target. If the attack hits, the creature takes 3d8 damage of the type you chose.",
+    damage: "3d8 (acid, cold, fire, lightning, poison, or thunder)",
+    savingThrow: null,
+    higherLevels: "When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d8 for each slot level above 1st.",
+    commonMistakes: [
+      "Forgetting the 50 gp diamond material component - it's not consumed but must be present",
+      "Not choosing the damage type strategically based on enemy resistances",
+      "Thinking you can change damage type after seeing if it hits - choose before rolling",
+      "Not realizing this is one of the highest damage 1st-level attack spells"
+    ],
+    dmTips: [
+      "Excellent damage for 1st level with the flexibility of six damage types",
+      "The material component requirement can be a story hook - finding the diamond",
+      "Smart players will use Identify or knowledge checks to exploit enemy vulnerabilities",
+      "Scales very well when upcast"
+    ],
+    category: "offensive",
+    searchVolume: 8900
+  },
+  {
+    slug: "scorching-ray-5e",
+    name: "Scorching Ray",
+    level: "2nd",
+    school: "Evocation",
+    castingTime: "1 action",
+    range: "120 feet",
+    components: "V, S",
+    duration: "Instantaneous",
+    concentration: false,
+    ritual: false,
+    classes: ["Sorcerer", "Wizard"],
+    description: "You create three rays of fire and hurl them at targets within range. You can hurl them at one target or several. Make a ranged spell attack for each ray. On a hit, the target takes 2d6 fire damage.",
+    damage: "2d6 fire per ray (3 rays total)",
+    savingThrow: null,
+    higherLevels: "When you cast this spell using a spell slot of 3rd level or higher, you create one additional ray for each slot level above 2nd.",
+    commonMistakes: [
+      "Forgetting each ray requires a separate attack roll",
+      "Not splitting rays between targets when tactical",
+      "Rolling all damage at once instead of per ray (matters for resistance)",
+      "Forgetting you can target the same creature multiple times"
+    ],
+    dmTips: [
+      "Great for consistent damage, especially when you can get advantage",
+      "Each ray hitting triggers separate concentration checks",
+      "Can be devastating when combined with features that add damage per hit",
+      "Fire damage is commonly resisted, so keep that in mind"
+    ],
+    category: "offensive",
+    searchVolume: 9700
+  },
+  {
+    slug: "inflict-wounds-5e",
+    name: "Inflict Wounds",
+    level: "1st",
+    school: "Necromancy",
+    castingTime: "1 action",
+    range: "Touch",
+    components: "V, S",
+    duration: "Instantaneous",
+    concentration: false,
+    ritual: false,
+    classes: ["Cleric"],
+    description: "Make a melee spell attack against a creature you can reach. On a hit, the target takes 3d10 necrotic damage.",
+    damage: "3d10 necrotic",
+    savingThrow: null,
+    higherLevels: "When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d10 for each slot level above 1st.",
+    commonMistakes: [
+      "Forgetting you need to be in melee range (touch) to use this",
+      "Not realizing this is one of the highest single-target damage spells at 1st level",
+      "Thinking it automatically hits - it requires a melee spell attack roll",
+      "Using this instead of a ranged option when positioning is dangerous"
+    ],
+    dmTips: [
+      "Highest average damage for a 1st-level single-target spell (16.5 damage)",
+      "Risky for squishy clerics but devastating when it hits",
+      "Great for frontline clerics or when used with reach features",
+      "Upcast at higher levels, this remains competitive damage-wise"
+    ],
+    category: "offensive",
+    searchVolume: 7800
+  },
+  {
+    slug: "witch-bolt-5e",
+    name: "Witch Bolt",
+    level: "1st",
+    school: "Evocation",
+    castingTime: "1 action",
+    range: "30 feet",
+    components: "V, S, M (a twig from a tree that has been struck by lightning)",
+    duration: "Concentration, up to 1 minute",
+    concentration: true,
+    ritual: false,
+    classes: ["Sorcerer", "Warlock", "Wizard"],
+    description: "A beam of crackling, blue energy lances out toward a creature within range, forming a sustained arc of lightning between you and the target. Make a ranged spell attack against that creature. On a hit, the target takes 1d12 lightning damage, and on each of your turns for the duration, you can use your action to deal 1d12 lightning damage to the target automatically. The spell ends if you use your action to do anything else, if the target is ever outside the spell's range, or if the target has total cover from you.",
+    damage: "1d12 lightning initially, then 1d12 automatic each turn",
+    savingThrow: null,
+    higherLevels: "When you cast this spell using a spell slot of 2nd level or higher, the initial damage increases by 1d12 for each slot level above 1st.",
+    commonMistakes: [
+      "Forgetting the automatic damage requires your action each turn",
+      "Not tracking the 30-foot range limit - spell ends if target moves beyond it",
+      "Thinking upcast damage applies to repeated damage - only affects initial hit",
+      "Not realizing any cover or leaving range immediately ends the spell"
+    ],
+    dmTips: [
+      "Generally considered weak because it consumes concentration and action economy",
+      "Best used against stationary or restrained enemies",
+      "The automatic damage never misses, which can be useful against high AC foes",
+      "Enemies can break the spell by moving away or getting behind cover"
+    ],
+    category: "offensive",
+    searchVolume: 6400
+  },
+  {
+    slug: "meteor-swarm-5e",
+    name: "Meteor Swarm",
+    level: "9th",
+    school: "Evocation",
+    castingTime: "1 action",
+    range: "1 mile",
+    components: "V, S",
+    duration: "Instantaneous",
+    concentration: false,
+    ritual: false,
+    classes: ["Sorcerer", "Wizard"],
+    description: "Blazing orbs of fire plummet to the ground at four different points you can see within range. Each creature in a 40-foot-radius sphere centered on each point you choose must make a Dexterity saving throw. The sphere spreads around corners. A creature takes 20d6 fire damage and 20d6 bludgeoning damage on a failed save, or half as much damage on a successful one. A creature in the area of more than one fiery burst is affected only once. The spell damages objects in the area and ignites flammable objects that aren't being worn or carried.",
+    damage: "20d6 fire + 20d6 bludgeoning",
+    savingThrow: "Dexterity",
+    higherLevels: null,
+    commonMistakes: [
+      "Forgetting creatures in overlapping spheres are only affected once",
+      "Not considering the massive 1-mile range for battlefield-scale destruction",
+      "Overlooking that the spell deals both fire and bludgeoning damage",
+      "Not accounting for the 40-foot radius - each sphere affects a huge area"
+    ],
+    dmTips: [
+      "The highest damage spell in the game with 40d6 total (average 140 damage)",
+      "Can target four separate areas, making it incredible for crowd control",
+      "The 1-mile range means it can be used as artillery or for distant threats",
+      "This is a campaign-ending spell that should feel truly epic when cast"
+    ],
+    category: "offensive",
+    searchVolume: 5600
+  },
+  {
+    slug: "chain-lightning-5e",
+    name: "Chain Lightning",
+    level: "6th",
+    school: "Evocation",
+    castingTime: "1 action",
+    range: "150 feet",
+    components: "V, S, M (a bit of fur; a piece of amber, glass, or a crystal rod; and three silver pins)",
+    duration: "Instantaneous",
+    concentration: false,
+    ritual: false,
+    classes: ["Sorcerer", "Wizard"],
+    description: "You create a bolt of lightning that arcs toward a target of your choice that you can see within range. Three bolts then leap from that target to as many as three other targets, each of which must be within 30 feet of the first target. A target can be a creature or an object and can be targeted by only one of the bolts. A target must make a Dexterity saving throw. The target takes 10d8 lightning damage on a failed save, or half as much damage on a successful one.",
+    damage: "10d8 lightning",
+    savingThrow: "Dexterity",
+    higherLevels: "When you cast this spell using a spell slot of 7th level or higher, one additional bolt leaps from the first target to another target for each slot level above 6th.",
+    commonMistakes: [
+      "Forgetting the secondary targets must be within 30 feet of the primary target",
+      "Thinking each creature can only be hit once - the primary can be hit by another arc",
+      "Not maximizing targets - you can hit up to 4 creatures total",
+      "Forgetting each target makes their own save independently"
+    ],
+    dmTips: [
+      "Excellent against grouped enemies, potentially hitting 4 targets for 10d8 each",
+      "The primary target is chosen by you, but the chain targets must be nearest",
+      "Describe the lightning dramatically arcing between targets",
+      "Consider environmental effects - water, metal, etc."
+    ],
+    category: "offensive",
+    searchVolume: 6900
+  },
+  {
+    slug: "flame-strike-5e",
+    name: "Flame Strike",
+    level: "5th",
+    school: "Evocation",
+    castingTime: "1 action",
+    range: "60 feet",
+    components: "V, S, M (pinch of sulfur)",
+    duration: "Instantaneous",
+    concentration: false,
+    ritual: false,
+    classes: ["Cleric"],
+    description: "A vertical column of divine fire roars down from the heavens in a location you specify. Each creature in a 10-foot-radius, 40-foot-high cylinder centered on a point within range must make a Dexterity saving throw. A creature takes 4d6 fire damage and 4d6 radiant damage on a failed save, or half as much damage on a successful one.",
+    damage: "4d6 fire + 4d6 radiant",
+    savingThrow: "Dexterity",
+    higherLevels: "When you cast this spell using a spell slot of 6th level or higher, the fire damage or the radiant damage (your choice) increases by 1d6 for each slot level above 5th.",
+    commonMistakes: [
+      "Forgetting it deals both fire and radiant damage",
+      "Not considering the 40-foot height when casting indoors",
+      "Forgetting allies in the area also need to save",
+      "Not choosing which damage type increases when upcasting"
+    ],
+    dmTips: [
+      "A classic cleric damage spell with excellent flavor",
+      "The mix of fire and radiant damage means most creatures are vulnerable to at least one type",
+      "Great for dealing with groups of enemies",
+      "Describe the divine fire dramatically descending from above"
+    ],
+    category: "offensive",
+    searchVolume: 7200
+  },
+  {
+    slug: "cone-of-cold-5e",
+    name: "Cone of Cold",
+    level: "5th",
+    school: "Evocation",
+    castingTime: "1 action",
+    range: "Self (60-foot cone)",
+    components: "V, S, M (a small crystal or glass cone)",
+    duration: "Instantaneous",
+    concentration: false,
+    ritual: false,
+    classes: ["Sorcerer", "Wizard"],
+    description: "A blast of cold air erupts from your hands. Each creature in a 60-foot cone must make a Constitution saving throw. A creature takes 8d8 cold damage on a failed save, or half as much damage on a successful one. A creature killed by this spell becomes a frozen statue until it thaws.",
+    damage: "8d8 cold",
+    savingThrow: "Constitution",
+    higherLevels: "When you cast this spell using a spell slot of 6th level or higher, the damage increases by 1d8 for each slot level above 5th.",
+    commonMistakes: [
+      "Forgetting it's a 60-foot cone originating from you, not a point",
+      "Not accounting for the width of the cone at maximum range",
+      "Forgetting frozen statues can be toppled and shattered for gruesome effect",
+      "Not positioning to maximize targets hit by the cone"
+    ],
+    dmTips: [
+      "Excellent AoE damage spell for 5th level",
+      "The frozen statue effect is mostly flavor but can be narratively significant",
+      "Good damage type with decent scaling",
+      "Positioning is key - you need to be in a good spot to hit multiple enemies"
+    ],
+    category: "offensive",
+    searchVolume: 6800
+  },
+  {
+    slug: "finger-of-death-5e",
+    name: "Finger of Death",
+    level: "7th",
+    school: "Necromancy",
+    castingTime: "1 action",
+    range: "60 feet",
+    components: "V, S",
+    duration: "Instantaneous",
+    concentration: false,
+    ritual: false,
+    classes: ["Sorcerer", "Warlock", "Wizard"],
+    description: "You send negative energy coursing through a creature that you can see within range, causing it searing pain. The target must make a Constitution saving throw. It takes 7d8 + 30 necrotic damage on a failed save, or half as much damage on a successful one. A humanoid killed by this spell rises at the start of your next turn as a zombie that is permanently under your command, following your verbal orders to the best of its ability.",
+    damage: "7d8 + 30 necrotic",
+    savingThrow: "Constitution",
+    higherLevels: "When you cast this spell using a spell slot of 8th level or higher, the damage increases by 2d8 for each slot level above 7th.",
+    commonMistakes: [
+      "Forgetting the flat +30 damage bonus - average damage is 61.5",
+      "Not tracking zombies created by the spell",
+      "Thinking non-humanoids can become zombies - only humanoids",
+      "Forgetting the zombie is permanent and doesn't require concentration"
+    ],
+    dmTips: [
+      "Excellent single-target damage with great average (61.5)",
+      "The zombie creation is a significant bonus effect",
+      "Evil NPCs should definitely use this - it's narratively perfect",
+      "The permanent zombie control can lead to interesting roleplay moments"
+    ],
+    category: "offensive",
+    searchVolume: 5900
+  },
+  {
+    slug: "crown-of-madness-5e",
+    name: "Crown of Madness",
+    level: "2nd",
+    school: "Enchantment",
+    castingTime: "1 action",
+    range: "120 feet",
+    components: "V, S",
+    duration: "Concentration, up to 1 minute",
+    concentration: true,
+    ritual: false,
+    classes: ["Bard", "Sorcerer", "Warlock", "Wizard"],
+    description: "One humanoid of your choice that you can see within range must succeed on a Wisdom saving throw or become charmed by you for the duration. While the target is charmed in this way, a twisted crown of jagged iron appears on its head, and a madness glows in its eyes. The charmed target must use its action before moving on each of its turns to make a melee attack against a creature other than itself that you mentally choose. The target can act normally on its turn if you choose no creature or if none are within its reach. On your subsequent turns, you must use your action to maintain control over the target, or the spell ends. Also, the target can make a Wisdom saving throw at the end of each of its turns. On a success, the spell ends.",
+    damage: "Target's weapon damage",
+    savingThrow: "Wisdom",
+    higherLevels: null,
+    commonMistakes: [
+      "Forgetting you must use your action each turn to maintain control",
+      "Not realizing the target gets a save at the end of each of its turns",
+      "Thinking you control the target's movement - you only control their attack action",
+      "Forgetting the target must attack before moving on its turn"
+    ],
+    dmTips: [
+      "Generally considered weak due to action economy and repeated saves",
+      "Can be useful for turning a strong melee enemy against their allies",
+      "The iron crown visual is great for flavor",
+      "Better in situations where you can maintain concentration safely"
+    ],
+    category: "offensive",
+    searchVolume: 4800
+  },
+  {
+    slug: "heat-metal-5e",
+    name: "Heat Metal",
+    level: "2nd",
+    school: "Transmutation",
+    castingTime: "1 action",
+    range: "60 feet",
+    components: "V, S, M (a piece of iron and a flame)",
+    duration: "Concentration, up to 1 minute",
+    concentration: true,
+    ritual: false,
+    classes: ["Bard", "Druid"],
+    description: "Choose a manufactured metal object, such as a metal weapon or a suit of heavy or medium metal armor, that you can see within range. You cause the object to glow red-hot. Any creature in physical contact with the object takes 2d8 fire damage when you cast the spell. Until the spell ends, you can use a bonus action on each of your subsequent turns to cause this damage again. If a creature is holding or wearing the object and takes the damage from it, the creature must succeed on a Constitution saving throw or drop the object if it can. If it doesn't drop the object, it has disadvantage on attack rolls and ability checks until the start of your next turn.",
+    damage: "2d8 fire",
+    savingThrow: "Constitution (to avoid dropping object)",
+    higherLevels: "When you cast this spell using a spell slot of 3rd level or higher, the damage increases by 1d8 for each slot level above 2nd.",
+    commonMistakes: [
+      "Forgetting the damage can be repeated each turn with a bonus action",
+      "Not realizing worn armor can't be easily dropped - causing ongoing damage",
+      "Thinking the creature can choose to take the disadvantage instead of dropping - they must save",
+      "Forgetting it requires concentration"
+    ],
+    dmTips: [
+      "Devastating against armored enemies who can't easily remove their armor",
+      "Can force enemies to drop weapons, disarming them",
+      "Bonus action economy makes this great paired with normal actions",
+      "Very effective against constructs and creatures that rely on metal equipment"
+    ],
+    category: "offensive",
+    searchVolume: 6500
+  },
+  {
+    slug: "cloud-of-daggers-5e",
+    name: "Cloud of Daggers",
+    level: "2nd",
+    school: "Conjuration",
+    castingTime: "1 action",
+    range: "60 feet",
+    components: "V, S, M (a sliver of glass)",
+    duration: "Concentration, up to 1 minute",
+    concentration: true,
+    ritual: false,
+    classes: ["Bard", "Sorcerer", "Warlock", "Wizard"],
+    description: "You fill the air with spinning daggers in a cube 5 feet on each side, centered on a point you choose within range. A creature takes 4d4 slashing damage when it enters the spell's area for the first time on a turn or starts its turn there.",
+    damage: "4d4 slashing",
+    savingThrow: null,
+    higherLevels: "When you cast this spell using a spell slot of 3rd level or higher, the damage increases by 2d4 for each slot level above 2nd.",
+    commonMistakes: [
+      "Forgetting the damage is automatic - no save or attack roll",
+      "Not realizing enemies can trigger it when forced into the area",
+      "Thinking the cloud moves - it stays in one place",
+      "Forgetting it's only a 5-foot cube - very small area"
+    ],
+    dmTips: [
+      "Best used in chokepoints or when you can force enemies through it",
+      "Automatic damage makes it reliable despite low average (10 damage)",
+      "Can be combined with forced movement effects for multiple triggers",
+      "The 5-foot cube is tiny - position carefully"
+    ],
+    category: "offensive",
+    searchVolume: 5200
   }
 ];

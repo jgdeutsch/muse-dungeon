@@ -321,6 +321,1039 @@ While you are wielding a glaive, halberd, pike, quarterstaff, or spear, other cr
       "Remember that the player gets an opportunity attack when enemies enter reach, which is when they're typically not expecting it"
     ],
     searchVolume: 11020
+  },
+  {
+    slug: "great-weapon-master-5e",
+    name: "Great Weapon Master",
+    category: "feats",
+    description: "Complete guide to the Great Weapon Master feat in D&D 5e. Learn how to maximize the power attack feature, trigger bonus action attacks, and build devastating melee damage dealers.",
+    prerequisite: null,
+    benefit: "You can sacrifice accuracy for massive damage bonuses and gain bonus action attacks when you score critical hits or reduce enemies to 0 HP.",
+    mechanics: `Great Weapon Master provides two powerful benefits when wielding heavy melee weapons:
+
+**Power Attack (-5/+10):**
+Before you make a melee attack with a heavy weapon that you're proficient with, you can choose to take a -5 penalty to the attack roll. If the attack hits, you add +10 to the attack's damage.
+
+**Bonus Action Attack:**
+When you score a critical hit with a melee weapon or reduce a creature to 0 hit points with one, you can make one melee weapon attack as a bonus action.
+
+**Important Details:**
+- Power attack works with greatsword, greataxe, maul, pike, glaive, halberd, and other heavy weapons
+- You decide to use power attack before rolling, not after seeing the result
+- The +10 damage is flat bonus, not extra dice (not multiplied on crits)
+- Bonus action attack works with any melee weapon, not just heavy weapons
+- You can use power attack on the bonus action attack as well
+- Power attack applies to each attack separately if you have Extra Attack`,
+    synergies: [
+      "Polearm Master feat - Bonus action attack from PAM gives more chances to trigger GWM's bonus attack",
+      "Barbarian Reckless Attack - Advantage offsets the -5 penalty, making power attack more reliable",
+      "Battle Master Precision Attack - Add superiority die to attack roll when you really need to hit",
+      "Bless spell - +1d4 to attack rolls helps offset the -5 penalty",
+      "Samurai Fighting Spirit - Advantage on all attacks for one turn makes power attack very strong",
+      "Champion Improved Critical - More crits means more bonus action attacks",
+      "Great Weapon Fighting style - Reroll 1s and 2s on damage dice, maximizing that +10 bonus",
+      "Elven Accuracy - If you can get advantage (half-elf/elf only), triple advantage for better hit chance",
+      "Paladin Divine Smite - The +10 damage stacks with smites for devastating single hits"
+    ],
+    commonMistakes: [
+      "Using power attack when you need a low roll to hit - only use it when your bonus is high enough",
+      "Forgetting the bonus action attack works with any melee weapon, not just heavy weapons",
+      "Not realizing you can choose whether to use power attack on each individual attack with Extra Attack",
+      "Thinking the +10 damage is multiplied on critical hits - it's a flat bonus, not dice",
+      "Using power attack against high-AC enemies when you're unlikely to hit",
+      "Forgetting to declare power attack before rolling the attack",
+      "Not using power attack against low-AC enemies where you'd hit anyway"
+    ],
+    dmTips: [
+      "This feat dramatically increases damage output - design encounters with more HP or more enemies",
+      "High-AC enemies naturally counter GWM - use a mix of AC values to keep things interesting",
+      "The bonus action attack makes this feat very powerful against groups of weak enemies",
+      "GWM users struggle against enemies with high AC and few HP (they miss and waste the -5)",
+      "Consider that GWM users will kill minions and get extra attacks - balance accordingly",
+      "Magic items that grant advantage (like a Cloak of Displacement) make GWM extremely powerful",
+      "This feat is significantly stronger than most others - other players might feel overshadowed",
+      "Environmental effects that impose disadvantage shut down GWM effectively"
+    ],
+    searchVolume: 8900,
+    aliases: ["gwm-5e"]
+  },
+  {
+    slug: "sharpshooter-5e",
+    name: "Sharpshooter",
+    category: "feats",
+    description: "Complete guide to the Sharpshooter feat in D&D 5e. Master long-range combat, ignore cover penalties, and deal massive damage with ranged weapons.",
+    prerequisite: null,
+    benefit: "You ignore cover and long range penalties with ranged weapons, and can sacrifice accuracy for devastating damage bonuses.",
+    mechanics: `Sharpshooter grants three powerful benefits when using ranged weapons:
+
+**Ignore Long Range:**
+Attacking at long range doesn't impose disadvantage on your ranged weapon attack rolls.
+
+**Ignore Cover:**
+Your ranged weapon attacks ignore half cover and three-quarters cover.
+
+**Power Shot (-5/+10):**
+Before you make a ranged weapon attack, you can choose to take a -5 penalty to the attack roll. If the attack hits, you add +10 to the attack's damage.
+
+**Important Details:**
+- Works with bows, crossbows, and other ranged weapons (not thrown weapons by RAW, DM discretion)
+- Power shot decision is made before rolling, not after
+- The +10 damage is a flat bonus, not extra dice
+- Applies to each attack separately if you have Extra Attack
+- Does not work with spell attacks, only weapon attacks
+- Cover ignoring includes enemies hiding behind allies`,
+    synergies: [
+      "Crossbow Expert feat - Bonus action hand crossbow attacks give more chances for power shot",
+      "Archery fighting style - +2 to attack rolls helps offset the -5 penalty significantly",
+      "Elven Accuracy - Triple advantage for half-elves and elves makes power shot much more reliable",
+      "Fighter Action Surge - Double your attacks in one turn, all with +10 damage if you want",
+      "Samurai Fighting Spirit - Advantage on all attacks offsets the -5 penalty",
+      "Ranger Hunter's Mark - Extra 1d6 damage stacks with the +10 from Sharpshooter",
+      "Bless spell - +1d4 to attack rolls helps land those power shots",
+      "Lucky feat - Reroll missed attacks to salvage important power shots",
+      "Precision Attack (Battle Master) - Add superiority die when you need to hit"
+    ],
+    commonMistakes: [
+      "Using power shot against high-AC enemies when you're unlikely to hit anyway",
+      "Forgetting you can toggle power shot on or off for each attack with Extra Attack",
+      "Not taking advantage of ignoring cover - position yourself for clear shots",
+      "Thinking it works with thrown weapons - RAW it only works with ranged weapons",
+      "Using power shot when you have disadvantage - the penalty makes it even harder to hit",
+      "Not declaring power shot before rolling the attack",
+      "Forgetting that cover ignoring doesn't help against total cover"
+    ],
+    dmTips: [
+      "Sharpshooter is the ranged equivalent of Great Weapon Master - very powerful",
+      "High-AC enemies and distance can make Sharpshooter users struggle",
+      "Total cover still works - encourage enemies to use it",
+      "Wind, fog, and magical darkness impose disadvantage, countering Sharpshooter",
+      "Enemies can ready actions to take cover when the archer attacks",
+      "This feat makes ranged attackers extremely powerful against low-AC targets",
+      "Consider enemies closing distance or using ranged attacks to pressure archers",
+      "The cover-ignoring feature can trivialize many tactical situations - plan accordingly"
+    ],
+    searchVolume: 7200,
+    aliases: ["ss-5e"]
+  },
+  {
+    slug: "war-caster-5e",
+    name: "War Caster",
+    category: "feats",
+    description: "Complete guide to the War Caster feat in D&D 5e. Master spellcasting in armor, maintain concentration under fire, and punish enemies with spell opportunity attacks.",
+    prerequisite: "The ability to cast at least one spell",
+    benefit: "You gain advantage on concentration saves, can perform somatic components with weapons or shields, and can cast spells as opportunity attacks.",
+    mechanics: `War Caster provides three benefits crucial for front-line spellcasters:
+
+**Advantage on Concentration:**
+You have advantage on Constitution saving throws that you make to maintain concentration on a spell when you take damage.
+
+**Somatic Components with Full Hands:**
+You can perform the somatic components of spells even when you have weapons or a shield in one or both hands.
+
+**Spell Opportunity Attack:**
+When a hostile creature's movement provokes an opportunity attack from you, you can use your reaction to cast a spell at the creature, rather than making an opportunity attack. The spell must have a casting time of 1 action and must target only that creature.
+
+**Important Details:**
+- Concentration advantage stacks with other sources of advantage
+- The somatic component benefit allows shield + weapon spellcasting
+- Spell opportunity attacks can use any single-target spell (Booming Blade, Inflict Wounds, etc.)
+- You still need a free hand for material components if they have a cost
+- The spell must target only that creature (no AoE spells)`,
+    synergies: [
+      "Resilient (Constitution) feat - Proficiency in CON saves plus advantage makes concentration nearly unbreakable",
+      "Cleric/Paladin builds - Cast while using shield and weapon without War Caster component pouches",
+      "Booming Blade/Green-Flame Blade cantrips - Excellent spell opportunity attacks with rider damage",
+      "Polearm Master - Trigger opportunity attacks when enemies enter reach, then cast at them",
+      "Sentinel feat - Lock down enemies and cast spells when they try to escape",
+      "Bladesinger/Eldritch Knight/Swords Bard - Essential for gish builds",
+      "Counterspell - More concentration saves passed means keeping your spells active"
+    ],
+    commonMistakes: [
+      "Thinking you need War Caster to cast with a shield - you only need it if you can't use a component pouch or focus",
+      "Forgetting the spell opportunity attack must target only that creature",
+      "Not realizing spell opportunity attacks use spell slots",
+      "Using AoE spells for opportunity attacks - they must be single-target",
+      "Forgetting you still need material components with a cost",
+      "Not utilizing the spell opportunity attack feature - it's incredibly powerful"
+    ],
+    dmTips: [
+      "War Caster makes concentration spellcasters much harder to disrupt",
+      "Spell opportunity attacks can be devastating - Inflict Wounds as a reaction is brutal",
+      "This feat is essential for gish builds to function properly",
+      "Consider that War Caster users can lock down areas with reach + spell attacks",
+      "Multiple small hits are better for breaking concentration than one big hit",
+      "Counterspell and Dispel Magic still work against War Caster users",
+      "This feat makes front-line clerics and paladins significantly more durable"
+    ],
+    searchVolume: 6500
+  },
+  {
+    slug: "sentinel-5e",
+    name: "Sentinel",
+    category: "feats",
+    description: "Complete guide to the Sentinel feat in D&D 5e. Lock down enemies, protect allies, and control the battlefield with devastating opportunity attacks.",
+    prerequisite: null,
+    benefit: "You can stop enemies in their tracks with opportunity attacks, punish foes who ignore you, and protect allies from harm.",
+    mechanics: `Sentinel provides three powerful defensive and control benefits:
+
+**Opportunity Attack Stops Movement:**
+When you hit a creature with an opportunity attack, the creature's speed becomes 0 for the rest of the turn. This stops any movement they had remaining.
+
+**Attack Creatures Who Attack Allies:**
+When a creature within 5 feet of you makes an attack against a target other than you (and that target doesn't have this feat), you can use your reaction to make a melee weapon attack against the attacking creature.
+
+**Ignore Disengage:**
+Creatures provoke opportunity attacks from you even if they take the Disengage action before leaving your reach.
+
+**Important Details:**
+- Reducing speed to 0 stops movement from all sources (including flying)
+- You can only use your reaction once per round
+- The ally protection feature triggers on the attack, not when the ally is hit
+- Works with reach weapons for 10-foot control zones
+- Disengage immunity makes you extremely dangerous to flee from`,
+    synergies: [
+      "Polearm Master feat - The ultimate combo: stop enemies 10 feet away when they enter your reach",
+      "Tunnel Fighter fighting style (UA) - Make unlimited opportunity attacks per round",
+      "Great Weapon Master - Extra attacks when you drop enemies with opportunity attacks",
+      "Battle Master maneuvers - Add effects to your opportunity attacks",
+      "Barbarian Reckless Attack - More likely to hit with opportunity attacks",
+      "Protection fighting style - Stack with Sentinel to be the ultimate defender",
+      "Cavalier Fighter - Synergizes perfectly with the subclass features"
+    ],
+    commonMistakes: [
+      "Thinking you can use both features in the same reaction - you only get one reaction per round",
+      "Forgetting that allies with Sentinel don't trigger your ally protection feature",
+      "Not positioning yourself between enemies and allies to maximize opportunities",
+      "Missing that reducing speed to 0 stops flying creatures and makes them fall",
+      "Thinking Sentinel lets you make more than one reaction per round",
+      "Not realizing Disengage immunity applies even if enemies Disengage first"
+    ],
+    dmTips: [
+      "Sentinel trivializes many monster tactics - enemies can't just walk past the front line",
+      "Intelligent enemies learn to target the Sentinel user or use ranged attacks",
+      "Multiple enemies can overwhelm Sentinel (only one reaction per round)",
+      "Forced movement (shoves, spells) bypasses Sentinel completely",
+      "Sentinel + Polearm Master creates a 10-foot 'no-go zone' that's very powerful",
+      "Consider giving enemies abilities that counter Sentinel (teleportation, forced movement)",
+      "This feat makes defenders extremely effective at their job"
+    ],
+    searchVolume: 5800
+  },
+  {
+    slug: "lucky-5e",
+    name: "Lucky",
+    category: "feats",
+    description: "Complete guide to the Lucky feat in D&D 5e. Reroll critical dice rolls, turn failures into successes, and bend probability in your favor three times per day.",
+    prerequisite: null,
+    benefit: "You have 3 luck points that let you reroll any d20 roll you make or that's made against you, potentially turning failures into successes.",
+    mechanics: `Lucky gives you a pool of 3 luck points that recharge on a long rest:
+
+**Reroll Your D20:**
+You can spend a luck point to reroll any attack roll, ability check, or saving throw you make. You can choose to use this after seeing the die result but before the DM tells you whether you succeed or fail. You choose which roll to use.
+
+**Force Enemy Reroll:**
+When an attack roll is made against you, you can spend a luck point to force the attacker to reroll. You choose which roll the attacker must use.
+
+**Luck Points:**
+You have 3 luck points. You regain expended luck points when you finish a long rest.
+
+**Important Details:**
+- You can use Lucky after rolling but before knowing the outcome
+- Works on any d20 roll (attacks, saves, checks)
+- Can be used even if you have advantage or disadvantage
+- When used with advantage/disadvantage, you roll a third die and choose any of the three
+- Does not work with death saving throws (RAW they are saving throws, so it does work - this is hotly debated)`,
+    synergies: [
+      "Great Weapon Master/Sharpshooter - Reroll missed power attacks",
+      "Divination Wizard Portent - Combine with Portent for ultimate dice control",
+      "Halfling racial trait - Stack with Halfling's Lucky racial feature",
+      "Bless spell - Reroll and add 1d4, or add 1d4 then potentially reroll",
+      "Champion Fighter - Reroll attacks to fish for critical hits on 19-20",
+      "Paladin - Reroll saving throws for yourself and allies with Aura of Protection"
+    ],
+    commonMistakes: [
+      "Thinking you must decide before rolling - you can wait until after you see the roll",
+      "Not using Lucky on critical saving throws that could kill you",
+      "Saving luck points for 'the perfect moment' and never using them",
+      "Forgetting you can use Lucky when enemies attack you",
+      "Thinking Lucky doesn't work with advantage/disadvantage - it gives you a third die to choose from",
+      "Not realizing Lucky is per long rest, not per short rest"
+    ],
+    dmTips: [
+      "Lucky is one of the most powerful feats - it bends probability significantly",
+      "Three uses per day is limiting but can swing critical moments",
+      "Lucky on death saves is controversial - establish your ruling in session zero",
+      "This feat rewards players for taking risks (GWM, dangerous stunts)",
+      "Multiple encounters per long rest dilutes Lucky's power",
+      "Lucky can trivialize carefully-planned challenges - be prepared for it",
+      "Some DMs ban Lucky for being too powerful - discuss in advance"
+    ],
+    searchVolume: 5200
+  },
+  {
+    slug: "resilient-5e",
+    name: "Resilient",
+    category: "feats",
+    description: "Complete guide to the Resilient feat in D&D 5e. Gain proficiency in a saving throw and round up an odd ability score for improved survivability.",
+    prerequisite: null,
+    benefit: "You increase one ability score by 1 and gain proficiency in saving throws using that ability, significantly improving your defenses.",
+    mechanics: `Resilient is a half-feat that improves both your ability scores and saving throws:
+
+**Ability Score Increase:**
+Choose one ability score. You increase that score by 1, to a maximum of 20.
+
+**Saving Throw Proficiency:**
+You gain proficiency in saving throws using the chosen ability.
+
+**Common Choices:**
+- **Resilient (Constitution):** Most popular choice for concentration saves and general survivability
+- **Resilient (Wisdom):** Excellent for avoiding mind control, charm, and fear effects
+- **Resilient (Dexterity):** Strong for avoiding fireballs and other AoE damage
+
+**Important Details:**
+- You can only take this feat once per ability score
+- Proficiency bonus applies to all saves with that ability
+- Works best with odd ability scores (13→14 gains you +1 modifier)
+- Stacks with other features that improve saves (Aura of Protection, Bless, etc.)`,
+    synergies: [
+      "War Caster feat - Resilient (CON) + War Caster = nearly unbreakable concentration",
+      "Spellcasters with concentration - Resilient (CON) is essential for maintaining key spells",
+      "Paladin Aura of Protection - Stacks with proficiency for incredible saves",
+      "Bless spell - Add 1d4 on top of proficiency bonus",
+      "Classes without CON save proficiency - Wizards, Sorcerers, Artificers benefit greatly",
+      "Odd ability scores - Turn 13 or 15 into 14 or 16 for better modifiers"
+    ],
+    commonMistakes: [
+      "Taking Resilient in a save you're already proficient in - you can't do this",
+      "Not considering which saves are most common in your campaign",
+      "Taking Resilient with an even ability score - better to use a normal ASI",
+      "Forgetting that proficiency bonus increases as you level up",
+      "Not coordinating with your party - multiple people taking the same Resilient is fine but consider coverage"
+    ],
+    dmTips: [
+      "Resilient (CON) dramatically improves spellcaster durability - plan accordingly",
+      "Saving throws are common, so this feat provides consistent value",
+      "Different saves are appropriate for different campaigns (WIS for mind control, DEX for traps)",
+      "This feat helps shore up weak saves that enemies might target",
+      "Consider what saves your encounters emphasize - adjust if needed",
+      "Resilient is a 'hidden' power boost that doesn't seem as flashy but is very strong"
+    ],
+    searchVolume: 4800
+  },
+  {
+    slug: "alert-5e",
+    name: "Alert",
+    category: "feats",
+    description: "Complete guide to the Alert feat in D&D 5e. Never be surprised, always act first in combat, and keep your party safe with superior awareness.",
+    prerequisite: null,
+    benefit: "You gain a massive bonus to initiative, cannot be surprised while conscious, and hidden attackers gain no advantage against you.",
+    mechanics: `Alert provides three benefits that ensure you're ready for danger:
+
+**+5 Initiative Bonus:**
+You gain a +5 bonus to initiative rolls. This is one of the largest numerical bonuses in the game.
+
+**Can't Be Surprised:**
+You can't be surprised while you are conscious.
+
+**No Advantage from Hidden Attackers:**
+Other creatures don't gain advantage on attack rolls against you as a result of being unseen by you.
+
+**Important Details:**
+- +5 initiative means you almost always go first in combat
+- Immunity to surprise means ambushes don't affect you
+- Hidden attackers lose advantage but you're still unaware of their location
+- Works even if other party members are surprised
+- You still can't act if you're incapacitated`,
+    synergies: [
+      "Assassin Rogue - Surprise immunity prevents enemies from avoiding your auto-crits",
+      "Gloom Stalker Ranger - Stack initiative bonuses for incredible turn order",
+      "War Wizard Tactical Wit - +5 from Alert + INT modifier to initiative",
+      "Gift of Alacrity spell - Even more initiative bonus",
+      "Chronurgy Wizard - Act first and control the battlefield",
+      "Swashbuckler Rogue - Add CHA to initiative on top of Alert",
+      "Battle Master Commander's Strike - Act first and set up allies"
+    ],
+    commonMistakes: [
+      "Thinking Alert makes you detect hidden creatures - you still need Perception",
+      "Forgetting that surprise prevention only helps if you're conscious",
+      "Not using your high initiative to buff allies or debuff enemies before they act",
+      "Assuming Alert makes you immune to being unaware - you still need to see threats",
+      "Missing that hidden attackers lose advantage but aren't revealed"
+    ],
+    dmTips: [
+      "Alert trivializes many ambush encounters - plan accordingly",
+      "High initiative doesn't mean much in social or exploration encounters",
+      "One player always going first can feel repetitive - consider initiative variants",
+      "This feat is extremely strong for builds that rely on going first (Assassins)",
+      "Alert users can serve as the party's warning system",
+      "Consider encounters where going first isn't as valuable (distant enemies, etc.)",
+      "This feat is consistent value in every combat"
+    ],
+    searchVolume: 4100
+  },
+  {
+    slug: "tough-5e",
+    name: "Tough",
+    category: "feats",
+    description: "Complete guide to the Tough feat in D&D 5e. Gain massive HP increases, improve survivability, and become nearly unkillable with this simple but powerful feat.",
+    prerequisite: null,
+    benefit: "Your hit point maximum increases by an amount equal to twice your level when you gain this feat. Whenever you gain a level thereafter, your hit point maximum increases by an additional 2 hit points.",
+    mechanics: `Tough is a straightforward feat that dramatically increases your durability:
+
+**Retroactive HP Increase:**
+Your hit point maximum increases by twice your level when you take this feat. If you take it at 4th level, you immediately gain 8 HP.
+
+**Ongoing HP Increase:**
+Whenever you gain a level, your hit point maximum increases by an additional 2 HP beyond your normal Hit Die + CON modifier.
+
+**The Math:**
+- At level 4: +8 HP
+- At level 8: +16 HP
+- At level 12: +24 HP
+- At level 20: +40 HP
+
+**Important Details:**
+- This is retroactive - you get HP for all previous levels
+- It's equivalent to +2 CON for HP purposes, but doesn't improve CON saves
+- Works with temporary HP and other HP increases
+- Affects your maximum HP, not current HP`,
+    synergies: [
+      "Barbarian Rage - More HP means more time spent raging and tanking",
+      "Bear Totem Barbarian - Resistance to damage makes the extra HP even more valuable",
+      "Hill Dwarf - Stack with Dwarven Toughness for incredible HP",
+      "Abjuration Wizard Arcane Ward - More HP to survive while your ward recharges",
+      "Front-line fighters - Anyone who takes hits benefits",
+      "Durable feat - Stack for even more HP",
+      "False Life spell - More base HP means bigger buffer"
+    ],
+    commonMistakes: [
+      "Thinking Tough increases CON saves or checks - it only affects HP",
+      "Taking Tough instead of increasing CON - CON gives saves, checks, and HP",
+      "Not realizing it's retroactive - you get the HP for all levels immediately",
+      "Taking Tough on classes with high Hit Dice (d10 or d12) - they already have good HP",
+      "Forgetting that prevention is better than HP - AC and saves matter more"
+    ],
+    dmTips: [
+      "Tough makes characters survive longer but doesn't make encounters harder",
+      "This feat is most impactful on low-HP classes (Wizards, Sorcerers)",
+      "Consider that extra HP just prolongs fights - adjust encounter difficulty",
+      "Tough is simple and boring but very effective",
+      "This feat is a 'safe' choice that always provides value",
+      "Players who keep getting knocked out will appreciate Tough"
+    ],
+    searchVolume: 3900
+  },
+  {
+    slug: "crossbow-expert-5e",
+    name: "Crossbow Expert",
+    category: "feats",
+    description: "Complete guide to the Crossbow Expert feat in D&D 5e. Master crossbow combat, make bonus action attacks with hand crossbows, and eliminate loading and melee penalties.",
+    prerequisite: null,
+    benefit: "You ignore crossbow loading times, can make bonus action attacks with hand crossbows, and fire in melee without disadvantage.",
+    mechanics: `Crossbow Expert provides three benefits that make crossbows extremely powerful:
+
+**Ignore Loading Property:**
+You ignore the loading property of crossbows with which you are proficient. This allows you to fire multiple times with Extra Attack.
+
+**No Melee Disadvantage:**
+Being within 5 feet of a hostile creature doesn't impose disadvantage on your ranged attack rolls.
+
+**Hand Crossbow Bonus Action:**
+When you use the Attack action and attack with a one-handed weapon, you can use a bonus action to attack with a hand crossbow you are holding.
+
+**Important Details:**
+- The bonus action attack works even if you attack with the same hand crossbow
+- You need a free hand to load the hand crossbow (even with this feat)
+- Works best with two hand crossbows or a hand crossbow and a free hand
+- No melee disadvantage applies to all ranged attacks, not just crossbows
+- Loading ignore means heavy crossbow becomes viable with Extra Attack`,
+    synergies: [
+      "Sharpshooter feat - The ultimate ranged damage combo: bonus attacks + power shot",
+      "Archery fighting style - +2 to hit makes Sharpshooter power attacks more reliable",
+      "Fighter Extra Attack - More attacks with hand crossbow",
+      "Action Surge - Double your attacks including bonus action",
+      "Battlemaster maneuvers - More attacks means more maneuver opportunities",
+      "Hunter's Mark/Hex - Extra bonus action attack means more chances for extra damage"
+    ],
+    commonMistakes: [
+      "Thinking you can dual-wield hand crossbows - you need a free hand to load",
+      "Forgetting you need to attack with a one-handed weapon to trigger the bonus action",
+      "Not realizing the bonus action attack can be with the same hand crossbow you just fired",
+      "Thinking loading ignore works without proficiency - you must be proficient",
+      "Missing that melee disadvantage elimination works for all ranged attacks, not just crossbows",
+      "Not having enough ammunition tracked"
+    ],
+    dmTips: [
+      "Crossbow Expert + Sharpshooter is the highest consistent ranged damage in the game",
+      "This build is very powerful and can overshadow other characters",
+      "Enemies in melee can no longer shut down ranged attackers easily",
+      "Consider environmental challenges (wind, cover) to balance",
+      "Disarming hand crossbows shuts down this build",
+      "This feat makes ranged characters extremely powerful in all situations"
+    ],
+    searchVolume: 3700,
+    aliases: ["cbe-5e"]
+  },
+  {
+    slug: "mobile-5e",
+    name: "Mobile",
+    category: "feats",
+    description: "Complete guide to the Mobile feat in D&D 5e. Increase your speed, ignore difficult terrain when dashing, and strike enemies without fear of opportunity attacks.",
+    prerequisite: null,
+    benefit: "You gain increased movement speed, can dash through difficult terrain easily, and avoid opportunity attacks from enemies you attack.",
+    mechanics: `Mobile provides three benefits that enhance your mobility in combat:
+
+**+10 Speed:**
+Your speed increases by 10 feet. This applies to all your movement modes (walking, climbing, swimming).
+
+**Dash Ignores Difficult Terrain:**
+When you use the Dash action, difficult terrain doesn't cost you extra movement on that turn.
+
+**Avoid Opportunity Attacks:**
+When you make a melee attack against a creature, you don't provoke opportunity attacks from that creature for the rest of the turn, whether you hit or not.
+
+**Important Details:**
+- Speed increase stacks with other bonuses (Longstrider, Haste, etc.)
+- Opportunity attack avoidance works even if you miss the attack
+- You must make a melee attack, not just threaten - ranged attacks don't count
+- Works perfectly for hit-and-run tactics
+- Doesn't prevent opportunity attacks from other creatures you didn't attack`,
+    synergies: [
+      "Rogue Cunning Action - Dash as bonus action and attack without retaliation",
+      "Monk Step of the Wind - Enhanced mobility stacks perfectly",
+      "Swashbuckler Rogue - Already have free disengage, speed boost is still great",
+      "Tabaxi Feline Agility - Double your already-increased speed",
+      "Haste spell - 50+ foot movement becomes normal",
+      "Booming Blade - Hit and run away, if they follow they take damage",
+      "Scout Rogue - Stack with Skirmisher for incredible mobility"
+    ],
+    commonMistakes: [
+      "Thinking you don't provoke from anyone - only creatures you attacked",
+      "Forgetting you need to make a melee attack, not just be in melee",
+      "Not using hit-and-run tactics to maximize the feat's benefits",
+      "Missing that Dash difficult terrain ignore only works when you Dash",
+      "Thinking the speed boost doesn't apply when mounted - it does",
+      "Not realizing you can attack multiple enemies and avoid opportunity attacks from all of them"
+    ],
+    dmTips: [
+      "Mobile characters can kite enemies and control engagement range",
+      "Difficult terrain and obstacles still matter, just less during Dash",
+      "Mobile works well for scout and skirmisher characters",
+      "High mobility can make it hard for slow enemies to engage",
+      "Consider ranged enemies and forced movement to challenge Mobile users",
+      "This feat enables unique hit-and-run playstyles"
+    ],
+    searchVolume: 3200
+  },
+  {
+    slug: "observant-5e",
+    name: "Observant",
+    category: "feats",
+    description: "Complete guide to the Observant feat in D&D 5e. Boost your Perception and Investigation, read lips, and never miss hidden details with this half-feat.",
+    prerequisite: null,
+    benefit: "You increase your Intelligence or Wisdom by 1 and gain a massive +5 bonus to passive Perception and Investigation, plus the ability to read lips.",
+    mechanics: `Observant is a half-feat that dramatically improves your awareness:
+
+**Ability Score Increase:**
+Increase your Intelligence or Wisdom score by 1, to a maximum of 20.
+
+**+5 Passive Perception and Investigation:**
+Your passive Wisdom (Perception) and passive Intelligence (Investigation) scores each increase by 5.
+
+**Read Lips:**
+If you can see a creature's mouth while it is speaking a language you understand, you can interpret what it's saying by reading its lips.
+
+**Important Details:**
+- +5 passive scores is huge - you'll notice almost everything
+- Passive scores are used when you're not actively searching
+- Lip reading works at any distance you can see clearly
+- Works best with odd WIS or INT scores (13→14 for better modifier)
+- DMs use passive Perception to determine what you notice automatically`,
+    synergies: [
+      "Rogue/Ranger builds - Excellent for scouts and investigators",
+      "Inquisitive Rogue - Stack with Eye for Detail for incredible investigation",
+      "Perception expertise - 20+ passive Perception at mid-levels",
+      "Dungeon Delver feat - Find traps and hidden doors constantly",
+      "Alert feat - Never surprised and always notice threats",
+      "Wisdom-based classes - Clerics, Druids, Rangers benefit from WIS increase"
+    ],
+    commonMistakes: [
+      "Thinking Observant makes you automatically detect everything - DM still sets DCs",
+      "Not using passive scores - remind your DM of your high passives",
+      "Taking Observant with an even ability score - less efficient",
+      "Forgetting about the lip reading feature - it's very useful for espionage",
+      "Not coordinating with party - one person with high Perception might be enough"
+    ],
+    dmTips: [
+      "Observant trivializes hidden details and traps - plan for it",
+      "Passive Perception 20+ notices almost everything - use very high DCs for hidden things",
+      "Lip reading can bypass many information-hiding tactics",
+      "This feat rewards careful description and environmental storytelling",
+      "Consider invisible or silent threats to challenge Observant users",
+      "High passive scores mean you should proactively tell players what they notice"
+    ],
+    searchVolume: 2800
+  },
+  {
+    slug: "ritual-caster-5e",
+    name: "Ritual Caster",
+    category: "feats",
+    description: "Complete guide to the Ritual Caster feat in D&D 5e. Gain a ritual book, learn ritual spells from any class, and expand your utility without using spell slots.",
+    prerequisite: "Intelligence or Wisdom 13 or higher",
+    benefit: "You gain a ritual book and can learn ritual spells from your chosen class, casting them without expending spell slots.",
+    mechanics: `Ritual Caster grants you access to ritual spells from a chosen class:
+
+**Choose a Class:**
+Choose one class: Bard, Cleric, Druid, Sorcerer, Warlock, or Wizard. You must have an Intelligence or Wisdom score of 13 or higher.
+
+**Ritual Book:**
+You acquire a ritual book holding two 1st-level ritual spells from your chosen class. You can cast these spells as rituals (adding 10 minutes to casting time) without preparing them.
+
+**Learn New Rituals:**
+If you come across a written spell (in a spellbook or scroll), you can add it to your ritual book if:
+- It's a ritual spell
+- It's from your chosen class's spell list
+- Its level is no more than half your character level (rounded up)
+- You spend 2 hours and 50 gp per spell level copying it
+
+**Important Details:**
+- You don't use spell slots to cast these spells
+- You must cast them as rituals (10 extra minutes)
+- Intelligence-based classes use INT for spellcasting ability, Wisdom-based use WIS
+- You can't cast these spells normally, only as rituals
+- The book is a physical object that can be lost or stolen`,
+    synergies: [
+      "Wizard Ritual Caster - Get Cleric rituals (Ceremony, Augury) for utility",
+      "Martial classes - Gain spellcasting without multiclassing",
+      "Detect Magic, Identify - Essential utility rituals",
+      "Find Familiar - Excellent reconnaissance",
+      "Leomund's Tiny Hut - Free long rests in safety",
+      "Water Breathing, Water Walk - Exploration enablers"
+    ],
+    commonMistakes: [
+      "Thinking you can cast the spells normally - ritual casting only",
+      "Forgetting the 10-minute ritual casting time",
+      "Not protecting your ritual book - it can be destroyed",
+      "Choosing a class without good ritual spells",
+      "Not realizing you can learn more rituals from scrolls and spellbooks",
+      "Missing that spell level is capped at half your character level"
+    ],
+    dmTips: [
+      "Ritual Caster adds incredible utility without costing spell slots",
+      "Time-sensitive situations prevent ritual casting",
+      "Consider providing ritual spell scrolls as loot",
+      "The ritual book can be a story item (lost, stolen, etc.)",
+      "This feat is less powerful in combat-heavy campaigns",
+      "Wizard is usually the best choice for spell variety"
+    ],
+    searchVolume: 2600
+  },
+  {
+    slug: "spell-sniper-5e",
+    name: "Spell Sniper",
+    category: "feats",
+    description: "Complete guide to the Spell Sniper feat in D&D 5e. Double your spell range, ignore cover with spell attacks, and learn a bonus attack cantrip.",
+    prerequisite: "The ability to cast at least one spell",
+    benefit: "You double the range of spell attacks, ignore cover, and learn one attack cantrip from any class's spell list.",
+    mechanics: `Spell Sniper enhances your spellcasting range and precision:
+
+**Double Spell Attack Range:**
+When you cast a spell that requires you to make an attack roll, the spell's range is doubled.
+
+**Ignore Cover:**
+Your ranged spell attacks ignore half cover and three-quarters cover.
+
+**Learn Attack Cantrip:**
+You learn one cantrip that requires an attack roll. Choose the cantrip from any class's spell list. Your spellcasting ability for this cantrip depends on the class you chose: Charisma for Bard, Sorcerer, or Warlock; Wisdom for Cleric or Druid; Intelligence for Wizard.
+
+**Important Details:**
+- Only affects spells with attack rolls, not saving throws
+- Range doubling applies to both normal and long range
+- Works with Eldritch Blast, Fire Bolt, Scorching Ray, etc.
+- The bonus cantrip can be from any class
+- Cover ignoring doesn't work on total cover`,
+    synergies: [
+      "Eldritch Blast - 240-foot range with Agonizing Blast and Repelling Blast",
+      "Warlock Eldritch Spear - 600-foot Eldritch Blast range",
+      "Sorcerer Distant Spell - Quadruple range on spell attacks",
+      "War Caster - Cast spells as opportunity attacks with doubled range (if reach)",
+      "Scorching Ray, Chromatic Orb - All spell attacks benefit",
+      "Crossclass cantrips - Wizards can get Eldritch Blast, Clerics can get Fire Bolt"
+    ],
+    commonMistakes: [
+      "Thinking it affects saving throw spells - attack rolls only",
+      "Not realizing the cantrip can be from any class",
+      "Forgetting that range doubling applies to all spell attacks",
+      "Taking this feat when you mostly use saving throw spells",
+      "Missing that cover ignoring is very powerful in many combats",
+      "Not coordinating with your build - Warlocks benefit most"
+    ],
+    dmTips: [
+      "Spell Sniper enables extreme-range sniping with Eldritch Blast",
+      "600-foot range Eldritch Blast can trivialize some encounters",
+      "Cover becomes less useful against Spell Sniper users",
+      "Consider environmental limits (walls, fog, darkness) to range",
+      "This feat is strong for Warlocks, mediocre for most others",
+      "Long-range spell attacks can make positioning matter less"
+    ],
+    searchVolume: 2400
+  },
+  {
+    slug: "defensive-duelist-5e",
+    name: "Defensive Duelist",
+    category: "feats",
+    description: "Complete guide to the Defensive Duelist feat in D&D 5e. Use finesse weapons to parry attacks, boost your AC as a reaction, and avoid devastating hits.",
+    prerequisite: "Dexterity 13 or higher",
+    benefit: "When wielding a finesse weapon, you can use your reaction to add your proficiency bonus to AC against one melee attack, potentially causing it to miss.",
+    mechanics: `Defensive Duelist lets you parry incoming attacks with finesse weapons:
+
+**Parry Reaction:**
+When you are wielding a finesse weapon with which you are proficient and another creature hits you with a melee attack, you can use your reaction to add your proficiency bonus to your AC for that attack, potentially causing the attack to miss you.
+
+**The Math:**
+- Level 1-4: +2 AC
+- Level 5-8: +3 AC
+- Level 9-12: +4 AC
+- Level 13-16: +5 AC
+- Level 17-20: +6 AC
+
+**Important Details:**
+- You must be wielding the finesse weapon (rapier, shortsword, dagger, etc.)
+- Works only against melee attacks, not ranged or spells
+- Declared after the hit is announced but before damage
+- Uses your reaction (no opportunity attacks that round)
+- Scales with level via proficiency bonus`,
+    synergies: [
+      "Riposte maneuver (Battle Master) - Defensive reaction synergy",
+      "Swashbuckler Rogue - Already using finesse weapons",
+      "Dexterity-based fighters and rogues - Natural fit",
+      "Shield spell - Different triggers, can use both in different rounds",
+      "Uncanny Dodge - Use Defensive Duelist to avoid the hit entirely, Uncanny Dodge if you still get hit",
+      "Evasion - Defensive Duelist for melee, Evasion for ranged saves"
+    ],
+    commonMistakes: [
+      "Thinking it works against ranged attacks - melee only",
+      "Forgetting you need to be wielding a finesse weapon",
+      "Not using it because you want to save your reaction - preventing damage is valuable",
+      "Missing that it can turn hits into misses, avoiding critical hits",
+      "Thinking it lasts for more than one attack",
+      "Not realizing proficiency bonus scales, making this better at higher levels"
+    ],
+    dmTips: [
+      "Defensive Duelist is strong but uses the reaction, so it's balanced",
+      "Multiple attacks per round limit its effectiveness",
+      "High-damage single attacks make this feat shine",
+      "This feat is better at higher levels due to proficiency scaling",
+      "Consider it when balancing finesse weapon users vs. two-handed weapons",
+      "Defensive Duelist can prevent critical hits by making them miss"
+    ],
+    searchVolume: 2100
+  },
+  {
+    slug: "mage-slayer-5e",
+    name: "Mage Slayer",
+    category: "feats",
+    description: "Complete guide to the Mage Slayer feat in D&D 5e. Punish spellcasters, disrupt concentration, and make enemy mages regret getting close to you.",
+    prerequisite: null,
+    benefit: "You excel at disrupting spellcasters, gaining reaction attacks when they cast, imposing disadvantage on concentration saves, and gaining advantage on saves against close-range spells.",
+    mechanics: `Mage Slayer provides three anti-caster benefits:
+
+**Reaction Attack on Casting:**
+When a creature within 5 feet of you casts a spell, you can use your reaction to make a melee weapon attack against that creature.
+
+**Concentration Disruption:**
+When you damage a creature that is concentrating on a spell, that creature has disadvantage on the saving throw it makes to maintain its concentration.
+
+**Advantage on Saves:**
+You have advantage on saving throws against spells cast by creatures within 5 feet of you.
+
+**Important Details:**
+- Reaction attack happens before the spell completes
+- Works even if the spell doesn't target you
+- Concentration disadvantage stacks with other effects
+- Save advantage only against spells cast within 5 feet
+- Helps shut down enemy spellcasters in melee`,
+    synergies: [
+      "Sentinel feat - Lock down casters and prevent their escape",
+      "Barbarian Rage - Advantage on saves already, close gap quickly",
+      "Mobile feat - Close distance to casters and avoid opportunity attacks",
+      "Counterspell - Different mechanism, similar goal of stopping spells",
+      "War Caster - If you're a gish, counter enemy casters",
+      "Tunnel Fighter (UA) - Multiple reaction attacks per round"
+    ],
+    commonMistakes: [
+      "Thinking the reaction attack can counterspell - it happens after the spell is cast",
+      "Not positioning yourself next to enemy spellcasters",
+      "Forgetting the concentration disadvantage applies whenever you damage them",
+      "Missing that save advantage only works within 5 feet",
+      "Taking this feat when your campaign has few spellcasters",
+      "Not realizing the reaction can damage them before the spell resolves (but doesn't stop the spell)"
+    ],
+    dmTips: [
+      "Mage Slayer is campaign-dependent - more valuable if many enemies cast spells",
+      "Intelligent casters will avoid melee with Mage Slayer users",
+      "Teleportation, Misty Step, and Dimension Door help casters escape",
+      "This feat is niche but powerful when applicable",
+      "Consider mixing melee and ranged casters to challenge Mage Slayer builds",
+      "Reaction attack can interrupt some spells if damage breaks concentration on a previous spell"
+    ],
+    searchVolume: 1900
+  },
+  {
+    slug: "inspiring-leader-5e",
+    name: "Inspiring Leader",
+    category: "feats",
+    description: "Complete guide to the Inspiring Leader feat in D&D 5e. Grant temporary HP to your entire party, boost survivability, and lead your allies to victory.",
+    prerequisite: "Charisma 13 or higher",
+    benefit: "You can spend 10 minutes inspiring your companions, granting them temporary hit points equal to your level + Charisma modifier.",
+    mechanics: `Inspiring Leader allows you to bolster your allies before battle:
+
+**Inspiring Speech:**
+You can spend 10 minutes giving an inspiring speech. Choose up to six friendly creatures (which can include yourself) within 30 feet who can see or hear you and who can understand you.
+
+**Temporary HP:**
+Each creature gains temporary hit points equal to your level + your Charisma modifier.
+
+**The Math:**
+- Level 4, CHA 16 (+3): 7 temp HP per person = 42 HP total
+- Level 8, CHA 18 (+4): 12 temp HP per person = 72 HP total
+- Level 12, CHA 20 (+5): 17 temp HP per person = 102 HP total
+
+**Important Details:**
+- Can be used during short rests
+- Temporary HP lasts until it's lost or you finish a long rest
+- Temporary HP doesn't stack (if you use this twice, they take the higher value)
+- Free HP for the whole party before every combat
+- Scales with your level and Charisma`,
+    synergies: [
+      "Bard/Paladin/Warlock - Natural CHA builds benefit",
+      "Twilight Cleric - Stack temp HP sources (though temp HP doesn't stack, you can refresh)",
+      "Heroism spell - Different source of temp HP",
+      "Bear Totem Barbarian - Resistance makes temp HP worth twice as much",
+      "Aura of Protection (Paladin) - Keep allies alive to benefit from the aura"
+    ],
+    commonMistakes: [
+      "Thinking temp HP stacks - it doesn't, you take the higher value",
+      "Not using this during short rests - free HP before every encounter",
+      "Forgetting temp HP expires after a long rest",
+      "Not maximizing Charisma to get the most out of this feat",
+      "Using this when the party already has temp HP from another source",
+      "Missing that it works on yourself too"
+    ],
+    dmTips: [
+      "Inspiring Leader grants significant HP padding for the entire party",
+      "Multiple encounters per short rest dilute this feat's value",
+      "This feat dramatically improves party survivability in deadly encounters",
+      "Consider it when balancing encounter difficulty",
+      "Encouraging short rests lets the party use this more often",
+      "This feat is stronger in parties of 5-6 than small parties"
+    ],
+    searchVolume: 1800
+  },
+  {
+    slug: "elemental-adept-5e",
+    name: "Elemental Adept",
+    category: "feats",
+    description: "Complete guide to the Elemental Adept feat in D&D 5e. Pierce through resistances, reroll low damage dice, and specialize in a damage type for consistent spell damage.",
+    prerequisite: "The ability to cast at least one spell",
+    benefit: "Spells you cast ignore resistance to your chosen damage type, and you can reroll 1s on damage dice for that element.",
+    mechanics: `Elemental Adept enhances spells of a chosen damage type:
+
+**Choose an Element:**
+Choose one damage type: acid, cold, fire, lightning, or thunder.
+
+**Ignore Resistance:**
+Spells you cast ignore resistance to damage of the chosen type. Note: This does not bypass immunity.
+
+**Reroll 1s:**
+When you roll damage for a spell you cast that deals damage of the chosen type, you can treat any 1 on a damage die as a 2.
+
+**Multiple Elements:**
+You can select this feat multiple times, choosing a different damage type each time.
+
+**Important Details:**
+- Only affects spells, not other sources of elemental damage
+- Rerolling 1s happens automatically (treat 1s as 2s)
+- Resistance ignoring means half damage becomes full damage
+- Does not work against immunity
+- Best for casters who focus on one element`,
+    synergies: [
+      "Evocation Wizard - Focus on one element (usually fire) for blasting",
+      "Draconic Sorcerer - Add CHA to damage of your chosen element",
+      "Scribes Wizard - Change damage types to benefit from Elemental Adept",
+      "Tempest Cleric - Maximize lightning/thunder damage",
+      "Fireball, Lightning Bolt - Classic damage spells benefit greatly",
+      "Empowered Spell (Sorcerer) - Reroll more dice, then 1s become 2s"
+    ],
+    commonMistakes: [
+      "Thinking it bypasses immunity - it only ignores resistance",
+      "Not focusing your spell selection on the chosen element",
+      "Taking this when few enemies resist your element",
+      "Forgetting the 1s automatically become 2s (not a choice)",
+      "Taking this on a utility caster who doesn't deal much damage",
+      "Not coordinating with your DM about what resistance you'll face"
+    ],
+    dmTips: [
+      "Elemental Adept is campaign-dependent - more valuable if enemies have resistances",
+      "Fire is the most commonly resisted element, making fire Elemental Adept valuable",
+      "This feat discourages you from varying spell damage types",
+      "Consider enemy types when planning your campaign (fire-resistant enemies reduce this feat's value)",
+      "Rerolling 1s is a small but consistent damage boost",
+      "This feat is very powerful against resistant enemies, mediocre otherwise"
+    ],
+    searchVolume: 1700
+  },
+  {
+    slug: "skulker-5e",
+    name: "Skulker",
+    category: "feats",
+    description: "Complete guide to the Skulker feat in D&D 5e. Hide in light obscurement, conceal your position when you miss with ranged attacks, and see through dim light perfectly.",
+    prerequisite: "Dexterity 13 or higher",
+    benefit: "You can hide more easily, maintain stealth after missed ranged attacks, and see through dim light without penalty.",
+    mechanics: `Skulker enhances your stealth and perception capabilities:
+
+**Hide in Light Obscurement:**
+You can try to hide when you are lightly obscured from the creature from which you are hiding (such as dim light, patchy fog, or moderate foliage).
+
+**Missed Attacks Don't Reveal:**
+When you are hidden from a creature and miss it with a ranged weapon attack, making the attack doesn't reveal your position.
+
+**Dim Light Vision:**
+You can see in dim light within 60 feet of you as if it were bright light.
+
+**Important Details:**
+- Light obscurement includes dim light, allowing indoor/nighttime hiding
+- Missing ranged attacks normally reveals your position - this prevents that
+- Dim light vision doesn't grant darkvision (can't see in total darkness)
+- Works best for stealth-focused characters
+- Synergizes with hiding and sniping tactics`,
+    synergies: [
+      "Rogue Sneak Attack - Hide, attack, stay hidden if you miss",
+      "Sharpshooter feat - Long-range sniping from concealment",
+      "Ranger - Natural explorer and stealth focus",
+      "Wood Elf - Mask of the Wild lets you hide in natural phenomena",
+      "Gloom Stalker Ranger - Invisible in darkness, hide in dim light with Skulker",
+      "Pass Without Trace - Enhance stealth checks while hiding",
+      "Assassin Rogue - Stay hidden for surprise rounds"
+    ],
+    commonMistakes: [
+      "Thinking you can hide in plain sight - you still need light obscurement",
+      "Forgetting that hitting with an attack still reveals your position",
+      "Not utilizing dim light hiding in indoor environments",
+      "Thinking dim light vision is darkvision - it's not",
+      "Taking this feat on characters who don't use stealth regularly",
+      "Missing that ranged weapon attacks only - spells still reveal you if you miss"
+    ],
+    dmTips: [
+      "Skulker enables persistent sniping from concealment",
+      "Indoor environments with torches create many dim light hiding spots",
+      "Missing attacks no longer punishes stealthy characters as much",
+      "This feat is campaign-dependent - more valuable in stealth-heavy games",
+      "Consider lighting conditions in your encounters",
+      "Skulker makes dim light much more favorable to stealthy characters"
+    ],
+    searchVolume: 1500
+  },
+  {
+    slug: "tavern-brawler-5e",
+    name: "Tavern Brawler",
+    category: "feats",
+    description: "Complete guide to the Tavern Brawler feat in D&D 5e. Master unarmed combat, improvise weapons, and grapple enemies as a bonus action after hitting them.",
+    prerequisite: null,
+    benefit: "You increase Strength or Constitution by 1, become proficient with improvised weapons and unarmed strikes, and can grapple as a bonus action when you hit with unarmed or improvised attacks.",
+    mechanics: `Tavern Brawler is a half-feat that enhances unarmed and improvised combat:
+
+**Ability Score Increase:**
+Increase your Strength or Constitution score by 1, to a maximum of 20.
+
+**Improvised Weapon Proficiency:**
+You are proficient with improvised weapons.
+
+**Unarmed Strike Damage:**
+Your unarmed strike uses a d4 for damage.
+
+**Bonus Action Grapple:**
+When you hit a creature with an unarmed strike or an improvised weapon on your turn, you can use a bonus action to attempt to grapple the target.
+
+**Important Details:**
+- Improvised weapons include chairs, bottles, tools, etc.
+- Bonus action grapple only triggers when you hit
+- Works with Strength-based builds
+- Best with odd STR or CON scores (13→14)
+- Unarmed strikes count as melee weapon attacks`,
+    synergies: [
+      "Grappler feat - Restrain grappled enemies",
+      "Barbarian Rage - Extra damage on unarmed strikes and grapple checks",
+      "Shield Master - Shove and grapple combo",
+      "Rune Knight Fighter - Grapple as a giant",
+      "Monk - Already have unarmed strikes, this adds grappling",
+      "Athletics expertise - Ensure grapple success"
+    ],
+    commonMistakes: [
+      "Thinking improvised weapons are better than actual weapons - they're usually 1d4",
+      "Forgetting you need to hit to trigger the bonus action grapple",
+      "Not realizing unarmed strikes work with this feat",
+      "Taking this feat when you won't use improvised weapons or grappling",
+      "Missing that the d4 unarmed strike is worse than Monk martial arts",
+      "Not coordinating with grapple builds (Shield Master, Grappler feat)"
+    ],
+    dmTips: [
+      "Tavern Brawler enables fun tavern brawl scenes",
+      "Improvised weapons add flavor but aren't mechanically better than real weapons",
+      "Grappling can control enemies effectively with this feat",
+      "This feat is more about flavor and versatility than raw power",
+      "Encourage creative use of environment as improvised weapons",
+      "Tavern Brawler builds are fun but not optimized"
+    ],
+    searchVolume: 1400
+  },
+  {
+    slug: "grappler-5e",
+    name: "Grappler",
+    category: "feats",
+    description: "Complete guide to the Grappler feat in D&D 5e. Pin enemies, gain advantage on attacks against grappled foes, and become a master wrestler.",
+    prerequisite: "Strength 13 or higher",
+    benefit: "You gain advantage on attacks against creatures you're grappling and can restrain them, though you also become restrained in the process.",
+    mechanics: `Grappler enhances your ability to control enemies through grappling:
+
+**Advantage on Grappled Creatures:**
+You have advantage on attack rolls against a creature you are grappling.
+
+**Pin Action:**
+You can use your action to try to pin a creature grappled by you. To do so, make another grapple check. If you succeed, you and the creature are both restrained until the grapple ends.
+
+**Important Details:**
+- Advantage applies to attack rolls, not damage
+- Pinning restrains both you and the target
+- Restrained creatures have disadvantage on attack rolls and DEX saves
+- Attacks against restrained creatures have advantage
+- Pinning uses your action, so plan accordingly
+- You must already be grappling to use the pin action`,
+    synergies: [
+      "Tavern Brawler feat - Grapple as bonus action after unarmed strike",
+      "Shield Master - Shove prone after grappling for more advantage",
+      "Barbarian Rage - Advantage on STR checks makes grappling easier",
+      "Rune Knight Fighter - Grapple huge creatures",
+      "Athletics expertise - Ensure grapple and pin success",
+      "Enlarge/Reduce spell - Become larger to grapple bigger creatures"
+    ],
+    commonMistakes: [
+      "Thinking the advantage is free - you need to be grappling",
+      "Not realizing pinning restrains you too - this is often a bad trade",
+      "Forgetting you can't pin until you've already established a grapple",
+      "Missing that you can grapple + attack with Extra Attack, then pin next turn",
+      "Not using shove prone + grapple combo for better advantage",
+      "Taking this feat when you don't build for grappling (high STR, Athletics proficiency)"
+    ],
+    dmTips: [
+      "Grappler is generally considered weak compared to other feats",
+      "Pinning restrains the user too, which is rarely worth it",
+      "Grappling builds work better with Tavern Brawler and high Athletics",
+      "Consider buffing this feat or allowing the pin to not restrain the user",
+      "Multiple enemies can overwhelm grapplers",
+      "This feat is more about control than damage"
+    ],
+    searchVolume: 1300
   }
 ];
 

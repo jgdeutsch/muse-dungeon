@@ -1326,6 +1326,738 @@ export const racePages: RacePage[] = [
     ],
     searchVolume: 16350,
     aliases: ["warforged-dnd"]
+  },
+  {
+    slug: "human-5e",
+    name: "Human 5e",
+    raceName: "Human",
+    category: "races",
+    abilityScores: "+1 to all ability scores",
+    size: "Medium",
+    speed: "30 ft.",
+    languages: "Common, one extra of your choice",
+    source: "Player's Handbook",
+    description: "Humans are the most adaptable and ambitious people among the common races. They have widely varying tastes, morals, and customs in the many different lands where they have settled. Humans reach adulthood in their late teens and rarely live even a single century. Their short lifespans push them to achieve as much as they can in the years they are given, making them natural adventurers and pioneers.",
+    traits: [
+      {
+        name: "Ability Score Increase",
+        description: "All ability scores increase by 1, making humans exceptionally versatile for any class."
+      },
+      {
+        name: "Extra Language",
+        description: "You can speak, read, and write one extra language of your choice. Humans typically learn the languages of other peoples they deal with."
+      },
+      {
+        name: "Skills (Variant Human)",
+        description: "If using the variant human option, you gain +1 to two ability scores of your choice, proficiency in one skill of your choice, and one feat at 1st level."
+      }
+    ],
+    subraces: [
+      {
+        name: "Standard Human",
+        bonus: "+1 to all six ability scores. One extra language."
+      },
+      {
+        name: "Variant Human",
+        bonus: "+1 to two different ability scores of your choice. Proficiency in one skill of your choice. One feat of your choice at 1st level."
+      }
+    ],
+    commonMistakes: [
+      "Forgetting that variant human is an optional rule that requires DM approval",
+      "Not utilizing the free feat strategically for variant humans",
+      "Overlooking the versatility of +1 to all stats for multiclass builds"
+    ],
+    dmTips: [
+      "Variant humans are exceptionally powerful due to the 1st-level feat",
+      "Standard humans work well for multiclass characters that need multiple ability scores",
+      "Humans' adaptability makes them suitable for any role or class",
+      "Their short lifespans create urgency in character motivations"
+    ],
+    searchVolume: 14200,
+    aliases: ["human-race-5e", "dnd-human"]
+  },
+  {
+    slug: "elf-high-5e",
+    name: "Elf (High Elf) 5e",
+    raceName: "Elf (High Elf)",
+    category: "races",
+    abilityScores: "+2 Dexterity, +1 Intelligence",
+    size: "Medium",
+    speed: "30 ft.",
+    languages: "Common, Elvish, one extra of your choice",
+    source: "Player's Handbook",
+    description: "High elves are graceful, intelligent beings with a keen mind and mastery of basic magic. They have a special affinity for the arcane arts and prize knowledge and scholarship. High elves live in elegant cities carved from ancient forests or gleaming towers. They have fair skin with golden, silver, or black hair and eyes of gold, silver, or blue. High elves can live over 700 years.",
+    traits: [
+      {
+        name: "Darkvision",
+        description: "You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light."
+      },
+      {
+        name: "Keen Senses",
+        description: "You have proficiency in the Perception skill."
+      },
+      {
+        name: "Fey Ancestry",
+        description: "You have advantage on saving throws against being charmed, and magic can't put you to sleep."
+      },
+      {
+        name: "Trance",
+        description: "Elves don't need to sleep. Instead, they meditate deeply for 4 hours a day, gaining the same benefit as a human does from 8 hours of sleep."
+      },
+      {
+        name: "Elf Weapon Training",
+        description: "You have proficiency with the longsword, shortsword, shortbow, and longbow."
+      },
+      {
+        name: "Cantrip",
+        description: "You know one cantrip of your choice from the wizard spell list. Intelligence is your spellcasting ability for it."
+      },
+      {
+        name: "Extra Language",
+        description: "You can speak, read, and write one extra language of your choice."
+      }
+    ],
+    subraces: null,
+    commonMistakes: [
+      "Forgetting Trance only requires 4 hours, allowing elves to take full watch shifts",
+      "Not choosing a useful cantrip that complements your class",
+      "Thinking Fey Ancestry protects against all enchantment spells (only charm and magical sleep)",
+      "Not leveraging the free weapon proficiencies for non-martial classes"
+    ],
+    dmTips: [
+      "High elves make excellent wizards, artificers, and eldritch knights",
+      "The free wizard cantrip provides excellent utility for any class",
+      "Weapon proficiencies enable effective gish (magic/martial hybrid) builds",
+      "Their long lifespans mean they have centuries of experience and perspective",
+      "Consider ancient elven ruins, libraries, and magical academies as plot hooks"
+    ],
+    searchVolume: 12300,
+    aliases: ["high-elf-5e", "elf-5e"]
+  },
+  {
+    slug: "half-elf-5e",
+    name: "Half-Elf 5e",
+    raceName: "Half-Elf",
+    category: "races",
+    abilityScores: "+2 Charisma, +1 to two other ability scores",
+    size: "Medium",
+    speed: "30 ft.",
+    languages: "Common, Elvish, one extra of your choice",
+    source: "Player's Handbook",
+    description: "Half-elves combine what some say are the best qualities of their elf and human parents. They have human curiosity, inventiveness, and ambition tempered by elven refined senses, love of nature, and artistic tastes. Walking in two worlds but truly belonging to neither, half-elves combine the best features of both races. They live about 180 years and mature at the same rate as humans.",
+    traits: [
+      {
+        name: "Darkvision",
+        description: "You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light."
+      },
+      {
+        name: "Fey Ancestry",
+        description: "You have advantage on saving throws against being charmed, and magic can't put you to sleep."
+      },
+      {
+        name: "Skill Versatility",
+        description: "You gain proficiency in two skills of your choice."
+      }
+    ],
+    subraces: null,
+    commonMistakes: [
+      "Not optimizing the flexible +1 bonuses to complement your class",
+      "Forgetting to choose two skill proficiencies during character creation",
+      "Overlooking half-elf's exceptional versatility for any class or build"
+    ],
+    dmTips: [
+      "Half-elves are among the most versatile races mechanically",
+      "The Charisma bonus and skill proficiencies make them excellent bards, paladins, sorcerers, and warlocks",
+      "Their dual heritage creates interesting roleplay about belonging and identity",
+      "Skill Versatility helps fill party gaps in skills",
+      "Consider themes of acceptance, prejudice, and finding one's place in the world"
+    ],
+    searchVolume: 9600,
+    aliases: ["half-elf-race-5e", "halfelf-5e"]
+  },
+  {
+    slug: "half-orc-5e",
+    name: "Half-Orc 5e",
+    raceName: "Half-Orc",
+    category: "races",
+    abilityScores: "+2 Strength, +1 Constitution",
+    size: "Medium",
+    speed: "30 ft.",
+    languages: "Common, Orc",
+    source: "Player's Handbook",
+    description: "Half-orcs' grayish pigmentation, sloping foreheads, jutting jaws, prominent teeth, and towering builds make their orcish heritage plain for all to see. They are between 6 and 7 feet tall and weigh between 180 and 250 pounds. Whether united under the leadership of a mighty warlock or fighting for survival, half-orcs are natural adventurers drawn to the adventuring life as a means of escaping prejudice.",
+    traits: [
+      {
+        name: "Darkvision",
+        description: "You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light."
+      },
+      {
+        name: "Menacing",
+        description: "You gain proficiency in the Intimidation skill."
+      },
+      {
+        name: "Relentless Endurance",
+        description: "When you are reduced to 0 hit points but not killed outright, you can drop to 1 hit point instead. You can't use this feature again until you finish a long rest."
+      },
+      {
+        name: "Savage Attacks",
+        description: "When you score a critical hit with a melee weapon attack, you can roll one of the weapon's damage dice one additional time and add it to the extra damage of the critical hit."
+      }
+    ],
+    subraces: null,
+    commonMistakes: [
+      "Forgetting Relentless Endurance only works once per long rest",
+      "Not tracking when Relentless Endurance has been used",
+      "Thinking Savage Attacks doubles all damage dice (it only adds one extra weapon die)",
+      "Not utilizing Intimidation proficiency for social encounters"
+    ],
+    dmTips: [
+      "Half-orcs are exceptional barbarians, fighters, and paladins",
+      "Relentless Endurance is a powerful survival tool that can turn the tide of battle",
+      "Savage Attacks scales well with larger weapon damage dice (greatswords, greataxes)",
+      "Their orcish heritage often leads to prejudice - use this for character development",
+      "Consider themes of overcoming stereotypes and proving one's worth"
+    ],
+    searchVolume: 8900,
+    aliases: ["half-orc-race-5e", "halforc-5e"]
+  },
+  {
+    slug: "orc-5e",
+    name: "Orc 5e",
+    raceName: "Orc",
+    category: "races",
+    abilityScores: "+2 Strength, +1 Constitution",
+    size: "Medium",
+    speed: "30 ft.",
+    languages: "Common, Orc",
+    source: "Volo's Guide to Monsters / Monsters of the Multiverse",
+    description: "Orcs are savage raiders and pillagers with stooped postures, piggish faces, and prominent teeth. They are larger and bulkier than humans, standing 6 to 7 feet tall. In Eberron and other settings, orcs have rich cultures as noble warriors and spiritual leaders. Playable orcs in 5e represent those who have broken free from the influence of Gruumsh or come from more civilized orc tribes.",
+    traits: [
+      {
+        name: "Darkvision",
+        description: "You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light."
+      },
+      {
+        name: "Adrenaline Rush",
+        description: "You can take the Dash action as a bonus action. When you do so, you gain a number of temporary hit points equal to your proficiency bonus. You can use this trait a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
+      },
+      {
+        name: "Powerful Build",
+        description: "You count as one size larger when determining your carrying capacity and the weight you can push, drag, or lift."
+      },
+      {
+        name: "Relentless Endurance",
+        description: "When you are reduced to 0 hit points but not killed outright, you can drop to 1 hit point instead. Once you use this trait, you can't use it again until you finish a long rest."
+      }
+    ],
+    subraces: null,
+    commonMistakes: [
+      "Forgetting Adrenaline Rush grants temporary HP when used",
+      "Not tracking the number of Adrenaline Rush uses (scales with proficiency bonus)",
+      "Thinking Relentless Endurance can be used multiple times per day",
+      "Not using Adrenaline Rush for tactical repositioning"
+    ],
+    dmTips: [
+      "Orcs make excellent barbarians, fighters, and front-line warriors",
+      "Adrenaline Rush provides both mobility and survivability",
+      "The combination of Relentless Endurance and temporary HP makes them very durable",
+      "Consider non-stereotypical orc characters that challenge expectations",
+      "In Eberron, orcs have a rich druidic tradition and complex culture"
+    ],
+    searchVolume: 7800,
+    aliases: ["orc-race-5e", "dnd-orc"]
+  },
+  {
+    slug: "tortle-5e",
+    name: "Tortle 5e",
+    raceName: "Tortle",
+    category: "races",
+    abilityScores: "+2 Strength, +1 Wisdom",
+    size: "Medium",
+    speed: "30 ft.",
+    languages: "Common, Aquan",
+    source: "The Tortle Package / Monsters of the Multiverse",
+    description: "Tortles are humanoid tortoises native to warm coastal regions. They have natural shells that provide excellent protection, and they are surprisingly strong despite their peaceful demeanor. Most tortles live simple lives as fishers, farmers, and rangers, but some are driven by wanderlust to explore the world. Tortles mature quickly, reaching adulthood by age 15, but can live up to 50 years.",
+    traits: [
+      {
+        name: "Claws",
+        description: "Your claws are natural weapons, which you can use to make unarmed strikes. If you hit with them, you deal slashing damage equal to 1d6 + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike."
+      },
+      {
+        name: "Hold Breath",
+        description: "You can hold your breath for up to 1 hour at a time."
+      },
+      {
+        name: "Natural Armor",
+        description: "Your shell provides ample protection. When you aren't wearing armor, your AC is 17. You gain no benefit from wearing armor, but if you are using a shield, you can apply the shield's bonus as normal."
+      },
+      {
+        name: "Nature's Intuition",
+        description: "You gain proficiency in one of the following skills of your choice: Animal Handling, Medicine, Nature, Perception, Stealth, or Survival."
+      },
+      {
+        name: "Shell Defense",
+        description: "You can withdraw into your shell as an action. Until you emerge, you gain a +4 bonus to AC, and you have advantage on Strength and Constitution saving throws. While in your shell, you are prone, your speed is 0 and can't increase, you have disadvantage on Dexterity saving throws, you can't take reactions, and the only action you can take is a bonus action to emerge from your shell."
+      }
+    ],
+    subraces: null,
+    commonMistakes: [
+      "Thinking Natural Armor can stack with worn armor (it cannot)",
+      "Not using Shell Defense as an emergency survival tool",
+      "Forgetting you're prone while in your shell",
+      "Not choosing a skill proficiency for Nature's Intuition"
+    ],
+    dmTips: [
+      "Tortles have an excellent base AC of 17, making them great for monks, barbarians, and druids",
+      "Shell Defense is a powerful last-resort defensive option",
+      "Their hold breath ability makes them natural aquatic explorers",
+      "Tortles' peaceful nature and wanderlust create interesting character motivations",
+      "The natural armor means they don't need to invest in armor proficiencies or equipment"
+    ],
+    searchVolume: 13400,
+    aliases: ["tortle-race-5e", "turtle-5e"]
+  },
+  {
+    slug: "yuan-ti-pureblood-5e",
+    name: "Yuan-Ti Pureblood 5e",
+    raceName: "Yuan-Ti Pureblood",
+    category: "races",
+    abilityScores: "+2 Charisma, +1 Intelligence",
+    size: "Medium",
+    speed: "30 ft.",
+    languages: "Common, Abyssal, Draconic",
+    source: "Volo's Guide to Monsters",
+    description: "Yuan-ti purebloods are the most human-appearing of the yuan-ti, a race of serpentine humanoids. They can pass for human with minimal effort, though they often have forked tongues, snake eyes, patches of scales, or a faintly reptilian scent. Yuan-ti are cunning manipulators who view other races as tools or food. Pureblood adventurers often infiltrate human society or seek to break free from their cruel heritage.",
+    traits: [
+      {
+        name: "Darkvision",
+        description: "You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light."
+      },
+      {
+        name: "Magic Resistance",
+        description: "You have advantage on saving throws against spells and other magical effects."
+      },
+      {
+        name: "Poison Immunity",
+        description: "You are immune to poison damage and the poisoned condition."
+      },
+      {
+        name: "Innate Spellcasting",
+        description: "You know the Poison Spray cantrip. You can cast Animal Friendship an unlimited number of times with this trait, but you can target only snakes with it. Starting at 3rd level, you can cast Suggestion once with this trait. You regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells."
+      }
+    ],
+    subraces: null,
+    commonMistakes: [
+      "Forgetting Magic Resistance applies to all magical effects, not just spells",
+      "Not using Animal Friendship to recruit snake allies",
+      "Forgetting Suggestion becomes available at 3rd level",
+      "Overlooking how powerful poison immunity is against certain enemies"
+    ],
+    dmTips: [
+      "Yuan-ti purebloods are exceptionally powerful due to Magic Resistance",
+      "They make excellent sorcerers, warlocks, and bards",
+      "Poison immunity is very strong in campaigns with poison-using enemies",
+      "Consider the moral implications of playing a creature from an evil society",
+      "Suggestion is a powerful control spell - be prepared for creative uses",
+      "Their infiltration abilities create interesting espionage opportunities"
+    ],
+    searchVolume: 10200,
+    aliases: ["yuan-ti-5e", "yuanti-pureblood"]
+  },
+  {
+    slug: "satyr-5e",
+    name: "Satyr 5e",
+    raceName: "Satyr",
+    category: "races",
+    abilityScores: "+2 Charisma, +1 Dexterity",
+    size: "Medium",
+    speed: "35 ft.",
+    languages: "Common, Sylvan",
+    source: "Mythic Odysseys of Theros / Monsters of the Multiverse",
+    description: "Satyrs are fey creatures from the Feywild with the upper body of a humanoid and the legs and horns of a goat. They are known for their love of revelry, music, and mischief. Satyrs embody freedom and joy, living in the moment and encouraging others to cast aside their worries. They are skilled musicians and performers who delight in bringing laughter and celebration wherever they go.",
+    traits: [
+      {
+        name: "Ram",
+        description: "You can use your head and horns to make unarmed strikes. If you hit with them, you deal bludgeoning damage equal to 1d6 + your Strength modifier."
+      },
+      {
+        name: "Magic Resistance",
+        description: "You have advantage on saving throws against spells and other magical effects."
+      },
+      {
+        name: "Mirthful Leaps",
+        description: "Whenever you make a long jump or a high jump, you can roll a d8 and add the number rolled to the number of feet you cover, even when making a standing jump. This extra distance costs movement as normal."
+      },
+      {
+        name: "Reveler",
+        description: "You have proficiency in the Performance and Persuasion skills, and you have proficiency with one musical instrument of your choice."
+      }
+    ],
+    subraces: null,
+    commonMistakes: [
+      "Forgetting Magic Resistance applies to all spells and magical effects",
+      "Not using Mirthful Leaps for tactical positioning or exploration",
+      "Forgetting to choose a musical instrument proficiency",
+      "Not leveraging the increased 35-foot movement speed"
+    ],
+    dmTips: [
+      "Satyrs make excellent bards, warlocks, and rogues",
+      "Magic Resistance is incredibly powerful - one of the best racial traits",
+      "Their fey nature and love of revelry create interesting roleplay opportunities",
+      "The extra movement speed and jumping ability makes them mobile skirmishers",
+      "Consider how their carefree attitude contrasts with serious party members",
+      "They work well in Feywild-themed campaigns or as outsiders in mortal lands"
+    ],
+    searchVolume: 8100,
+    aliases: ["satyr-race-5e", "dnd-satyr"]
+  },
+  {
+    slug: "harengon-5e",
+    name: "Harengon 5e",
+    raceName: "Harengon",
+    category: "races",
+    abilityScores: "+2 to one ability score, +1 to another",
+    size: "Medium or Small",
+    speed: "30 ft.",
+    languages: "Common, one other of your choice",
+    source: "The Wild Beyond the Witchlight",
+    description: "Harengon are humanoid rabbits that originated in the Feywild. They are blessed with supernatural luck and have an uncanny knack for escaping danger. Harengon are joyful, energetic, and quick-witted, with powerful legs built for leaping. Their connection to the Feywild gives them a mercurial temperament and a love of freedom. Harengon adventurers are driven by curiosity and a desire to see what lies around the next corner.",
+    traits: [
+      {
+        name: "Hare-Trigger",
+        description: "You can add your proficiency bonus to your initiative rolls."
+      },
+      {
+        name: "Leporine Senses",
+        description: "You have proficiency in the Perception skill."
+      },
+      {
+        name: "Lucky Footwork",
+        description: "When you fail a Dexterity saving throw, you can use your reaction to roll a d4 and add it to the save, potentially turning the failure into a success. You can't use this reaction if you're prone or your speed is 0."
+      },
+      {
+        name: "Rabbit Hop",
+        description: "As a bonus action, you can jump a number of feet equal to five times your proficiency bonus, without provoking opportunity attacks. You can use this trait only if your speed is greater than 0. You can use it a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
+      }
+    ],
+    subraces: null,
+    commonMistakes: [
+      "Forgetting to add proficiency bonus to initiative",
+      "Not using Lucky Footwork to avoid fireballs and other Dexterity saves",
+      "Forgetting Rabbit Hop doesn't provoke opportunity attacks",
+      "Not tracking the number of Rabbit Hop uses (scales with proficiency bonus)"
+    ],
+    dmTips: [
+      "Harengon's initiative bonus makes them excellent for going first in combat",
+      "Rabbit Hop provides exceptional mobility without provoking attacks",
+      "Lucky Footwork is great for avoiding area-of-effect spells",
+      "Their fey origins work well in Feywild or whimsical campaigns",
+      "Consider their energetic, curious nature in roleplay",
+      "The combination of mobility and lucky saves makes them excellent scouts"
+    ],
+    searchVolume: 9500,
+    aliases: ["harengon-race-5e", "rabbit-folk-5e"]
+  },
+  {
+    slug: "owlin-5e",
+    name: "Owlin 5e",
+    raceName: "Owlin",
+    category: "races",
+    abilityScores: "+2 to one ability score, +1 to another",
+    size: "Medium or Small",
+    speed: "30 ft.",
+    languages: "Common, one other of your choice",
+    source: "Strixhaven: A Curriculum of Chaos",
+    description: "Owlin are humanoid owls with keen senses and silent flight. They are naturally inquisitive and wise, with a love of learning and knowledge. Owlin have feathered bodies, taloned hands, and large, expressive eyes. Their connection to the night gives them excellent vision in darkness. Owlin are often scholars, sages, or guardians of ancient knowledge.",
+    traits: [
+      {
+        name: "Darkvision",
+        description: "You can see in dim light within 120 feet of you as if it were bright light, and in darkness as if it were dim light."
+      },
+      {
+        name: "Flight",
+        description: "Thanks to your wings, you have a flying speed equal to your walking speed. You can't use this flying speed if you're wearing medium or heavy armor."
+      },
+      {
+        name: "Silent Feathers",
+        description: "You have proficiency in the Stealth skill."
+      }
+    ],
+    subraces: null,
+    commonMistakes: [
+      "Forgetting flight doesn't work in medium or heavy armor",
+      "Not utilizing the superior 120-foot darkvision",
+      "Forgetting to use Stealth proficiency for silent flight approaches",
+      "Not leveraging flight for exploration and combat positioning"
+    ],
+    dmTips: [
+      "Owlin's flight is extremely powerful - be prepared to design encounters that challenge it",
+      "The 120-foot darkvision is superior to most other races",
+      "They make excellent scouts, spellcasters, and ranged attackers",
+      "Their scholarly nature works well for wizard, cleric, or druid characters",
+      "Consider vertical dungeon design to make their flight more interesting",
+      "Silent flight combined with Stealth makes them exceptional infiltrators"
+    ],
+    searchVolume: 7200,
+    aliases: ["owlin-race-5e", "owl-folk-5e"]
+  },
+  {
+    slug: "minotaur-5e",
+    name: "Minotaur 5e",
+    raceName: "Minotaur",
+    category: "races",
+    abilityScores: "+2 Strength, +1 Constitution",
+    size: "Medium",
+    speed: "30 ft.",
+    languages: "Common, Minotaur",
+    source: "Guildmasters' Guide to Ravnica / Monsters of the Multiverse",
+    description: "Minotaurs are powerful humanoids with the head and horns of a bull. They stand over 6 feet tall with muscular builds. Minotaurs are natural warriors who value strength and honor. In Ravnica, they are members of various guilds, particularly the Boros Legion and Gruul Clans. Minotaurs have an innate sense of direction and never get lost, making them excellent guides and explorers.",
+    traits: [
+      {
+        name: "Horns",
+        description: "Your horns are natural melee weapons, which you can use to make unarmed strikes. If you hit with them, you deal piercing damage equal to 1d6 + your Strength modifier."
+      },
+      {
+        name: "Goring Rush",
+        description: "Immediately after you take the Dash action on your turn and move at least 20 feet, you can make one melee attack with your Horns as a bonus action."
+      },
+      {
+        name: "Hammering Horns",
+        description: "Immediately after you hit a creature with a melee attack as part of the Attack action on your turn, you can use a bonus action to attempt to push that target with your horns. The target must be no more than one size larger than you and within 5 feet of you. It must make a Strength saving throw against a DC equal to 8 + your proficiency bonus + your Strength modifier. If it fails, you push it up to 10 feet away from you."
+      },
+      {
+        name: "Labyrinthine Recall",
+        description: "You always know which direction is north, and you have advantage on any Wisdom (Survival) check you make to navigate or track."
+      }
+    ],
+    subraces: null,
+    commonMistakes: [
+      "Forgetting Goring Rush requires both the Dash action and 20 feet of movement",
+      "Not using Hammering Horns for battlefield control",
+      "Thinking both Goring Rush and Hammering Horns can be used on the same turn (they both use bonus actions)",
+      "Not leveraging Labyrinthine Recall for exploration"
+    ],
+    dmTips: [
+      "Minotaurs make excellent barbarians, fighters, and paladins",
+      "Goring Rush and Hammering Horns provide excellent mobility and control",
+      "Their natural weapons are useful when disarmed",
+      "Labyrinthine Recall makes them invaluable in maze-like dungeons",
+      "Consider themes of honor, strength, and overcoming bestial stereotypes",
+      "They work well in Ravnica or any setting with monstrous playable races"
+    ],
+    searchVolume: 11900,
+    aliases: ["minotaur-race-5e", "dnd-minotaur"]
+  },
+  {
+    slug: "centaur-5e",
+    name: "Centaur 5e",
+    raceName: "Centaur",
+    category: "races",
+    abilityScores: "+2 Strength, +1 Wisdom",
+    size: "Medium",
+    speed: "40 ft.",
+    languages: "Common, Sylvan",
+    source: "Guildmasters' Guide to Ravnica / Monsters of the Multiverse",
+    description: "Centaurs are half-human, half-horse creatures with the upper body of a humanoid and the lower body of a horse. They are nomadic warriors and hunters who roam open plains and forests. Centaurs value freedom, nature, and physical prowess. Their equine bodies give them exceptional speed and power. In Ravnica, they are primarily members of the Selesnya Conclave and Gruul Clans.",
+    traits: [
+      {
+        name: "Charge",
+        description: "If you move at least 30 feet straight toward a target and then hit it with a melee weapon attack on the same turn, you can immediately follow that attack with a bonus action, making one attack against the target with your hooves."
+      },
+      {
+        name: "Hooves",
+        description: "Your hooves are natural melee weapons, which you can use to make unarmed strikes. If you hit with them, you deal bludgeoning damage equal to 1d6 + your Strength modifier."
+      },
+      {
+        name: "Equine Build",
+        description: "You count as one size larger when determining your carrying capacity and the weight you can push or drag. In addition, any climb that requires hands and feet is especially difficult for you because of your equine legs. When you make such a climb, each foot of movement costs you 4 extra feet, instead of the normal 1 extra foot. Finally, a Medium or smaller creature can ride on your equine back if you allow it. In such a situation, you continue to act independently, not as a controlled mount."
+      },
+      {
+        name: "Survivor",
+        description: "You have proficiency in one of the following skills of your choice: Animal Handling, Medicine, Nature, or Survival."
+      }
+    ],
+    subraces: null,
+    commonMistakes: [
+      "Forgetting Charge requires 30 feet of straight movement toward the target",
+      "Not using the natural hooves attack for bonus damage",
+      "Thinking Equine Build allows you to be a controlled mount (you act independently)",
+      "Not accounting for the climbing penalty",
+      "Forgetting to choose a skill proficiency for Survivor"
+    ],
+    dmTips: [
+      "Centaurs have the fastest base speed of common player races at 40 feet",
+      "They make excellent barbarians, fighters, rangers, and druids",
+      "Charge provides bonus damage on aggressive charges",
+      "The ability to carry allies creates interesting tactical options",
+      "Their equine nature creates challenges with stairs, ladders, and tight spaces",
+      "Consider how their size and build affects dungeon exploration and social situations"
+    ],
+    searchVolume: 9300,
+    aliases: ["centaur-race-5e", "dnd-centaur"]
+  },
+  {
+    slug: "triton-5e",
+    name: "Triton 5e",
+    raceName: "Triton",
+    category: "races",
+    abilityScores: "+1 Strength, +1 Constitution, +1 Charisma",
+    size: "Medium",
+    speed: "30 ft., swim 30 ft.",
+    languages: "Common, Primordial",
+    source: "Volo's Guide to Monsters / Monsters of the Multiverse",
+    description: "Tritons are aquatic humanoids native to the Elemental Plane of Water who guard the ocean depths from evil. They have blue-green skin, fins, and webbed hands and feet. Tritons are guardians and protectors who view themselves as caretakers of the sea. They are proud, sometimes arrogant, and believe it is their duty to protect the surface world from the horrors of the deep.",
+    traits: [
+      {
+        name: "Amphibious",
+        description: "You can breathe air and water."
+      },
+      {
+        name: "Control Air and Water",
+        description: "You can cast Fog Cloud with this trait. Starting at 3rd level, you can cast Gust of Wind with it, and starting at 5th level, you can also cast Wall of Water with it. Once you cast any of these spells with this trait, you can't cast that spell with it again until you finish a long rest. You can also cast these spells using any spell slots you have of the appropriate level. Charisma is your spellcasting ability for these spells."
+      },
+      {
+        name: "Darkvision",
+        description: "You can see in dim light within 60 feet of you as if it were bright light and in darkness as if it were dim light."
+      },
+      {
+        name: "Emissary of the Sea",
+        description: "You can communicate simple ideas to any Beast, Elemental, or Monstrosity that has a swimming speed. It can understand your words, though you have no special ability to understand it in return."
+      },
+      {
+        name: "Guardians of the Depths",
+        description: "You have resistance to cold damage, and you ignore any of the drawbacks caused by a deep, underwater environment."
+      }
+    ],
+    subraces: null,
+    commonMistakes: [
+      "Forgetting tritons can breathe both air and water (fully amphibious)",
+      "Not tracking the level requirements for Control Air and Water spells",
+      "Thinking Emissary of the Sea allows full conversation (only simple ideas)",
+      "Not leveraging cold resistance in appropriate environments",
+      "Forgetting they ignore underwater combat penalties and pressure"
+    ],
+    dmTips: [
+      "Tritons excel in aquatic campaigns and coastal adventures",
+      "They make great paladins, fighters, and clerics",
+      "Their guardianship mentality creates interesting roleplay as protectors",
+      "Control Air and Water provides excellent utility spells",
+      "Emissary of the Sea helps with aquatic creatures and elementals",
+      "Consider their pride and duty as sources of character motivation",
+      "Guardians of the Depths makes them immune to underwater hazards"
+    ],
+    searchVolume: 8500,
+    aliases: ["triton-race-5e", "dnd-triton"]
+  },
+  {
+    slug: "shifter-5e",
+    name: "Shifter 5e",
+    raceName: "Shifter",
+    category: "races",
+    abilityScores: "+2 Dexterity, +1 varies by subrace",
+    size: "Medium",
+    speed: "30 ft.",
+    languages: "Common",
+    source: "Eberron: Rising from the Last War",
+    description: "Shifters are descended from humans and lycanthropes, bearing a bestial aspect that they can temporarily enhance. They have elongated canines, pointed ears, and subtle animalistic features. Shifters can shift to enhance their physical abilities, taking on more pronounced bestial traits. They are passionate and quick to anger, but also fiercely loyal. Different shifter subraces reflect different lycanthropic ancestries.",
+    traits: [
+      {
+        name: "Darkvision",
+        description: "You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light."
+      },
+      {
+        name: "Keen Senses",
+        description: "You have proficiency in the Perception skill."
+      },
+      {
+        name: "Shifting",
+        description: "As a bonus action, you can assume a more bestial appearance. This transformation lasts for 1 minute, until you die, or until you revert to your normal appearance as a bonus action. When you shift, you gain temporary hit points equal to 2 times your proficiency bonus. You can shift a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest. Whenever you shift, you gain additional benefits based on your shifter subrace."
+      }
+    ],
+    subraces: [
+      {
+        name: "Beasthide Shifter",
+        bonus: "+1 Constitution. While shifting, you gain a +1 bonus to AC and can use your reaction to reduce damage you take by 1d6."
+      },
+      {
+        name: "Longtooth Shifter",
+        bonus: "+1 Strength. While shifting, you can use your elongated fangs to make unarmed strikes as a bonus action. If you hit, you deal 1d6 + Strength modifier piercing damage."
+      },
+      {
+        name: "Swiftstride Shifter",
+        bonus: "+1 Charisma. While shifting, your walking speed increases by 10 feet, and you can move up to 10 feet as a reaction when a creature ends its turn within 5 feet of you."
+      },
+      {
+        name: "Wildhunt Shifter",
+        bonus: "+1 Wisdom. While shifting, you have advantage on Wisdom checks and no creature within 30 feet can make an attack roll with advantage against you unless you're incapacitated."
+      }
+    ],
+    commonMistakes: [
+      "Forgetting Shifting lasts for 1 minute (10 rounds of combat)",
+      "Not tracking the number of shifts available (scales with proficiency bonus)",
+      "Forgetting to gain temporary HP when shifting",
+      "Not utilizing subrace-specific shifting benefits effectively",
+      "Thinking shifting is a permanent transformation"
+    ],
+    dmTips: [
+      "Shifters work best in Eberron but can fit other settings with lycanthropy",
+      "Each subrace suits different playstyles - Beasthide for tanks, Longtooth for melee damage, Swiftstride for mobility, Wildhunt for scouts",
+      "Shifting provides a powerful combat boost a few times per day",
+      "Their lycanthropic heritage creates interesting roleplay about control and instinct",
+      "Consider prejudice against shifters due to their lycanthropic connection",
+      "Temporary HP from shifting helps survive dangerous encounters"
+    ],
+    searchVolume: 8900,
+    aliases: ["shifter-race-5e", "dnd-shifter"]
+  },
+  {
+    slug: "grung-5e",
+    name: "Grung 5e",
+    raceName: "Grung",
+    category: "races",
+    abilityScores: "+2 Dexterity, +1 Constitution",
+    size: "Small",
+    speed: "25 ft., climb 25 ft.",
+    languages: "Grung",
+    source: "One Grung Above",
+    description: "Grungs are poisonous frog-like amphibious humanoids that live in trees in tropical rainforests. They are territorial, hierarchical, and organized by caste based on skin color. Grungs secrete poison through their skin, making them dangerous to touch. They are excellent climbers and can leap great distances. Most grung societies are insular and hostile to outsiders, but adventuring grungs have left their tribes to explore the world.",
+    traits: [
+      {
+        name: "Arboreal Alertness",
+        description: "You have proficiency in the Perception skill."
+      },
+      {
+        name: "Standing Leap",
+        description: "Your long jump is up to 25 feet and your high jump is up to 15 feet, with or without a running start."
+      },
+      {
+        name: "Water Dependency",
+        description: "If you fail to immerse yourself in water for at least 1 hour during a day, you suffer one level of exhaustion at the end of that day. You can recover from this exhaustion only through magic or by immersing yourself in water for at least 1 hour."
+      },
+      {
+        name: "Poisonous Skin",
+        description: "Any creature that grapples you or otherwise comes into direct contact with your skin must succeed on a DC 12 Constitution saving throw or become poisoned for 1 minute. A poisoned creature no longer in direct contact with you can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. You can also apply this poison to any piercing weapon as part of an attack with that weapon, though when you hit, the poison replicates the effects of a successful application of the weapon's original poison."
+      }
+    ],
+    subraces: null,
+    commonMistakes: [
+      "Forgetting Water Dependency requires daily immersion (can be deadly in deserts)",
+      "Not using Standing Leap for tactical positioning",
+      "Forgetting Poisonous Skin affects creatures that grapple you",
+      "Not applying poison to weapons in combat",
+      "Overlooking the challenges of being Small size"
+    ],
+    dmTips: [
+      "Grungs are challenging to play due to Water Dependency - ensure water is accessible",
+      "Their poisonous skin makes them dangerous grapplers",
+      "Standing Leap provides excellent mobility in vertical terrain",
+      "They make great monks, rogues, and rangers",
+      "Consider how their need for water affects adventure planning",
+      "Their tribal, caste-based society creates interesting backstory options",
+      "The poison DC doesn't scale, so it becomes less effective at higher levels"
+    ],
+    searchVolume: 6800,
+    aliases: ["grung-race-5e", "frog-folk-5e"]
   }
 ];
 
