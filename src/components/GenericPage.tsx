@@ -2,6 +2,7 @@ import { Breadcrumb } from "./Breadcrumb";
 import { JumpTo } from "./JumpTo";
 import { Warning, Tip } from "./Warning";
 import { Sources } from "./Sources";
+import { AssignToCharacter } from "./AssignToCharacter";
 
 type GenericPageData = {
   name: string;
@@ -17,10 +18,14 @@ export function GenericPageComponent({
   data,
   breadcrumbs,
   sources,
+  assignField,
+  assignSlug,
 }: {
   data: GenericPageData;
   breadcrumbs: BreadcrumbItem[];
   sources?: { name: string; url: string; note?: string }[];
+  assignField?: "conditions" | "activeEffects" | "spellsKnown" | "items";
+  assignSlug?: string;
 }) {
   const sections = [
     ...data.sections.map((s) => ({ id: s.id, label: s.title })),
@@ -41,6 +46,10 @@ export function GenericPageComponent({
           {data.description}
         </p>
       </div>
+
+      {assignField && (
+        <AssignToCharacter entryName={data.name} entrySlug={assignSlug} field={assignField} />
+      )}
 
       <JumpTo sections={sections} />
 

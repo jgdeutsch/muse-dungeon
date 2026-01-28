@@ -2,6 +2,16 @@
 
 import { createContext, useContext, useState, useEffect, useCallback, type ReactNode } from "react";
 
+export type GameEntry = {
+  name: string;
+  slug?: string;
+  category: "condition" | "spell" | "spell-known" | "item";
+};
+
+export type SpellSlots = {
+  [level: string]: { max: number; used: number };
+};
+
 export type GameCharacter = {
   id: string;
   name: string;
@@ -11,15 +21,26 @@ export type GameCharacter = {
   createdAt: number;
   level: number;
   hp: string;
+  hpMax: string;
+  hpTemp: string;
   ac: string;
   notes: string;
+  conditions: GameEntry[];
+  activeEffects: GameEntry[];
+  spellsKnown: GameEntry[];
+  items: GameEntry[];
+  spellSlots: SpellSlots;
 };
+
+const DEFAULTS = { level: 1, hp: "", hpMax: "", hpTemp: "", ac: "", notes: "", conditions: [], activeEffects: [], spellsKnown: [], items: [], spellSlots: {} };
 
 type GameState = {
   characters: GameCharacter[];
-  addCharacter: (char: Omit<GameCharacter, "id" | "createdAt" | "level" | "hp" | "ac" | "notes">) => void;
+  addCharacter: (char: Pick<GameCharacter, "name" | "className" | "classSlug" | "type">) => void;
   updateCharacter: (id: string, updates: Partial<GameCharacter>) => void;
   removeCharacter: (id: string) => void;
+  addEntryToCharacter: (charId: string, field: "conditions" | "activeEffects" | "spellsKnown" | "items", entry: GameEntry) => void;
+  removeEntryFromCharacter: (charId: string, field: "conditions" | "activeEffects" | "spellsKnown" | "items", index: number) => void;
 };
 
 const GameContext = createContext<GameState>({
@@ -27,6 +48,8 @@ const GameContext = createContext<GameState>({
   addCharacter: () => {},
   updateCharacter: () => {},
   removeCharacter: () => {},
+  addEntryToCharacter: () => {},
+  removeEntryFromCharacter: () => {},
 });
 
 const STORAGE_KEY = "muse-dungeon-game";
@@ -39,14 +62,9 @@ export function GameProvider({ children }: { children: ReactNode }) {
     try {
       const raw = localStorage.getItem(STORAGE_KEY);
       if (raw) {
-        const parsed = JSON.parse(raw);
-        // Migrate old entries missing new fields
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const migrated = parsed.map((c: any) => ({
-          level: 1,
-          hp: "",
-          ac: "",
-          notes: "",
+        const migrated = JSON.parse(raw).map((c: any) => ({
+          ...DEFAULTS,
           ...c,
         })) as GameCharacter[];
         setCharacters(migrated);
@@ -62,10 +80,10 @@ export function GameProvider({ children }: { children: ReactNode }) {
   }, [characters, hydrated]);
 
   const addCharacter = useCallback(
-    (char: Omit<GameCharacter, "id" | "createdAt" | "level" | "hp" | "ac" | "notes">) => {
+    (char: Pick<GameCharacter, "name" | "className" | "classSlug" | "type">) => {
       setCharacters((prev) => [
         ...prev,
-        { ...char, id: crypto.randomUUID(), createdAt: Date.now(), level: 1, hp: "", ac: "", notes: "" },
+        { ...DEFAULTS, ...char, id: crypto.randomUUID(), createdAt: Date.now() },
       ]);
     },
     []
@@ -81,8 +99,32 @@ export function GameProvider({ children }: { children: ReactNode }) {
     setCharacters((prev) => prev.filter((c) => c.id !== id));
   }, []);
 
+  const addEntryToCharacter = useCallback(
+    (charId: string, field: "conditions" | "activeEffects" | "spellsKnown" | "items", entry: GameEntry) => {
+      setCharacters((prev) =>
+        prev.map((c) =>
+          c.id === charId ? { ...c, [field]: [...c[field], entry] } : c
+        )
+      );
+    },
+    []
+  );
+
+  const removeEntryFromCharacter = useCallback(
+    (charId: string, field: "conditions" | "activeEffects" | "spellsKnown" | "items", index: number) => {
+      setCharacters((prev) =>
+        prev.map((c) =>
+          c.id === charId ? { ...c, [field]: c[field].filter((_, i) => i !== index) } : c
+        )
+      );
+    },
+    []
+  );
+
   return (
-    <GameContext.Provider value={{ characters, addCharacter, updateCharacter, removeCharacter }}>
+    <GameContext.Provider
+      value={{ characters, addCharacter, updateCharacter, removeCharacter, addEntryToCharacter, removeEntryFromCharacter }}
+    >
       {children}
     </GameContext.Provider>
   );

@@ -3,6 +3,7 @@ import { AtAGlance } from "./AtAGlance";
 import { JumpTo } from "./JumpTo";
 import { Warning, Tip } from "./Warning";
 import { Sources } from "./Sources";
+import { AssignToCharacter } from "./AssignToCharacter";
 
 type EquipmentData = {
   slug: string;
@@ -66,6 +67,7 @@ export function EquipmentPageComponent({ data }: { data: EquipmentData }) {
       </div>
 
       <AtAGlance stats={stats} />
+      <AssignToCharacter entryName={data.name} entrySlug={data.slug} field="items" />
 
       {data.properties.length > 0 && (
         <div className="flex flex-wrap gap-1.5 mb-4">
@@ -162,6 +164,7 @@ export function MagicItemPageComponent({ data }: { data: MagicItemData }) {
       </div>
 
       <AtAGlance stats={stats} />
+      <AssignToCharacter entryName={data.name} entrySlug={data.slug} field="items" />
       <JumpTo sections={sections} />
 
       <section id="mechanics" className="py-8 border-t border-[var(--border)]">

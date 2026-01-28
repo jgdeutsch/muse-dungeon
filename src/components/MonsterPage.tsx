@@ -3,6 +3,7 @@ import { AtAGlance } from "./AtAGlance";
 import { JumpTo } from "./JumpTo";
 import { Warning, Tip } from "./Warning";
 import { Sources } from "./Sources";
+import { AssignToCharacter } from "./AssignToCharacter";
 
 type MonsterPageData = {
   slug: string;
@@ -73,6 +74,7 @@ export function MonsterPageComponent({ data }: { data: MonsterPageData }) {
       </div>
 
       <AtAGlance stats={stats} />
+      <AssignToCharacter entryName={`Encounter: ${data.monsterName}`} entrySlug={data.slug} field="conditions" />
 
       {/* Speed */}
       <div className="bg-[var(--bg-card)] border border-[var(--border)] rounded-lg px-4 py-3 mb-4 text-sm">

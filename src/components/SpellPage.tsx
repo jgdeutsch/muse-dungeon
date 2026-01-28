@@ -4,6 +4,7 @@ import { JumpTo } from "./JumpTo";
 import { Warning, Tip } from "./Warning";
 import { Sources } from "./Sources";
 import { SpellChecker } from "./SpellChecker";
+import { AssignToCharacter } from "./AssignToCharacter";
 
 type Spell = {
   slug: string;
@@ -83,6 +84,10 @@ export function SpellPage({ spell }: { spell: Spell }) {
       </div>
 
       <AtAGlance stats={stats} />
+      <div className="flex gap-2 flex-wrap">
+        <AssignToCharacter entryName={spell.name} entrySlug={spell.slug} field="spellsKnown" />
+        <AssignToCharacter entryName={spell.name} entrySlug={spell.slug} field="activeEffects" />
+      </div>
       <SpellChecker spell={spell} />
       <JumpTo sections={sections} />
 

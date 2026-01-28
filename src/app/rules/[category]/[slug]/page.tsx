@@ -57,6 +57,8 @@ export default async function RuleSlugPage({
         },
         { label: rule.name },
       ]}
+      assignField="conditions"
+      assignSlug={rule.slug}
     />
   );
 }
