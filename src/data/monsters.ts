@@ -454,6 +454,703 @@ export const monsterPages: MonsterPage[] = [
       "Use zombie hordes to create time pressure"
     ],
     searchVolume: 7300
+  },
+  {
+    slug: "beholder-5e",
+    name: "Beholder 5e Guide",
+    monsterName: "Beholder",
+    category: "creatures",
+    challengeRating: "13",
+    type: "Aberration",
+    size: "Large",
+    alignment: "Lawful Evil",
+    armorClass: "18 (natural armor)",
+    hitPoints: "180 (19d10 + 76)",
+    speed: "0 ft., fly 20 ft. (hover)",
+    abilities: { str: 10, dex: 14, con: 18, int: 17, wis: 15, cha: 17 },
+    keyAbilities: [
+      { name: "Antimagic Cone", description: "The beholder's central eye creates a 150-foot cone of antimagic. Each creature and magical effect in the area is affected by Antimagic Field." },
+      { name: "Eye Rays", description: "The beholder shoots three random eye rays from among ten options, each targeting a creature within 120 ft. Rays include Charm, Paralyzing, Fear, Slowing, Enervation, Telekinetic, Sleep, Petrification, Disintegration, and Death rays." },
+      { name: "Legendary Actions", description: "The beholder can take 3 legendary actions: use one eye ray per action. It can also use its eye rays at the start of its turn." }
+    ],
+    tactics: "Beholders are paranoid geniuses. They position themselves to use Antimagic Cone strategically — shutting down casters while using eye rays on martial characters. They use terrain to their advantage, hovering over pits or lava. A smart beholder has prepared its lair with traps, minions, and escape routes.",
+    encounterTips: "Beholder lairs should feel like entering a mad genius's domain. Vertical terrain is key since the beholder hovers. Use the legendary actions to keep pressure on the party between turns. The antimagic cone creates tactical puzzles — do casters stay in range or retreat?",
+    loot: "Beholder eyes retain residual magic and are prized by wizards (500–2,000 gp each). Their lairs contain hoarded treasures including magic items they've collected from defeated foes.",
+    commonMistakes: [
+      "Forgetting the Antimagic Cone also affects the beholder's own eye rays",
+      "Not randomizing which eye rays fire each turn",
+      "Playing the beholder as a brute instead of a paranoid tactician"
+    ],
+    dmTips: [
+      "Give the beholder a personality — each one is uniquely paranoid",
+      "Use the lair actions to make the environment itself hostile",
+      "The antimagic cone is a cone FROM the central eye — position matters"
+    ],
+    searchVolume: 18100
+  },
+  {
+    slug: "dragon-red-ancient-5e",
+    name: "Ancient Red Dragon 5e Guide",
+    monsterName: "Ancient Red Dragon",
+    category: "creatures",
+    challengeRating: "24",
+    type: "Dragon",
+    size: "Gargantuan",
+    alignment: "Chaotic Evil",
+    armorClass: "22 (natural armor)",
+    hitPoints: "546 (28d20 + 252)",
+    speed: "40 ft., climb 40 ft., fly 80 ft.",
+    abilities: { str: 30, dex: 10, con: 29, int: 18, wis: 15, cha: 23 },
+    keyAbilities: [
+      { name: "Fire Breath (Recharge 5-6)", description: "90-foot cone, DC 24 Dexterity save, 26d6 fire damage on a failed save, half on success." },
+      { name: "Frightful Presence", description: "Each creature of the dragon's choice within 120 feet must succeed on a DC 21 Wisdom save or become frightened for 1 minute." },
+      { name: "Legendary Actions (3/round)", description: "Detect (Wisdom check), Tail Attack (reach 20 ft., 2d8+10), Wing Attack (DC 25 Dex save, 2d6+10, knocked prone, dragon flies half speed)." }
+    ],
+    tactics: "Ancient Red Dragons are arrogant but not stupid. They open with Frightful Presence to scatter the party, then use breath weapon on grouped enemies. They fly out of melee range and use legendary wing attacks to reposition. If seriously threatened, they retreat to their lair where they have legendary lair actions.",
+    encounterTips: "This is a campaign-ending boss fight. The lair should be a volcanic cave or mountain peak. Use minions (kobolds, fire elementals) to distract while the dragon focuses on the biggest threat. Give the party environmental options — collapsing pillars, lava flows, or magic items that grant fire resistance.",
+    loot: "A red dragon's hoard is legendary — tens of thousands of gold, gems, magic weapons and armor, spell scrolls, and items stolen from heroes over centuries. Red dragon scales can be forged into +2 or +3 armor.",
+    commonMistakes: [
+      "Forgetting legendary resistances (3/day auto-succeed saves)",
+      "Not using the dragon's flight and massive speed advantage",
+      "Underestimating the breath weapon recharge — it can fire multiple times per fight"
+    ],
+    dmTips: [
+      "Give the dragon a name, history, and personality",
+      "Use lair actions every round to make the environment fight too",
+      "Ancient dragons speak many languages and will negotiate if outmatched"
+    ],
+    searchVolume: 14800
+  },
+  {
+    slug: "lich-5e",
+    name: "Lich 5e Guide",
+    monsterName: "Lich",
+    category: "creatures",
+    challengeRating: "21",
+    type: "Undead",
+    size: "Medium",
+    alignment: "Any Evil alignment",
+    armorClass: "17 (natural armor)",
+    hitPoints: "135 (18d8 + 54)",
+    speed: "30 ft.",
+    abilities: { str: 11, dex: 16, con: 16, int: 20, wis: 14, cha: 16 },
+    keyAbilities: [
+      { name: "Spellcasting (18th level)", description: "The lich is an 18th-level spellcaster. Its spellcasting ability is Intelligence (spell save DC 20, +12 to hit). It has access to the full wizard spell list including 9th-level spells like Power Word Kill." },
+      { name: "Legendary Resistance (3/Day)", description: "If the lich fails a saving throw, it can choose to succeed instead." },
+      { name: "Rejuvenation", description: "If destroyed, the lich gains a new body in 1d10 days if its phylactery is intact. The new body appears within 5 feet of the phylactery." },
+      { name: "Paralyzing Touch", description: "Melee spell attack, +12 to hit. 3d6 cold damage, and the target must succeed on a DC 18 Constitution save or be paralyzed for 1 minute." }
+    ],
+    tactics: "A lich fights like a master wizard who has had centuries to prepare. It casts defensive spells before combat (Globe of Invulnerability, Shield, Mirror Image). It uses Power Word Kill on weakened targets and Counterspell against enemy casters. It never fights fair — it has contingency plans, escape routes, and minions positioned throughout its lair.",
+    encounterTips: "The real challenge is finding and destroying the phylactery. The lich itself can be defeated, but it comes back. Make the phylactery quest the real adventure. A lich's lair should be filled with magical traps, undead guardians, and arcane puzzles that reflect the lich's living interests.",
+    loot: "A lich's spellbook is priceless — it contains every wizard spell the lich knew in life. Its lair contains magical research materials, rare spell components, and artifacts accumulated over centuries. The phylactery itself may be a valuable gemstone or magical object.",
+    commonMistakes: [
+      "Forgetting that the lich must feed souls to its phylactery or become a demilich",
+      "Not using the lich's full spell list — it has 9th-level spells",
+      "Playing the lich as a simple combat encounter instead of a recurring villain"
+    ],
+    dmTips: [
+      "A lich should be a recurring villain across multiple sessions",
+      "Give it a motivation beyond 'evil' — what drove it to seek immortality?",
+      "Use the phylactery as a multi-session quest hook"
+    ],
+    searchVolume: 16200
+  },
+  {
+    slug: "vampire-5e",
+    name: "Vampire 5e Guide",
+    monsterName: "Vampire",
+    category: "creatures",
+    challengeRating: "13",
+    type: "Undead",
+    size: "Medium",
+    alignment: "Lawful Evil",
+    armorClass: "16 (natural armor)",
+    hitPoints: "144 (17d8 + 68)",
+    speed: "30 ft.",
+    abilities: { str: 18, dex: 18, con: 18, int: 17, wis: 15, cha: 18 },
+    keyAbilities: [
+      { name: "Bite", description: "Melee weapon attack, +9 to hit. 1d6+4 piercing plus 3d6 necrotic damage. Target's HP max is reduced by the necrotic damage taken, and the vampire regains HP equal to that amount." },
+      { name: "Charm", description: "One humanoid within 30 ft. must succeed on a DC 17 Wisdom save or be charmed. The charmed target regards the vampire as a trusted friend." },
+      { name: "Shapechanger", description: "The vampire can use its action to polymorph into a Tiny bat, a Medium cloud of mist, or back into its true form." },
+      { name: "Legendary Actions (3/round)", description: "Move without provoking opportunity attacks, Unarmed Strike, or Bite (costs 2 actions)." }
+    ],
+    tactics: "Vampires are cunning manipulators who prefer to avoid direct combat. They charm key party members, use children of the night (wolves, bats, rats) as distractions, and strike with bite attacks to heal and weaken. If reduced to 0 HP, they turn to mist and retreat to their coffin.",
+    encounterTips: "Vampire encounters work best in Gothic settings — castles, mansions, fog-shrouded villages. Play up the horror and social manipulation. The vampire may invite the party to dinner before revealing its true nature. Remember its weaknesses: sunlight, running water, stakes through the heart while in its resting place.",
+    loot: "A vampire's lair contains centuries of accumulated wealth, art, and magical items. Vampire fangs and blood are valuable to alchemists and necromancers (100–500 gp).",
+    commonMistakes: [
+      "Forgetting the vampire's weaknesses (sunlight, running water, radiant damage)",
+      "Not using the vampire's social abilities before combat begins",
+      "Ignoring the vampire's Misty Escape — it turns to mist at 0 HP instead of dying"
+    ],
+    dmTips: [
+      "Vampires make excellent recurring villains with complex motivations",
+      "Use vampire spawn as lesser threats that lead back to the master",
+      "The coffin and its location should be a quest in itself"
+    ],
+    searchVolume: 12100
+  },
+  {
+    slug: "gelatinous-cube-5e",
+    name: "Gelatinous Cube 5e Guide",
+    monsterName: "Gelatinous Cube",
+    category: "creatures",
+    challengeRating: "2",
+    type: "Ooze",
+    size: "Large",
+    alignment: "Unaligned",
+    armorClass: "6",
+    hitPoints: "84 (8d10 + 40)",
+    speed: "15 ft.",
+    abilities: { str: 14, dex: 3, con: 20, int: 1, wis: 6, cha: 1 },
+    keyAbilities: [
+      { name: "Transparent", description: "Even when the cube is in plain sight, it takes a DC 15 Wisdom (Perception) check to spot a cube that hasn't moved or attacked. A creature that doesn't notice it is surprised by the cube." },
+      { name: "Engulf", description: "The cube moves into creatures' spaces. Each creature must succeed on a DC 12 Dexterity save or be engulfed. An engulfed creature takes 3d6 acid damage at the start of each of the cube's turns." },
+      { name: "Pseudopod", description: "Melee weapon attack, +4 to hit, reach 5 ft. 3d6 acid damage." }
+    ],
+    tactics: "The gelatinous cube is a dungeon hallway cleaner. It fills a 10-foot corridor perfectly and moves slowly toward prey. Its transparency makes it a deadly ambush predator in dark dungeons. It simply rolls over creatures and dissolves them.",
+    encounterTips: "Place gelatinous cubes in 10-foot-wide corridors where they fill the entire passage. Describe the corridor as unusually clean — that's the cube's trail. Scatter visible objects (coins, bones, weapons) floating inside the cube as a visual clue. Great for low-level dungeon crawls.",
+    loot: "Whatever the cube has dissolved around — coins, weapons, armor, and other indigestible items float inside it. After killing the cube, these items can be salvaged (typically 2d10 gp in coins and 1d4 mundane items).",
+    commonMistakes: [
+      "Forgetting the cube is transparent and nearly invisible in dim dungeons",
+      "Not having it fill the entire corridor width",
+      "Allowing easy escape — an engulfed creature must use its action to try to escape"
+    ],
+    dmTips: [
+      "Use the cube as an environmental hazard during other encounters",
+      "Describe the 'clean' corridor as a clue before the encounter",
+      "Great for teaching new players about dungeon awareness"
+    ],
+    searchVolume: 8900
+  },
+  {
+    slug: "goblin-5e",
+    name: "Goblin 5e Guide",
+    monsterName: "Goblin",
+    category: "creatures",
+    challengeRating: "1/4",
+    type: "Humanoid (goblinoid)",
+    size: "Small",
+    alignment: "Neutral Evil",
+    armorClass: "15 (leather armor, shield)",
+    hitPoints: "7 (2d6)",
+    speed: "30 ft.",
+    abilities: { str: 8, dex: 14, con: 10, int: 10, wis: 8, cha: 8 },
+    keyAbilities: [
+      { name: "Nimble Escape", description: "The goblin can take the Disengage or Hide action as a bonus action on each of its turns." },
+      { name: "Scimitar", description: "Melee weapon attack, +4 to hit, 1d6+2 slashing damage." },
+      { name: "Shortbow", description: "Ranged weapon attack, +4 to hit, range 80/320 ft., 1d6+2 piercing damage." }
+    ],
+    tactics: "Goblins are cowardly but cunning. They attack from ambush, use hit-and-run tactics with Nimble Escape to Hide or Disengage each turn. They set traps, use wolves as mounts, and flee when the fight turns against them. In groups, they try to overwhelm single targets.",
+    encounterTips: "Goblin encounters should feel scrappy and chaotic. Use terrain with hiding spots, traps (pit traps, swinging logs, tripwires), and multiple entry points. Goblin bosses (bugbears or hobgoblins) add structure. The classic 'goblin cave' from Lost Mine of Phandelver is a perfect template.",
+    loot: "Goblins carry stolen goods — 1d6 gp, trinkets from victims, crude weapons. Their lairs contain accumulated loot from raids: 10d10 gp in mixed coins, stolen trade goods, and occasionally a low-value magic item they don't understand.",
+    commonMistakes: [
+      "Playing goblins as fearless fighters instead of cowardly ambushers",
+      "Forgetting Nimble Escape — it makes goblins much more mobile than they look",
+      "Not using traps and terrain to make goblin encounters interesting"
+    ],
+    dmTips: [
+      "Goblins are perfect first enemies for new campaigns",
+      "Give goblin leaders names and distinct personalities",
+      "Use goblin humor — they should be funny-scary, not just scary"
+    ],
+    searchVolume: 22000
+  },
+  {
+    slug: "dragon-black-adult-5e",
+    name: "Adult Black Dragon 5e Guide",
+    monsterName: "Adult Black Dragon",
+    category: "creatures",
+    challengeRating: "14",
+    type: "Dragon",
+    size: "Huge",
+    alignment: "Chaotic Evil",
+    armorClass: "19 (natural armor)",
+    hitPoints: "195 (17d12 + 85)",
+    speed: "40 ft., fly 80 ft., swim 40 ft.",
+    abilities: { str: 23, dex: 14, con: 21, int: 14, wis: 13, cha: 17 },
+    keyAbilities: [
+      { name: "Acid Breath (Recharge 5-6)", description: "60-foot line, 5 feet wide. DC 18 Dexterity save, 12d8 acid damage on failure, half on success." },
+      { name: "Amphibious", description: "The dragon can breathe air and water." },
+      { name: "Legendary Actions (3/round)", description: "Detect, Tail Attack (2d8+6 bludgeoning), Wing Attack (costs 2, DC 19 Dex save, 2d6+6, knocked prone)." },
+      { name: "Frightful Presence", description: "Each creature within 120 ft. must succeed on a DC 16 Wisdom save or become frightened for 1 minute." }
+    ],
+    tactics: "Black dragons are sadistic ambush predators. They lurk in swamps and murky water, using Amphibious to attack from below. They melt enemies with acid breath, then retreat underwater. They love to toy with prey, letting them think they've escaped before striking again.",
+    encounterTips: "Set the encounter in a swamp or marsh with deep water, quicksand, and poor visibility. The dragon uses the terrain to hide and ambush. Boats and bridges become hazards when the dragon attacks from below. Use the dragon's cruelty — it may capture and torment victims rather than kill them outright.",
+    loot: "Black dragon hoards include items that survived acid: coins (especially copper and silver), gemstones, and acid-resistant magic items. The hoard is often partially submerged in acidic water.",
+    commonMistakes: [
+      "Forgetting the dragon can swim and breathe underwater",
+      "Not using the swamp terrain to the dragon's advantage",
+      "Ignoring legendary resistances (3/day)"
+    ],
+    dmTips: [
+      "Black dragons are the most cruel and sadistic chromatic dragons",
+      "Their lairs corrupt the surrounding land — dead trees, acidic water, perpetual fog",
+      "Use the dragon as a regional threat before the party ever faces it directly"
+    ],
+    searchVolume: 9800
+  },
+  {
+    slug: "troll-5e",
+    name: "Troll 5e Guide",
+    monsterName: "Troll",
+    category: "creatures",
+    challengeRating: "5",
+    type: "Giant",
+    size: "Large",
+    alignment: "Chaotic Evil",
+    armorClass: "15 (natural armor)",
+    hitPoints: "84 (8d10 + 40)",
+    speed: "30 ft.",
+    abilities: { str: 18, dex: 13, con: 20, int: 7, wis: 9, cha: 7 },
+    keyAbilities: [
+      { name: "Regeneration", description: "The troll regains 10 hit points at the start of its turn. If the troll takes acid or fire damage, this trait doesn't function at the start of the troll's next turn. The troll dies only if it starts its turn with 0 hit points and doesn't regenerate." },
+      { name: "Multiattack", description: "The troll makes three attacks: one with its bite (1d6+4) and two with its claws (2d6+4 each)." },
+      { name: "Keen Smell", description: "The troll has advantage on Wisdom (Perception) checks that rely on smell." }
+    ],
+    tactics: "Trolls are straightforward fighters — they charge in and claw everything. Their regeneration makes them terrifying because they just keep getting back up. Without fire or acid, a troll is nearly unkillable. They fight to the death because they literally can't die unless properly killed.",
+    encounterTips: "The classic troll encounter teaches players about monster weaknesses. Drop hints that fire is effective — scorched troll tracks, a nervous NPC mentioning 'burn it.' If the party doesn't have fire or acid, make torches or oil available in the environment. Trolls under bridges is a classic for a reason.",
+    loot: "Trolls don't collect treasure intentionally, but their lairs contain remains of victims: 2d20 gp in scattered coins, 1d4 mundane weapons and armor, and occasionally items from unfortunate adventurers.",
+    commonMistakes: [
+      "Forgetting that the troll regenerates EVERY turn — track this carefully",
+      "Not making fire/acid the clear counter — players should learn this",
+      "Having the troll die normally from regular damage"
+    ],
+    dmTips: [
+      "Describe the regeneration visually — severed limbs reattaching, wounds knitting shut",
+      "Troll encounters teach an important D&D lesson: research your enemies",
+      "Variant trolls (ice troll, spirit troll) keep the concept fresh at higher levels"
+    ],
+    searchVolume: 11200
+  },
+  {
+    slug: "kraken-5e",
+    name: "Kraken 5e Guide",
+    monsterName: "Kraken",
+    category: "creatures",
+    challengeRating: "23",
+    type: "Monstrosity (titan)",
+    size: "Gargantuan",
+    alignment: "Chaotic Evil",
+    armorClass: "18 (natural armor)",
+    hitPoints: "472 (27d20 + 189)",
+    speed: "20 ft., swim 60 ft.",
+    abilities: { str: 30, dex: 11, con: 25, int: 22, wis: 18, cha: 20 },
+    keyAbilities: [
+      { name: "Tentacle", description: "Melee weapon attack, +17 to hit, reach 30 ft. 3d6+10 bludgeoning damage, and the target is grappled (escape DC 18). The kraken has ten tentacles, each of which can grapple one target." },
+      { name: "Lightning Storm", description: "The kraken magically creates three bolts of lightning, each targeting a creature within 120 ft. Each must make a DC 23 Dexterity save, taking 4d10 lightning damage on a failure." },
+      { name: "Legendary Actions (3/round)", description: "Tentacle Attack or Fling (flings a grappled creature up to 60 ft.), Lightning Storm (costs 2), or Ink Cloud (costs 3, 60-foot radius cloud in water)." }
+    ],
+    tactics: "The kraken fights from the water, using its 30-foot tentacle reach to grab creatures off ships and drag them under. It uses Lightning Storm to hit targets it can't reach with tentacles. It capsizes ships by grappling and pulling them under. On its turn, it multiattacks with bite and tentacles while keeping targets grappled.",
+    encounterTips: "A kraken encounter should feel like a natural disaster. Set it during a storm at sea. The party must fight while their ship is being destroyed around them. Give them objectives beyond 'kill the kraken' — rescue drowning sailors, keep the ship afloat, reach a magical artifact that can banish it.",
+    loot: "Krakens guard deep-sea treasure hordes: 50,000+ gp in sunken ships, legendary magic items, and artifacts from ancient civilizations. A kraken's beak and tentacles are worth thousands to alchemists.",
+    commonMistakes: [
+      "Trying to run a kraken fight on land — it needs water",
+      "Forgetting the kraken has TEN tentacles that can each grapple separately",
+      "Not using the environment — storms, waves, sinking ships"
+    ],
+    dmTips: [
+      "A kraken is a campaign-level threat, not a random encounter",
+      "Use the kraken's Intelligence (22) — it plans, negotiates, and plots",
+      "Kraken cults and kraken priests make great adventure hooks"
+    ],
+    searchVolume: 10500
+  },
+  {
+    slug: "orc-5e",
+    name: "Orc 5e Guide",
+    monsterName: "Orc",
+    category: "creatures",
+    challengeRating: "1/2",
+    type: "Humanoid (orc)",
+    size: "Medium",
+    alignment: "Chaotic Evil",
+    armorClass: "13 (hide armor)",
+    hitPoints: "15 (2d8 + 6)",
+    speed: "30 ft.",
+    abilities: { str: 16, dex: 12, con: 16, int: 7, wis: 11, cha: 10 },
+    keyAbilities: [
+      { name: "Aggressive", description: "As a bonus action, the orc can move up to its speed toward a hostile creature that it can see." },
+      { name: "Greataxe", description: "Melee weapon attack, +5 to hit, 1d12+3 slashing damage." },
+      { name: "Javelin", description: "Melee or ranged weapon attack, +5 to hit, range 30/120 ft., 1d6+3 piercing damage." }
+    ],
+    tactics: "Orcs are aggressive warriors who charge straight into melee using their Aggressive bonus action to close distance quickly. They attack the nearest enemy and fight to the death. Orc war chiefs and shamans provide leadership and magical support. In groups, they overwhelm targets with numbers.",
+    encounterTips: "Orc encounters should feel like a tide of violence. Use war drums, battle cries, and overwhelming numbers. Mix in orc war chiefs, orc eyes of Gruumsh (clerics), and sometimes ogres or trolls. Orc raiding parties attack settlements, caravans, and outposts.",
+    loot: "Orcs carry crude weapons and 1d4 gp in loot from raids. Orc camps contain stolen goods: 3d20 gp in mixed valuables, weapons, tools, and supplies taken from victims.",
+    commonMistakes: [
+      "Forgetting the Aggressive bonus action — orcs close gaps fast",
+      "Playing all orcs identically — use war chiefs, shamans, and berserkers for variety",
+      "Not using orcs in groups — single orcs aren't threatening"
+    ],
+    dmTips: [
+      "Orcs work best as a faction with camps, raiding parties, and war chiefs",
+      "Give orc leaders names and battle strategies",
+      "Orc society worships Gruumsh — use religious elements for depth"
+    ],
+    searchVolume: 14500
+  },
+  {
+    slug: "bugbear-5e",
+    name: "Bugbear 5e Guide",
+    monsterName: "Bugbear",
+    category: "creatures",
+    challengeRating: "1",
+    type: "Humanoid (goblinoid)",
+    size: "Medium",
+    alignment: "Chaotic Evil",
+    armorClass: "16 (hide armor, shield)",
+    hitPoints: "27 (5d8 + 5)",
+    speed: "30 ft.",
+    abilities: { str: 15, dex: 14, con: 13, int: 8, wis: 11, cha: 9 },
+    keyAbilities: [
+      { name: "Brute", description: "A melee weapon deals one extra die of its damage when the bugbear hits with it (included in attacks)." },
+      { name: "Surprise Attack", description: "If the bugbear surprises a creature and hits it with an attack during the first round of combat, the target takes an extra 2d6 damage from the attack." },
+      { name: "Morningstar", description: "Melee weapon attack, +4 to hit, 2d8+2 piercing damage." }
+    ],
+    tactics: "Bugbears are ambush predators. They hide and wait for the perfect moment to strike, dealing devastating Surprise Attack damage on their first hit. They bully goblins into scouting and trap-setting, then attack when the enemy is distracted or weakened. They flee when clearly outmatched.",
+    encounterTips: "Place bugbears as ambush leaders in goblin lairs. They're the 'boss' of a goblin cave. Use their Stealth proficiency (+6) to set up ambushes in rooms the party thinks they've cleared. A bugbear behind a door is a classic surprise. Great early-campaign mini-boss.",
+    loot: "Bugbears take the best loot from their goblin underlings: 2d10 gp, a quality weapon, and sometimes a piece of salvaged armor or jewelry (10-50 gp).",
+    commonMistakes: [
+      "Forgetting Surprise Attack — it only works in the first round if the bugbear surprises the target",
+      "Not using Brute — the damage is already calculated in the stat block",
+      "Playing bugbears as dumb brutes instead of cunning ambushers"
+    ],
+    dmTips: [
+      "Bugbears make great early-game mini-bosses",
+      "They lead goblin groups — use them as the 'boss room' encounter",
+      "Describe their size and ferocity to intimidate low-level parties"
+    ],
+    searchVolume: 9100
+  },
+  {
+    slug: "basilisk-5e",
+    name: "Basilisk 5e Guide",
+    monsterName: "Basilisk",
+    category: "creatures",
+    challengeRating: "3",
+    type: "Monstrosity",
+    size: "Medium",
+    alignment: "Unaligned",
+    armorClass: "15 (natural armor)",
+    hitPoints: "52 (8d8 + 16)",
+    speed: "20 ft.",
+    abilities: { str: 16, dex: 8, con: 15, int: 2, wis: 8, cha: 7 },
+    keyAbilities: [
+      { name: "Petrifying Gaze", description: "If a creature starts its turn within 30 ft. and the two can see each other, the basilisk can force it to make a DC 12 Constitution save or begin turning to stone (restrained). On a subsequent failed save, the creature is petrified. Averting eyes gives disadvantage on attacks against the basilisk." },
+      { name: "Bite", description: "Melee weapon attack, +5 to hit, 2d6+3 piercing plus 2d6 poison damage." }
+    ],
+    tactics: "The basilisk is a simple predator that relies on its petrifying gaze. It moves toward prey and forces Constitution saves. Smart parties avert their eyes, but this gives them disadvantage on attacks. The basilisk doesn't strategize — it just advances and bites.",
+    encounterTips: "The basilisk's lair should contain stone statues — petrified victims as a warning and a puzzle (can they be restored?). Use mirrors as a clever environmental tool. Place the basilisk in a lair where the party might stumble into its gaze range before they realize what it is.",
+    loot: "Basilisk stomach acid can be harvested (100 gp) and used to restore petrified creatures. Its eyes retain weak petrifying magic (50 gp to alchemists).",
+    commonMistakes: [
+      "Forgetting that averting eyes still lets the basilisk attack normally",
+      "Not giving players environmental tools to deal with the gaze (mirrors, blindfolds)",
+      "Making the petrification save too hard or too easy"
+    ],
+    dmTips: [
+      "Stone statues in the lair tell a story — who were these people?",
+      "The 'avert your eyes' mechanic creates interesting tactical choices",
+      "Greater Restoration or basilisk venom can cure petrification"
+    ],
+    searchVolume: 7600
+  },
+  {
+    slug: "werewolf-5e",
+    name: "Werewolf 5e Guide",
+    monsterName: "Werewolf",
+    category: "creatures",
+    challengeRating: "3",
+    type: "Humanoid (human, shapechanger)",
+    size: "Medium",
+    alignment: "Chaotic Evil",
+    armorClass: "11 (natural armor in hybrid/wolf form)",
+    hitPoints: "58 (9d8 + 18)",
+    speed: "30 ft. (40 ft. in wolf form)",
+    abilities: { str: 15, dex: 13, con: 14, int: 10, wis: 11, cha: 10 },
+    keyAbilities: [
+      { name: "Shapechanger", description: "The werewolf can use its action to polymorph into a wolf-humanoid hybrid, a wolf, or back into its true humanoid form." },
+      { name: "Damage Immunities", description: "Bludgeoning, piercing, and slashing from nonmagical attacks not made with silvered weapons." },
+      { name: "Bite (hybrid/wolf form)", description: "Melee weapon attack, +4 to hit, 1d8+2 piercing. If target is humanoid, it must succeed on a DC 12 Constitution save or be cursed with werewolf lycanthropy." }
+    ],
+    tactics: "Werewolves rely on their immunity to non-silvered, nonmagical weapons. They target parties without silver or magic weapons, knowing most attacks can't hurt them. They attack in packs, surrounding isolated targets. In humanoid form, they infiltrate communities and attack at night.",
+    encounterTips: "The mystery of 'who is the werewolf?' is more interesting than the combat. Run a social investigation scenario where the party must identify the werewolf among NPCs. When combat happens, the lack of silvered weapons creates genuine danger. Drop hints about silver effectiveness through folklore and NPC warnings.",
+    loot: "Werewolves in humanoid form carry normal gear and 2d10 gp. A werewolf's pelt in wolf form is worth 50 gp. The real 'loot' is the cure — removing the curse requires Remove Curse or a wolfsbane potion.",
+    commonMistakes: [
+      "Forgetting the immunity to non-silvered, nonmagical weapons — this is the werewolf's main threat",
+      "Not offering the party a way to get silvered weapons before the encounter",
+      "Ignoring the lycanthropy curse — a bitten PC should be at risk of becoming a werewolf"
+    ],
+    dmTips: [
+      "Werewolf encounters are best as horror/mystery scenarios",
+      "A PC bitten by a werewolf creates incredible roleplay opportunities",
+      "Use the full moon cycle to build tension over multiple sessions"
+    ],
+    searchVolume: 9700
+  },
+  {
+    slug: "pit-fiend-5e",
+    name: "Pit Fiend 5e Guide",
+    monsterName: "Pit Fiend",
+    category: "creatures",
+    challengeRating: "20",
+    type: "Fiend (devil)",
+    size: "Large",
+    alignment: "Lawful Evil",
+    armorClass: "19 (natural armor)",
+    hitPoints: "300 (24d10 + 168)",
+    speed: "30 ft., fly 60 ft.",
+    abilities: { str: 26, dex: 14, con: 24, int: 22, wis: 18, cha: 24 },
+    keyAbilities: [
+      { name: "Fear Aura", description: "Any creature hostile to the pit fiend that starts its turn within 20 ft. must succeed on a DC 21 Wisdom save or be frightened until the start of its next turn." },
+      { name: "Multiattack", description: "Four attacks: one bite (4d6+8 piercing plus 6d6 poison, DC 21 Con save or poisoned), one claw, one mace, one tail." },
+      { name: "Innate Spellcasting", description: "At will: detect magic, fireball (as 6th-level, DC 21). 3/day each: hold monster, wall of fire." },
+      { name: "Magic Resistance", description: "Advantage on saving throws against spells and other magical effects." }
+    ],
+    tactics: "Pit fiends are generals of Hell's armies. They open with Wall of Fire to split the party, use Fireball on clusters, and wade into melee with devastating multiattacks. Their Fear Aura disrupts formations. They use Hold Monster on dangerous martial characters and focus fire on healers.",
+    encounterTips: "A pit fiend is a boss-level threat for high-level parties. It should command legions of lesser devils (bearded devils, chain devils, bone devils) and have a strategic objective beyond combat. The Nine Hells are lawful — a pit fiend might negotiate, make bargains, or honor contracts while still being utterly evil.",
+    loot: "Pit fiend horns and blood are incredibly valuable to summoners and fiend-pact warlocks (5,000+ gp). They carry hell-forged weapons and may possess infernal contracts, scrolls of diabolical pacts, or keys to Hell's vaults.",
+    commonMistakes: [
+      "Forgetting Magic Resistance — the pit fiend has advantage on ALL spell saves",
+      "Not using the Fear Aura — it triggers automatically every round",
+      "Playing the pit fiend as a mindless brute instead of a brilliant commander"
+    ],
+    dmTips: [
+      "Pit fiends should have names, ranks, and agendas in Hell's hierarchy",
+      "They make deals — and always honor the letter while violating the spirit",
+      "Use lesser devils as a 'preview' of what's coming"
+    ],
+    searchVolume: 8200
+  },
+  {
+    slug: "hill-giant-5e",
+    name: "Hill Giant 5e Guide",
+    monsterName: "Hill Giant",
+    category: "creatures",
+    challengeRating: "5",
+    type: "Giant",
+    size: "Huge",
+    alignment: "Chaotic Evil",
+    armorClass: "13 (natural armor)",
+    hitPoints: "105 (10d12 + 40)",
+    speed: "40 ft.",
+    abilities: { str: 21, dex: 8, con: 19, int: 5, wis: 9, cha: 6 },
+    keyAbilities: [
+      { name: "Multiattack", description: "The giant makes two greatclub attacks." },
+      { name: "Greatclub", description: "Melee weapon attack, +8 to hit, reach 10 ft., 3d8+5 bludgeoning damage." },
+      { name: "Rock", description: "Ranged weapon attack, +8 to hit, range 60/240 ft., 3d10+5 bludgeoning damage." }
+    ],
+    tactics: "Hill giants are dim-witted brutes who solve every problem with violence. They throw rocks at distant targets and wade into melee to club anything within reach. They fight for food above all else and will stop fighting to eat fallen enemies. In groups, they simply attack the nearest target.",
+    encounterTips: "Hill giants work best as raid encounters — they attack farms, villages, and caravans for food. Their low intelligence means they can be tricked, led into traps, or distracted with food. They throw rocks and livestock. A hill giant demanding tribute from a village is a classic quest hook.",
+    loot: "Hill giants carry a sack of random items: 2d20 gp in coins, livestock, furniture, and mundane objects they thought were interesting. Their lairs contain larger hoards of stolen goods (200-500 gp value) mixed with trash.",
+    commonMistakes: [
+      "Forgetting the rock attack — 3d10+5 at range is devastating",
+      "Making hill giants too smart — they're the dumbest giants (INT 5)",
+      "Not using their size for environmental destruction"
+    ],
+    dmTips: [
+      "Hill giants are motivated almost entirely by hunger",
+      "Use them as a low-level 'big threat' that the party must outsmart rather than outfight",
+      "The ordning (giant social hierarchy) means hill giants are bullied by all other giants"
+    ],
+    searchVolume: 6800
+  },
+  {
+    slug: "kobold-5e",
+    name: "Kobold 5e Guide",
+    monsterName: "Kobold",
+    category: "creatures",
+    challengeRating: "1/8",
+    type: "Humanoid (kobold)",
+    size: "Small",
+    alignment: "Lawful Evil",
+    armorClass: "12",
+    hitPoints: "5 (2d6 - 2)",
+    speed: "30 ft.",
+    abilities: { str: 7, dex: 15, con: 9, int: 8, wis: 7, cha: 8 },
+    keyAbilities: [
+      { name: "Pack Tactics", description: "The kobold has advantage on attack rolls against a creature if at least one of the kobold's allies is within 5 ft. of the creature and the ally isn't incapacitated." },
+      { name: "Sunlight Sensitivity", description: "While in sunlight, the kobold has disadvantage on attack rolls and Wisdom (Perception) checks that rely on sight." },
+      { name: "Dagger", description: "Melee weapon attack, +4 to hit, 1d4+2 piercing. Sling: Ranged, +4 to hit, range 30/120 ft., 1d4+2 bludgeoning." }
+    ],
+    tactics: "Kobolds never fight fair. They use elaborate trap systems, narrow tunnels that larger creatures can't navigate, and Pack Tactics to get advantage on every attack. They swarm targets in groups of 6+, retreat into tunnels when threatened, and reset traps behind them. Their warrens are designed as kill zones.",
+    encounterTips: "Tucker's Kobolds are legendary for a reason — a well-designed kobold warren is terrifying at any level. Use pit traps, crossbow murder holes, collapsing tunnels, oil slicks, and swinging blades. The kobolds themselves are weak but their environment is the real enemy. Include a kobold inventor or sorcerer for variety.",
+    loot: "Individual kobolds carry almost nothing (1d4 cp). Their warrens contain communal treasure: 3d20 gp in small gems and coins, crude traps that can be repurposed, and occasionally a dragon-related artifact (kobolds worship dragons).",
+    commonMistakes: [
+      "Playing kobolds as just 'weak goblins' — they're trap masters",
+      "Not using Pack Tactics — it's what makes kobolds dangerous in groups",
+      "Forgetting Sunlight Sensitivity when fighting outdoors"
+    ],
+    dmTips: [
+      "Kobold warrens should be the real encounter, not the kobolds themselves",
+      "Their connection to dragons can tie into larger campaign arcs",
+      "Kobold inventors and trap-smiths add variety to encounters"
+    ],
+    searchVolume: 13500
+  },
+  {
+    slug: "bandit-captain-5e",
+    name: "Bandit Captain 5e Guide",
+    monsterName: "Bandit Captain",
+    category: "creatures",
+    challengeRating: "2",
+    type: "Humanoid (any race)",
+    size: "Medium",
+    alignment: "Any non-lawful",
+    armorClass: "15 (studded leather)",
+    hitPoints: "65 (10d8 + 20)",
+    speed: "30 ft.",
+    abilities: { str: 15, dex: 16, con: 14, int: 14, wis: 11, cha: 14 },
+    keyAbilities: [
+      { name: "Multiattack", description: "Three melee attacks: two with scimitar (1d6+3) and one with dagger (1d4+3)." },
+      { name: "Parry", description: "The captain adds 2 to its AC against one melee attack that would hit it. To do so, the captain must see the attacker and be wielding a melee weapon." },
+      { name: "Dagger (ranged)", description: "Ranged weapon attack, +5 to hit, range 20/60 ft., 1d4+3 piercing damage." }
+    ],
+    tactics: "Bandit captains command groups of bandits (CR 1/8) and thugs (CR 1/2). They stay behind their minions initially, directing the fight, then engage the most dangerous-looking target with their three-attack multiattack. They use Parry to survive longer in melee and retreat if the fight goes badly — their life is more valuable than any loot.",
+    encounterTips: "Bandit captains are versatile — they can be highway robbers, pirate leaders, rebel commanders, or corrupt militia officers. Give them a name and motivation. The encounter can be social (negotiate passage, pay a toll) or combat. Their bandits should use terrain: fallen logs, overturned carts, rooftops.",
+    loot: "The captain carries 3d10 gp, a quality weapon, and a stolen item of value (50-200 gp). The bandit camp contains the group's accumulated loot: 5d20 gp in coins and stolen goods, maps, and perhaps a bounty poster for the captain.",
+    commonMistakes: [
+      "Forgetting Parry — it's a reaction that adds +2 AC",
+      "Not giving the captain bandit minions — they're leaders, not solo fighters",
+      "Making every bandit encounter a fight — negotiation is more interesting"
+    ],
+    dmTips: [
+      "Bandit captains are perfect recurring NPCs — defeated captains seek revenge",
+      "Give them a cause — are they Robin Hood or a pure villain?",
+      "Use them at any level by adjusting the number and type of minions"
+    ],
+    searchVolume: 7400
+  },
+  {
+    slug: "wyvern-5e",
+    name: "Wyvern 5e Guide",
+    monsterName: "Wyvern",
+    category: "creatures",
+    challengeRating: "6",
+    type: "Dragon",
+    size: "Large",
+    alignment: "Unaligned",
+    armorClass: "13 (natural armor)",
+    hitPoints: "110 (13d10 + 39)",
+    speed: "20 ft., fly 80 ft.",
+    abilities: { str: 19, dex: 10, con: 16, int: 5, wis: 12, cha: 6 },
+    keyAbilities: [
+      { name: "Multiattack", description: "Two attacks: one bite (2d6+4) and one stinger." },
+      { name: "Stinger", description: "Melee weapon attack, +7 to hit, reach 10 ft., 2d6+4 piercing damage. Target must make a DC 15 Constitution save, taking 7d6 poison damage on a failure, or half on a success." },
+      { name: "Claws", description: "Melee weapon attack, +7 to hit, 2d8+4 slashing damage." }
+    ],
+    tactics: "Wyverns are aerial predators that dive-bomb targets with their poisonous stinger. They grab prey in their claws and carry them into the air, then drop them. They're not intelligent enough for complex tactics but are dangerous due to flight and poison. They attack livestock and travelers near their nesting grounds.",
+    encounterTips: "Wyvern encounters work best in mountainous or open terrain where they can use their 80 ft. fly speed. They swoop in, sting, and fly away. Give the party ranged options or they'll be frustrated. Wyvern eggs are valuable to dragon-riding cultures, and taming a wyvern is a classic quest reward.",
+    loot: "Wyverns don't hoard treasure, but their nests contain bones and gear from previous victims: 2d20 gp in scattered coins and 1d4 mundane items. Wyvern poison (extracted from the tail, DC 15 Nature check) is worth 200 gp. Wyvern eggs are worth 2,000+ gp.",
+    commonMistakes: [
+      "Forgetting the wyvern can fly 80 ft. — it should rarely stay in melee",
+      "Not using the stinger poison — 7d6 is devastating for its CR",
+      "Confusing wyverns with true dragons — wyverns are beasts, not intelligent"
+    ],
+    dmTips: [
+      "Wyverns are great 'dragon-lite' encounters for mid-level parties",
+      "A wyvern nest on a cliff makes for an excellent exploration encounter",
+      "Tamed wyverns as mounts can be a campaign reward"
+    ],
+    searchVolume: 8100
+  },
+  {
+    slug: "death-knight-5e",
+    name: "Death Knight 5e Guide",
+    monsterName: "Death Knight",
+    category: "creatures",
+    challengeRating: "17",
+    type: "Undead",
+    size: "Medium",
+    alignment: "Chaotic Evil",
+    armorClass: "20 (plate, shield)",
+    hitPoints: "180 (19d8 + 95)",
+    speed: "30 ft.",
+    abilities: { str: 20, dex: 11, con: 20, int: 12, wis: 16, cha: 18 },
+    keyAbilities: [
+      { name: "Marshal Undead", description: "Unless surprised, any undead within 60 ft. has advantage on saving throws against features that turn undead." },
+      { name: "Hellfire Orb", description: "The death knight hurls a magical ball of fire that explodes at a point within 120 ft. Each creature in a 20-foot radius must make a DC 18 Dex save, taking 10d6 fire plus 10d6 necrotic damage on a failure." },
+      { name: "Spellcasting (19th level paladin)", description: "Spell save DC 18, including destructive wave, staggering smite, banishing smite, and command." },
+      { name: "Longsword", description: "Melee weapon attack, +11 to hit, 1d8+5 slashing plus 5d8 necrotic damage." }
+    ],
+    tactics: "Death knights are fallen paladins with immense martial and magical power. They open with Hellfire Orb (20d6 damage!) to devastate grouped enemies, then wade into melee dealing 5d8 extra necrotic on every sword hit. They use paladin smite spells to deal even more damage on critical hits. They command undead armies.",
+    encounterTips: "A death knight encounter should be the climax of a story about a fallen hero. Give the death knight a tragic backstory — it was once a noble paladin who broke an oath. Its undead army (wraiths, wights, skeletons) reflects its former followers. Defeating the death knight may require redeeming its soul, not just killing its body.",
+    loot: "Death knights carry their equipment from life: magic plate armor (+1 or +2), a magic longsword, and holy symbols corrupted by their fall. Their lairs contain treasures from their former order and trophies from those they've slain (2,000-10,000 gp value).",
+    commonMistakes: [
+      "Forgetting Hellfire Orb is a 20-foot radius dealing 20d6 — it's devastating",
+      "Not giving the death knight undead allies — it's a commander",
+      "Missing that the death knight has paladin spellcasting including smites"
+    ],
+    dmTips: [
+      "Every death knight has a story of its fall — make it tragic and specific",
+      "They can only be permanently destroyed by redeeming their soul",
+      "Lord Soth from Dragonlance is the original death knight — great inspiration"
+    ],
+    searchVolume: 7900
+  },
+  {
+    slug: "rust-monster-5e",
+    name: "Rust Monster 5e Guide",
+    monsterName: "Rust Monster",
+    category: "creatures",
+    challengeRating: "1/2",
+    type: "Monstrosity",
+    size: "Medium",
+    alignment: "Unaligned",
+    armorClass: "14 (natural armor)",
+    hitPoints: "27 (5d8 + 5)",
+    speed: "40 ft.",
+    abilities: { str: 13, dex: 12, con: 13, int: 2, wis: 13, cha: 6 },
+    keyAbilities: [
+      { name: "Iron Scent", description: "The rust monster can pinpoint the location of ferrous metal within 30 feet of it by smell." },
+      { name: "Rust Metal", description: "Any nonmagical weapon made of metal that hits the rust monster corrodes. After dealing damage, the weapon takes a permanent and cumulative −1 penalty to damage rolls. If its penalty drops to −5, the weapon is destroyed." },
+      { name: "Antennae", description: "The rust monster corrodes a nonmagical ferrous metal object it touches. If it's a weapon, it takes a −1 penalty. If it's armor, it takes a −1 penalty to AC. If the object's penalty reduces it to useless, it's destroyed." }
+    ],
+    tactics: "Rust monsters aren't aggressive — they're hungry for metal. They detect ferrous metal with Iron Scent and rush toward the nearest source. They prefer to touch metal objects with their antennae rather than fight. They'll ignore creatures who drop their metal equipment and flee from fire.",
+    encounterTips: "The rust monster is one of D&D's most feared low-CR creatures because it destroys equipment. The terror comes from watching a fighter's plate armor dissolve, not from damage. Use them in dungeon corridors where retreat is difficult. Smart parties will strip off metal gear or use non-metal weapons.",
+    loot: "Rust monster antennae can be harvested (25 gp each) and used to create rust-dissolving potions. Their lairs are littered with iron oxide dust — the remains of their meals.",
+    commonMistakes: [
+      "Having rust monsters destroy magic items — they only affect nonmagical metal",
+      "Making them aggressive fighters — they want metal, not combat",
+      "Not giving players warning signs (corroded metal in the dungeon, iron oxide dust)"
+    ],
+    dmTips: [
+      "Rust monsters create memorable encounters through equipment loss, not danger",
+      "Use them sparingly — players HATE losing gear",
+      "Give players time to realize what's happening and adapt tactics"
+    ],
+    searchVolume: 6500
+  },
+  {
+    slug: "gibbering-mouther-5e",
+    name: "Gibbering Mouther 5e Guide",
+    monsterName: "Gibbering Mouther",
+    category: "creatures",
+    challengeRating: "2",
+    type: "Aberration",
+    size: "Medium",
+    alignment: "Neutral",
+    armorClass: "9",
+    hitPoints: "67 (9d8 + 27)",
+    speed: "10 ft., swim 10 ft.",
+    abilities: { str: 10, dex: 8, con: 16, int: 3, wis: 10, cha: 6 },
+    keyAbilities: [
+      { name: "Gibbering", description: "Each creature that starts its turn within 20 ft. and can hear the mouther must succeed on a DC 10 Wisdom save or be unable to take reactions and use movement randomly." },
+      { name: "Aberrant Ground", description: "The ground within 10 ft. is doughlike difficult terrain. Each creature that starts its turn there must succeed on a DC 10 Strength save or have its speed reduced to 0." },
+      { name: "Multiattack", description: "One bite attack. If it hits, the target takes 5d6 piercing and must succeed on a DC 10 Strength save or be knocked prone." }
+    ],
+    tactics: "The gibbering mouther is a slow horror that turns the ground to mush and drives enemies mad with its incessant babbling. It oozes toward prey, trapping them in difficult terrain while its gibbering prevents coherent thought. It absorbs prey into its mass of eyes and mouths.",
+    encounterTips: "Use the mouther in tight dungeon corridors where its slow speed doesn't matter and creatures can't easily escape its auras. The horror factor is key — describe the mass of eyes, mouths, and gibbering voices. It should feel like encountering a thing that shouldn't exist. Works great in aberration-themed dungeons near the Underdark.",
+    loot: "The mouther has no treasure, but whatever it consumed can sometimes be found in its remains: 1d6 gp in coins, bones, and fragments of equipment.",
+    commonMistakes: [
+      "Forgetting Aberrant Ground — it traps creatures within reach",
+      "Not describing the horror of the gibbering — it's a madness-inducing sound",
+      "Making the encounter too easy by fighting in open terrain"
+    ],
+    dmTips: [
+      "Gibbering mouthers are perfect Lovecraftian horror encounters",
+      "Describe the babbling as fragments of speech from consumed victims",
+      "Use them in tight spaces where their slow speed doesn't matter"
+    ],
+    searchVolume: 5900
   }
 ];
 

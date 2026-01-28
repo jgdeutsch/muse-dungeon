@@ -17,12 +17,10 @@ import { racePages, featPages, combatPages } from "@/data/characters-index";
 type CatalogEntry = {
   name: string;
   slug: string;
-  kind: "spell" | "item" | "condition" | "monster" | "feat" | "race";
+  kind: "spell" | "item" | "condition" | "feat" | "race";
   field: "conditions" | "activeEffects" | "spellsKnown" | "items";
   detail: string; // short subtitle
   href: string;
-  // For monsters that can be added as NPCs
-  asNpc?: { className: string; classSlug: string; hp?: string; hpMax?: string; ac?: string };
 };
 
 function buildCatalog(): CatalogEntry[] {
@@ -115,33 +113,7 @@ function buildCatalog(): CatalogEntry[] {
     });
   }
 
-  for (const m of monsterPages) {
-    // As encounter condition
-    catalog.push({
-      name: `Encounter: ${m.monsterName}`,
-      slug: m.slug,
-      kind: "monster",
-      field: "conditions",
-      detail: `CR ${m.challengeRating} ${m.type}`,
-      href: `/monsters/creatures/${m.slug}/`,
-    });
-    // As addable NPC
-    catalog.push({
-      name: m.monsterName,
-      slug: m.slug,
-      kind: "monster",
-      field: "conditions", // not used for NPC add
-      detail: `CR ${m.challengeRating} ${m.type} — add as NPC`,
-      href: `/monsters/creatures/${m.slug}/`,
-      asNpc: {
-        className: m.monsterName,
-        classSlug: m.slug,
-        hp: m.hitPoints.split(" ")[0],
-        hpMax: m.hitPoints.split(" ")[0],
-        ac: m.armorClass.split(" ")[0],
-      },
-    });
-  }
+  // Monsters are added from their own pages, not from the character search
 
   return catalog;
 }
@@ -152,14 +124,14 @@ function getCatalog() {
   return _catalog;
 }
 
-type TabKey = "spells" | "items" | "conditions" | "effects" | "feats" | "monsters";
+type TabKey = "spells" | "items" | "conditions" | "effects" | "feats" | "races";
 
 const TABS: { key: TabKey; label: string; field?: CatalogEntry["field"]; kinds?: string[] }[] = [
   { key: "spells", label: "Spells", field: "spellsKnown", kinds: ["spell"] },
   { key: "effects", label: "Effects", field: "activeEffects" },
   { key: "items", label: "Items", field: "items" },
-  { key: "feats", label: "Feats & Races", kinds: ["feat", "race"] },
-  { key: "monsters", label: "Monsters", kinds: ["monster"] },
+  { key: "feats", label: "Feats", kinds: ["feat"] },
+  { key: "races", label: "Races", kinds: ["race"] },
   { key: "conditions", label: "Rules", field: "conditions", kinds: ["condition"] },
 ];
 
@@ -170,7 +142,7 @@ function AddEntrySearch({
   charId: string;
   charName: string;
 }) {
-  const { addEntryToCharacter, addCharacter } = useGame();
+  const { addEntryToCharacter } = useGame();
   const [open, setOpen] = useState(false);
   const [tab, setTab] = useState<TabKey>("spells");
   const [query, setQuery] = useState("");
@@ -191,24 +163,7 @@ function AddEntrySearch({
   }, [catalog, tab, query]);
 
   function handleAdd(entry: CatalogEntry) {
-    // If it's a monster NPC entry, add as a new character
-    if (entry.asNpc) {
-      addCharacter({
-        name: entry.asNpc.className,
-        className: entry.asNpc.className,
-        classSlug: entry.asNpc.classSlug,
-        type: "npc",
-        hp: entry.asNpc.hp,
-        hpMax: entry.asNpc.hpMax,
-        ac: entry.asNpc.ac,
-      });
-      setAdded(`${entry.name} (as NPC)`);
-      setTimeout(() => setAdded(null), 2000);
-      return;
-    }
-
     const catMap: Record<string, GameEntry["category"]> = {
-      "spell-known": "spell-known",
       spell: "spell",
       item: "item",
       feat: "feat",
@@ -308,7 +263,7 @@ function AddEntrySearch({
                 <div className="text-sm font-medium text-[var(--text)] truncate">{entry.name}</div>
                 <div className="text-[11px] text-[var(--text-dim)] truncate">{entry.detail}</div>
               </div>
-              <span className="text-xs text-[var(--accent)] shrink-0 ml-2">{entry.asNpc ? "+ Add NPC" : "+ Add"}</span>
+              <span className="text-xs text-[var(--accent)] shrink-0 ml-2">+ Add</span>
             </button>
           ))
         )}

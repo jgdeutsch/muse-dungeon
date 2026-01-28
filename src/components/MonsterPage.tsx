@@ -4,6 +4,7 @@ import { JumpTo } from "./JumpTo";
 import { Warning, Tip } from "./Warning";
 import { Sources } from "./Sources";
 import { AssignToCharacter } from "./AssignToCharacter";
+import { AddMonsterToGame } from "./AddMonsterToGame";
 
 type MonsterPageData = {
   slug: string;
@@ -74,6 +75,12 @@ export function MonsterPageComponent({ data }: { data: MonsterPageData }) {
       </div>
 
       <AtAGlance stats={stats} />
+      <AddMonsterToGame
+        monsterName={data.monsterName}
+        monsterSlug={data.slug}
+        hp={data.hitPoints.split(" ")[0]}
+        ac={data.armorClass.split(" ")[0]}
+      />
       <AssignToCharacter entryName={`Encounter: ${data.monsterName}`} entrySlug={data.slug} field="conditions" />
 
       {/* Speed */}
