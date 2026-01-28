@@ -3,6 +3,7 @@ import { AtAGlance } from "./AtAGlance";
 import { JumpTo } from "./JumpTo";
 import { Warning, Tip } from "./Warning";
 import { Sources } from "./Sources";
+import { SpellChecker } from "./SpellChecker";
 
 type Spell = {
   slug: string;
@@ -82,6 +83,7 @@ export function SpellPage({ spell }: { spell: Spell }) {
       </div>
 
       <AtAGlance stats={stats} />
+      <SpellChecker spell={spell} />
       <JumpTo sections={sections} />
 
       {/* Mechanics */}

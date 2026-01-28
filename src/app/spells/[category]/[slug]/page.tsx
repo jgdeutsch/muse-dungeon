@@ -21,13 +21,14 @@ export function generateStaticParams() {
   return [...spellParams, ...classListParams];
 }
 
-export function generateMetadata({
+export async function generateMetadata({
   params,
 }: {
-  params: { category: string; slug: string };
+  params: Promise<{ category: string; slug: string }>;
 }) {
-  if (params.category === "class-spell-lists") {
-    const list = classSpellLists.find((cl) => cl.slug === params.slug);
+  const { category, slug } = await params;
+  if (category === "class-spell-lists") {
+    const list = classSpellLists.find((cl) => cl.slug === slug);
     if (list)
       return {
         title: `${list.name} — D&D 5e`,
@@ -35,7 +36,7 @@ export function generateMetadata({
       };
   }
 
-  const spell = getSpellBySlug(params.slug);
+  const spell = getSpellBySlug(slug);
   if (spell) {
     return {
       title: `${spell.name} — D&D 5e`,
@@ -45,18 +46,19 @@ export function generateMetadata({
   return { title: "Spell" };
 }
 
-export default function SpellPageRoute({
+export default async function SpellPageRoute({
   params,
 }: {
-  params: { category: string; slug: string };
+  params: Promise<{ category: string; slug: string }>;
 }) {
-  if (params.category === "class-spell-lists") {
-    const list = classSpellLists.find((cl) => cl.slug === params.slug);
+  const { category, slug } = await params;
+  if (category === "class-spell-lists") {
+    const list = classSpellLists.find((cl) => cl.slug === slug);
     if (!list) return notFound();
     return <ClassSpellListPage data={list} />;
   }
 
-  const spell = getSpellBySlug(params.slug);
+  const spell = getSpellBySlug(slug);
   if (!spell) return notFound();
 
   return <SpellPage spell={spell} />;

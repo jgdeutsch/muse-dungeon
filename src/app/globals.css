@@ -1,19 +1,19 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #0F0F13;
-  --bg-card: #1A1A22;
-  --bg-card-hover: #22222E;
-  --text: #E8E6E3;
-  --text-dim: #9B978F;
-  --accent: #C9A84C;
-  --accent-glow: rgba(201, 168, 76, 0.15);
-  --border: #2A2A35;
-  --red: #C45B5B;
-  --blue: #5B8DC4;
-  --green: #5BC47A;
-  --purple: #9B6BC4;
-  --orange: #C4855B;
+  --bg: #111118;
+  --bg-card: #1C1C26;
+  --bg-card-hover: #252532;
+  --text: #ECECEA;
+  --text-dim: #B0ADA5;
+  --accent: #D4B45C;
+  --accent-glow: rgba(212, 180, 92, 0.12);
+  --border: #2E2E3A;
+  --red: #D06060;
+  --blue: #6898D0;
+  --green: #60D080;
+  --purple: #A878D0;
+  --orange: #D09060;
 }
 
 body {
@@ -21,6 +21,8 @@ body {
   background: var(--bg);
   color: var(--text);
   -webkit-font-smoothing: antialiased;
+  font-size: 16px;
+  line-height: 1.6;
 }
 
 /* Reference tables */
@@ -28,7 +30,8 @@ body {
   width: 100%;
   border-collapse: collapse;
   margin: 16px 0;
-  font-size: 0.85rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
 }
 .ref-table th {
   text-align: left;
@@ -37,15 +40,15 @@ body {
   border: 1px solid var(--border);
   color: var(--accent);
   font-weight: 600;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
 }
 .ref-table td {
-  padding: 8px 12px;
+  padding: 10px 12px;
   border: 1px solid var(--border);
   color: var(--text-dim);
 }
 .ref-table tr:nth-child(even) td {
-  background: rgba(26, 26, 34, 0.5);
+  background: rgba(28, 28, 38, 0.5);
 }

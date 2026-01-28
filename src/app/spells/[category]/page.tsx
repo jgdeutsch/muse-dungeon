@@ -16,12 +16,13 @@ export function generateStaticParams() {
   ];
 }
 
-export function generateMetadata({ params }: { params: { category: string } }) {
-  const meta = categoryMeta[params.category];
+export async function generateMetadata({ params }: { params: Promise<{ category: string }> }) {
+  const { category } = await params;
+  const meta = categoryMeta[category];
   if (meta) {
     return { title: meta.title, description: meta.description };
   }
-  if (params.category === "class-spell-lists") {
+  if (category === "class-spell-lists") {
     return {
       title: "Class Spell Lists",
       description: "Quick reference spell lists for every spellcasting class in D&D 5e.",
@@ -30,13 +31,14 @@ export function generateMetadata({ params }: { params: { category: string } }) {
   return { title: "Spells" };
 }
 
-export default function CategoryPage({
+export default async function CategoryPage({
   params,
 }: {
-  params: { category: string };
+  params: Promise<{ category: string }>;
 }) {
+  const { category } = await params;
   // Class spell lists index
-  if (params.category === "class-spell-lists") {
+  if (category === "class-spell-lists") {
     return (
       <>
         <Breadcrumb
@@ -71,7 +73,7 @@ export default function CategoryPage({
   }
 
   // General spells overview
-  if (params.category === "general") {
+  if (category === "general") {
     return (
       <>
         <Breadcrumb
@@ -107,8 +109,8 @@ export default function CategoryPage({
   }
 
   // Regular spell category
-  const spells = spellsByCategory[params.category];
-  const meta = categoryMeta[params.category];
+  const spells = spellsByCategory[category];
+  const meta = categoryMeta[category];
   if (!spells || !meta) return notFound();
 
   return (
