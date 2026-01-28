@@ -3,6 +3,8 @@ import { AtAGlance } from "./AtAGlance";
 import { JumpTo } from "./JumpTo";
 import { Warning, Tip } from "./Warning";
 import { Sources } from "./Sources";
+import { AddRaceToGame } from "./AddRaceToGame";
+import { AssignToCharacter } from "./AssignToCharacter";
 
 type RacePageData = {
   slug: string;
@@ -60,6 +62,8 @@ export function RacePageComponent({ data }: { data: RacePageData }) {
       </div>
 
       <AtAGlance stats={stats} />
+      <AddRaceToGame raceName={data.raceName} raceSlug={data.slug} />
+      <AssignToCharacter entryName={data.raceName} entrySlug={data.slug} field="conditions" />
       <JumpTo sections={sections} />
 
       {/* Racial Traits */}
