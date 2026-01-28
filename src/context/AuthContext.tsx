@@ -1,20 +1,20 @@
 "use client";
 
 import { createContext, useContext, useState, useEffect, useCallback, type ReactNode } from "react";
-import { onAuthStateChanged, signInWithRedirect, getRedirectResult, signOut as fbSignOut, type User } from "firebase/auth";
+import { onAuthStateChanged, signInWithPopup, signOut as fbSignOut, type User } from "firebase/auth";
 import { auth, googleProvider } from "@/lib/firebase";
 
 type AuthState = {
   user: User | null;
   loading: boolean;
-  signIn: () => void;
+  signIn: () => Promise<void>;
   signOut: () => Promise<void>;
 };
 
 const AuthContext = createContext<AuthState>({
   user: null,
   loading: true,
-  signIn: () => {},
+  signIn: async () => {},
   signOut: async () => {},
 });
 
@@ -23,9 +23,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Handle redirect result first
-    getRedirectResult(auth).catch(() => {});
-
     const unsub = onAuthStateChanged(auth, (u) => {
       setUser(u);
       setLoading(false);
@@ -33,8 +30,18 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return unsub;
   }, []);
 
-  const signIn = useCallback(() => {
-    signInWithRedirect(auth, googleProvider);
+  const signIn = useCallback(async () => {
+    try {
+      const result = await signInWithPopup(auth, googleProvider);
+      console.log("Sign-in success:", result.user.displayName);
+    } catch (e: unknown) {
+      const err = e as { code?: string; message?: string };
+      console.error("Sign-in error:", err.code, err.message);
+      // If popup blocked, tell the user
+      if (err.code === "auth/popup-blocked") {
+        alert("Popup was blocked. Please allow popups for this site.");
+      }
+    }
   }, []);
 
   const signOut = useCallback(async () => {
