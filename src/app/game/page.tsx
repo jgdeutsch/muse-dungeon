@@ -948,8 +948,7 @@ function CharacterDetail({
         />
       </div>
 
-      <div className="flex items-center justify-between">
-        <span className="text-[11px] text-[var(--text-dim)] italic">Changes saved automatically</span>
+      <div className="flex items-center justify-end">
         <button
           onClick={handleRemove}
           className="text-xs text-[var(--red)] cursor-pointer bg-transparent border-0 hover:underline"

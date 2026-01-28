@@ -2,9 +2,11 @@
 
 import Link from "next/link";
 import { useGame } from "@/context/GameContext";
+import { useAuth } from "@/context/AuthContext";
 
 export function Nav() {
   const { characters } = useGame();
+  const { user, loading, signIn, signOut } = useAuth();
   const count = characters.length;
 
   return (
@@ -42,6 +44,34 @@ export function Nav() {
             </span>
           )}
         </Link>
+        {!loading && (
+          user ? (
+            <button
+              onClick={signOut}
+              className="flex items-center gap-1.5 bg-transparent border border-[var(--border)] rounded-full pl-1 pr-3 py-1 cursor-pointer hover:border-[var(--accent)] transition-colors"
+              title={`Signed in as ${user.displayName}`}
+            >
+              {user.photoURL ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img src={user.photoURL} alt="" className="w-5 h-5 rounded-full" referrerPolicy="no-referrer" />
+              ) : (
+                <span className="w-5 h-5 rounded-full bg-[var(--accent)] text-white text-[10px] flex items-center justify-center font-bold">
+                  {(user.displayName || "U")[0]}
+                </span>
+              )}
+              <span className="text-[11px] text-[var(--text-dim)]">
+                {(user.displayName || "User").split(" ")[0]}
+              </span>
+            </button>
+          ) : (
+            <button
+              onClick={signIn}
+              className="text-xs text-[var(--text-dim)] bg-transparent border border-[var(--border)] rounded-lg px-3 py-1.5 cursor-pointer hover:border-[var(--accent)] hover:text-[var(--accent)] transition-colors"
+            >
+              Sign in
+            </button>
+          )
+        )}
       </div>
     </nav>
   );
