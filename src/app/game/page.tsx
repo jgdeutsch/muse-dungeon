@@ -1,9 +1,672 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { useGame, type GameCharacter, type GameEntry, type SpellSlots } from "@/context/GameContext";
 import { Breadcrumb } from "@/components/Breadcrumb";
+import { allSpells } from "@/data/spells-index";
+import { equipmentPages, magicItemPages } from "@/data/items-index";
+import { rulePages } from "@/data/rules-index";
+import { monsterPages } from "@/data/monsters-index";
+import { racePages, featPages, combatPages } from "@/data/characters-index";
+
+// ---------------------------------------------------------------------------
+// Catalog — a unified searchable list of everything a DM can add
+// ---------------------------------------------------------------------------
+
+type CatalogEntry = {
+  name: string;
+  slug: string;
+  kind: "spell" | "item" | "condition" | "monster" | "feat" | "race";
+  field: "conditions" | "activeEffects" | "spellsKnown" | "items";
+  detail: string; // short subtitle
+  href: string;
+  // For monsters that can be added as NPCs
+  asNpc?: { className: string; classSlug: string; hp?: string; hpMax?: string; ac?: string };
+};
+
+function buildCatalog(): CatalogEntry[] {
+  const catalog: CatalogEntry[] = [];
+
+  for (const s of allSpells) {
+    // as known spell
+    catalog.push({
+      name: s.name,
+      slug: s.slug,
+      kind: "spell",
+      field: "spellsKnown",
+      detail: `${s.level} ${s.school}`,
+      href: `/spells/${s.category}/${s.slug}/`,
+    });
+    // as active effect
+    catalog.push({
+      name: s.name,
+      slug: s.slug,
+      kind: "spell",
+      field: "activeEffects",
+      detail: `${s.level} ${s.school} — as effect`,
+      href: `/spells/${s.category}/${s.slug}/`,
+    });
+  }
+
+  for (const e of equipmentPages) {
+    catalog.push({
+      name: e.name,
+      slug: e.slug,
+      kind: "item",
+      field: "items",
+      detail: `${e.itemType} · ${e.cost}`,
+      href: `/items/equipment/${e.slug}/`,
+    });
+  }
+
+  for (const m of magicItemPages) {
+    catalog.push({
+      name: m.name,
+      slug: m.slug,
+      kind: "item",
+      field: "items",
+      detail: `${m.rarity} magic item`,
+      href: `/items/magic-items/${m.slug}/`,
+    });
+  }
+
+  for (const r of rulePages) {
+    catalog.push({
+      name: r.name,
+      slug: r.slug,
+      kind: "condition",
+      field: "conditions",
+      detail: r.description.slice(0, 60) + (r.description.length > 60 ? "…" : ""),
+      href: `/rules/${r.category}/${r.slug}/`,
+    });
+  }
+
+  for (const r of racePages) {
+    catalog.push({
+      name: r.raceName,
+      slug: r.slug,
+      kind: "race",
+      field: "conditions",
+      detail: `${r.size} · ${r.speed} · ${r.abilityScores}`,
+      href: `/characters/races/${r.slug}/`,
+    });
+  }
+
+  for (const f of featPages) {
+    catalog.push({
+      name: f.name,
+      slug: f.slug,
+      kind: "feat",
+      field: "conditions",
+      detail: f.prerequisite ? `Prereq: ${f.prerequisite}` : "No prerequisite",
+      href: `/characters/feats/${f.slug}/`,
+    });
+  }
+
+  for (const c of combatPages) {
+    catalog.push({
+      name: c.name,
+      slug: c.slug,
+      kind: "feat",
+      field: "conditions",
+      detail: c.description.slice(0, 60) + (c.description.length > 60 ? "…" : ""),
+      href: `/characters/feats/${c.slug}/`,
+    });
+  }
+
+  for (const m of monsterPages) {
+    // As encounter condition
+    catalog.push({
+      name: `Encounter: ${m.monsterName}`,
+      slug: m.slug,
+      kind: "monster",
+      field: "conditions",
+      detail: `CR ${m.challengeRating} ${m.type}`,
+      href: `/monsters/creatures/${m.slug}/`,
+    });
+    // As addable NPC
+    catalog.push({
+      name: m.monsterName,
+      slug: m.slug,
+      kind: "monster",
+      field: "conditions", // not used for NPC add
+      detail: `CR ${m.challengeRating} ${m.type} — add as NPC`,
+      href: `/monsters/creatures/${m.slug}/`,
+      asNpc: {
+        className: m.monsterName,
+        classSlug: m.slug,
+        hp: m.hitPoints.split(" ")[0],
+        hpMax: m.hitPoints.split(" ")[0],
+        ac: m.armorClass.split(" ")[0],
+      },
+    });
+  }
+
+  return catalog;
+}
+
+let _catalog: CatalogEntry[] | null = null;
+function getCatalog() {
+  if (!_catalog) _catalog = buildCatalog();
+  return _catalog;
+}
+
+type TabKey = "spells" | "items" | "conditions" | "effects" | "feats" | "monsters";
+
+const TABS: { key: TabKey; label: string; field?: CatalogEntry["field"]; kinds?: string[] }[] = [
+  { key: "spells", label: "Spells", field: "spellsKnown", kinds: ["spell"] },
+  { key: "effects", label: "Effects", field: "activeEffects" },
+  { key: "items", label: "Items", field: "items" },
+  { key: "feats", label: "Feats & Races", kinds: ["feat", "race"] },
+  { key: "monsters", label: "Monsters", kinds: ["monster"] },
+  { key: "conditions", label: "Rules", field: "conditions", kinds: ["condition"] },
+];
+
+function AddEntrySearch({
+  charId,
+  charName,
+}: {
+  charId: string;
+  charName: string;
+}) {
+  const { addEntryToCharacter, addCharacter } = useGame();
+  const [open, setOpen] = useState(false);
+  const [tab, setTab] = useState<TabKey>("spells");
+  const [query, setQuery] = useState("");
+  const [added, setAdded] = useState<string | null>(null);
+
+  const catalog = useMemo(() => getCatalog(), []);
+
+  const filtered = useMemo(() => {
+    const activeTab = TABS.find((t) => t.key === tab)!;
+    let list = catalog;
+    if (activeTab.field) list = list.filter((e) => e.field === activeTab.field);
+    if (activeTab.kinds) list = list.filter((e) => activeTab.kinds!.includes(e.kind));
+    if (query.trim()) {
+      const q = query.toLowerCase();
+      list = list.filter((e) => e.name.toLowerCase().includes(q) || e.detail.toLowerCase().includes(q));
+    }
+    return list.slice(0, 30);
+  }, [catalog, tab, query]);
+
+  function handleAdd(entry: CatalogEntry) {
+    // If it's a monster NPC entry, add as a new character
+    if (entry.asNpc) {
+      addCharacter({
+        name: entry.asNpc.className,
+        className: entry.asNpc.className,
+        classSlug: entry.asNpc.classSlug,
+        type: "npc",
+        hp: entry.asNpc.hp,
+        hpMax: entry.asNpc.hpMax,
+        ac: entry.asNpc.ac,
+      });
+      setAdded(`${entry.name} (as NPC)`);
+      setTimeout(() => setAdded(null), 2000);
+      return;
+    }
+
+    const catMap: Record<string, GameEntry["category"]> = {
+      "spell-known": "spell-known",
+      spell: "spell",
+      item: "item",
+      feat: "feat",
+      race: "race",
+    };
+    const gameEntry: GameEntry = {
+      name: entry.name,
+      slug: entry.slug,
+      category: entry.kind === "spell" && entry.field === "spellsKnown"
+        ? "spell-known"
+        : catMap[entry.kind] || "condition",
+    };
+    addEntryToCharacter(charId, entry.field, gameEntry);
+    setAdded(entry.name);
+    setTimeout(() => setAdded(null), 2000);
+  }
+
+  if (!open) {
+    return (
+      <div className="mb-4">
+        {added && (
+          <div className="flex items-center gap-2 bg-[var(--green-bg)] border border-[var(--green-border)] text-[var(--green)] rounded-lg px-3 py-1.5 mb-3 text-xs font-medium">
+            &#10003; Added <strong>{added}</strong> to {charName}
+          </div>
+        )}
+        <button
+          onClick={() => setOpen(true)}
+          className="w-full flex items-center justify-center gap-2 bg-[var(--bg)] border-2 border-dashed border-[var(--border)] rounded-lg px-4 py-3 text-sm text-[var(--text-dim)] cursor-pointer hover:border-[var(--accent)] hover:text-[var(--accent)] transition-colors"
+        >
+          <span className="text-lg leading-none">+</span> Add spell, item, condition, or effect
+        </button>
+      </div>
+    );
+  }
+
+  return (
+    <div className="mb-4 bg-[var(--bg)] border border-[var(--accent)] rounded-xl overflow-hidden">
+      {added && (
+        <div className="flex items-center gap-2 bg-[var(--green-bg)] text-[var(--green)] px-4 py-1.5 text-xs font-medium">
+          &#10003; Added <strong>{added}</strong>
+        </div>
+      )}
+
+      {/* Header */}
+      <div className="flex items-center justify-between px-4 pt-3 pb-2">
+        <span className="text-sm font-semibold">Add to {charName}</span>
+        <button
+          onClick={() => { setOpen(false); setQuery(""); }}
+          className="text-xs text-[var(--text-dim)] cursor-pointer bg-transparent border-0 hover:text-[var(--text)]"
+        >
+          &#10005; Close
+        </button>
+      </div>
+
+      {/* Tabs */}
+      <div className="flex gap-1 px-4 pb-2">
+        {TABS.map((t) => (
+          <button
+            key={t.key}
+            onClick={() => { setTab(t.key); setQuery(""); }}
+            className={`px-3 py-1.5 rounded-full text-xs font-medium cursor-pointer border transition-colors ${
+              tab === t.key
+                ? "bg-[var(--accent)] text-white border-[var(--accent)]"
+                : "bg-[var(--bg-card)] text-[var(--text-dim)] border-[var(--border)] hover:border-[var(--accent)]"
+            }`}
+          >
+            {t.label}
+          </button>
+        ))}
+      </div>
+
+      {/* Search */}
+      <div className="px-4 pb-2">
+        <input
+          autoFocus
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder={`Search ${TABS.find((t) => t.key === tab)?.label.toLowerCase()}…`}
+          className="w-full border border-[var(--border)] rounded-lg px-3 py-2 text-sm bg-[var(--bg-card)] text-[var(--text)] outline-none focus:border-[var(--accent)]"
+        />
+      </div>
+
+      {/* Results */}
+      <div className="max-h-64 overflow-y-auto px-2 pb-2">
+        {filtered.length === 0 ? (
+          <div className="text-xs text-[var(--text-dim)] text-center py-6">
+            No results{query ? ` for "${query}"` : ""}
+          </div>
+        ) : (
+          filtered.map((entry, i) => (
+            <button
+              key={`${entry.slug}-${entry.field}-${i}`}
+              onClick={() => handleAdd(entry)}
+              className="w-full text-left flex items-center justify-between px-3 py-2 rounded-lg cursor-pointer hover:bg-[var(--bg-card)] transition-colors bg-transparent border-0"
+            >
+              <div className="min-w-0">
+                <div className="text-sm font-medium text-[var(--text)] truncate">{entry.name}</div>
+                <div className="text-[11px] text-[var(--text-dim)] truncate">{entry.detail}</div>
+              </div>
+              <span className="text-xs text-[var(--accent)] shrink-0 ml-2">{entry.asNpc ? "+ Add NPC" : "+ Add"}</span>
+            </button>
+          ))
+        )}
+      </div>
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Content Modal — shows full page content when clicking an entry tag
+// ---------------------------------------------------------------------------
+
+function ContentModal({
+  entry,
+  onClose,
+}: {
+  entry: GameEntry;
+  onClose: () => void;
+}) {
+  // Find the content from data sources
+  const content = useMemo(() => {
+    const slug = entry.slug;
+    if (!slug) return null;
+
+    // Try spells
+    const spell = allSpells.find((s) => s.slug === slug);
+    if (spell) {
+      return {
+        title: spell.name,
+        href: `/spells/${spell.category}/${spell.slug}/`,
+        sections: [
+          { label: "Level", value: spell.level },
+          { label: "School", value: spell.school },
+          { label: "Casting Time", value: spell.castingTime },
+          { label: "Range", value: spell.range },
+          { label: "Components", value: spell.components },
+          { label: "Duration", value: spell.duration + (spell.concentration ? " (Concentration)" : "") },
+          ...(spell.damage ? [{ label: "Damage", value: spell.damage }] : []),
+          ...(spell.savingThrow ? [{ label: "Save", value: spell.savingThrow }] : []),
+        ],
+        description: spell.description,
+        higherLevels: spell.higherLevels,
+        classes: spell.classes,
+      };
+    }
+
+    // Try equipment
+    const eq = equipmentPages.find((e) => e.slug === slug);
+    if (eq) {
+      return {
+        title: eq.name,
+        href: `/items/equipment/${eq.slug}/`,
+        sections: [
+          { label: "Type", value: eq.itemType },
+          { label: "Cost", value: eq.cost },
+          { label: "Weight", value: eq.weight },
+        ],
+        description: eq.description,
+        mechanics: eq.mechanics,
+      };
+    }
+
+    // Try magic items
+    const mi = magicItemPages.find((m) => m.slug === slug);
+    if (mi) {
+      return {
+        title: mi.name,
+        href: `/items/magic-items/${mi.slug}/`,
+        sections: [
+          { label: "Rarity", value: mi.rarity },
+          { label: "Type", value: mi.itemType },
+          { label: "Attunement", value: mi.attunement ? "Required" : "No" },
+        ],
+        description: mi.description,
+        mechanics: mi.mechanics,
+      };
+    }
+
+    // Try rules
+    const rule = rulePages.find((r) => r.slug === slug);
+    if (rule) {
+      return {
+        title: rule.name,
+        href: `/rules/${rule.category}/${rule.slug}/`,
+        sections: [],
+        description: rule.description,
+        htmlSections: rule.sections,
+      };
+    }
+
+    // Try monsters
+    const monster = monsterPages.find((m) => m.slug === slug);
+    if (monster) {
+      return {
+        title: monster.monsterName,
+        href: `/monsters/creatures/${monster.slug}/`,
+        sections: [
+          { label: "CR", value: monster.challengeRating },
+          { label: "Type", value: `${monster.size} ${monster.type}` },
+          { label: "Alignment", value: monster.alignment },
+          { label: "AC", value: monster.armorClass },
+          { label: "HP", value: monster.hitPoints },
+          { label: "Speed", value: monster.speed },
+        ],
+        description: monster.tactics,
+        abilities: monster.abilities,
+        keyAbilities: monster.keyAbilities,
+      };
+    }
+
+    // Try races
+    const race = racePages.find((r) => r.slug === slug);
+    if (race) {
+      return {
+        title: race.raceName,
+        href: `/characters/races/${race.slug}/`,
+        sections: [
+          { label: "Ability Scores", value: race.abilityScores },
+          { label: "Size", value: race.size },
+          { label: "Speed", value: race.speed },
+          { label: "Languages", value: race.languages },
+          { label: "Source", value: race.source },
+        ],
+        description: race.description,
+        traits: race.traits,
+      };
+    }
+
+    // Try feats
+    const feat = featPages.find((f) => f.slug === slug);
+    if (feat) {
+      return {
+        title: feat.name,
+        href: `/characters/feats/${feat.slug}/`,
+        sections: [
+          ...(feat.prerequisite ? [{ label: "Prerequisite", value: feat.prerequisite }] : []),
+        ],
+        description: feat.description,
+        benefit: feat.benefit,
+        mechanics: feat.mechanics,
+        synergies: feat.synergies,
+      };
+    }
+
+    // Try combat maneuvers
+    const combat = combatPages.find((c) => c.slug === slug);
+    if (combat) {
+      return {
+        title: combat.name,
+        href: `/characters/feats/${combat.slug}/`,
+        sections: [],
+        description: combat.description,
+        rules: combat.rules,
+      };
+    }
+
+    return null;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [entry.slug]);
+
+  // Close on Escape
+  useEffect(() => {
+    function onKey(e: KeyboardEvent) {
+      if (e.key === "Escape") onClose();
+    }
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [onClose]);
+
+  // Prevent body scroll
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    return () => { document.body.style.overflow = ""; };
+  }, []);
+
+  if (!content) {
+    return (
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50" onClick={onClose}>
+        <div className="bg-[var(--bg)] rounded-2xl p-6 max-w-lg w-[90vw] text-center" onClick={(e) => e.stopPropagation()}>
+          <p className="text-sm text-[var(--text-dim)] mb-4">No detailed content found for &ldquo;{entry.name}&rdquo;.</p>
+          <button onClick={onClose} className="bg-[var(--accent)] text-white rounded-lg px-4 py-2 text-sm cursor-pointer border-0">
+            Close
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const c = content as any;
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-start justify-center bg-black/50 overflow-y-auto py-8 px-4" onClick={onClose}>
+      <div
+        className="bg-[var(--bg)] border border-[var(--border)] rounded-2xl w-full max-w-2xl shadow-2xl"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Header */}
+        <div className="flex items-start justify-between p-5 pb-3 border-b border-[var(--border)]">
+          <div>
+            <h2 className="font-['Cinzel'] text-xl font-bold leading-tight">{content.title}</h2>
+          </div>
+          <button
+            onClick={onClose}
+            className="text-[var(--text-dim)] hover:text-[var(--text)] cursor-pointer bg-transparent border-0 text-lg leading-none ml-4 shrink-0"
+          >
+            &#10005;
+          </button>
+        </div>
+
+        {/* Stat grid */}
+        {content.sections.length > 0 && (
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-px bg-[var(--border)]">
+            {content.sections.map((s: { label: string; value: string }) => (
+              <div key={s.label} className="bg-[var(--bg)] px-4 py-2.5">
+                <div className="text-[10px] uppercase tracking-wider text-[var(--text-dim)] mb-0.5">{s.label}</div>
+                <div className="text-sm font-medium">{s.value}</div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* Body */}
+        <div className="p-5 space-y-4 max-h-[60vh] overflow-y-auto">
+          {/* Description */}
+          <p className="text-sm text-[var(--text-dim)] leading-relaxed">{content.description}</p>
+
+          {/* Spell-specific */}
+          {c.higherLevels && (
+            <div>
+              <div className="text-xs font-semibold uppercase tracking-wider text-[var(--purple)] mb-1">At Higher Levels</div>
+              <p className="text-sm text-[var(--text-dim)] leading-relaxed">{c.higherLevels}</p>
+            </div>
+          )}
+          {c.classes && (
+            <div>
+              <div className="text-xs font-semibold uppercase tracking-wider text-[var(--text-dim)] mb-1">Classes</div>
+              <p className="text-sm">{c.classes.join(", ")}</p>
+            </div>
+          )}
+
+          {/* Item mechanics */}
+          {c.mechanics && (
+            <div>
+              <div className="text-xs font-semibold uppercase tracking-wider text-[var(--text-dim)] mb-1">Mechanics</div>
+              <p className="text-sm text-[var(--text-dim)] leading-relaxed">{c.mechanics}</p>
+            </div>
+          )}
+
+          {/* Monster abilities */}
+          {c.abilities && (
+            <div>
+              <div className="text-xs font-semibold uppercase tracking-wider text-[var(--text-dim)] mb-2">Ability Scores</div>
+              <div className="grid grid-cols-6 gap-2">
+                {(["str", "dex", "con", "int", "wis", "cha"] as const).map((ab) => (
+                  <div key={ab} className="text-center bg-[var(--bg-card)] border border-[var(--border)] rounded-lg py-2">
+                    <div className="text-[10px] uppercase text-[var(--text-dim)]">{ab}</div>
+                    <div className="text-sm font-bold">{c.abilities[ab]}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+          {c.keyAbilities && c.keyAbilities.length > 0 && (
+            <div>
+              <div className="text-xs font-semibold uppercase tracking-wider text-[var(--text-dim)] mb-2">Key Abilities</div>
+              <div className="space-y-2">
+                {c.keyAbilities.map((a: { name: string; description: string }) => (
+                  <div key={a.name} className="bg-[var(--bg-card)] border border-[var(--border)] rounded-lg p-3">
+                    <div className="text-sm font-semibold mb-1">{a.name}</div>
+                    <p className="text-xs text-[var(--text-dim)] leading-relaxed">{a.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Race traits */}
+          {c.traits && c.traits.length > 0 && (
+            <div>
+              <div className="text-xs font-semibold uppercase tracking-wider text-[var(--text-dim)] mb-2">Racial Traits</div>
+              <div className="space-y-2">
+                {c.traits.map((t: { name: string; description: string }) => (
+                  <div key={t.name} className="bg-[var(--bg-card)] border border-[var(--border)] rounded-lg p-3">
+                    <div className="text-sm font-semibold mb-1">{t.name}</div>
+                    <p className="text-xs text-[var(--text-dim)] leading-relaxed">{t.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Feat benefit & synergies */}
+          {c.benefit && (
+            <div>
+              <div className="text-xs font-semibold uppercase tracking-wider text-[var(--green)] mb-1">Benefit</div>
+              <p className="text-sm text-[var(--text-dim)] leading-relaxed">{c.benefit}</p>
+            </div>
+          )}
+          {c.synergies && c.synergies.length > 0 && (
+            <div>
+              <div className="text-xs font-semibold uppercase tracking-wider text-[var(--text-dim)] mb-1">Synergies</div>
+              <ul className="list-disc pl-5 text-sm text-[var(--text-dim)] space-y-0.5">
+                {c.synergies.map((s: string, i: number) => <li key={i}>{s}</li>)}
+              </ul>
+            </div>
+          )}
+
+          {/* Combat maneuver rules */}
+          {c.rules && c.rules.length > 0 && (
+            <div>
+              <div className="text-xs font-semibold uppercase tracking-wider text-[var(--text-dim)] mb-2">Rules</div>
+              <div className="space-y-2">
+                {c.rules.map((r: { step: string; detail: string }, i: number) => (
+                  <div key={i} className="bg-[var(--bg-card)] border border-[var(--border)] rounded-lg p-3">
+                    <div className="text-sm font-semibold mb-1">{r.step}</div>
+                    <p className="text-xs text-[var(--text-dim)] leading-relaxed">{r.detail}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Rule HTML sections */}
+          {c.htmlSections && c.htmlSections.map((s: { id: string; title: string; content: string }) => (
+            <div key={s.id}>
+              <div className="text-xs font-semibold uppercase tracking-wider text-[var(--text-dim)] mb-1">{s.title}</div>
+              <div
+                className="text-sm text-[var(--text-dim)] leading-relaxed [&_strong]:text-[var(--text)] [&_p]:mb-2 [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:mb-2 [&_li]:mb-0.5 [&_table]:ref-table [&_th]:text-left [&_th]:p-2 [&_td]:p-2"
+                dangerouslySetInnerHTML={{ __html: s.content }}
+              />
+            </div>
+          ))}
+        </div>
+
+        {/* Footer */}
+        <div className="border-t border-[var(--border)] px-5 py-3 flex justify-between items-center">
+          <Link
+            href={content.href}
+            className="text-xs text-[var(--accent)] hover:underline"
+          >
+            View full page &rarr;
+          </Link>
+          <button
+            onClick={onClose}
+            className="bg-[var(--bg-card)] border border-[var(--border)] rounded-lg px-4 py-1.5 text-sm text-[var(--text)] cursor-pointer hover:bg-[var(--bg-card-hover)] transition-colors"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Entry List — clickable tags that open the content modal
+// ---------------------------------------------------------------------------
 
 function EntryList({
   label,
@@ -11,12 +674,14 @@ function EntryList({
   field,
   charId,
   color,
+  onViewEntry,
 }: {
   label: string;
   entries: GameEntry[];
   field: "conditions" | "activeEffects" | "spellsKnown" | "items";
   charId: string;
   color: string;
+  onViewEntry: (entry: GameEntry) => void;
 }) {
   const { removeEntryFromCharacter } = useGame();
 
@@ -31,12 +696,18 @@ function EntryList({
         {entries.map((e, i) => (
           <span
             key={`${e.name}-${i}`}
-            className="inline-flex items-center gap-1 bg-[var(--bg)] border border-[var(--border)] rounded-full px-3 py-1 text-xs"
+            className="inline-flex items-center gap-1 bg-[var(--bg)] border border-[var(--border)] rounded-full pl-1 pr-1.5 py-0.5 text-xs group"
           >
-            <span className="text-[var(--text)]">{e.name}</span>
+            <button
+              onClick={() => onViewEntry(e)}
+              className="text-[var(--text)] cursor-pointer bg-transparent border-0 text-xs hover:text-[var(--accent)] transition-colors px-1.5 py-0.5"
+              title={`View ${e.name}`}
+            >
+              {e.name}
+            </button>
             <button
               onClick={() => removeEntryFromCharacter(charId, field, i)}
-              className="text-[var(--text-dim)] hover:text-[var(--red)] cursor-pointer bg-transparent border-0 text-xs leading-none ml-0.5"
+              className="text-[var(--text-dim)] hover:text-[var(--red)] cursor-pointer bg-transparent border-0 text-[10px] leading-none opacity-50 group-hover:opacity-100 transition-opacity"
               title="Remove"
             >
               &#10005;
@@ -47,6 +718,10 @@ function EntryList({
     </div>
   );
 }
+
+// ---------------------------------------------------------------------------
+// Spell Slot Tracker
+// ---------------------------------------------------------------------------
 
 const SLOT_LEVELS = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
@@ -155,12 +830,18 @@ function SpellSlotTracker({ charId, slots }: { charId: string; slots: SpellSlots
   );
 }
 
+// ---------------------------------------------------------------------------
+// Character Detail — the expanded edit view
+// ---------------------------------------------------------------------------
+
 function CharacterDetail({
   char,
   onClose,
+  onViewEntry,
 }: {
   char: GameCharacter;
   onClose: () => void;
+  onViewEntry: (entry: GameEntry) => void;
 }) {
   const { updateCharacter, removeCharacter } = useGame();
   const [name, setName] = useState(char.name);
@@ -305,19 +986,22 @@ function CharacterDetail({
 
       {/* Conditions, Effects, Spells, Items */}
       <div className="mb-4 border-t border-[var(--border)] pt-4">
-        <EntryList label="Conditions" entries={char.conditions} field="conditions" charId={char.id} color="var(--red)" />
-        <EntryList label="Active Spell Effects" entries={char.activeEffects} field="activeEffects" charId={char.id} color="var(--purple)" />
-        <EntryList label="Known Spells" entries={char.spellsKnown} field="spellsKnown" charId={char.id} color="var(--blue)" />
-        <EntryList label="Items" entries={char.items} field="items" charId={char.id} color="var(--orange)" />
+        <EntryList label="Conditions" entries={char.conditions} field="conditions" charId={char.id} color="var(--red)" onViewEntry={onViewEntry} />
+        <EntryList label="Active Spell Effects" entries={char.activeEffects} field="activeEffects" charId={char.id} color="var(--purple)" onViewEntry={onViewEntry} />
+        <EntryList label="Known Spells" entries={char.spellsKnown} field="spellsKnown" charId={char.id} color="var(--blue)" onViewEntry={onViewEntry} />
+        <EntryList label="Items" entries={char.items} field="items" charId={char.id} color="var(--orange)" onViewEntry={onViewEntry} />
         <SpellSlotTracker charId={char.id} slots={char.spellSlots || {}} />
+
+        {/* Add Entry Search */}
+        <AddEntrySearch charId={char.id} charName={char.name} />
 
         {totalEntries === 0 && Object.keys(char.spellSlots || {}).length === 0 && (
           <p className="text-xs text-[var(--text-dim)] italic">
-            No conditions, spells, or items tracked yet. Browse{" "}
+            Use the button above to add spells, items, conditions, or effects. You can also browse{" "}
             <Link href="/spells/" className="text-[var(--accent)] underline">spells</Link>,{" "}
             <Link href="/items/" className="text-[var(--accent)] underline">items</Link>, or{" "}
             <Link href="/rules/" className="text-[var(--accent)] underline">rules</Link>{" "}
-            and use &ldquo;Give to a character&rdquo; to assign them here.
+            and use &ldquo;Give to a character&rdquo; from any page.
           </p>
         )}
       </div>
@@ -353,12 +1037,21 @@ function CharacterDetail({
   );
 }
 
+// ---------------------------------------------------------------------------
+// Game Page
+// ---------------------------------------------------------------------------
+
 export default function GamePage() {
   const { characters } = useGame();
   const [openId, setOpenId] = useState<string | null>(null);
+  const [modalEntry, setModalEntry] = useState<GameEntry | null>(null);
 
   const players = characters.filter((c) => c.type === "player");
   const npcs = characters.filter((c) => c.type === "npc");
+
+  const onViewEntry = useCallback((entry: GameEntry) => {
+    setModalEntry(entry);
+  }, []);
 
   return (
     <>
@@ -372,7 +1065,7 @@ export default function GamePage() {
       <div className="pt-6 pb-2">
         <h1 className="font-['Cinzel'] text-3xl font-bold mb-2">My Game</h1>
         <p className="text-[var(--text-dim)]">
-          Track your campaign&apos;s players and NPCs. Click a character to edit details, view conditions, spells, and items.
+          Track your campaign&apos;s players and NPCs. Click a character to edit details, add spells, items, and conditions.
         </p>
       </div>
 
@@ -431,6 +1124,7 @@ export default function GamePage() {
                       key={c.id}
                       char={c}
                       onClose={() => setOpenId(null)}
+                      onViewEntry={onViewEntry}
                     />
                   ) : (
                     <button
@@ -482,6 +1176,11 @@ export default function GamePage() {
               </section>
             ))}
         </>
+      )}
+
+      {/* Content Modal */}
+      {modalEntry && (
+        <ContentModal entry={modalEntry} onClose={() => setModalEntry(null)} />
       )}
     </>
   );

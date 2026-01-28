@@ -5,7 +5,7 @@ import { createContext, useContext, useState, useEffect, useCallback, type React
 export type GameEntry = {
   name: string;
   slug?: string;
-  category: "condition" | "spell" | "spell-known" | "item";
+  category: "condition" | "spell" | "spell-known" | "item" | "feat" | "race";
 };
 
 export type SpellSlots = {
@@ -36,7 +36,7 @@ const DEFAULTS = { level: 1, hp: "", hpMax: "", hpTemp: "", ac: "", notes: "", c
 
 type GameState = {
   characters: GameCharacter[];
-  addCharacter: (char: Pick<GameCharacter, "name" | "className" | "classSlug" | "type">) => void;
+  addCharacter: (char: Pick<GameCharacter, "name" | "className" | "classSlug" | "type"> & Partial<Pick<GameCharacter, "hp" | "hpMax" | "ac" | "level">>) => void;
   updateCharacter: (id: string, updates: Partial<GameCharacter>) => void;
   removeCharacter: (id: string) => void;
   addEntryToCharacter: (charId: string, field: "conditions" | "activeEffects" | "spellsKnown" | "items", entry: GameEntry) => void;
@@ -80,7 +80,7 @@ export function GameProvider({ children }: { children: ReactNode }) {
   }, [characters, hydrated]);
 
   const addCharacter = useCallback(
-    (char: Pick<GameCharacter, "name" | "className" | "classSlug" | "type">) => {
+    (char: Pick<GameCharacter, "name" | "className" | "classSlug" | "type"> & Partial<Pick<GameCharacter, "hp" | "hpMax" | "ac" | "level">>) => {
       setCharacters((prev) => [
         ...prev,
         { ...DEFAULTS, ...char, id: crypto.randomUUID(), createdAt: Date.now() },
