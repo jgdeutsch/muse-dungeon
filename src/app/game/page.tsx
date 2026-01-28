@@ -901,6 +901,7 @@ function RestConfirmModal({
                 <li>Clear temporary HP</li>
                 <li>Reset death saves</li>
                 <li>Restore all spell slots</li>
+                <li>Clear conditions</li>
               </ul>
             </>
           ) : (
@@ -1191,6 +1192,7 @@ function CharacterDetail({
                 hp: char.hpMax || char.hp,
                 hpTemp: "",
                 deathSaves: { successes: 0, failures: 0 },
+                conditions: [],
                 spellSlots: resetSlots,
               });
             }
