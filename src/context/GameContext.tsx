@@ -15,6 +15,11 @@ export type SpellSlots = {
   [level: string]: { max: number; used: number };
 };
 
+export type DeathSaves = {
+  successes: number; // 0-3
+  failures: number;  // 0-3
+};
+
 export type GameCharacter = {
   id: string;
   name: string;
@@ -33,9 +38,10 @@ export type GameCharacter = {
   spellsKnown: GameEntry[];
   items: GameEntry[];
   spellSlots: SpellSlots;
+  deathSaves: DeathSaves;
 };
 
-const DEFAULTS = { level: 1, hp: "", hpMax: "", hpTemp: "", ac: "", notes: "", conditions: [], activeEffects: [], spellsKnown: [], items: [], spellSlots: {} };
+const DEFAULTS = { level: 1, hp: "", hpMax: "", hpTemp: "", ac: "", notes: "", conditions: [], activeEffects: [], spellsKnown: [], items: [], spellSlots: {}, deathSaves: { successes: 0, failures: 0 } };
 
 type Toast = { id: number; message: string };
 
