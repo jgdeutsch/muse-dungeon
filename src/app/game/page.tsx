@@ -1064,24 +1064,13 @@ function CharacterDetail({
         </button>
       </div>
 
-      {/* Top row: Name, Level, Type, AC */}
-      <div className="grid grid-cols-3 gap-3 mb-4">
-        <div className="col-span-3">
+      {/* Row 1: Name + Type */}
+      <div className="grid grid-cols-[1fr_auto] gap-3 mb-4">
+        <div>
           <label className="text-xs text-[var(--text-dim)] block mb-1">Name</label>
           <input
             value={char.name}
             onChange={(e) => upd({ name: e.target.value })}
-            className="w-full border border-[var(--border)] rounded-lg px-3 py-2 text-sm bg-[var(--bg)] text-[var(--text)] outline-none focus:border-[var(--accent)]"
-          />
-        </div>
-        <div>
-          <label className="text-xs text-[var(--text-dim)] block mb-1">Level</label>
-          <input
-            value={char.level}
-            onChange={(e) => upd({ level: parseInt(e.target.value) || 1 })}
-            type="number"
-            min="1"
-            max="20"
             className="w-full border border-[var(--border)] rounded-lg px-3 py-2 text-sm bg-[var(--bg)] text-[var(--text)] outline-none focus:border-[var(--accent)]"
           />
         </div>
@@ -1093,7 +1082,7 @@ function CharacterDetail({
                 key={t}
                 type="button"
                 onClick={() => upd({ type: t })}
-                className={`flex-1 text-sm py-2 rounded-lg border cursor-pointer transition-colors ${
+                className={`flex-1 text-sm py-2 px-4 rounded-lg border cursor-pointer transition-colors ${
                   char.type === t
                     ? "bg-[var(--accent)] text-white border-[var(--accent)]"
                     : "bg-[var(--bg)] text-[var(--text-dim)] border-[var(--border)]"
@@ -1103,6 +1092,21 @@ function CharacterDetail({
               </button>
             ))}
           </div>
+        </div>
+      </div>
+
+      {/* Row 2: Level + AC */}
+      <div className="grid grid-cols-2 gap-3 mb-4">
+        <div>
+          <label className="text-xs text-[var(--text-dim)] block mb-1">Level</label>
+          <input
+            value={char.level}
+            onChange={(e) => upd({ level: parseInt(e.target.value) || 1 })}
+            type="number"
+            min="1"
+            max="20"
+            className="w-full border border-[var(--border)] rounded-lg px-3 py-2 text-sm bg-[var(--bg)] text-[var(--text)] outline-none focus:border-[var(--accent)]"
+          />
         </div>
         <div>
           <label className="text-xs text-[var(--text-dim)] block mb-1">Armor Class</label>
