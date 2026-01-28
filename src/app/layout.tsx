@@ -44,8 +44,8 @@ export default function RootLayout({
                 <SearchBar />
               </div>
               <main>{children}</main>
-              <Footer />
             </div>
+            <Footer />
             <Toasts />
           </GameProvider>
         </AuthProvider>

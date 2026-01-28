@@ -55,34 +55,49 @@ const footerLinks = [
 
 export function Footer() {
   return (
-    <footer className="mt-12 pt-8 pb-6 border-t border-[var(--border)]">
-      <nav aria-label="Site map" className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 mb-8">
-        {footerLinks.map((section) => (
-          <div key={section.href}>
-            <Link
-              href={section.href}
-              className="font-['Cinzel'] font-semibold text-sm text-[var(--text)] hover:text-[var(--accent)] transition-colors"
-            >
-              {section.title}
-            </Link>
-            <ul className="mt-2 space-y-1.5">
-              {section.children.map((child) => (
-                <li key={child.href}>
-                  <Link
-                    href={child.href}
-                    className="text-xs text-[var(--text-dim)] hover:text-[var(--accent)] transition-colors"
-                  >
-                    {child.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </nav>
-      <p className="text-center text-xs text-[var(--text-dim)]">
-        &copy; {new Date().getFullYear()} Muse Dungeon &mdash; D&amp;D 5e Quick Reference for Dungeon Masters
-      </p>
+    <footer className="mt-16 bg-[#0a0a0a] border-t border-[#222]">
+      <div className="max-w-5xl mx-auto px-6 pt-12 pb-8">
+        {/* Logo / Site name */}
+        <Link href="/" className="inline-block mb-10">
+          <span className="font-['Cinzel'] text-xl font-bold text-white tracking-wide">
+            Muse Dungeon
+          </span>
+        </Link>
+
+        {/* Link columns */}
+        <nav
+          aria-label="Site map"
+          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-x-8 gap-y-10"
+        >
+          {footerLinks.map((section) => (
+            <div key={section.href}>
+              <Link
+                href={section.href}
+                className="font-['Cinzel'] font-semibold text-sm text-white hover:text-[var(--accent)] transition-colors"
+              >
+                {section.title}
+              </Link>
+              <ul className="mt-3 space-y-2">
+                {section.children.map((child) => (
+                  <li key={child.href}>
+                    <Link
+                      href={child.href}
+                      className="text-[13px] text-[#888] hover:text-white transition-colors"
+                    >
+                      {child.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </nav>
+
+        {/* Bottom bar */}
+        <div className="mt-12 pt-6 border-t border-[#222] text-center text-xs text-[#555]">
+          &copy; {new Date().getFullYear()} Muse Dungeon &mdash; D&amp;D 5e Quick Reference for Dungeon Masters
+        </div>
+      </div>
     </footer>
   );
 }
