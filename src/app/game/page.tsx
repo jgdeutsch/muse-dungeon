@@ -851,6 +851,88 @@ function SpellSlotTracker({ charId, slots }: { charId: string; slots: SpellSlots
 }
 
 // ---------------------------------------------------------------------------
+// Rest Confirmation Modal
+// ---------------------------------------------------------------------------
+
+function RestConfirmModal({
+  type,
+  charName,
+  onConfirm,
+  onCancel,
+}: {
+  type: "short" | "long";
+  charName: string;
+  onConfirm: () => void;
+  onCancel: () => void;
+}) {
+  useEffect(() => {
+    function onKey(e: KeyboardEvent) {
+      if (e.key === "Escape") onCancel();
+    }
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [onCancel]);
+
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    return () => { document.body.style.overflow = ""; };
+  }, []);
+
+  const isLong = type === "long";
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50" onClick={onCancel}>
+      <div
+        className="bg-[var(--bg)] border border-[var(--border)] rounded-2xl p-6 max-w-sm w-[90vw] shadow-2xl"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <h3 className="font-['Cinzel'] text-lg font-bold mb-2">
+          {isLong ? "Long Rest" : "Short Rest"}
+        </h3>
+        <p className="text-sm text-[var(--text-dim)] mb-2">
+          Take a {type} rest for <strong className="text-[var(--text)]">{charName}</strong>?
+        </p>
+        <div className="text-xs text-[var(--text-dim)] mb-4 space-y-1">
+          {isLong ? (
+            <>
+              <p>This will:</p>
+              <ul className="list-disc pl-4 space-y-0.5">
+                <li>Restore HP to maximum</li>
+                <li>Clear temporary HP</li>
+                <li>Reset death saves</li>
+                <li>Restore all spell slots</li>
+              </ul>
+            </>
+          ) : (
+            <>
+              <p>This will:</p>
+              <ul className="list-disc pl-4 space-y-0.5">
+                <li>Clear temporary HP</li>
+                <li>Reset death saves</li>
+              </ul>
+            </>
+          )}
+        </div>
+        <div className="flex gap-2 justify-end">
+          <button
+            onClick={onCancel}
+            className="px-4 py-2 text-sm bg-[var(--bg-card)] border border-[var(--border)] rounded-lg cursor-pointer text-[var(--text)] hover:bg-[var(--bg-card-hover)] transition-colors"
+          >
+            Cancel
+          </button>
+          <button
+            onClick={onConfirm}
+            className="px-4 py-2 text-sm rounded-lg border-0 cursor-pointer bg-[var(--accent)] text-white hover:opacity-90 transition-opacity"
+          >
+            Confirm {isLong ? "Long" : "Short"} Rest
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
 // Remove Confirmation Modal — requires typing REMOVE to confirm
 // ---------------------------------------------------------------------------
 
@@ -948,6 +1030,7 @@ function CharacterDetail({
   }
 
   const [showRemoveConfirm, setShowRemoveConfirm] = useState(false);
+  const [restConfirm, setRestConfirm] = useState<"short" | "long" | null>(null);
 
   function handleRemoveConfirmed() {
     removeCharacter(char.id);
@@ -1032,75 +1115,82 @@ function CharacterDetail({
         </div>
       </div>
 
-      {/* HP Block — grouped like 5e character sheet */}
-      <div className="bg-[var(--bg)] border border-[var(--border)] rounded-xl p-4 mb-4">
-        <div className="text-[10px] uppercase tracking-wider text-[var(--text-dim)] font-semibold mb-3 text-center">Hit Points</div>
-        {/* HP Max */}
-        <div className="mb-2">
-          <div className="flex items-center gap-2">
-            <label className="text-xs text-[var(--text-dim)] w-24 shrink-0">Hit Point Maximum</label>
-            <input
-              value={char.hpMax}
-              onChange={(e) => upd({ hpMax: e.target.value })}
-              placeholder="e.g. 52"
-              className="flex-1 border border-[var(--border)] rounded-lg px-3 py-1.5 text-sm bg-[var(--bg-card)] text-[var(--text)] outline-none focus:border-[var(--accent)] text-center font-bold"
-            />
-          </div>
-        </div>
-        {/* Current HP — large */}
-        <div className="bg-[var(--bg-card)] border border-[var(--border)] rounded-lg p-3 mb-2">
+      {/* HP row — compact single row */}
+      <div className="grid grid-cols-3 gap-3 mb-4">
+        <div>
+          <label className="text-xs text-[var(--text-dim)] block mb-1">Current HP</label>
           <input
             value={char.hp}
             onChange={(e) => upd({ hp: e.target.value })}
-            placeholder="0"
-            className="w-full text-center text-2xl font-bold bg-transparent text-[var(--text)] outline-none border-0"
+            placeholder="e.g. 45"
+            className="w-full border border-[var(--border)] rounded-lg px-3 py-2 text-sm bg-[var(--bg)] text-[var(--text)] outline-none focus:border-[var(--accent)]"
           />
-          <div className="text-[10px] uppercase tracking-wider text-[var(--text-dim)] text-center mt-1">Current Hit Points</div>
         </div>
-        {/* Temp HP */}
-        <div className="bg-[var(--bg-card)] border border-[var(--border)] rounded-lg p-3 mb-3">
+        <div>
+          <label className="text-xs text-[var(--text-dim)] block mb-1">Max HP</label>
+          <input
+            value={char.hpMax}
+            onChange={(e) => upd({ hpMax: e.target.value })}
+            placeholder="e.g. 52"
+            className="w-full border border-[var(--border)] rounded-lg px-3 py-2 text-sm bg-[var(--bg)] text-[var(--text)] outline-none focus:border-[var(--accent)]"
+          />
+        </div>
+        <div>
+          <label className="text-xs text-[var(--text-dim)] block mb-1">Temp HP</label>
           <input
             value={char.hpTemp}
             onChange={(e) => upd({ hpTemp: e.target.value })}
             placeholder="0"
-            className="w-full text-center text-lg font-bold bg-transparent text-[var(--text)] outline-none border-0"
+            className="w-full border border-[var(--border)] rounded-lg px-3 py-2 text-sm bg-[var(--bg)] text-[var(--text)] outline-none focus:border-[var(--accent)]"
           />
-          <div className="text-[10px] uppercase tracking-wider text-[var(--text-dim)] text-center mt-1">Temporary Hit Points</div>
         </div>
-        {/* Death Saves */}
+      </div>
+
+      {/* Death Saves */}
+      <div className="mb-4">
         <DeathSavesTracker charId={char.id} saves={char.deathSaves || { successes: 0, failures: 0 }} />
       </div>
 
       {/* Rest Buttons */}
       <div className="flex gap-2 mb-4">
         <button
-          onClick={() => {
-            // Short Rest: clear temp HP, reset death saves
-            upd({ hpTemp: "", deathSaves: { successes: 0, failures: 0 } });
-          }}
+          onClick={() => setRestConfirm("short")}
           className="flex-1 bg-[var(--bg)] border border-[var(--border)] rounded-lg px-4 py-2.5 text-sm font-semibold cursor-pointer hover:border-[var(--accent)] hover:text-[var(--accent)] transition-colors text-[var(--text)]"
         >
           Short Rest
         </button>
         <button
-          onClick={() => {
-            // Long Rest: HP to max, clear temp HP, reset death saves, restore all spell slots
-            const resetSlots: SpellSlots = {};
-            for (const l of SLOT_LEVELS) {
-              if (char.spellSlots?.[l]?.max) resetSlots[l] = { max: char.spellSlots[l].max, used: 0 };
-            }
-            upd({
-              hp: char.hpMax || char.hp,
-              hpTemp: "",
-              deathSaves: { successes: 0, failures: 0 },
-              spellSlots: resetSlots,
-            });
-          }}
+          onClick={() => setRestConfirm("long")}
           className="flex-1 bg-[var(--accent)] text-white border border-[var(--accent)] rounded-lg px-4 py-2.5 text-sm font-semibold cursor-pointer hover:opacity-90 transition-opacity"
         >
           Long Rest
         </button>
       </div>
+
+      {restConfirm && (
+        <RestConfirmModal
+          type={restConfirm}
+          charName={char.name}
+          onConfirm={() => {
+            if (restConfirm === "short") {
+              upd({ hpTemp: "", deathSaves: { successes: 0, failures: 0 } });
+            } else {
+              const resetSlots: SpellSlots = {};
+              for (const l of SLOT_LEVELS) {
+                if (char.spellSlots?.[l]?.max) resetSlots[l] = { max: char.spellSlots[l].max, used: 0 };
+              }
+              upd({
+                hp: char.hpMax || char.hp,
+                hpTemp: "",
+                deathSaves: { successes: 0, failures: 0 },
+                spellSlots: resetSlots,
+              });
+            }
+            setRestConfirm(null);
+          }}
+          onCancel={() => setRestConfirm(null)}
+        />
+      )}
 
       {/* Conditions, Effects, Spells, Items */}
       <div className="mb-4 border-t border-[var(--border)] pt-4">
