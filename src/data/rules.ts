@@ -1,7 +1,7 @@
 export type RulePage = {
   slug: string;
   name: string;
-  category: "core-mechanics" | "tools-resources" | "game-terms" | "general";
+  category: "core-mechanics" | "tools-resources" | "game-terms" | "general" | "conditions";
   description: string;
   sections: { id: string; title: string; content: string }[];
   commonMistakes: string[];
@@ -72,7 +72,7 @@ export const rulePages: RulePage[] = [
   {
     slug: "exhaustion-5e",
     name: "Exhaustion 5e",
-    category: "core-mechanics",
+    category: "conditions",
     description: "Complete guide to the exhaustion condition in D&D 5e, with all six levels and their effects.",
     searchVolume: 14020,
     sections: [

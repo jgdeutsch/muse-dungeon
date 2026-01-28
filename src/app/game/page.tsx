@@ -17,7 +17,7 @@ import { racePages, featPages, combatPages } from "@/data/characters-index";
 type CatalogEntry = {
   name: string;
   slug: string;
-  kind: "spell" | "item" | "condition" | "feat" | "race";
+  kind: "spell" | "item" | "condition" | "dnd-condition" | "feat" | "race";
   field: "conditions" | "activeEffects" | "spellsKnown" | "items";
   detail: string; // short subtitle
   href: string;
@@ -70,14 +70,26 @@ function buildCatalog(): CatalogEntry[] {
   }
 
   for (const r of rulePages) {
-    catalog.push({
-      name: r.name,
-      slug: r.slug,
-      kind: "condition",
-      field: "conditions",
-      detail: r.description.slice(0, 60) + (r.description.length > 60 ? "…" : ""),
-      href: `/rules/${r.category}/${r.slug}/`,
-    });
+    if (r.category === "conditions") {
+      // D&D conditions go into the "conditions" field with "dnd-condition" kind
+      catalog.push({
+        name: r.name.replace(/ 5e$/, "").replace(/ Condition$/, ""),
+        slug: r.slug,
+        kind: "dnd-condition",
+        field: "conditions",
+        detail: r.description.slice(0, 60) + (r.description.length > 60 ? "…" : ""),
+        href: `/rules/${r.category}/${r.slug}/`,
+      });
+    } else {
+      catalog.push({
+        name: r.name,
+        slug: r.slug,
+        kind: "condition",
+        field: "conditions",
+        detail: r.description.slice(0, 60) + (r.description.length > 60 ? "…" : ""),
+        href: `/rules/${r.category}/${r.slug}/`,
+      });
+    }
   }
 
   for (const r of racePages) {
@@ -124,15 +136,16 @@ function getCatalog() {
   return _catalog;
 }
 
-type TabKey = "spells" | "items" | "conditions" | "effects" | "feats" | "races";
+type TabKey = "spells" | "items" | "conditions" | "effects" | "feats" | "races" | "rules";
 
 const TABS: { key: TabKey; label: string; field?: CatalogEntry["field"]; kinds?: string[] }[] = [
+  { key: "conditions", label: "Conditions", field: "conditions", kinds: ["dnd-condition"] },
   { key: "spells", label: "Spells", field: "spellsKnown", kinds: ["spell"] },
   { key: "effects", label: "Effects", field: "activeEffects" },
   { key: "items", label: "Items", field: "items" },
   { key: "feats", label: "Feats", kinds: ["feat"] },
   { key: "races", label: "Races", kinds: ["race"] },
-  { key: "conditions", label: "Rules", field: "conditions", kinds: ["condition"] },
+  { key: "rules", label: "Rules", field: "conditions", kinds: ["condition"] },
 ];
 
 function AddEntrySearch({
@@ -144,7 +157,7 @@ function AddEntrySearch({
 }) {
   const { addEntryToCharacter } = useGame();
   const [open, setOpen] = useState(false);
-  const [tab, setTab] = useState<TabKey>("spells");
+  const [tab, setTab] = useState<TabKey>("conditions");
   const [query, setQuery] = useState("");
   const [added, setAdded] = useState<string | null>(null);
 
@@ -168,6 +181,7 @@ function AddEntrySearch({
       item: "item",
       feat: "feat",
       race: "race",
+      "dnd-condition": "condition",
     };
     const gameEntry: GameEntry = {
       name: entry.name,

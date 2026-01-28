@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Nav } from "@/components/Nav";
+import { SearchBar } from "@/components/SearchBar";
 import { Footer } from "@/components/Footer";
 import { AuthProvider } from "@/context/AuthContext";
 import { GameProvider } from "@/context/GameContext";
@@ -39,6 +40,9 @@ export default function RootLayout({
           <GameProvider>
             <div className="max-w-3xl mx-auto px-5">
               <Nav />
+              <div className="pt-3">
+                <SearchBar />
+              </div>
               <main>{children}</main>
               <Footer />
             </div>

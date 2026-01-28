@@ -5,6 +5,7 @@ import { rulePages, ruleCategoryMeta } from "@/data/rules-index";
 
 export function generateStaticParams() {
   return [
+    { category: "conditions" },
     { category: "core-mechanics" },
     { category: "game-terms" },
     { category: "tools-resources" },

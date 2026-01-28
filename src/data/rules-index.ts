@@ -1,9 +1,14 @@
-import { rulePages } from "./rules";
+import { rulePages as baseRulePages } from "./rules";
+import { conditionPages } from "./rules-conditions";
 
 export type { RulePage } from "./rules";
-export { rulePages };
+export const rulePages = [...baseRulePages, ...conditionPages];
 
 export const ruleCategoryMeta: Record<string, { title: string; description: string }> = {
+  "conditions": {
+    title: "Conditions",
+    description: "Blinded, charmed, frightened, stunned, and all other D&D 5e conditions explained.",
+  },
   "core-mechanics": {
     title: "Core Mechanics",
     description: "Exhaustion, fall damage, multiclassing, and other core rules.",
