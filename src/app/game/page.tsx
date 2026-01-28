@@ -799,29 +799,9 @@ function CharacterDetail({
   onViewEntry: (entry: GameEntry) => void;
 }) {
   const { updateCharacter, removeCharacter } = useGame();
-  const [name, setName] = useState(char.name);
-  const [level, setLevel] = useState(String(char.level));
-  const [hp, setHp] = useState(char.hp);
-  const [hpMax, setHpMax] = useState(char.hpMax || "");
-  const [hpTemp, setHpTemp] = useState(char.hpTemp || "");
-  const [ac, setAc] = useState(char.ac);
-  const [notes, setNotes] = useState(char.notes);
-  const [type, setType] = useState(char.type);
-  const [saved, setSaved] = useState(false);
 
-  function save() {
-    updateCharacter(char.id, {
-      name: name.trim() || char.name,
-      level: parseInt(level) || 1,
-      hp,
-      hpMax,
-      hpTemp,
-      ac,
-      notes,
-      type,
-    });
-    setSaved(true);
-    setTimeout(() => setSaved(false), 2000);
+  function upd(updates: Partial<GameCharacter>) {
+    updateCharacter(char.id, updates);
   }
 
   function handleRemove() {
@@ -856,26 +836,20 @@ function CharacterDetail({
         </button>
       </div>
 
-      {saved && (
-        <div className="flex items-center gap-2 bg-[var(--green-bg)] border border-[var(--green-border)] text-[var(--green)] rounded-lg px-3 py-1.5 mb-4 text-xs font-medium">
-          &#10003; Saved
-        </div>
-      )}
-
       <div className="grid grid-cols-3 gap-3 mb-4">
         <div className="col-span-3">
           <label className="text-xs text-[var(--text-dim)] block mb-1">Name</label>
           <input
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            value={char.name}
+            onChange={(e) => upd({ name: e.target.value })}
             className="w-full border border-[var(--border)] rounded-lg px-3 py-2 text-sm bg-[var(--bg)] text-[var(--text)] outline-none focus:border-[var(--accent)]"
           />
         </div>
         <div>
           <label className="text-xs text-[var(--text-dim)] block mb-1">Level</label>
           <input
-            value={level}
-            onChange={(e) => setLevel(e.target.value)}
+            value={char.level}
+            onChange={(e) => upd({ level: parseInt(e.target.value) || 1 })}
             type="number"
             min="1"
             max="20"
@@ -889,9 +863,9 @@ function CharacterDetail({
               <button
                 key={t}
                 type="button"
-                onClick={() => setType(t)}
+                onClick={() => upd({ type: t })}
                 className={`flex-1 text-sm py-2 rounded-lg border cursor-pointer transition-colors ${
-                  type === t
+                  char.type === t
                     ? "bg-[var(--accent)] text-white border-[var(--accent)]"
                     : "bg-[var(--bg)] text-[var(--text-dim)] border-[var(--border)]"
                 }`}
@@ -904,8 +878,8 @@ function CharacterDetail({
         <div>
           <label className="text-xs text-[var(--text-dim)] block mb-1">Current HP</label>
           <input
-            value={hp}
-            onChange={(e) => setHp(e.target.value)}
+            value={char.hp}
+            onChange={(e) => upd({ hp: e.target.value })}
             placeholder="e.g. 45"
             className="w-full border border-[var(--border)] rounded-lg px-3 py-2 text-sm bg-[var(--bg)] text-[var(--text)] outline-none focus:border-[var(--accent)]"
           />
@@ -913,8 +887,8 @@ function CharacterDetail({
         <div>
           <label className="text-xs text-[var(--text-dim)] block mb-1">Max HP</label>
           <input
-            value={hpMax}
-            onChange={(e) => setHpMax(e.target.value)}
+            value={char.hpMax}
+            onChange={(e) => upd({ hpMax: e.target.value })}
             placeholder="e.g. 52"
             className="w-full border border-[var(--border)] rounded-lg px-3 py-2 text-sm bg-[var(--bg)] text-[var(--text)] outline-none focus:border-[var(--accent)]"
           />
@@ -922,8 +896,8 @@ function CharacterDetail({
         <div>
           <label className="text-xs text-[var(--text-dim)] block mb-1">Temp HP</label>
           <input
-            value={hpTemp}
-            onChange={(e) => setHpTemp(e.target.value)}
+            value={char.hpTemp}
+            onChange={(e) => upd({ hpTemp: e.target.value })}
             placeholder="0"
             className="w-full border border-[var(--border)] rounded-lg px-3 py-2 text-sm bg-[var(--bg)] text-[var(--text)] outline-none focus:border-[var(--accent)]"
           />
@@ -931,8 +905,8 @@ function CharacterDetail({
         <div>
           <label className="text-xs text-[var(--text-dim)] block mb-1">Armor Class</label>
           <input
-            value={ac}
-            onChange={(e) => setAc(e.target.value)}
+            value={char.ac}
+            onChange={(e) => upd({ ac: e.target.value })}
             placeholder="e.g. 18"
             className="w-full border border-[var(--border)] rounded-lg px-3 py-2 text-sm bg-[var(--bg)] text-[var(--text)] outline-none focus:border-[var(--accent)]"
           />
@@ -966,8 +940,8 @@ function CharacterDetail({
           DM Notes
         </label>
         <textarea
-          value={notes}
-          onChange={(e) => setNotes(e.target.value)}
+          value={char.notes}
+          onChange={(e) => upd({ notes: e.target.value })}
           rows={3}
           placeholder="Motivations, secrets, quest hooks..."
           className="w-full border border-[var(--border)] rounded-lg px-3 py-2 text-sm bg-[var(--bg)] text-[var(--text)] outline-none focus:border-[var(--accent)] resize-y"
@@ -975,12 +949,7 @@ function CharacterDetail({
       </div>
 
       <div className="flex items-center justify-between">
-        <button
-          onClick={save}
-          className="bg-[var(--accent)] text-white rounded-lg px-5 py-2 text-sm font-semibold cursor-pointer border-0 hover:opacity-90 transition-opacity"
-        >
-          Save Changes
-        </button>
+        <span className="text-[11px] text-[var(--text-dim)] italic">Changes saved automatically</span>
         <button
           onClick={handleRemove}
           className="text-xs text-[var(--red)] cursor-pointer bg-transparent border-0 hover:underline"
