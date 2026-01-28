@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
+import { GameProvider } from "@/context/GameContext";
 
 export const metadata: Metadata = {
   title: {
@@ -32,11 +33,13 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <div className="max-w-3xl mx-auto px-5">
-          <Nav />
-          <main>{children}</main>
-          <Footer />
-        </div>
+        <GameProvider>
+          <div className="max-w-3xl mx-auto px-5">
+            <Nav />
+            <main>{children}</main>
+            <Footer />
+          </div>
+        </GameProvider>
       </body>
     </html>
   );

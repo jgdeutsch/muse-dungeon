@@ -3,6 +3,7 @@ import { AtAGlance } from "./AtAGlance";
 import { JumpTo } from "./JumpTo";
 import { Warning, Tip } from "./Warning";
 import { Sources } from "./Sources";
+import { AddToGameButton } from "./AddToGameButton";
 
 type ClassPageData = {
   slug: string;
@@ -62,6 +63,8 @@ export function ClassPageComponent({ data }: { data: ClassPageData }) {
           {data.description}
         </p>
       </div>
+
+      <AddToGameButton className={data.className} classSlug={data.slug} />
 
       <AtAGlance stats={stats} />
       <JumpTo sections={sections} />
