@@ -7,6 +7,7 @@ import { auth, googleProvider } from "@/lib/firebase";
 type AuthState = {
   user: User | null;
   loading: boolean;
+  authError: string | null;
   signIn: () => Promise<void>;
   signOut: () => Promise<void>;
 };
@@ -14,6 +15,7 @@ type AuthState = {
 const AuthContext = createContext<AuthState>({
   user: null,
   loading: true,
+  authError: null,
   signIn: async () => {},
   signOut: async () => {},
 });
@@ -21,6 +23,7 @@ const AuthContext = createContext<AuthState>({
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
+  const [authError, setAuthError] = useState<string | null>(null);
 
   useEffect(() => {
     const unsub = onAuthStateChanged(auth, (u) => {
@@ -31,16 +34,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const signIn = useCallback(async () => {
+    setAuthError(null);
     try {
-      const result = await signInWithPopup(auth, googleProvider);
-      console.log("Sign-in success:", result.user.displayName);
+      await signInWithPopup(auth, googleProvider);
     } catch (e: unknown) {
       const err = e as { code?: string; message?: string };
-      console.error("Sign-in error:", err.code, err.message);
-      // If popup blocked, tell the user
-      if (err.code === "auth/popup-blocked") {
-        alert("Popup was blocked. Please allow popups for this site.");
-      }
+      const msg = `${err.code || "unknown"}: ${err.message || "Sign-in failed"}`;
+      console.error("Sign-in error:", msg);
+      setAuthError(msg);
     }
   }, []);
 
@@ -49,7 +50,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user, loading, signIn, signOut }}>
+    <AuthContext.Provider value={{ user, loading, authError, signIn, signOut }}>
       {children}
     </AuthContext.Provider>
   );

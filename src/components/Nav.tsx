@@ -6,7 +6,7 @@ import { useAuth } from "@/context/AuthContext";
 
 export function Nav() {
   const { characters } = useGame();
-  const { user, loading, signIn, signOut } = useAuth();
+  const { user, loading, authError, signIn, signOut } = useAuth();
   const count = characters.length;
 
   return (
@@ -64,12 +64,19 @@ export function Nav() {
               </span>
             </button>
           ) : (
-            <button
-              onClick={signIn}
-              className="text-xs text-[var(--text-dim)] bg-transparent border border-[var(--border)] rounded-lg px-3 py-1.5 cursor-pointer hover:border-[var(--accent)] hover:text-[var(--accent)] transition-colors"
-            >
-              Sign in
-            </button>
+            <div className="flex flex-col items-end gap-1">
+              <button
+                onClick={signIn}
+                className="text-xs text-[var(--text-dim)] bg-transparent border border-[var(--border)] rounded-lg px-3 py-1.5 cursor-pointer hover:border-[var(--accent)] hover:text-[var(--accent)] transition-colors"
+              >
+                Sign in
+              </button>
+              {authError && (
+                <div className="text-[10px] text-[var(--red)] max-w-[200px] text-right">
+                  {authError}
+                </div>
+              )}
+            </div>
           )
         )}
       </div>
