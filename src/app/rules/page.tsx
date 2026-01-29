@@ -9,6 +9,13 @@ export const metadata = {
 
 const categories = [
   {
+    key: "conditions",
+    title: "Conditions",
+    description:
+      "Blinded, charmed, frightened, stunned, and all 14 D&D 5e conditions explained.",
+    count: 14,
+  },
+  {
     key: "core-mechanics",
     title: "Core Mechanics",
     description:
@@ -41,8 +48,8 @@ export default function RulesIndex() {
           Rules &amp; Systems
         </h1>
         <p className="text-[var(--text-dim)]">
-          17 quick-reference guides for core mechanics, game terms, and
-          resources.
+          29 quick-reference guides for conditions, core mechanics, game terms,
+          and resources.
         </p>
       </div>
 
