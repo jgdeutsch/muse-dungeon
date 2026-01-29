@@ -1,3 +1,5 @@
+import { FAQItem } from "../components/FAQ";
+
 export type RacePage = {
   slug: string;
   name: string;
@@ -13,6 +15,7 @@ export type RacePage = {
   subraces: { name: string; bonus: string }[] | null;
   commonMistakes: string[];
   dmTips: string[];
+  faq?: FAQItem[];
   searchVolume: number;
   aliases?: string[];
 };
@@ -82,6 +85,28 @@ export const racePages: RacePage[] = [
       "The three subraces offer very different playstyles - Protector for mobility, Scourge for damage, Fallen for control",
       "Radiant resistance is powerful against certain undead and fiends"
     ],
+    faq: [
+      {
+        question: "What is the best class for Aasimar in 5e?",
+        answer: "Paladins and Clerics are top choices due to the +2 Charisma bonus and thematic celestial connection. Warlocks and Sorcerers also benefit greatly. The Healing Hands ability complements any support role, while the transformation abilities add damage for martial builds."
+      },
+      {
+        question: "Can Aasimar fly permanently?",
+        answer: "No. Protector Aasimar gain a 30-foot flying speed only during their Radiant Soul transformation, which lasts just 1 minute (10 combat rounds) and requires a long rest to recharge. This is a limited combat ability, not permanent flight."
+      },
+      {
+        question: "What's the difference between Aasimar subraces?",
+        answer: "Protector Aasimar get flight and radiant damage for offense/mobility. Scourge Aasimar deal AoE radiant damage (including to themselves) for sustained damage. Fallen Aasimar frighten enemies and deal necrotic damage for crowd control. Choose based on your playstyle."
+      },
+      {
+        question: "Do Aasimar have to be good-aligned?",
+        answer: "No. While most Aasimar have celestial heritage pushing them toward good, Fallen Aasimar explicitly represent those who've turned from their celestial purpose. Any Aasimar can be any alignment based on their choices and experiences."
+      },
+      {
+        question: "How does Healing Hands work in 5e?",
+        answer: "As an action, touch a creature and roll d4s equal to your proficiency bonus. The creature regains that many hit points. It recharges on a long rest. It's not as powerful as Lay on Hands but provides useful emergency healing for non-healer classes."
+      }
+    ],
     searchVolume: 15420
   },
   {
@@ -130,6 +155,28 @@ export const racePages: RacePage[] = [
       "Surprise Attack is devastating at low levels but scales poorly - consider supplementing with class features",
       "Great for players who want to play against type (sneaky brute archetype)"
     ],
+    faq: [
+      {
+        question: "What is the best class for Bugbear in 5e?",
+        answer: "Rogues are exceptional - Surprise Attack stacks with Sneak Attack for devastating first-round damage. Fighters and Barbarians benefit from Strength and reach. Assassin Rogues are particularly deadly, potentially dealing Sneak Attack + Surprise Attack + Assassinate all on round one."
+      },
+      {
+        question: "How does Bugbear Long-Limbed work?",
+        answer: "On your turn, your melee attacks have 5 feet extra reach. A longsword normally has 5-foot reach; for a Bugbear, it's 10 feet on their turn. This doesn't apply to opportunity attacks or attacks outside your turn. It's excellent for hitting enemies from safety."
+      },
+      {
+        question: "Does Surprise Attack work every combat?",
+        answer: "Surprise Attack triggers when you hit a creature that hasn't taken a turn yet in that combat. This works in the first round if you act before the target, regardless of whether they were 'surprised.' High initiative helps trigger this consistently."
+      },
+      {
+        question: "Can Bugbears be stealthy despite their size?",
+        answer: "Yes! Bugbears have proficiency in Stealth despite being Medium size. Combined with their Surprise Attack trait, they're designed for ambush tactics. Their lore describes them as surprisingly quiet hunters despite their bulk."
+      },
+      {
+        question: "How big are Bugbears in 5e?",
+        answer: "Bugbears are Medium size but count as Large for carrying capacity due to Powerful Build. They typically stand 7-8 feet tall and weigh 250-350 pounds. Despite their size, they're sneaky and fit through Medium-sized spaces."
+      }
+    ],
     searchVolume: 14530
   },
   {
@@ -171,6 +218,28 @@ export const racePages: RacePage[] = [
       "Changelings work best in intrigue and social-focused campaigns",
       "Remember that changing appearance is an action, not a bonus action",
       "Consider how NPCs react to discovering a changeling's true nature"
+    ],
+    faq: [
+      {
+        question: "What is the best class for Changeling in 5e?",
+        answer: "Bards, Rogues, and Warlocks excel due to the +2 Charisma and shapeshifting synergy. Bards gain incredible infiltration abilities. Rogues combine disguises with stealth. Face characters and spies benefit enormously from at-will appearance changes without spell slots."
+      },
+      {
+        question: "Can Changelings copy specific people?",
+        answer: "Yes, Changelings can mimic any humanoid they've seen, including specific individuals. However, they copy appearance only - not memories, mannerisms, or voice patterns. Convincingly impersonating someone requires roleplaying skill and possibly Deception checks."
+      },
+      {
+        question: "Does Changeling shapeshifting require concentration?",
+        answer: "No. Shapechanger is not a spell and doesn't require concentration. You maintain your form indefinitely until you choose to change again (as an action) or die. This makes it far more reliable than Disguise Self."
+      },
+      {
+        question: "Can Changelings change their size?",
+        answer: "Changelings can adjust height and weight but cannot change their size category. They remain Medium. They can appear as a tall human or a short elf but can't become Small like a halfling or Large like a goliath."
+      },
+      {
+        question: "What is Divergent Persona?",
+        answer: "You create a permanent alternate identity with a specific tool proficiency. When in that persona's form, your proficiency bonus is doubled for that tool - similar to Expertise. Great for crafting, forgery, or specialized infiltration roles."
+      }
     ],
     searchVolume: 29150,
     aliases: ["changeling-dnd"]
@@ -256,6 +325,28 @@ export const racePages: RacePage[] = [
       "Consider introducing dragon NPCs that react to the dragonborn's ancestry",
       "Fizban's offers the Gem and Metallic/Chromatic variants with different abilities"
     ],
+    faq: [
+      {
+        question: "What is the best class for Dragonborn in 5e?",
+        answer: "Paladins are iconic - Strength and Charisma bonuses align perfectly, and breath weapon adds AoE damage. Fighters and Sorcerers also excel. The Fizban's Dragonborn variants open up more options with Constitution bonuses and improved breath weapons."
+      },
+      {
+        question: "How does Dragonborn breath weapon work?",
+        answer: "As an action, exhale in a line or cone (based on ancestry). Creatures in the area make a Dex or Con save (DC = 8 + Con mod + proficiency). Failed saves take 2d6 damage (scaling at levels 6, 11, 16), half on success. Recharges on short or long rest."
+      },
+      {
+        question: "Which Dragonborn ancestry is best?",
+        answer: "Fire (Red/Gold/Brass) is most versatile since fire damage is widely useful. Cold (Silver/White) hits many monsters. Lightning (Blue/Bronze) is good but less common. Poison (Green) faces many immunities. Choose based on campaign setting or flavor preference."
+      },
+      {
+        question: "Do Dragonborn have tails?",
+        answer: "The PHB describes Dragonborn without tails, but many players and DMs prefer them with tails for flavor. This is a cosmetic choice with no mechanical impact. Check with your DM about their world's Dragonborn appearance."
+      },
+      {
+        question: "What's the difference between PHB and Fizban's Dragonborn?",
+        answer: "Fizban's Dragonborn get improved breath weapons (bonus action, proficiency bonus uses per long rest), flight or other abilities at 5th level, and different stat bonuses. The PHB version uses an action and recharges on short rest. Fizban's is generally considered stronger."
+      }
+    ],
     searchVolume: 37700,
     aliases: ["dragonborn-5e-alt"]
   },
@@ -315,6 +406,28 @@ export const racePages: RacePage[] = [
       "Darkness can be game-breaking if combined with Devil's Sight - plan accordingly",
       "Consider how surface-dwellers react to drow due to their reputation",
       "Lolth's influence and drow society provide rich roleplay opportunities"
+    ],
+    faq: [
+      {
+        question: "What is Sunlight Sensitivity and how bad is it?",
+        answer: "Drow have disadvantage on attack rolls and Perception checks in direct sunlight. This is significant for outdoor adventures. Workarounds include fighting at night, in shade, or underground. Some DMs rule overcast days don't trigger it. Discuss with your DM."
+      },
+      {
+        question: "What is the best class for Drow in 5e?",
+        answer: "Rogues excel - Dexterity bonus, weapon proficiencies, and Faerie Fire grants advantage for Sneak Attack. Rangers, Warlocks (especially Hexblade), and melee Sorcerers also work well. Darkness + Devil's Sight (Warlock) creates a powerful combo."
+      },
+      {
+        question: "Can Drow see in magical darkness?",
+        answer: "No. Superior Darkvision (120 feet) only works in nonmagical darkness. The Darkness spell creates magical darkness that even Drow can't see through. The Warlock's Devil's Sight invocation is needed to see in magical darkness."
+      },
+      {
+        question: "Are all Drow evil?",
+        answer: "No. While Drow society in the Forgotten Realms is typically evil and Lolth-worshipping, individual Drow can be any alignment. Famous good Drow include Drizzt Do'Urden. Drow who leave the Underdark often struggle against their culture's expectations."
+      },
+      {
+        question: "How does Drow Magic work?",
+        answer: "At 1st level: Dancing Lights cantrip. At 3rd level: Faerie Fire 1/long rest. At 5th level: Darkness 1/long rest. Charisma is the spellcasting ability. These are cast without spell slots and don't require material components."
+      }
     ],
     searchVolume: 40510,
     aliases: ["drow-5e-alt"]
@@ -384,6 +497,28 @@ export const racePages: RacePage[] = [
       "Consider ancient dwarven ruins and stonework as plot elements that Stonecunning can reveal",
       "Dwarven holds and clan politics provide rich campaign material"
     ],
+    faq: [
+      {
+        question: "What is the best class for Dwarf in 5e?",
+        answer: "Hill Dwarves excel as Clerics (Wisdom bonus + extra HP). Mountain Dwarves are incredible for Wizards and Sorcerers (armor proficiency without multiclassing). Fighters and Barbarians benefit from Constitution. Both subraces are highly versatile."
+      },
+      {
+        question: "What's the difference between Hill and Mountain Dwarves?",
+        answer: "Hill Dwarves get +1 Wisdom and +1 HP per level (Dwarven Toughness). Mountain Dwarves get +2 Strength and proficiency with light/medium armor. Hill Dwarves are tankier casters; Mountain Dwarves are armored gish characters or straight martials."
+      },
+      {
+        question: "Does heavy armor slow Dwarves down?",
+        answer: "No. Dwarves' 25-foot speed isn't reduced by wearing heavy armor, unlike other races. This makes Dwarves excellent for heavily-armored builds without needing the 15 Strength normally required to avoid the speed penalty."
+      },
+      {
+        question: "How does Stonecunning work?",
+        answer: "When making History checks related to stonework origin, you're considered proficient and add double your proficiency bonus. This helps identify dwarven craftsmanship, determine a structure's age, or recognize stonework traps. It's situational but flavorful."
+      },
+      {
+        question: "Can Dwarves be Wizards?",
+        answer: "Yes, and Mountain Dwarves make excellent Wizards! The +2 Strength is wasted, but free medium armor proficiency is huge for a squishy caster. You can have 17+ AC while casting spells without multiclassing. Hill Dwarf's extra HP also helps."
+      }
+    ],
     searchVolume: 4700
   },
   {
@@ -424,6 +559,28 @@ export const racePages: RacePage[] = [
       "Their patient, stoic nature makes for interesting roleplay opportunities",
       "Consider introducing other genasi or planar-touched NPCs",
       "Earth Walk is situationally very useful in rocky or mountainous terrain"
+    ],
+    faq: [
+      {
+        question: "What is the best class for Earth Genasi in 5e?",
+        answer: "Fighters, Barbarians, and melee Clerics benefit from Constitution and Strength. Any class appreciates Pass Without Trace for party stealth. Druids and Rangers fit the elemental nature thematically. The Constitution bonus helps any frontline build."
+      },
+      {
+        question: "How powerful is Pass Without Trace?",
+        answer: "Extremely powerful. It gives +10 to Stealth checks for all creatures within 30 feet for 1 hour, with no concentration. This often means the entire party can sneak past enemies. Getting this once per long rest for free is excellent utility."
+      },
+      {
+        question: "What does Earth Walk do?",
+        answer: "You ignore difficult terrain made of earth or stone. This includes rocky ground, rubble, uneven stone floors, and similar surfaces. It doesn't help with ice, mud, vegetation, or magical difficult terrain - only earth and stone specifically."
+      },
+      {
+        question: "What are the different types of Genasi?",
+        answer: "There are four Genasi subraces corresponding to the four elements: Earth, Fire, Water, and Air. Each has different ability bonuses and innate spellcasting based on their elemental plane connection. Earth Genasi are the most durable with Constitution focus."
+      },
+      {
+        question: "Do Earth Genasi need to breathe?",
+        answer: "Yes, Earth Genasi breathe normally. Only Water Genasi have special breathing abilities (amphibious). Earth Genasi have earth-themed abilities like ignoring rocky difficult terrain and casting Pass Without Trace, but normal breathing requirements."
+      }
     ],
     searchVolume: 10330
   },
@@ -492,6 +649,28 @@ export const racePages: RacePage[] = [
       "Each season offers different tactical options - Spring for ally mobility, Summer for damage, Autumn for control, Winter for defense",
       "Consider how changing seasons affects the character's demeanor and decisions"
     ],
+    faq: [
+      {
+        question: "What is the best class for Eladrin in 5e?",
+        answer: "Rogues, Fighters, and Rangers benefit from Dexterity. The Fey Step teleport enhances any melee or mobile class. Wizards appreciate the Intelligence bonus. Bladesinger Wizards are particularly strong with Eladrin's teleport and stats."
+      },
+      {
+        question: "How does Eladrin Fey Step work?",
+        answer: "As a bonus action, teleport up to 30 feet to an unoccupied space you can see. Recharges on short or long rest. At 3rd level, gain an additional effect based on your current season: Spring brings an ally, Summer deals fire damage, Autumn charms, Winter frightens."
+      },
+      {
+        question: "Can Eladrin change their season?",
+        answer: "Yes. After each long rest, you can choose which season you embody: Spring, Summer, Autumn, or Winter. This changes your appearance, personality tendencies, and Fey Step's additional effect. You're not locked into one season permanently."
+      },
+      {
+        question: "Which Eladrin season is best?",
+        answer: "It depends on your role. Autumn is often considered strongest for its charm effect. Summer adds damage. Winter provides defense with frighten. Spring helps allies reposition. The ability to change daily means you can adapt to situations."
+      },
+      {
+        question: "Are Eladrin considered Elves?",
+        answer: "Yes. Eladrin are an elf subrace native to the Feywild. They have all standard elf traits: Darkvision, Fey Ancestry, Keen Senses, and Trance. They count as elves for prerequisites, magic items, and any effect that targets elves."
+      }
+    ],
     searchVolume: 17900
   },
   {
@@ -539,6 +718,28 @@ export const racePages: RacePage[] = [
       "Firbolg clans can be reclusive but protective of their territories",
       "The combination of Detect Magic and Disguise Self provides excellent utility"
     ],
+    faq: [
+      {
+        question: "What is the best class for Firbolg in 5e?",
+        answer: "Druids are the iconic choice - Wisdom bonus and nature theme align perfectly. Clerics (especially Nature domain) and Rangers also excel. Their magic abilities complement spellcasters. The Strength bonus helps melee Druids and Rangers."
+      },
+      {
+        question: "How does Firbolg Hidden Step work?",
+        answer: "As a bonus action, turn invisible until the start of your next turn, or until you attack, deal damage, or force a saving throw. Recharges on short or long rest. Great for escaping danger, repositioning, or setting up ambushes."
+      },
+      {
+        question: "How tall are Firbolgs?",
+        answer: "Firbolgs are gentle giants standing 7-8 feet tall, though they're still Medium size. They have cow-like or bearish features with fur-covered skin in earth tones. Despite their size, they're gentle forest guardians who prefer avoiding conflict."
+      },
+      {
+        question: "Can Firbolgs talk to animals?",
+        answer: "Partially. Speech of Beast and Leaf lets you communicate simple ideas to beasts and plants - they understand you. However, you can't understand them in return. You also have advantage on Charisma checks to influence beasts and plants."
+      },
+      {
+        question: "What magic can Firbolgs use?",
+        answer: "Firbolg Magic grants Detect Magic and a special Disguise Self (can appear up to 3 feet shorter). Both use Wisdom and recharge on short rest. This makes them excellent scouts who can detect magical threats and disguise themselves when needed."
+      }
+    ],
     searchVolume: 38200
   },
   {
@@ -585,6 +786,28 @@ export const racePages: RacePage[] = [
       "Consider introducing githzerai as rivals or mind flayers as ancient enemies",
       "The Astral Plane connection provides unique planar travel opportunities",
       "Red dragon riders and astral ships make for epic high-level encounters"
+    ],
+    faq: [
+      {
+        question: "What is the best class for Githyanki in 5e?",
+        answer: "Fighters, Paladins, and Eldritch Knights excel with Strength and Intelligence bonuses plus armor proficiency. Wizards appreciate the armor and Misty Step. The weapon proficiencies help any class. Psi Warriors are thematically perfect."
+      },
+      {
+        question: "How does Astral Knowledge work?",
+        answer: "After each long rest, gain proficiency in one skill and one weapon or tool of your choice until your next long rest. This incredible flexibility lets you fill party gaps. Need Investigation today? Stealth tomorrow? Astral Knowledge adapts."
+      },
+      {
+        question: "What's the difference between Githyanki and Githzerai?",
+        answer: "Both escaped mind flayer enslavement but chose different paths. Githyanki are militaristic warriors dwelling on the Astral Plane, riding red dragons. Githzerai are contemplative monks living in Limbo, focused on mental discipline. They're often rivals."
+      },
+      {
+        question: "What psionic abilities do Githyanki have?",
+        answer: "Githyanki Psionics grants: Mage Hand cantrip (invisible hand) at 1st level, Jump once per long rest at 3rd level, and Misty Step once per long rest at 5th level. Intelligence is the spellcasting ability. These don't require material components."
+      },
+      {
+        question: "Do Githyanki get free armor proficiency?",
+        answer: "Yes, in the Volo's Guide version. Martial Prodigy grants proficiency with light and medium armor plus shortswords, longswords, and greatswords. The Monsters of the Multiverse version replaces this with Astral Knowledge for skill flexibility."
+      }
     ],
     searchVolume: 22660
   },
@@ -642,6 +865,28 @@ export const racePages: RacePage[] = [
       "Encourage creative uses of Tinker - wind-up toys can be useful distractions",
       "Gnomish communities often value innovation and curiosity"
     ],
+    faq: [
+      {
+        question: "What is the best class for Gnome in 5e?",
+        answer: "Wizards and Artificers excel with the +2 Intelligence. Forest Gnomes make great Illusion Wizards. Rock Gnomes fit Artificer perfectly. Gnome Cunning's magic resistance benefits any class, especially those weak to save-or-suck spells."
+      },
+      {
+        question: "How powerful is Gnome Cunning?",
+        answer: "Extremely powerful. Advantage on ALL Intelligence, Wisdom, and Charisma saves against magic covers most dangerous spells. Hold Person, Dominate, Banishment, Charm - gnomes resist them all. It's arguably the best defensive racial trait in 5e."
+      },
+      {
+        question: "What's the difference between Gnome subraces?",
+        answer: "Forest Gnomes get +1 Dex, Minor Illusion cantrip, and beast communication. Rock Gnomes get +1 Con, Tinker ability, and Artificer's Lore. Deep Gnomes (Svirfneblin) get +1 Dex, 120-foot Superior Darkvision, and Stone Camouflage."
+      },
+      {
+        question: "Can Gnomes use heavy weapons?",
+        answer: "Technically yes, but Small creatures have disadvantage on attack rolls with Heavy weapons. This makes greatswords and greataxes suboptimal. Gnomes should use non-Heavy weapons like longswords (versatile), rapiers, or ranged weapons."
+      },
+      {
+        question: "What can Rock Gnome Tinker create?",
+        answer: "Three options: a clockwork toy that moves 5 feet each turn for 1 minute, a fire starter (produces flame like a lighter), or a music box that plays one song. You can have up to three devices active. Creative uses include distractions and firestarters."
+      }
+    ],
     searchVolume: 10470,
     aliases: ["dnd-gnome"]
   },
@@ -690,6 +935,28 @@ export const racePages: RacePage[] = [
       "Goliath tribes often have strict hierarchies based on prowess",
       "The combination of Strength, Constitution, and Stone's Endurance makes them excellent tanks"
     ],
+    faq: [
+      {
+        question: "What is the best class for Goliath in 5e?",
+        answer: "Barbarians are the iconic choice - Strength and Constitution bonuses align perfectly, and Stone's Endurance stacks with Rage's damage resistance. Fighters, Paladins, and melee Rangers also excel. Any frontline build benefits from their durability."
+      },
+      {
+        question: "How does Stone's Endurance work?",
+        answer: "When you take damage, use your reaction to roll 1d12 + Constitution modifier and reduce the damage by that amount. Recharges on short or long rest. At low levels, this can completely negate an attack. At higher levels, it's a solid damage reduction."
+      },
+      {
+        question: "How big are Goliaths?",
+        answer: "Goliaths stand 7-8 feet tall and weigh 280-340 pounds. Despite this, they're Medium size. Powerful Build means they count as Large for carrying capacity and push/drag/lift limits. They're the largest common Medium race."
+      },
+      {
+        question: "Do Goliaths have cold resistance?",
+        answer: "Yes. Mountain Born grants resistance to cold damage and immunity to high altitude effects. This makes them excellent for cold-weather or mountain campaigns. They're also acclimated to elevations above 20,000 feet."
+      },
+      {
+        question: "What is Goliath culture like?",
+        answer: "Goliaths are fiercely competitive, valuing fair competition and self-sufficiency. Tribe members who can't contribute are often left behind. They see life as a constant contest of skill. This creates interesting roleplay about honor, competition, and proving oneself."
+      }
+    ],
     searchVolume: 11420
   },
   {
@@ -732,6 +999,28 @@ export const racePages: RacePage[] = [
       "Their sailing background makes them natural navigators and explorers",
       "Consider tall structures, cliffs, and aerial combat to showcase their abilities",
       "Hadozee Resilience provides consistent damage reduction throughout the day"
+    ],
+    faq: [
+      {
+        question: "Can Hadozee fly?",
+        answer: "No, but they can glide. When falling, Hadozee move 5 feet horizontally for every 1 foot descended. They can also reduce fall damage by proficiency bonus times 10 as a reaction. This isn't true flight - you must start from height and always descend."
+      },
+      {
+        question: "What is the best class for Hadozee in 5e?",
+        answer: "Rogues and Rangers benefit from Dexterity. Their climb speed helps any melee class position tactically. Monks appreciate both Dexterity and climb speed. The glide ability benefits ambush-focused characters who can attack from above."
+      },
+      {
+        question: "How does Hadozee Resilience work?",
+        answer: "When you take damage, use your reaction to roll 1d6 + proficiency bonus and reduce the damage by that amount. You can use this a number of times equal to your proficiency bonus, regaining uses on a long rest. Scales well at higher levels."
+      },
+      {
+        question: "What can Hadozee feet do?",
+        answer: "Dexterous Feet lets you use a bonus action for simple manipulations: open/close doors or containers, pick up or set down Tiny objects. You can't wield weapons or perform precise tasks. It's useful for grabbing items mid-combat without using your action."
+      },
+      {
+        question: "Are Hadozee from Spelljammer?",
+        answer: "Yes. Hadozee originated in the Spelljammer setting as space-faring simian creatures who serve as crew members on spelljamming vessels. They're natural sailors and explorers. However, they can be played in any D&D setting with DM approval."
+      }
     ],
     searchVolume: 7310
   },
@@ -789,6 +1078,28 @@ export const racePages: RacePage[] = [
       "Their small size allows for creative problem-solving in tight spaces",
       "Brave makes them surprisingly effective against fear-based enemies"
     ],
+    faq: [
+      {
+        question: "What is the best class for Halfling in 5e?",
+        answer: "Rogues are exceptional thanks to +2 Dexterity and Lucky preventing critical failures on Sneak Attack rolls. Lightfoot Halflings can hide behind allies. Rangers, Monks, and Bards also benefit greatly from the Dexterity bonus and Lucky trait."
+      },
+      {
+        question: "How does Halfling Lucky work in 5e?",
+        answer: "When you roll a natural 1 on any attack roll, ability check, or saving throw, you can reroll that die and must use the new result. This only triggers on natural 1s, not on low totals. It's one of the most consistently useful racial traits in the game."
+      },
+      {
+        question: "What's the difference between Lightfoot and Stout Halfling?",
+        answer: "Lightfoot Halflings get +1 Charisma and can hide behind larger creatures, making them ideal rogues and social characters. Stout Halflings get +1 Constitution plus poison resistance and advantage on poison saves, making them tougher and great for front-line builds."
+      },
+      {
+        question: "Can Halflings use heavy weapons?",
+        answer: "Technically yes, but with disadvantage on all attacks due to their Small size. Heavy weapons like greatswords and heavy crossbows are designed for Medium or larger creatures. Stick to finesse weapons, longbows, or other non-heavy options for best results."
+      },
+      {
+        question: "How does Halfling Nimbleness work?",
+        answer: "You can move through the space of any creature larger than you (Medium or bigger). This includes enemies and allies. You can't end your turn in their space, but you can pass through to reach better positions or escape without provoking opportunity attacks from that creature."
+      }
+    ],
     searchVolume: 17270
   },
   {
@@ -835,6 +1146,28 @@ export const racePages: RacePage[] = [
       "Consider hobgoblin legions, war bands, or military structures as antagonists or allies",
       "The Help action as a bonus action is very powerful for martial builds",
       "Their methodical nature contrasts well with more chaotic party members"
+    ],
+    faq: [
+      {
+        question: "What is the best class for Hobgoblin in 5e?",
+        answer: "Fighters and Eldritch Knights benefit from +2 Constitution and +1 Intelligence. Artificers are excellent thematically. The bonus action Help from Fey Gift works great with martial classes, while Fortune from the Many rewards party-oriented builds."
+      },
+      {
+        question: "How does Hobgoblin Fortune from the Many work?",
+        answer: "When you miss an attack, fail a check, or fail a save, you gain a bonus equal to the number of visible allies within 30 feet (max +3). This applies AFTER you see the result, potentially turning failures into successes. Uses equal to proficiency bonus per long rest."
+      },
+      {
+        question: "What's the difference between old and new Hobgoblin?",
+        answer: "The Monsters of the Multiverse version replaced Saving Face and Martial Training with Fey Gift and Fortune from the Many. The new version is more flexible and powerful, adding bonus action Help with benefits plus a reroll mechanic instead of flat bonuses and weapon proficiencies."
+      },
+      {
+        question: "Are Hobgoblins good or evil in 5e?",
+        answer: "Hobgoblins aren't inherently evil in 5e, especially post-Monsters of the Multiverse. While hobgoblin societies often have harsh militaristic cultures, player characters can be any alignment. Their fey ancestry connects them to neutral fey rather than evil entities."
+      },
+      {
+        question: "How does Hobgoblin Fey Gift work?",
+        answer: "Take the Help action as a bonus action, proficiency bonus times per long rest. At 3rd level, add a benefit: Hospitality (temp HP), Passage (+10 speed), or Spite (extra psychic damage on hit). You choose the benefit each time you use it."
+      }
     ],
     searchVolume: 9590
   },
@@ -887,6 +1220,28 @@ export const racePages: RacePage[] = [
       "Consider dream quests or nightmares as plot elements they're uniquely positioned to handle",
       "Their dual nature provides rich roleplay opportunities"
     ],
+    faq: [
+      {
+        question: "What is the best class for Kalashtar in 5e?",
+        answer: "Clerics and Druids benefit most from +2 Wisdom. Aberrant Mind Sorcerers fit thematically with the psionic nature. The advantage on Wisdom saves makes them exceptional against mind control, making any class viable when facing psychic threats."
+      },
+      {
+        question: "How does Kalashtar Mind Link work?",
+        answer: "You can speak telepathically to any creature within 60 feet that you can see. They don't need to share a language but must understand at least one. As an action, you can grant them the ability to respond telepathically until the start of your next turn."
+      },
+      {
+        question: "Are Kalashtar immune to sleep?",
+        answer: "No, Kalashtar can still be affected by magical sleep effects. However, they are immune to the Dream spell and other effects that require connecting to the dream plane specifically. They sleep normally but don't dream."
+      },
+      {
+        question: "What is the Kalashtar spirit?",
+        answer: "Each Kalashtar shares their body with a quori spirit from the plane of dreams. This spirit grants their psionic abilities and dual consciousness. The spirit doesn't control them but provides wisdom and the Dual Mind advantage on Wisdom saves."
+      },
+      {
+        question: "Can Kalashtar read minds with telepathy?",
+        answer: "No. Kalashtar telepathy only allows sending thoughts to others and optionally receiving their responses. It's not mind reading. You project words to a creature; you can't read their private thoughts or detect lies through this ability."
+      }
+    ],
     searchVolume: 23420
   },
   {
@@ -930,6 +1285,28 @@ export const racePages: RacePage[] = [
       "Kenku Recall makes them incredibly skilled - they can excel at any proficiency",
       "Consider quests to break their curse as major character arcs",
       "Expert Duplication can be pivotal in investigation or crime-focused campaigns"
+    ],
+    faq: [
+      {
+        question: "How do Kenku speak in 5e?",
+        answer: "Kenku can only speak by mimicking sounds they've heard before. They string together phrases, sounds, and voices to communicate. They cannot create original speech. Most DMs allow a 'phrase bank' system where players collect useful phrases during play."
+      },
+      {
+        question: "What is the best class for Kenku in 5e?",
+        answer: "Rogues are ideal with +2 Dexterity and Kenku Recall's advantage on skill checks. Bards, Rangers, and Monks also benefit. Mimicry combined with Rogue infiltration abilities creates an excellent spy character."
+      },
+      {
+        question: "Can Kenku fly in 5e?",
+        answer: "No. Kenku lost their ability to fly due to an ancient curse. They have vestigial wings that cannot support flight. The curse also took their original voices. Some Kenku dedicate their lives to finding ways to break this curse."
+      },
+      {
+        question: "How does Kenku Mimicry work?",
+        answer: "You can perfectly replicate any sound you've heard, including voices, music, or noises. Creatures can identify it as mimicry only with a Wisdom (Insight) check against DC 8 + proficiency bonus + Charisma modifier. It's excellent for deception."
+      },
+      {
+        question: "What is Kenku Recall?",
+        answer: "You gain two skill proficiencies of your choice and can give yourself advantage on any proficient skill check a number of times equal to your proficiency bonus per long rest. This makes Kenku extremely versatile skill monkeys."
+      }
     ],
     searchVolume: 40630
   },
@@ -977,6 +1354,28 @@ export const racePages: RacePage[] = [
       "Kobold warrens and trap-filled lairs are classic dungeon environments",
       "Despite their small size, they're tactically brilliant",
       "Consider kobold NPCs as comedic relief or surprisingly competent foes"
+    ],
+    faq: [
+      {
+        question: "What is the best class for Kobold in 5e?",
+        answer: "Rogues and Rangers excel with +2 Dexterity. Artificers and Sorcerers work well with Draconic Sorcery. Draconic Cry gives advantage to allies, making Kobolds great support characters in any martial party composition."
+      },
+      {
+        question: "Do Kobolds still have Pack Tactics in 5e?",
+        answer: "No. Monsters of the Multiverse removed Pack Tactics (and Sunlight Sensitivity) from playable Kobolds. They now have Draconic Cry instead, which grants advantage to the whole party against nearby enemies as a bonus action."
+      },
+      {
+        question: "How does Kobold Draconic Cry work?",
+        answer: "As a bonus action, all enemies within 10 feet that can hear you become marked. Until your next turn, you AND your allies have advantage on attacks against those enemies. Uses equal to proficiency bonus per long rest. Excellent for alpha strikes."
+      },
+      {
+        question: "Are Kobolds related to dragons?",
+        answer: "Kobolds believe they're descended from dragons and revere them as near-deities. While not biologically related, their draconic features (scales, horns) and ability to choose Draconic Sorcery reinforce this connection. Many serve dragons willingly."
+      },
+      {
+        question: "What size are Kobolds in 5e?",
+        answer: "Kobolds are Small, standing 2-3 feet tall. This means disadvantage on heavy weapons but ability to move through larger creatures' spaces. Their size makes them excellent at squeezing into tight spaces and hiding."
+      }
     ],
     searchVolume: 9260
   },
@@ -1034,6 +1433,28 @@ export const racePages: RacePage[] = [
       "Consider survival-focused adventures where their skills shine",
       "Hold Breath is excellent for underwater exploration"
     ],
+    faq: [
+      {
+        question: "What is the best class for Lizardfolk in 5e?",
+        answer: "Barbarians and Druids benefit most from +2 Constitution and +1 Wisdom. Natural Armor stacks excellently with Barbarian's Unarmored Defense calculation. Rangers and Monks also work well. Hungry Jaws gives bonus action damage."
+      },
+      {
+        question: "How does Lizardfolk Natural Armor work?",
+        answer: "Your base AC is 13 + Dexterity modifier when not wearing armor. This stacks with shields. It's better than studded leather at +2 Dex or lower. You can still wear armor if it provides higher AC than your natural armor."
+      },
+      {
+        question: "Can Lizardfolk use their Bite attack with Extra Attack?",
+        answer: "Yes. Bite is a natural weapon that counts as an unarmed strike, dealing 1d6 + Strength piercing damage. You can use it with Extra Attack, and it's useful when disarmed. Hungry Jaws is a separate bonus action Bite with temp HP."
+      },
+      {
+        question: "What is Lizardfolk Cunning Artisan?",
+        answer: "During any short rest, you can craft a shield, club, javelin, or 1d4 darts from a slain beast, dragon, monstrosity, construct, or plant creature of Small size or larger. You need a blade or appropriate tools. Free equipment from monster corpses."
+      },
+      {
+        question: "How do Lizardfolk think differently?",
+        answer: "Lizardfolk are emotionally detached and coldly logical. They don't understand sarcasm, sentimentality, or unnecessary attachment. All creatures are assessed as threats, tools, or food. This alien mindset creates unique roleplay opportunities."
+      }
+    ],
     searchVolume: 11230,
     aliases: ["lizardfolk-5e-alt"]
   },
@@ -1086,6 +1507,28 @@ export const racePages: RacePage[] = [
       "Their size and presence make them natural leaders",
       "Consider their long lifespans and patient worldview in roleplay",
       "Keen Smell is excellent for investigation and tracking scenarios"
+    ],
+    faq: [
+      {
+        question: "What is the best class for Loxodon in 5e?",
+        answer: "Clerics and Druids benefit from +2 Constitution and +1 Wisdom. Monks work excellently with Natural Armor scaling off Constitution. Barbarians also benefit from the Constitution bonus and can use Natural Armor as an alternative to Unarmored Defense."
+      },
+      {
+        question: "How does Loxodon Natural Armor work?",
+        answer: "Your base AC is 12 + Constitution modifier when unarmored, and it stacks with shields. Unlike Lizardfolk (Dex-based), Loxodon armor scales with Con, making them naturally tankier. Great for builds that dump Dexterity."
+      },
+      {
+        question: "What can Loxodons do with their trunk?",
+        answer: "The trunk can grasp objects, open doors, grapple, make unarmed strikes, and act as a snorkel. It lifts 5x Strength score in pounds with 5-foot reach. It cannot wield weapons, use shields, operate tools, or cast spells with somatic components."
+      },
+      {
+        question: "Can Loxodons grapple with their trunk?",
+        answer: "Yes! The trunk can grapple, giving you a free hand for weapons or shields while restraining enemies. Combined with their Constitution bonus and large size, Loxodons make excellent grapplers without sacrificing offense."
+      },
+      {
+        question: "Are Loxodons only in Ravnica?",
+        answer: "While native to the Ravnica setting, Loxodons can be adapted to any campaign. They might be rare travelers, exist in their own communities, or be exotic visitors. Their wise, patient nature fits many settings beyond Ravnica."
+      }
     ],
     searchVolume: 10480
   },
@@ -1143,6 +1586,28 @@ export const racePages: RacePage[] = [
       "Necrotic resistance is valuable in undead-heavy campaigns",
       "Their grim pragmatism contrasts well with more optimistic characters"
     ],
+    faq: [
+      {
+        question: "What is the best class for Shadar-Kai in 5e?",
+        answer: "Rogues excel with +2 Dexterity and the teleport for repositioning. Rangers and Fighters also work well. The teleport + damage resistance combo makes Shadar-Kai excellent for hit-and-run tactics with any martial class."
+      },
+      {
+        question: "How does Blessing of the Raven Queen work?",
+        answer: "As a bonus action, teleport up to 30 feet. Once per long rest. At 3rd level and above, you also gain resistance to ALL damage until the start of your next turn after teleporting. Appears ghostly during this time."
+      },
+      {
+        question: "Are Shadar-Kai elves?",
+        answer: "Yes. Shadar-Kai are an elf subrace transformed by long exposure to the Shadowfell. They retain elven traits like Fey Ancestry, Keen Senses, Darkvision, and Trance. They're often called 'shadow elves' and serve the Raven Queen."
+      },
+      {
+        question: "Can Shadar-Kai feel emotions?",
+        answer: "Yes, but the Shadowfell dampens emotions over time. Shadar-Kai struggle against emotional numbness and often seek intense experiences (extreme sports, passionate art, combat) to feel alive. This creates rich roleplay opportunities."
+      },
+      {
+        question: "Who is the Raven Queen?",
+        answer: "The Raven Queen is a mysterious goddess of death, fate, and memory who rules the Shadowfell. Shadar-Kai serve her and receive her blessing. She's neither good nor evil - she opposes undeath and guards the transition of souls."
+      }
+    ],
     searchVolume: 10130
   },
   {
@@ -1190,6 +1655,28 @@ export const racePages: RacePage[] = [
       "The climb speed opens up vertical combat and exploration options",
       "Their wanderlust means they often arrive in new places with stories to share",
       "Cat-like quirks (distraction by shiny objects, grooming, etc.) add flavor"
+    ],
+    faq: [
+      {
+        question: "What is the best class for Tabaxi in 5e?",
+        answer: "Rogues are ideal with +2 Dexterity, +1 Charisma, free Stealth proficiency, and climb speed for positioning. Monks also excel with Feline Agility doubling their already high mobility. Rangers and Bards work well too."
+      },
+      {
+        question: "How does Tabaxi Feline Agility work?",
+        answer: "When you move on your turn, you can double your speed until end of turn. To recharge it, you must spend an entire turn moving 0 feet (you can still take actions). Then it's available again. Doesn't stack with other speed doublers."
+      },
+      {
+        question: "Can Tabaxi use Feline Agility every turn?",
+        answer: "No. After using Feline Agility, you must move 0 feet on a subsequent turn to recharge it. You can take actions, bonus actions, and reactions - just no movement. Then it recharges for future use."
+      },
+      {
+        question: "Do Tabaxi have claws in 5e?",
+        answer: "Yes. Cat's Claws provide a climb speed of 30 feet AND natural weapons dealing 1d4 + Strength slashing damage. The claws use Strength, not Dexterity, so they're mainly useful for climbing rather than combat for most Tabaxi builds."
+      },
+      {
+        question: "How fast can a Tabaxi move?",
+        answer: "Base speed is 30 feet. With Feline Agility doubled: 60 feet. A Monk Tabaxi at level 10 has 50 feet base, doubled to 100 feet. Add Dash action: 200 feet in one turn. With Haste and boots: potentially 280+ feet per turn."
+      }
     ],
     searchVolume: 16300
   },
@@ -1273,6 +1760,28 @@ export const racePages: RacePage[] = [
       "Glasya tieflings are perfect for rogues and infiltrators",
       "Their struggle against stereotypes provides rich character development"
     ],
+    faq: [
+      {
+        question: "What is the best class for Tiefling in 5e?",
+        answer: "Warlocks, Sorcerers, and Bards thrive with +2 Charisma. Paladins make excellent Zariel Tieflings (+1 Strength, smite spells). Glasya Tieflings (+1 Dex, illusion spells) excel as Rogues. Choose your subrace to match your class."
+      },
+      {
+        question: "How many Tiefling subraces are there?",
+        answer: "Nine official variants in Mordenkainen's Tome of Foes, each tied to an archdevil: Asmodeus (default), Baalzebul, Dispater, Fierna, Glasya, Levistus, Mammon, Mephistopheles, and Zariel. Each gets different ability bonuses and spells."
+      },
+      {
+        question: "Are all Tieflings evil?",
+        answer: "No. Tieflings have fiendish heritage but free will. They can be any alignment. Many struggle against prejudice and stereotypes, deliberately choosing good to defy expectations. Their ancestry doesn't determine their morality."
+      },
+      {
+        question: "What spells do Tieflings get?",
+        answer: "Default (Asmodeus) Tieflings get Thaumaturgy at 1st level, Hellish Rebuke (2nd-level cast) at 3rd, and Darkness at 5th. Variant subraces replace these with different spell progressions themed to their archdevil patron."
+      },
+      {
+        question: "Why do Tieflings have fire resistance?",
+        answer: "Hellish Resistance grants fire resistance due to their infernal bloodline. Devils and the Nine Hells are strongly associated with fire. This resistance applies to all fire damage sources, making it one of the most useful resistances in the game."
+      }
+    ],
     searchVolume: 90380,
     aliases: ["dnd-tiefling"]
   },
@@ -1324,6 +1833,28 @@ export const racePages: RacePage[] = [
       "The armor integration mechanic prevents easy disarming",
       "Warforged make great tanks with their natural AC bonus and Constitution boost"
     ],
+    faq: [
+      {
+        question: "What is the best class for Warforged in 5e?",
+        answer: "Fighters, Artificers, and Paladins excel with +2 Constitution and Integrated Protection's +1 AC bonus. Any class benefits from their resilience. Place the +1 in your class's primary ability score for optimization."
+      },
+      {
+        question: "Can Warforged be healed in 5e?",
+        answer: "Yes! Despite being constructs, Warforged are living creatures and can be healed by all normal means: Cure Wounds, healing potions, Hit Dice, etc. They're also affected by spells targeting creatures. Mending doesn't heal them."
+      },
+      {
+        question: "Do Warforged need to sleep?",
+        answer: "No. Warforged don't need to sleep (magic can't put them to sleep either). However, they still need 6 hours of Sentry's Rest during a long rest, during which they remain conscious and aware but inactive."
+      },
+      {
+        question: "How does Warforged Integrated Protection work?",
+        answer: "You get +1 AC permanently. You can incorporate armor by spending 1 hour with it (during a rest). Once integrated, armor can't be removed against your will while alive. Armor proficiency requirements still apply."
+      },
+      {
+        question: "Are Warforged immune to poison?",
+        answer: "No, but they're highly resistant. They have resistance to poison damage (half damage) and advantage on saves against being poisoned. They can still be poisoned - they're just very hard to poison effectively."
+      }
+    ],
     searchVolume: 16350,
     aliases: ["warforged-dnd"]
   },
@@ -1372,6 +1903,28 @@ export const racePages: RacePage[] = [
       "Standard humans work well for multiclass characters that need multiple ability scores",
       "Humans' adaptability makes them suitable for any role or class",
       "Their short lifespans create urgency in character motivations"
+    ],
+    faq: [
+      {
+        question: "Should I play Standard Human or Variant Human?",
+        answer: "Variant Human is generally stronger due to the 1st-level feat (like Sentinel, Polearm Master, or Lucky). Standard Human is better for multiclass builds needing many ability scores above 13. Variant requires DM approval as an optional rule."
+      },
+      {
+        question: "What are the best feats for Variant Human?",
+        answer: "Sentinel for melee control, Polearm Master for opportunity attacks, Great Weapon Master or Sharpshooter for damage, Lucky for versatility, War Caster for spellcasters, and Resilient (Constitution) for concentration saves."
+      },
+      {
+        question: "Why play Human instead of another race?",
+        answer: "Variant Humans get a feat at level 1 that other races don't get until level 4. Standard Humans have no dump stats, ideal for MAD (Multiple Ability Dependent) builds. Humans also have great roleplay versatility."
+      },
+      {
+        question: "Do Humans have any special abilities?",
+        answer: "Standard Humans get +1 to ALL six ability scores. Variant Humans get +1 to two scores, one skill proficiency, and one feat. They lack darkvision and resistance but compensate with versatility and flexibility."
+      },
+      {
+        question: "What language should Variant Humans take?",
+        answer: "Choose based on your campaign: Elvish and Dwarvish are common. Draconic is useful for dragon-heavy campaigns. Undercommon or Deep Speech for Underdark adventures. Ask your DM what languages will be most useful."
+      }
     ],
     searchVolume: 14200,
     aliases: ["human-race-5e", "dnd-human"]
@@ -1431,6 +1984,28 @@ export const racePages: RacePage[] = [
       "Their long lifespans mean they have centuries of experience and perspective",
       "Consider ancient elven ruins, libraries, and magical academies as plot hooks"
     ],
+    faq: [
+      {
+        question: "What is the best class for High Elf in 5e?",
+        answer: "Wizards are the classic choice with +1 Intelligence and a free wizard cantrip. Bladesinger Wizards, Eldritch Knights, and Arcane Trickster Rogues also benefit greatly. Any Dexterity-based class works with +2 Dex."
+      },
+      {
+        question: "What cantrip should High Elves take?",
+        answer: "Booming Blade or Green-Flame Blade for melee characters (if allowed). Minor Illusion for utility. Prestidigitation for roleplay. Fire Bolt for ranged damage. Mind Sliver for debuffing. Choose based on your class and playstyle."
+      },
+      {
+        question: "How does Elf Trance work?",
+        answer: "Elves meditate for 4 hours instead of sleeping 8. This counts as a long rest. They remain semi-conscious during Trance, gaining the benefits of sleep without full unconsciousness. Great for keeping watch."
+      },
+      {
+        question: "What's the difference between High Elf and Wood Elf?",
+        answer: "High Elves get +1 Intelligence, a wizard cantrip, extra language, and weapon proficiency. Wood Elves get +1 Wisdom, faster speed (35 ft), and Mask of the Wild (hide in natural obscurement). High Elves are arcane; Wood Elves are naturalists."
+      },
+      {
+        question: "How long do High Elves live?",
+        answer: "Elves can live over 700 years. They reach physical maturity around 25 but aren't considered adults until around 100, when they've had time to fully explore themselves. This longevity affects their worldview and patience."
+      }
+    ],
     searchVolume: 12300,
     aliases: ["high-elf-5e", "elf-5e"]
   },
@@ -1471,6 +2046,28 @@ export const racePages: RacePage[] = [
       "Their dual heritage creates interesting roleplay about belonging and identity",
       "Skill Versatility helps fill party gaps in skills",
       "Consider themes of acceptance, prejudice, and finding one's place in the world"
+    ],
+    faq: [
+      {
+        question: "What is the best class for Half-Elf in 5e?",
+        answer: "Paladins, Bards, Sorcerers, and Warlocks all benefit from +2 Charisma. The flexible +1 bonuses let you optimize for any class. Half-Elves are one of the most versatile races for nearly any build."
+      },
+      {
+        question: "Why are Half-Elves considered good in 5e?",
+        answer: "+2 Charisma and +1 to two other abilities provides excellent flexibility. Two free skill proficiencies fill gaps. Darkvision, Fey Ancestry (charm/sleep resistance), and an extra language round out a very strong package."
+      },
+      {
+        question: "Do Half-Elves have Trance?",
+        answer: "No. Standard Half-Elves don't have Trance - they sleep like humans. However, the SCAG variants can trade Skill Versatility for elven traits including a version of Trance. Check with your DM about these optional variants."
+      },
+      {
+        question: "What skills should Half-Elves take?",
+        answer: "Fill party gaps: Perception is always valuable. Persuasion complements Charisma classes. Stealth helps most parties. Athletics if no one has it. Choose skills your class doesn't provide that fit your character concept."
+      },
+      {
+        question: "How long do Half-Elves live?",
+        answer: "Half-Elves live about 180 years, much longer than humans but shorter than full elves. They mature at the same rate as humans, reaching adulthood in their late teens. This lifespan creates unique perspectives on mortality."
+      }
     ],
     searchVolume: 9600,
     aliases: ["half-elf-race-5e", "halfelf-5e"]
@@ -1518,6 +2115,28 @@ export const racePages: RacePage[] = [
       "Their orcish heritage often leads to prejudice - use this for character development",
       "Consider themes of overcoming stereotypes and proving one's worth"
     ],
+    faq: [
+      {
+        question: "What is the best class for Half-Orc in 5e?",
+        answer: "Barbarians are ideal with +2 Strength, +1 Constitution, and Savage Attacks synergizing with Brutal Critical. Fighters and Paladins also excel. Relentless Endurance keeps you fighting when others would fall."
+      },
+      {
+        question: "How does Half-Orc Savage Attacks work?",
+        answer: "When you score a critical hit with a melee weapon, add one extra weapon damage die to the critical damage. A greatsword crit normally does 4d6 + Str; Half-Orcs deal 5d6 + Str. Stacks with Barbarian's Brutal Critical."
+      },
+      {
+        question: "How does Relentless Endurance work?",
+        answer: "When reduced to 0 HP but not killed outright, drop to 1 HP instead. Once per long rest. This triggers automatically when you would fall unconscious. It doesn't work against instant-death effects or massive damage kills."
+      },
+      {
+        question: "Can Half-Orcs be good-aligned?",
+        answer: "Absolutely. Half-Orcs can be any alignment. Many struggle against negative stereotypes and actively choose to be forces for good. Their heritage doesn't determine their morality - their choices do."
+      },
+      {
+        question: "What weapon should Half-Orcs use?",
+        answer: "Greataxes (1d12) maximize Savage Attacks by adding a d12 on crits. Greatswords (2d6) have higher average damage normally. For Barbarians stacking Brutal Critical, Greataxe's single large die becomes increasingly powerful."
+      }
+    ],
     searchVolume: 8900,
     aliases: ["half-orc-race-5e", "halforc-5e"]
   },
@@ -1563,6 +2182,28 @@ export const racePages: RacePage[] = [
       "The combination of Relentless Endurance and temporary HP makes them very durable",
       "Consider non-stereotypical orc characters that challenge expectations",
       "In Eberron, orcs have a rich druidic tradition and complex culture"
+    ],
+    faq: [
+      {
+        question: "What is the best class for Orc in 5e?",
+        answer: "Barbarians and Fighters excel with +2 Strength, +1 Constitution. Adrenaline Rush's bonus action Dash with temp HP synergizes with aggressive melee builds. Paladins and any strength-based martial class work well."
+      },
+      {
+        question: "What's the difference between Orc and Half-Orc?",
+        answer: "Orcs get Adrenaline Rush (bonus action Dash + temp HP, scales with proficiency) and Powerful Build. Half-Orcs get Savage Attacks (extra crit damage) and Intimidation proficiency. Half-Orcs are crit-focused; Orcs are mobility-focused."
+      },
+      {
+        question: "How does Orc Adrenaline Rush work?",
+        answer: "As a bonus action, take the Dash action and gain temporary HP equal to your proficiency bonus. Uses equal proficiency bonus per long rest. Great for closing gaps or escaping while staying healthy."
+      },
+      {
+        question: "Are Orcs always evil in 5e?",
+        answer: "No. While classic D&D portrayed orcs as evil, modern 5e treats them as any other playable race. Eberron orcs have noble druidic traditions. Player characters can be any alignment regardless of ancestry."
+      },
+      {
+        question: "Do Orcs have Relentless Endurance?",
+        answer: "Yes! Monsters of the Multiverse Orcs have both Adrenaline Rush AND Relentless Endurance (drop to 1 HP instead of 0, once per long rest). This makes them very durable melee combatants."
+      }
     ],
     searchVolume: 7800,
     aliases: ["orc-race-5e", "dnd-orc"]
@@ -1614,6 +2255,28 @@ export const racePages: RacePage[] = [
       "Tortles' peaceful nature and wanderlust create interesting character motivations",
       "The natural armor means they don't need to invest in armor proficiencies or equipment"
     ],
+    faq: [
+      {
+        question: "What is the best class for Tortle in 5e?",
+        answer: "Druids are ideal - 17 AC in Wild Shape! Monks and Barbarians work well since their Unarmored Defense typically can't match 17 AC until high levels. Clerics and any class that doesn't need Dexterity for AC benefits greatly."
+      },
+      {
+        question: "How does Tortle Natural Armor work?",
+        answer: "Your AC is 17, period. Doesn't matter what your Dexterity is. You CAN use a shield for 19 AC total. You CANNOT benefit from wearing armor (but why would you?). This lets you dump Dexterity without sacrificing defense."
+      },
+      {
+        question: "Can Tortles wear armor?",
+        answer: "Technically yes, but you gain no benefit. Your natural armor of 17 AC replaces any worn armor's AC calculation. Shields still work normally (+2 AC). Magical armor properties that don't affect AC calculation may still apply."
+      },
+      {
+        question: "How does Shell Defense work?",
+        answer: "As an action, withdraw into your shell for +4 AC (21 or 23 with shield!), advantage on Str/Con saves. You're prone, can't move, have disadvantage on Dex saves, can't take reactions. Bonus action to emerge. Emergency survival option."
+      },
+      {
+        question: "How long can Tortles hold their breath?",
+        answer: "One hour. This is ten times longer than the normal 1 + Con modifier minutes. Excellent for underwater exploration, surviving gas attacks, or operating in environments without air."
+      }
+    ],
     searchVolume: 13400,
     aliases: ["tortle-race-5e", "turtle-5e"]
   },
@@ -1660,6 +2323,28 @@ export const racePages: RacePage[] = [
       "Consider the moral implications of playing a creature from an evil society",
       "Suggestion is a powerful control spell - be prepared for creative uses",
       "Their infiltration abilities create interesting espionage opportunities"
+    ],
+    faq: [
+      {
+        question: "Why are Yuan-Ti Purebloods considered overpowered?",
+        answer: "Magic Resistance (advantage on ALL saves vs magic) is arguably the strongest racial trait in 5e. Combined with poison immunity and free Suggestion at 3rd level, they have no weaknesses. Many DMs ban or restrict them."
+      },
+      {
+        question: "What is the best class for Yuan-Ti Pureblood?",
+        answer: "Warlocks, Sorcerers, and Bards benefit from +2 Charisma for spellcasting. Paladins gain excellent saves plus Magic Resistance. Rogues can use Suggestion for infiltration. Any class benefits from Magic Resistance."
+      },
+      {
+        question: "How does Yuan-Ti Magic Resistance work?",
+        answer: "You have advantage on saving throws against spells AND other magical effects. This includes breath weapons, magical traps, and abilities that count as magical. It's the broadest resistance in the game."
+      },
+      {
+        question: "Are Yuan-Ti always evil?",
+        answer: "Traditionally yuan-ti society is evil and xenophobic, but player characters can be any alignment. Many yuan-ti purebloods adventure after rejecting their society's cruelty or seeking to understand other races."
+      },
+      {
+        question: "Can Yuan-Ti use Suggestion on anyone?",
+        answer: "Yes. Unlike Animal Friendship (snakes only), Suggestion works on any creature that can understand you. Once per long rest starting at 3rd level. A powerful social tool with many creative applications."
+      }
     ],
     searchVolume: 10200,
     aliases: ["yuan-ti-5e", "yuanti-pureblood"]
@@ -1708,6 +2393,28 @@ export const racePages: RacePage[] = [
       "Consider how their carefree attitude contrasts with serious party members",
       "They work well in Feywild-themed campaigns or as outsiders in mortal lands"
     ],
+    faq: [
+      {
+        question: "Why are Satyrs considered strong in 5e?",
+        answer: "Magic Resistance (advantage on all magic saves) is one of the best racial traits. Plus 35-foot speed, free Persuasion and Performance, and they count as Fey (not humanoid), making them immune to many spells like Hold Person."
+      },
+      {
+        question: "What is the best class for Satyr in 5e?",
+        answer: "Bards are perfect with +2 Charisma, free Performance/Persuasion, and instrument proficiency. Warlocks and Sorcerers benefit from Charisma and Magic Resistance. Rogues work well with +1 Dexterity and extra speed."
+      },
+      {
+        question: "Are Satyrs considered Fey?",
+        answer: "Yes! Satyrs are Fey creatures, not humanoids. This makes them immune to spells that specifically target humanoids (Hold Person, Charm Person, Crown of Madness, etc.). A significant defensive advantage."
+      },
+      {
+        question: "How does Mirthful Leaps work?",
+        answer: "Add 1d8 feet to any long or high jump, even from standing. This uses movement as normal but lets you clear larger gaps. Great for reaching ledges, crossing chasms, or tactical positioning."
+      },
+      {
+        question: "Do Satyrs have Magic Resistance?",
+        answer: "Yes. Satyrs have advantage on saving throws against spells and other magical effects. This is identical to Yuan-Ti Magic Resistance and is one of the most powerful racial traits available."
+      }
+    ],
     searchVolume: 8100,
     aliases: ["satyr-race-5e", "dnd-satyr"]
   },
@@ -1755,6 +2462,28 @@ export const racePages: RacePage[] = [
       "Consider their energetic, curious nature in roleplay",
       "The combination of mobility and lucky saves makes them excellent scouts"
     ],
+    faq: [
+      {
+        question: "What is the best class for Harengon in 5e?",
+        answer: "Any class benefits from flexible ability scores. Rogues love the initiative bonus for Sneak Attack priority. Rangers and Fighters benefit from going first. Rabbit Hop synergizes with mobile builds."
+      },
+      {
+        question: "How does Hare-Trigger work?",
+        answer: "Add your proficiency bonus to all initiative rolls. At level 1 that's +2, scaling to +6 at high levels. This is always-on, no resource cost, making Harengon consistently fast to act in combat."
+      },
+      {
+        question: "How does Rabbit Hop work?",
+        answer: "As a bonus action, jump up to 5x your proficiency bonus in feet (10-30 feet). This jump doesn't provoke opportunity attacks. Uses equal to proficiency bonus per long rest. Great for repositioning safely."
+      },
+      {
+        question: "How does Lucky Footwork work?",
+        answer: "When you fail a Dexterity save, use your reaction to add 1d4 to the roll. Can turn failures into successes. Doesn't work while prone or at 0 speed. Excellent against Fireballs and similar effects."
+      },
+      {
+        question: "Are Harengon Fey?",
+        answer: "No. Despite originating from the Feywild, Harengon are Humanoids, not Fey creatures. They don't have the Fey type immunity to spells like Hold Person that Satyrs have."
+      }
+    ],
     searchVolume: 9500,
     aliases: ["harengon-race-5e", "rabbit-folk-5e"]
   },
@@ -1797,6 +2526,28 @@ export const racePages: RacePage[] = [
       "Their scholarly nature works well for wizard, cleric, or druid characters",
       "Consider vertical dungeon design to make their flight more interesting",
       "Silent flight combined with Stealth makes them exceptional infiltrators"
+    ],
+    faq: [
+      {
+        question: "What is the best class for Owlin in 5e?",
+        answer: "Wizards, Sorcerers, and Warlocks can rain spells from above with safety. Rogues combine flight with Stealth for perfect assassination setups. Rangers get excellent scouting ability. Any ranged class benefits enormously."
+      },
+      {
+        question: "Can Owlins fly in armor?",
+        answer: "Only in light armor. Flight doesn't work in medium or heavy armor. This pushes Owlin toward Dexterity builds, light armor classes, or Unarmored Defense options like Monk or Barbarian."
+      },
+      {
+        question: "How good is 120-foot darkvision?",
+        answer: "Twice as good as standard 60-foot darkvision. You can see enemies before they see you, excellent for scouting. Combined with flight and Stealth proficiency, Owlin are the ultimate scouts."
+      },
+      {
+        question: "Is Owlin flight permanent?",
+        answer: "Yes, with the armor restriction. Your flying speed equals your walking speed (30 feet base). No daily uses or duration limits. You can fly all day every day as long as you're in light or no armor."
+      },
+      {
+        question: "Are Owlin overpowered?",
+        answer: "Many consider unrestricted flight powerful. It trivializes some encounters and exploration challenges. DMs should design encounters accounting for flight. The medium/heavy armor restriction balances it somewhat."
+      }
     ],
     searchVolume: 7200,
     aliases: ["owlin-race-5e", "owl-folk-5e"]
@@ -1845,6 +2596,28 @@ export const racePages: RacePage[] = [
       "Consider themes of honor, strength, and overcoming bestial stereotypes",
       "They work well in Ravnica or any setting with monstrous playable races"
     ],
+    faq: [
+      {
+        question: "What is the best class for Minotaur in 5e?",
+        answer: "Barbarians and Fighters maximize +2 Strength. Goring Rush synergizes with aggressive combat styles. Paladins benefit from the Constitution and have extra attack. Any martial class works excellently."
+      },
+      {
+        question: "How does Goring Rush work?",
+        answer: "After taking the Dash action and moving at least 20 feet toward a target, you can make a bonus action horn attack (1d6 + Str). Requires both Dash AND 20 feet of movement. Great for closing distance and dealing damage."
+      },
+      {
+        question: "How does Hammering Horns work?",
+        answer: "After hitting with a melee attack, bonus action to force a Strength save (8 + Prof + Str). On failure, push the target up to 10 feet. Target must be within one size of you. Excellent battlefield control."
+      },
+      {
+        question: "Can I use both Goring Rush and Hammering Horns?",
+        answer: "Not on the same turn - both require your bonus action. Choose based on situation: Goring Rush when closing distance, Hammering Horns when you need to push enemies (off cliffs, into hazards, away from allies)."
+      },
+      {
+        question: "Do Minotaurs get lost?",
+        answer: "Never! Labyrinthine Recall means you always know which way is north and have advantage on Survival checks to navigate or track. Immune to maze-based puzzles and traps. True to their mythological connection to labyrinths."
+      }
+    ],
     searchVolume: 11900,
     aliases: ["minotaur-race-5e", "dnd-minotaur"]
   },
@@ -1892,6 +2665,28 @@ export const racePages: RacePage[] = [
       "The ability to carry allies creates interesting tactical options",
       "Their equine nature creates challenges with stairs, ladders, and tight spaces",
       "Consider how their size and build affects dungeon exploration and social situations"
+    ],
+    faq: [
+      {
+        question: "What is the best class for Centaur in 5e?",
+        answer: "Cavaliers (Fighter) are perfect thematically. Barbarians and Paladins maximize +2 Strength. Druids benefit from +1 Wisdom and nature connection. Rangers excel as mobile skirmishers with 40-foot speed."
+      },
+      {
+        question: "How fast are Centaurs?",
+        answer: "40 feet base speed - the fastest common player race. With Dash, that's 80 feet per turn. Combined with Charge for bonus damage, Centaurs are devastating mobile strikers."
+      },
+      {
+        question: "Can Centaurs climb ladders?",
+        answer: "Poorly. Equine Build means climbing that requires hands and feet costs 4 extra feet per foot climbed. A 10-foot ladder costs 50 feet of movement. Centaurs struggle with vertical obstacles."
+      },
+      {
+        question: "Can other players ride a Centaur?",
+        answer: "Yes, if you allow it. Medium or smaller creatures can ride your equine back. You act independently, not as a controlled mount. The rider can attack but you choose your own movement and actions."
+      },
+      {
+        question: "How does Centaur Charge work?",
+        answer: "Move at least 30 feet straight toward a target, then hit with a melee weapon attack. You can then make a bonus action hoof attack (1d6 + Str). Requires straight-line movement toward the specific target."
+      }
     ],
     searchVolume: 9300,
     aliases: ["centaur-race-5e", "dnd-centaur"]
@@ -1945,6 +2740,28 @@ export const racePages: RacePage[] = [
       "Emissary of the Sea helps with aquatic creatures and elementals",
       "Consider their pride and duty as sources of character motivation",
       "Guardians of the Depths makes them immune to underwater hazards"
+    ],
+    faq: [
+      {
+        question: "What is the best class for Triton in 5e?",
+        answer: "Paladins benefit from +1 to Strength, Constitution, AND Charisma. Fighters and Barbarians use the physical stats well. Warlocks and Sorcerers can utilize Charisma for Control Air and Water spells."
+      },
+      {
+        question: "Can Tritons breathe underwater?",
+        answer: "Yes! Tritons are fully amphibious - they can breathe both air and water indefinitely. They also have a 30-foot swim speed and ignore underwater pressure/depth penalties with Guardians of the Depths."
+      },
+      {
+        question: "How does Emissary of the Sea work?",
+        answer: "You can communicate simple ideas to any Beast, Elemental, or Monstrosity with a swim speed. They understand you, but you don't automatically understand them. Useful for aquatic diplomacy and avoiding combat."
+      },
+      {
+        question: "What spells do Tritons get?",
+        answer: "Fog Cloud at 1st level, Gust of Wind at 3rd, Wall of Water at 5th. Each once per long rest OR using appropriate spell slots. Charisma is your spellcasting ability. Useful utility and control options."
+      },
+      {
+        question: "Are Tritons arrogant?",
+        answer: "Stereotypically, yes. Triton culture sees themselves as noble guardians protecting surface-dwellers from deep-sea horrors. They may seem proud or condescending initially, but this is often played for character growth."
+      }
     ],
     searchVolume: 8500,
     aliases: ["triton-race-5e", "dnd-triton"]
@@ -2007,6 +2824,28 @@ export const racePages: RacePage[] = [
       "Consider prejudice against shifters due to their lycanthropic connection",
       "Temporary HP from shifting helps survive dangerous encounters"
     ],
+    faq: [
+      {
+        question: "What is the best class for Shifter in 5e?",
+        answer: "Depends on subrace: Beasthide for Barbarians/Fighters (tank), Longtooth for Monks/Barbarians (damage), Swiftstride for Rogues/Rangers (mobility), Wildhunt for Druids/Rangers (scout/support). All get +2 Dex."
+      },
+      {
+        question: "How long does Shifting last?",
+        answer: "1 minute (10 rounds of combat), until you die, or until you use a bonus action to revert. You can shift a number of times equal to your proficiency bonus per long rest. Each shift grants temporary HP."
+      },
+      {
+        question: "Which Shifter subrace is best?",
+        answer: "Wildhunt is arguably strongest - negating advantage on attacks against you is extremely powerful defensively. Longtooth provides consistent bonus action damage. Beasthide is the tankiest. Swiftstride offers best mobility."
+      },
+      {
+        question: "Are Shifters immune to lycanthropy?",
+        answer: "No. Despite descending from lycanthropes, Shifters can still contract lycanthropy. However, their heritage might influence how a DM handles this narratively. Some DMs give advantage on saves against lycanthropy."
+      },
+      {
+        question: "How does Wildhunt Shifter's ability work?",
+        answer: "While shifted, no creature within 30 feet can have advantage on attack rolls against you (unless you're incapacitated). This negates Pack Tactics, flanking, attacking from invisibility, and many monster abilities."
+      }
+    ],
     searchVolume: 8900,
     aliases: ["shifter-race-5e", "dnd-shifter"]
   },
@@ -2055,6 +2894,28 @@ export const racePages: RacePage[] = [
       "Consider how their need for water affects adventure planning",
       "Their tribal, caste-based society creates interesting backstory options",
       "The poison DC doesn't scale, so it becomes less effective at higher levels"
+    ],
+    faq: [
+      {
+        question: "What is the best class for Grung in 5e?",
+        answer: "Monk is excellent - Dex/Con bonuses align perfectly, unarmed strikes can deliver poison, and mobility complements Standing Leap. Rogue works well for stealth/mobility. Ranger fits thematically. Fighter or ranged builds also benefit from the Dex bonus."
+      },
+      {
+        question: "How does Grung Water Dependency work?",
+        answer: "You must immerse yourself in water for at least 1 hour each day or gain one level of exhaustion at day's end. This exhaustion can ONLY be removed by magic or another hour of water immersion - regular long rests won't help. Plan water access carefully."
+      },
+      {
+        question: "Can I poison my weapons as a Grung?",
+        answer: "Yes! As part of an attack with a piercing weapon, you can apply your Poisonous Skin poison to it. On a hit, the target must make a DC 12 Con save or be poisoned for 1 minute. This makes crossbows, bows, and rapiers particularly effective."
+      },
+      {
+        question: "How does Standing Leap work for Grungs?",
+        answer: "You can long jump up to 25 feet and high jump up to 15 feet without needing a running start. This is exceptional mobility - you can leap over enemies, reach elevated positions, and escape danger easily. Great for hit-and-run tactics."
+      },
+      {
+        question: "Are Grungs official D&D content?",
+        answer: "Grungs come from 'One Grung Above,' a charity supplement for Extra Life. They're considered official content but may require DM approval since they're not in the core books. Their Water Dependency makes them challenging to play in certain campaigns."
+      }
     ],
     searchVolume: 6800,
     aliases: ["grung-race-5e", "frog-folk-5e"]

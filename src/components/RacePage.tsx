@@ -5,6 +5,7 @@ import { Warning, Tip } from "./Warning";
 import { Sources } from "./Sources";
 import { AddRaceToGame } from "./AddRaceToGame";
 import { AssignToCharacter } from "./AssignToCharacter";
+import { FAQ, FAQItem } from "./FAQ";
 
 type RacePageData = {
   slug: string;
@@ -20,6 +21,7 @@ type RacePageData = {
   subraces: { name: string; bonus: string }[] | null;
   commonMistakes: string[];
   dmTips: string[];
+  faq?: FAQItem[];
 };
 
 export function RacePageComponent({ data }: { data: RacePageData }) {
@@ -36,6 +38,7 @@ export function RacePageComponent({ data }: { data: RacePageData }) {
     ...(data.subraces ? [{ id: "subraces", label: "Subraces" }] : []),
     { id: "mistakes", label: "Common Mistakes" },
     { id: "tips", label: "DM Tips" },
+    ...(data.faq && data.faq.length > 0 ? [{ id: "faq", label: "FAQ" }] : []),
     { id: "sources", label: "Sources" },
   ];
 
@@ -131,6 +134,9 @@ export function RacePageComponent({ data }: { data: RacePageData }) {
           <Tip key={i}>{t}</Tip>
         ))}
       </section>
+
+      {/* FAQ */}
+      {data.faq && data.faq.length > 0 && <FAQ items={data.faq} />}
 
       <Sources
         sources={[

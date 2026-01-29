@@ -5,6 +5,7 @@ import { Warning, Tip } from "./Warning";
 import { Sources } from "./Sources";
 import { SpellChecker } from "./SpellChecker";
 import { AssignToCharacter } from "./AssignToCharacter";
+import { FAQ, FAQItem } from "./FAQ";
 
 type Spell = {
   slug: string;
@@ -25,6 +26,7 @@ type Spell = {
   commonMistakes: string[];
   dmTips: string[];
   category: string;
+  faq?: FAQItem[];
 };
 
 const categoryLabels: Record<string, string> = {
@@ -46,6 +48,7 @@ export function SpellPage({ spell }: { spell: Spell }) {
       : []),
     { id: "mistakes", label: "Common Mistakes" },
     { id: "tips", label: "DM Tips" },
+    ...(spell.faq && spell.faq.length > 0 ? [{ id: "faq", label: "FAQ" }] : []),
     { id: "sources", label: "Sources" },
   ];
 
@@ -201,6 +204,9 @@ export function SpellPage({ spell }: { spell: Spell }) {
           <Tip key={i}>{t}</Tip>
         ))}
       </section>
+
+      {/* FAQ */}
+      {spell.faq && spell.faq.length > 0 && <FAQ items={spell.faq} />}
 
       {/* Sources */}
       <Sources

@@ -1,3 +1,5 @@
+import { FAQItem } from "../components/FAQ";
+
 export const reactionDefenseSpells: {
   slug: string;
   name: string;
@@ -16,6 +18,7 @@ export const reactionDefenseSpells: {
   higherLevels: string | null;
   commonMistakes: string[];
   dmTips: string[];
+  faq?: FAQItem[];
   category: "reaction-defense";
   searchVolume: number;
   aliases?: string[];
@@ -47,6 +50,28 @@ export const reactionDefenseSpells: {
       "The resistance can turn a failed save from devastating to manageable",
       "Remind players they can use this even if they're not typically in melee - opportunity attacks count",
       "Great for gish characters who mix melee and spellcasting"
+    ],
+    faq: [
+      {
+        question: "Does Absorb Elements work against multiple damage types in one attack?",
+        answer: "You can only absorb one damage type per casting. If a dragon's breath deals fire AND cold, you choose which one to resist. You'd need multiple castings (and reactions) for multiple damage types."
+      },
+      {
+        question: "Can I use the extra damage on a melee spell attack?",
+        answer: "No! The bonus damage only applies to 'melee attacks' - weapon attacks. Shocking Grasp or Inflict Wounds are melee SPELL attacks, not melee weapon attacks, so they don't get the bonus damage."
+      },
+      {
+        question: "Does Absorb Elements work if I succeed on my saving throw?",
+        answer: "Yes! The trigger is 'when you take damage.' Even if you take only half damage from a successful save, you still take damage, so Absorb Elements activates. The resistance applies to whatever damage you would take."
+      },
+      {
+        question: "Can I hold the charge and use the damage later?",
+        answer: "Only until the start of your next turn. If you don't make a melee attack by then, the stored energy dissipates. You can't save it for multiple rounds - use it or lose it."
+      },
+      {
+        question: "Does Absorb Elements work against environmental damage like lava?",
+        answer: "Yes, as long as the damage type is acid, cold, fire, lightning, or thunder. Stepping in lava (fire damage) or being struck by natural lightning triggers Absorb Elements, giving you resistance."
+      }
     ],
     category: "reaction-defense",
     searchVolume: 8200
@@ -80,6 +105,28 @@ export const reactionDefenseSpells: {
       "RAW, you don't know what spell is being cast unless you use a reaction to Identify it",
       "Counterspell can itself be countered, leading to counterspell chains"
     ],
+    faq: [
+      {
+        question: "Can I identify what spell is being cast before deciding to Counterspell?",
+        answer: "RAW, no! Identifying a spell being cast requires your reaction (via Xanathar's rules). Since Counterspell also uses your reaction, you must choose blind. Some DMs allow identifying low-level spells automatically."
+      },
+      {
+        question: "Can Counterspell be Counterspelled?",
+        answer: "Yes! If two spellcasters can see each other and both have Counterspell prepared, they can counter each other's Counterspells. This can lead to dramatic 'Counterspell chains' in high-level play."
+      },
+      {
+        question: "Does Counterspell work on innate spellcasting or spell-like abilities?",
+        answer: "If the ability says 'the creature casts [spell name]' it can be countered. If it just mimics an effect without technically being spellcasting (like a dragon's breath weapon), it cannot be countered."
+      },
+      {
+        question: "What ability do I use for the Counterspell check?",
+        answer: "Your spellcasting ability modifier! Wizards use INT, Sorcerers use CHA, etc. The DC is 10 + the target spell's level. With +5 modifier, you'd need to roll 8+ to counter a 7th-level spell."
+      },
+      {
+        question: "Can I Counterspell a spell cast from behind total cover?",
+        answer: "No. Counterspell requires you to 'see a creature within 60 feet casting a spell.' If the caster has total cover, you can't see them, and can't Counterspell. Positioning matters!"
+      }
+    ],
     category: "reaction-defense",
     searchVolume: 10100,
     aliases: ["counterspell"]
@@ -111,6 +158,28 @@ export const reactionDefenseSpells: {
       "The advantage on attack rolls for all party members makes this very powerful at low levels",
       "Great against enemies with high AC or those relying on invisibility",
       "The 20-foot cube can hit multiple enemies if positioned well"
+    ],
+    faq: [
+      {
+        question: "Does Faerie Fire reveal invisible creatures?",
+        answer: "Yes! Affected creatures 'can't benefit from being invisible' for the duration. They still have the invisible condition, but attacks against them don't have disadvantage and they're targetable - the glow makes them visible."
+      },
+      {
+        question: "Can Faerie Fire be seen through fog or darkness?",
+        answer: "The creatures shed dim light in a 10-foot radius. In magical darkness, the light is suppressed. In fog or mundane darkness, you can see the glow but not necessarily the creature clearly - DM discretion applies."
+      },
+      {
+        question: "Does Faerie Fire give advantage on spell attacks too?",
+        answer: "Yes! 'Any attack roll against an affected creature has advantage.' This includes melee attacks, ranged attacks, and spell attacks. Eldritch Blast and Scorching Ray benefit just as much as sword swings."
+      },
+      {
+        question: "What happens if a creature enters the area after the spell is cast?",
+        answer: "Nothing! Only creatures 'in the area when the spell is cast' must save. Creatures entering later aren't affected. The spell doesn't create a persistent zone - it's a one-time effect on initial targets."
+      },
+      {
+        question: "Can the affected creature turn the glow off?",
+        answer: "No. They can try to hide behind cover, but the glow persists for the duration. The only ways to end it early are to dispel it, have the caster drop concentration, or use something like Greater Restoration."
+      }
     ],
     category: "reaction-defense",
     searchVolume: 12110
@@ -144,6 +213,28 @@ export const reactionDefenseSpells: {
       "Smart enemies will try to drain spell slots by forcing repeated Shield casts",
       "Describe the shimmering barrier appearing just in time to deflect the blow"
     ],
+    faq: [
+      {
+        question: "Can I cast Shield after I know the attack roll but before damage?",
+        answer: "Yes! The trigger is 'when you are hit by an attack.' You know you're hit before damage is rolled. Cast Shield, and the +5 AC applies retroactively - if 17 hit you and Shield makes your AC 18, the attack now misses."
+      },
+      {
+        question: "Does Shield stack with other AC bonuses?",
+        answer: "Yes! Shield's +5 bonus stacks with everything - Mage Armor, Shield of Faith, Haste, etc. A wizard with Mage Armor (13+DEX) and Shield gains +5 on top for potentially 20+ AC."
+      },
+      {
+        question: "Does Shield work against all attacks until my next turn?",
+        answer: "Yes! The +5 bonus lasts 'until the start of your next turn.' Multiple enemies attacking you all face the higher AC. This makes Shield excellent when surrounded by multiple foes."
+      },
+      {
+        question: "Can I cast Shield if I'm already wearing a shield (the equipment)?",
+        answer: "The spell Shield works regardless of equipment. However, wizards and sorcerers typically can't wear shields without proficiency (and even then, can't cast spells with somatic components while holding one without War Caster)."
+      },
+      {
+        question: "Does Shield completely negate Magic Missile?",
+        answer: "Yes! The spell says you 'take no damage from magic missile' - not reduced damage, NO damage. Magic Missile's auto-hit doesn't work against Shield. This is one of the few hard counters to Magic Missile."
+      }
+    ],
     category: "reaction-defense",
     searchVolume: 7120
   },
@@ -176,6 +267,28 @@ export const reactionDefenseSpells: {
       "Some DMs ban this spell or limit it to once per short rest due to its power level",
       "Can lead to feel-bad moments when players constantly reroll enemy successes"
     ],
+    faq: [
+      {
+        question: "Why is Silvery Barbs considered so powerful?",
+        answer: "For a 1st-level slot, you force disadvantage (reroll, take lower) on ANY d20 roll AND give an ally advantage. It can turn crits to misses, make enemies fail saves against Hold Person, or help land crucial attacks - all as a reaction."
+      },
+      {
+        question: "Can I use Silvery Barbs on my own failed save?",
+        answer: "No. The trigger is when a creature SUCCEEDS. You can't use it on your own failures. However, you CAN give yourself the advantage buff if you choose yourself as the creature who gains advantage."
+      },
+      {
+        question: "Does Silvery Barbs work against Legendary Resistance?",
+        answer: "Yes, but with a catch. The creature must first succeed on the save (triggering Silvery Barbs), reroll and potentially fail, THEN use Legendary Resistance. You can drain LR uses this way, but they can still choose to succeed."
+      },
+      {
+        question: "Can the forced reroll turn a critical hit into a miss?",
+        answer: "Potentially! A natural 20 rerolled might come up as 8. If that 8 + modifiers doesn't beat your AC, it misses. This is one reason Silvery Barbs is so controversial - it can negate crits for a 1st-level slot."
+      },
+      {
+        question: "Does Silvery Barbs stack with other reroll effects?",
+        answer: "Different rules! Silvery Barbs forces a reroll and uses the lower. Disadvantage also means roll twice, take lower. But you can't stack multiple 'take the lower' effects - roll once, take that result."
+      }
+    ],
     category: "reaction-defense",
     searchVolume: 9700
   },
@@ -206,6 +319,28 @@ export const reactionDefenseSpells: {
       "Average damage of 11 at 1st level is excellent",
       "Can discourage enemies from focusing the warlock",
       "The fire damage is thematic but can be resisted by some creatures"
+    ],
+    faq: [
+      {
+        question: "Can I use Hellish Rebuke when damaged by a spell?",
+        answer: "Yes! The trigger is 'being damaged by a creature' - it doesn't specify weapon attacks. Fireball from an enemy wizard, a dragon's breath weapon, or even fall damage pushed by an enemy can all trigger Hellish Rebuke."
+      },
+      {
+        question: "Does Hellish Rebuke work if I'm knocked unconscious by the damage?",
+        answer: "Debated! Some argue you can still use your reaction before falling unconscious. Others say being at 0 HP means you're incapacitated and can't take reactions. Check with your DM - many allow it as a 'last gasp' revenge."
+      },
+      {
+        question: "Can Hellish Rebuke target the creature even if they're now behind cover?",
+        answer: "You must be able to 'see' the creature within 60 feet. If they damaged you and then ducked behind total cover, you might not be able to target them. However, most damage sources don't allow the attacker to hide afterward."
+      },
+      {
+        question: "Does Hellish Rebuke scale well for Warlocks?",
+        answer: "Yes! Warlocks cast at their highest slot level automatically. At 5th level with 3rd-level slots, Hellish Rebuke deals 4d10 (avg 22) as a reaction. At 9th level with 5th-level slots, it's 6d10 (avg 33)!"
+      },
+      {
+        question: "Can I cast Hellish Rebuke and Shield in the same round?",
+        answer: "No. Both require your reaction, and you only get one reaction per round. You must choose: avoid the damage with Shield, or take the damage and punish them with Hellish Rebuke. Choose wisely!"
+      }
     ],
     category: "reaction-defense",
     searchVolume: 11400
@@ -238,6 +373,28 @@ export const reactionDefenseSpells: {
       "The disadvantage on attacks can save lives against powerful fiends or undead",
       "Consider telegraphing when this spell would be useful"
     ],
+    faq: [
+      {
+        question: "What creature types does Protection from Evil and Good protect against?",
+        answer: "Aberrations, celestials, elementals, fey, fiends, and undead. NOT humanoids, beasts, dragons, giants, monstrosities, oozes, or plants. Despite the name, it's about creature type, not moral alignment."
+      },
+      {
+        question: "Does this spell end possession that's already in effect?",
+        answer: "Not automatically. If already possessed/charmed/frightened by a valid creature type, you get 'advantage on any new saving throw against the relevant effect.' You'll need to make saves to break free, but with advantage."
+      },
+      {
+        question: "Can ghosts and similar undead still possess a protected creature?",
+        answer: "They can try, but the target can't be possessed by them. The spell provides immunity to new possession from listed creature types. Any possession attempt simply fails."
+      },
+      {
+        question: "Does the material component get consumed?",
+        answer: "Yes! The spell consumes the holy water or powdered silver/iron. Each casting costs components. Stock up before heading into fiend-heavy areas or undead dungeons."
+      },
+      {
+        question: "Is Protection from Evil and Good worth concentration?",
+        answer: "Situationally, absolutely! Against a vampire's charm, a ghost's possession, or a powerful demon's attacks, the protection is invaluable. Against a pack of wolves? Completely useless. Know your enemies."
+      }
+    ],
     category: "reaction-defense",
     searchVolume: 8600
   },
@@ -268,6 +425,28 @@ export const reactionDefenseSpells: {
       "At 5th level (using a 3rd-level slot), grants 15 temp HP and deals 15 damage per hit",
       "Encourages enemies to use ranged attacks instead of melee",
       "The cold damage is automatic - no save or attack roll needed"
+    ],
+    faq: [
+      {
+        question: "Does Armor of Agathys damage trigger for each melee attack that hits me?",
+        answer: "Yes, but only while you have the temp HP! Each melee hit triggers the cold damage, but once the temp HP are depleted, the damage stops. With 15 temp HP, you might take 3-4 hits before it runs out."
+      },
+      {
+        question: "What happens if I take more damage than my temp HP in one hit?",
+        answer: "The attacker still takes the cold damage, then your temp HP are gone and the damage effect ends. For example: you have 10 temp HP, take 25 damage. Attacker takes 10 cold damage, you lose all temp HP and take 15 real damage."
+      },
+      {
+        question: "Does Armor of Agathys scale with Warlock Pact slots?",
+        answer: "Yes! Warlocks cast at highest slot level, so at level 5 (3rd-level slots), it's 15 temp HP and 15 damage. At level 9 (5th-level slots), it's 25 temp HP and 25 damage. Incredibly powerful scaling!"
+      },
+      {
+        question: "Can I stack Armor of Agathys with other sources of temp HP?",
+        answer: "Temporary HP never stack. If you have Armor of Agathys temp HP and gain temp HP from another source, you choose which to keep. However, the Armor of Agathys damage only triggers while its specific temp HP remain."
+      },
+      {
+        question: "Does Armor of Agathys work with Hexblade or melee Warlock builds?",
+        answer: "Perfectly! Frontline Warlocks love this spell. You WANT to be hit in melee because each hit punishes the attacker. Combine with medium armor and a shield for a tanky warlock who hurts anyone who touches them."
+      }
     ],
     category: "reaction-defense",
     searchVolume: 9200
@@ -300,6 +479,28 @@ export const reactionDefenseSpells: {
       "The 8-hour duration means it should almost always be active",
       "Can be cast on other unarmored allies like monks"
     ],
+    faq: [
+      {
+        question: "Does Mage Armor stack with Unarmored Defense?",
+        answer: "No! Both set your base AC to a formula. Mage Armor: 13 + DEX. Barbarian Unarmored Defense: 10 + DEX + CON. Monk: 10 + DEX + WIS. You choose one calculation, you don't add them together."
+      },
+      {
+        question: "Can I wear a shield with Mage Armor?",
+        answer: "Yes, if you have shield proficiency! Shields aren't armor - Mage Armor only fails if you 'don armor.' A +2 shield stacks with Mage Armor for 15 + DEX AC. However, most wizards lack shield proficiency."
+      },
+      {
+        question: "If I put on armor, does Mage Armor end permanently?",
+        answer: "Yes, 'the spell ends if the target dons armor.' To get it back, you'd need to remove the armor and cast Mage Armor again. Plan your equipment before casting!"
+      },
+      {
+        question: "Can I cast Mage Armor on a Monk or Barbarian?",
+        answer: "You can, but it might not help. A Monk with 16 DEX and 16 WIS has AC 16 from Unarmored Defense. Mage Armor would give 13 + 3 = 16. Only helpful if their secondary stat is lower than 13."
+      },
+      {
+        question: "Is Mage Armor or Shield of Faith better?",
+        answer: "Different spells! Mage Armor lasts 8 hours with no concentration (+3 AC over base). Shield of Faith lasts 10 minutes with concentration (+2 AC). Mage Armor for all-day protection, Shield of Faith for specific combats."
+      }
+    ],
     category: "reaction-defense",
     searchVolume: 14800
   },
@@ -331,6 +532,28 @@ export const reactionDefenseSpells: {
       "Can discourage melee attackers from targeting the caster",
       "The light emission can be both helpful and problematic depending on situation"
     ],
+    faq: [
+      {
+        question: "What's the difference between warm shield and chill shield?",
+        answer: "Warm shield gives cold resistance and deals fire damage. Chill shield gives fire resistance and deals cold damage. Choose based on what enemies you expect to face - fire-breathing dragon? Take chill shield for fire resistance."
+      },
+      {
+        question: "Does Fire Shield's damage trigger on ranged attacks?",
+        answer: "No! Only 'whenever a creature within 5 feet of you hits you with a melee attack.' Ranged attacks from outside 5 feet don't trigger the damage. Enemies can avoid the damage by staying at range."
+      },
+      {
+        question: "Can Fire Shield and Armor of Agathys work together?",
+        answer: "Yes! Both trigger on melee hits and deal different damage types. A creature hitting you in melee would take Fire Shield's 2d8 fire/cold AND Armor of Agathys's cold damage (while you have the temp HP)."
+      },
+      {
+        question: "Does the light from Fire Shield affect stealth or Darkness spells?",
+        answer: "Yes! You shed bright light in a 10-foot radius. This makes stealth nearly impossible and might interact with Darkness (DM discretion on whether nonmagical light penetrates magical darkness). Plan accordingly."
+      },
+      {
+        question: "Is Fire Shield worth a 4th-level slot?",
+        answer: "Situationally excellent! No concentration, 10-minute duration, provides resistance AND retributive damage. Against fire-using enemies with a chill shield, or melee-heavy encounters, it's fantastic. Against mixed or ranged enemies, less so."
+      }
+    ],
     category: "reaction-defense",
     searchVolume: 7400
   },
@@ -361,6 +584,28 @@ export const reactionDefenseSpells: {
       "The material cost makes it feel significant",
       "Great for protecting the party tank in dungeons with many nonmagical threats",
       "Consider whether the concentration is worth it compared to other options"
+    ],
+    faq: [
+      {
+        question: "Does Stoneskin protect against magical weapons?",
+        answer: "No! Stoneskin only provides resistance to 'nonmagical bludgeoning, piercing, and slashing damage.' A +1 sword bypasses this entirely. At higher levels where magic weapons are common, Stoneskin becomes much less useful."
+      },
+      {
+        question: "Does Stoneskin protect against unarmed strikes?",
+        answer: "Yes, unless the attacker's unarmed strikes count as magical (like a Monk's Ki-Empowered Strikes at level 6). Natural weapons from beasts and most monsters are also nonmagical and resisted."
+      },
+      {
+        question: "Is the 100 gp diamond dust consumed?",
+        answer: "Yes! Each casting consumes 100 gp worth of diamond dust. This is a significant ongoing cost and one reason Stoneskin isn't cast casually. Stock up before extended dungeon delves."
+      },
+      {
+        question: "Is Stoneskin worth concentration at 4th level?",
+        answer: "Situationally. Against hordes of nonmagical enemies (goblins, wolves, zombies), it's excellent. But the concentration competes with powerful 4th-level spells like Greater Invisibility or Polymorph. Know your encounter."
+      },
+      {
+        question: "Does Stoneskin affect the creature's appearance?",
+        answer: "The spell says flesh turns 'as hard as stone' but doesn't specify visible changes. RAW is ambiguous - DMs might describe a stone-like texture or coloring, or it might be purely a magical effect with no visible change."
+      }
     ],
     category: "reaction-defense",
     searchVolume: 8100

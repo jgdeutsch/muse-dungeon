@@ -1,3 +1,5 @@
+import { FAQItem } from "../components/FAQ";
+
 export type EquipmentPage = {
   slug: string;
   name: string;
@@ -10,6 +12,7 @@ export type EquipmentPage = {
   properties: string[];
   commonMistakes: string[];
   dmTips: string[];
+  faq?: FAQItem[];
   searchVolume: number;
 };
 
@@ -33,6 +36,7 @@ export type MagicItemPage = {
   mechanics: string;
   commonMistakes: string[];
   dmTips: string[];
+  faq?: FAQItem[];
   searchVolume: number;
 };
 
@@ -68,6 +72,28 @@ export const equipmentPages: EquipmentPage[] = [
       "Use the limited rope length (50 feet) to create interesting challenges with pits and climbs",
       "The mess kit can be a roleplaying opportunity during camp scenes"
     ],
+    faq: [
+      {
+        question: "What's in an Explorer's Pack?",
+        answer: "The Explorer's Pack contains: a backpack, a bedroll, a mess kit, a tinderbox, 10 torches, 10 days of rations, a waterskin, and 50 feet of hempen rope. Total value is about 10 gp and it weighs 59 lbs."
+      },
+      {
+        question: "Is the Explorer's Pack better than the Dungeoneer's Pack?",
+        answer: "It depends on your campaign! The Explorer's Pack has rations and a bedroll for wilderness travel, while the Dungeoneer's Pack has pitons, a crowbar, and a hammer for dungeon exploration. Choose based on where you'll be adventuring."
+      },
+      {
+        question: "How long do the supplies in an Explorer's Pack last?",
+        answer: "The 10 days of rations last 10 days (consuming 1 per day). The 10 torches provide 10 hours of light total (1 hour each). The waterskin holds 4 pints and needs daily refilling. Plan resupply stops accordingly!"
+      },
+      {
+        question: "Can I buy the items separately for cheaper?",
+        answer: "Buying items individually costs slightly more (around 12 gp total). The pack offers a small discount plus convenience. However, you might customize a cheaper kit by skipping items you don't need."
+      },
+      {
+        question: "Do I need to track all these items during play?",
+        answer: "It depends on your table's style! Some groups track every torch and ration for survival tension. Others handwave supplies unless dramatically relevant. Discuss expectations with your DM at session zero."
+      }
+    ],
     searchVolume: 8190
   },
   {
@@ -92,6 +118,28 @@ export const equipmentPages: EquipmentPage[] = [
       "The 10 gp cost makes it affordable for low-level parties to upgrade hirelings",
       "In hot climates, remind players that leather armor can be uncomfortable"
     ],
+    faq: [
+      {
+        question: "Is Leather Armor good in 5e?",
+        answer: "Leather armor provides AC 11 + your full Dex modifier. For characters with +3 Dex or higher, it's decent early game but studded leather (AC 12 + Dex) is strictly better once affordable. Consider upgrading when you can spare 45 gp."
+      },
+      {
+        question: "What's the difference between Leather Armor and Studded Leather?",
+        answer: "Studded leather costs 35 gp more but gives +1 AC (12 vs 11). Both are light armor with no stealth penalty. For characters who value AC, studded leather is almost always the better choice once available."
+      },
+      {
+        question: "Can I sleep in Leather Armor?",
+        answer: "RAW doesn't address sleeping in armor, but most DMs allow sleeping in light armor without penalty. PHB page 146 suggests possible exhaustion for sleeping in medium or heavy armor, but leather is typically fine."
+      },
+      {
+        question: "Who should wear Leather Armor?",
+        answer: "Leather armor suits rogues, rangers, bards, monks (if they want armor), and any Dexterity-focused character early game. However, most should upgrade to studded leather as soon as they can afford the 45 gp cost."
+      },
+      {
+        question: "Is Leather Armor better than no armor for a Monk?",
+        answer: "Usually no! Monks with 16 Dex and 16 Wis have AC 16 with Unarmored Defense, while leather + 16 Dex gives only AC 14. Monks should typically stay unarmored unless they have very low Wisdom."
+      }
+    ],
     searchVolume: 13190
   },
   {
@@ -115,6 +163,28 @@ export const equipmentPages: EquipmentPage[] = [
       "Monks with Martial Arts can use this weapon with their Dex and deal their Martial Arts die instead",
       "The low cost makes it accessible for peasant NPCs in combat encounters",
       "Consider magical quarterstaffs as rewards - they're iconic for spellcasters"
+    ],
+    faq: [
+      {
+        question: "Can a Monk use a Quarterstaff with Dexterity?",
+        answer: "Yes! The quarterstaff is a monk weapon, so monks can use their Martial Arts feature to attack with Dexterity instead of Strength. They can also replace the damage die with their Martial Arts die if it's higher."
+      },
+      {
+        question: "Can I use a Quarterstaff with a Shield?",
+        answer: "Yes! When wielded one-handed, the quarterstaff deals 1d6 damage and leaves your other hand free for a shield. You only need two hands for the 1d8 versatile damage. Switch grips freely during your turn."
+      },
+      {
+        question: "Is a Quarterstaff better than other simple weapons?",
+        answer: "The quarterstaff is excellent for its versatility: 1d6 one-handed or 1d8 two-handed, usable by monks with Dex, and works as a spellcasting focus for certain subclasses. At 2 sp, it's also one of the cheapest weapons!"
+      },
+      {
+        question: "Can I use Polearm Master with a Quarterstaff?",
+        answer: "Absolutely! Polearm Master lets you make a bonus action attack for 1d4 bludgeoning damage with a quarterstaff. You also get opportunity attacks when enemies enter your reach. It's a popular monk/fighter combo."
+      },
+      {
+        question: "Does the Quarterstaff count as a magic staff for spellcasters?",
+        answer: "A mundane quarterstaff is just a stick. However, magic staffs (Staff of the Python, Staff of Power, etc.) can be used as quarterstaffs for melee attacks. Check individual staff descriptions for specifics."
+      }
     ],
     searchVolume: 6670
   },
@@ -141,6 +211,28 @@ export const equipmentPages: EquipmentPage[] = [
       "Consider describing the distinctive sound of scales clinking during tense moments",
       "Characters with 16+ Dexterity might prefer hide armor or studded leather"
     ],
+    faq: [
+      {
+        question: "Why does Scale Mail give Stealth disadvantage?",
+        answer: "The overlapping metal scales clink and scrape against each other when you move, creating noise. This is a mechanical tradeoff: you get AC 14 + Dex (max 2) but sacrifice stealth. Perfect for clerics who don't sneak anyway!"
+      },
+      {
+        question: "Is Scale Mail better than Chain Shirt?",
+        answer: "Scale mail (AC 14 + Dex max 2) beats chain shirt (AC 13 + Dex max 2) by 1 AC but has stealth disadvantage. Chain shirt has no stealth penalty. Choose based on whether your character needs to sneak."
+      },
+      {
+        question: "Who should wear Scale Mail?",
+        answer: "Scale mail suits medium-armor clerics, druids (though they won't wear metal), fighters transitioning to heavy armor, and any character who prioritizes AC over stealth. At 50 gp, it's affordable mid-tier protection."
+      },
+      {
+        question: "Can I remove the Stealth disadvantage from Scale Mail?",
+        answer: "No mundane method removes it - the disadvantage is inherent to the armor design. However, a suit of Mithral Scale Mail (magic item) removes the stealth disadvantage entirely. Ask your DM about availability!"
+      },
+      {
+        question: "Is Scale Mail good for characters with high Dexterity?",
+        answer: "No! The +2 Dex cap means characters with 16+ Dex waste their bonus. A rogue with 18 Dex gets AC 16 from scale mail but AC 16 from studded leather (12 + 4) without stealth disadvantage. Choose light armor instead."
+      }
+    ],
     searchVolume: 13450
   },
   {
@@ -166,6 +258,28 @@ export const equipmentPages: EquipmentPage[] = [
       "The armor can be described in various ways - studded, riveted, or reinforced",
       "For characters starting with leather, upgrading to studded leather feels significant"
     ],
+    faq: [
+      {
+        question: "Is Studded Leather the best light armor?",
+        answer: "Yes! Studded leather (AC 12 + full Dex mod) is the best non-magical light armor in 5e. No stealth penalty, no Strength requirement. For high-Dex characters, it's often better than medium armor too."
+      },
+      {
+        question: "What's the max AC possible with Studded Leather?",
+        answer: "With 20 Dexterity, studded leather gives AC 17. Add a shield (if proficient) for AC 19. Magic items like Ring of Protection, Cloak of Protection, or +1 Studded Leather can push it even higher."
+      },
+      {
+        question: "Should I buy Studded Leather at level 1?",
+        answer: "If you start with 15+ gp (or can pool party funds), absolutely! The upgrade from leather (AC 11) to studded leather (AC 12) costs 35 gp extra but adds +1 AC for your entire career until you get magic armor."
+      },
+      {
+        question: "Do the studs on Studded Leather do anything in combat?",
+        answer: "No, the studs are purely for armor reinforcement and don't deal damage to attackers or grapplers. They're metal rivets that hold the armor together, not offensive spikes despite the name."
+      },
+      {
+        question: "Who should wear Studded Leather?",
+        answer: "Any Dexterity-focused character: rogues, rangers, bards, fighters with the Dexterity build, monks who want armor over Unarmored Defense, and light-armor warlocks. It's the optimal choice for most Dex-based builds."
+      }
+    ],
     searchVolume: 40
   },
   {
@@ -190,6 +304,28 @@ export const equipmentPages: EquipmentPage[] = [
       "Perfect for strength-based characters who want a simple throwing weapon option",
       "Consider making this weapon available in other settings with cultural modification",
       "The low cost makes it affordable to carry multiple for throwing"
+    ],
+    faq: [
+      {
+        question: "How do you pronounce Yklwa?",
+        answer: "It's pronounced 'YICK-ul-wah' (three syllables). The word comes from the Zulu language, where similar short spears were traditional weapons. In D&D, it's associated with Chult from Tomb of Annihilation."
+      },
+      {
+        question: "Is the Yklwa overpowered for a simple weapon?",
+        answer: "It's definitely strong! At 1d8 piercing with Thrown (10/30), it out-damages most simple weapons. However, its short throwing range (10 feet normal) and setting-specific nature balance it. DMs may limit availability outside Chult."
+      },
+      {
+        question: "Can I use the Yklwa in any campaign?",
+        answer: "RAW, the yklwa is from Tomb of Annihilation and might not exist in other settings. Ask your DM! Many allow it since it's just a short spear mechanically, but some prefer setting-appropriate weapons."
+      },
+      {
+        question: "Is the Yklwa better than a Spear?",
+        answer: "Yes, for damage! The yklwa deals 1d8 vs the spear's 1d6 (or 1d8 versatile). However, the spear has better throwing range (20/60 vs 10/30) and the versatile property. Choose based on your playstyle."
+      },
+      {
+        question: "Can I dual wield Yklwas?",
+        answer: "No, the yklwa lacks the Light property required for two-weapon fighting without feats. You'd need the Dual Wielder feat to dual-wield yklwas, which also lets you draw both in one turn."
+      }
     ],
     searchVolume: 24600
   },
@@ -218,6 +354,28 @@ export const equipmentPages: EquipmentPage[] = [
       "The 15 gp cost makes it affordable for starting martial characters",
       "Great for NPCs like guards, knights, and soldiers"
     ],
+    faq: [
+      {
+        question: "Is the Longsword the best one-handed weapon?",
+        answer: "For Strength builds, yes! The longsword deals 1d8 slashing (or 1d10 two-handed), matching the best martial one-handed damage. The rapier equals it for Dex builds. Both are excellent shield-and-weapon choices."
+      },
+      {
+        question: "What's the difference between a Longsword and a Rapier?",
+        answer: "Longswords use Strength, deal slashing damage, and have Versatile (1d10 two-handed). Rapiers use Dex (Finesse), deal piercing, and lack Versatile. Choose based on your primary ability score."
+      },
+      {
+        question: "Can I use a Longsword with a Shield?",
+        answer: "Absolutely! Wielded one-handed (1d8 damage), you can use a shield for +2 AC. This is the classic sword-and-board setup. Only use two hands (1d10) when you don't need the shield's protection."
+      },
+      {
+        question: "Who gets Longsword proficiency?",
+        answer: "All martial classes (Fighter, Paladin, Ranger, Barbarian), plus Elves (all subraces), Hobgoblins, and some subclasses/backgrounds. Bards, Clerics, and Rogues typically need special features for proficiency."
+      },
+      {
+        question: "Is a Longsword better than a Greatsword?",
+        answer: "They serve different purposes! Longsword + shield gives better AC (sword 1d8 + shield +2 AC). Greatsword maximizes damage (2d6, average 7 vs 4.5). Choose defense with longsword, offense with greatsword."
+      }
+    ],
     searchVolume: 18240
   },
   {
@@ -244,6 +402,28 @@ export const equipmentPages: EquipmentPage[] = [
       "Consider describing the weight and power of greatsword strikes for cinematic effect",
       "The 50 gp cost makes it a significant early investment but very affordable at mid-levels",
       "Great Weapon Fighting style adds about 1.33 damage per attack with this weapon"
+    ],
+    faq: [
+      {
+        question: "Is the Greatsword or Greataxe better?",
+        answer: "Greatsword (2d6) averages 7 damage with more consistency. Greataxe (1d12) averages 6.5 but has higher crit potential. For Barbarians with Brutal Critical, greataxe wins. For everyone else, greatsword is mathematically superior."
+      },
+      {
+        question: "Can Small races use a Greatsword?",
+        answer: "Yes, but with disadvantage on attacks! The Heavy property penalizes Small creatures (halflings, gnomes). Mechanically legal but suboptimal. Small characters should consider non-Heavy alternatives."
+      },
+      {
+        question: "Does Great Weapon Fighting work with Greatswords?",
+        answer: "Yes! GWF lets you reroll 1s and 2s on damage dice. With 2d6, you reroll both dice if needed, adding about 1.33 average damage per attack. It's one of the best weapon/style combinations."
+      },
+      {
+        question: "Can I use Great Weapon Master with a Greatsword?",
+        answer: "Absolutely! GWM's -5 attack/+10 damage works perfectly with greatswords. The high base damage (2d6) makes the -5 penalty more worthwhile. It's one of the most popular feat/weapon combos in 5e."
+      },
+      {
+        question: "What classes use Greatswords best?",
+        answer: "Fighters (multiple attacks, GWF style), Paladins (Divine Smite on 2d6 hits), and Barbarians (though they often prefer greataxes for Brutal Critical). Any Strength-based martial benefits from greatswords."
+      }
     ],
     searchVolume: 12950
   },
@@ -273,6 +453,28 @@ export const equipmentPages: EquipmentPage[] = [
       "Describe the elegant, precise nature of rapier combat for narrative flair",
       "Rogues should almost always prefer rapiers over shortswords for Sneak Attack"
     ],
+    faq: [
+      {
+        question: "Is the Rapier the best Finesse weapon?",
+        answer: "Yes! At 1d8 piercing with Finesse, the rapier deals the highest damage of any Finesse weapon. It's the optimal choice for Dexterity-based melee characters who aren't dual-wielding."
+      },
+      {
+        question: "Can I dual wield Rapiers?",
+        answer: "Not without the Dual Wielder feat! Rapiers lack the Light property required for two-weapon fighting. With Dual Wielder, you can wield two rapiers and draw both in one turn."
+      },
+      {
+        question: "Is a Rapier better than a Shortsword for Rogues?",
+        answer: "For single-weapon rogues, absolutely! Rapier deals 1d8 vs shortsword's 1d6 - that's +1 average damage on every Sneak Attack. Only choose shortsword if you're two-weapon fighting."
+      },
+      {
+        question: "Can I use a Rapier with a Shield?",
+        answer: "Yes! The rapier is one-handed, leaving your other hand free for a shield. A Dex fighter with rapier + shield + Dueling style (+2 damage) is an excellent defensive build with solid damage output."
+      },
+      {
+        question: "What's the best Fighting Style for Rapiers?",
+        answer: "Dueling (+2 damage when wielding one weapon) is perfect for rapier + shield builds. It adds flat damage that stacks with everything. For two-weapon fighting rapiers (with Dual Wielder), consider that style instead."
+      }
+    ],
     searchVolume: 15670
   },
   {
@@ -300,6 +502,28 @@ export const equipmentPages: EquipmentPage[] = [
       "Rangers with Two-Weapon Fighting style add their Dex mod to bonus action attacks",
       "Single-weapon rogues should prefer rapiers (1d8) over shortswords (1d6) for Sneak Attack",
       "Great for pirates, scouts, and agile fighter NPCs"
+    ],
+    faq: [
+      {
+        question: "Can I dual wield Shortswords?",
+        answer: "Yes! Shortswords have both Light and Finesse properties, making them perfect for two-weapon fighting. Attack with one shortsword, then use your bonus action to attack with the other (without adding ability mod to damage, unless you have Two-Weapon Fighting style)."
+      },
+      {
+        question: "Is a Shortsword better than a Rapier?",
+        answer: "Only for dual-wielding! A single rapier (1d8) out-damages a single shortsword (1d6). But two shortswords give you a bonus action attack, which can be better for rogues trying to land Sneak Attack or builds stacking on-hit effects."
+      },
+      {
+        question: "Why would a Rogue use Shortswords over Rapiers?",
+        answer: "Dual shortswords give two chances to land Sneak Attack per turn - if you miss with your main attack, you get another try with the bonus action. However, a single rapier deals more damage when you consistently hit."
+      },
+      {
+        question: "Is Shortsword a Monk weapon?",
+        answer: "Yes! Shortswords are monk weapons, so monks can use Dexterity and their Martial Arts die (if higher than 1d6). However, most monk features focus on unarmed strikes, so shortswords are often just backup weapons."
+      },
+      {
+        question: "What's the difference between Shortsword and Scimitar?",
+        answer: "They're nearly identical: both deal 1d6 damage with Light and Finesse. Shortswords deal piercing, scimitars deal slashing. Choose based on flavor, damage type needs, or class proficiencies (druids get scimitars)."
+      }
     ],
     searchVolume: 9820
   },
@@ -329,6 +553,28 @@ export const equipmentPages: EquipmentPage[] = [
       "Consider magical greataxes with on-crit effects to emphasize the crit-fishing playstyle",
       "Great Weapon Master feat pairs excellently with this weapon's high damage die"
     ],
+    faq: [
+      {
+        question: "Is the Greataxe or Greatsword better?",
+        answer: "For most characters, greatsword (2d6, avg 7) beats greataxe (1d12, avg 6.5). But Barbarians should use greataxe! Brutal Critical adds extra d12s on crits, and Half-Orcs add another d12. High-crit builds favor greataxe."
+      },
+      {
+        question: "Why do Barbarians prefer Greataxes?",
+        answer: "Brutal Critical (level 9+) adds extra weapon dice on crits. A d12 is better than d6 for this. Combined with Reckless Attack's advantage (more crits) and potential Half-Orc Savage Attacks, greataxes maximize crit damage."
+      },
+      {
+        question: "Can Small races use a Greataxe?",
+        answer: "Yes, but with disadvantage on attacks due to the Heavy property. Halfling and gnome barbarians should consider non-Heavy alternatives, or just accept the disadvantage for the raw damage potential."
+      },
+      {
+        question: "Does Great Weapon Fighting work with Greataxes?",
+        answer: "Yes! GWF lets you reroll 1s and 2s on damage. With a single d12, you can reroll low results. However, mathematically it adds less damage to greataxe (+0.8) than greatsword (+1.33) due to fewer dice."
+      },
+      {
+        question: "What's the max damage a Greataxe can do?",
+        answer: "Normal max is 12 + Strength mod. On a crit with a level 17+ Barbarian Half-Orc using Brutal Critical, you roll 5d12 (weapon + 3 brutal + 1 savage attacks) = up to 60 damage before mods! That's why barbarians love greataxes."
+      }
+    ],
     searchVolume: 8760
   },
   {
@@ -356,6 +602,28 @@ export const equipmentPages: EquipmentPage[] = [
       "The combination of Light and Thrown makes this uniquely versatile for simple weapons",
       "Consider handaxe-throwing contests as tavern minigames or skill challenges",
       "At higher levels, +1 handaxes become very valuable for thrown weapon builds"
+    ],
+    faq: [
+      {
+        question: "Can I throw multiple Handaxes per turn?",
+        answer: "With Extra Attack, yes for your attacks! But you need to draw each one (one free object interaction per turn). The Dual Wielder feat or Fighting Initiate (Thrown Weapon Fighting) helps. Otherwise, you can throw one, then draw and throw another with Extra Attack."
+      },
+      {
+        question: "Can I dual wield Handaxes?",
+        answer: "Yes! Handaxes have the Light property. You can attack with one, then bonus action attack with the other. However, you don't add your ability modifier to the bonus action's damage without the Two-Weapon Fighting style."
+      },
+      {
+        question: "Is a Handaxe better than a Javelin?",
+        answer: "Depends! Handaxes deal 1d6 slashing and can be dual-wielded (Light property). Javelins deal 1d6 piercing with longer range (30/120 vs 20/60) but can't be dual-wielded. Choose handaxes for melee versatility, javelins for range."
+      },
+      {
+        question: "Do thrown Handaxes use Strength or Dexterity?",
+        answer: "Strength! Unlike daggers, handaxes lack the Finesse property. When thrown, you use your Strength modifier for attack and damage. This makes them great for barbarians and Strength fighters who want ranged options."
+      },
+      {
+        question: "How many Handaxes should I carry?",
+        answer: "For throwing builds, carry 4-6 handaxes. At 2 lbs each and 5 gp, they're affordable and light. Remember you lose them when thrown (unless you retrieve them after combat), so having spares is smart."
+      }
     ],
     searchVolume: 7240
   },
@@ -386,6 +654,28 @@ export const equipmentPages: EquipmentPage[] = [
       "Perfect weapon for commoners, assassins, spies, and roguish NPCs",
       "The dagger is likely the most commonly-found weapon in the world"
     ],
+    faq: [
+      {
+        question: "Can I throw Daggers with Dexterity?",
+        answer: "Yes! Daggers have both Finesse and Thrown properties. Unlike most thrown weapons, you can use Dexterity for both melee and thrown attacks. This makes daggers perfect for rogues and Dex-based characters."
+      },
+      {
+        question: "Can I Sneak Attack with a thrown Dagger?",
+        answer: "Absolutely! Sneak Attack requires a finesse or ranged weapon. Daggers are finesse weapons, so they qualify even when thrown. This lets rogues deliver Sneak Attack from range without needing a bow."
+      },
+      {
+        question: "How many Daggers should I carry?",
+        answer: "For throwing builds, carry 6-10 daggers. At 2 gp and 1 lb each, they're cheap and light. Remember thrown weapons land in/near the target's space - retrieve them after combat or buy more in town."
+      },
+      {
+        question: "Is a Dagger good for a Wizard?",
+        answer: "Yes! Wizards have dagger proficiency, making it their best melee option. It's a reliable backup when you're out of spell slots or facing magic-resistant enemies. Plus, thrown daggers give you a ranged option."
+      },
+      {
+        question: "Can I dual wield Daggers?",
+        answer: "Yes! Daggers have the Light property. Attack with one dagger, then bonus action attack with another. You don't add your ability modifier to the bonus action damage unless you have Two-Weapon Fighting style."
+      }
+    ],
     searchVolume: 11340
   },
   {
@@ -414,6 +704,28 @@ export const equipmentPages: EquipmentPage[] = [
       "Elves get longbow proficiency from their racial traits",
       "Consider magical longbows as iconic rewards (+1 Longbow, Oathbow, etc.)",
       "The weight of only 2 lbs makes it easy to carry despite requiring two hands to use"
+    ],
+    faq: [
+      {
+        question: "Is the Longbow the best ranged weapon in 5e?",
+        answer: "For most archers, yes! The longbow deals 1d8 damage with 150/600 ft range - the longest of any standard weapon. Combined with Sharpshooter feat, it's the gold standard for ranged damage."
+      },
+      {
+        question: "Can Small races use a Longbow?",
+        answer: "Yes, but with disadvantage on attacks! The Heavy property penalizes Small creatures (halflings, gnomes). Small archers should consider shortbows or hand crossbows for optimal performance."
+      },
+      {
+        question: "Do I need to track arrows for my Longbow?",
+        answer: "RAW, yes - arrows are ammunition and cost 1 gp per 20. However, many tables handwave ammunition tracking unless arrows are scarce or magical. Discuss with your DM during session zero."
+      },
+      {
+        question: "Is Longbow or Heavy Crossbow better?",
+        answer: "Longbow is usually better! Same 1d8 damage but without Loading restriction, so Extra Attack works normally. Heavy crossbow only wins with Crossbow Expert feat for specific builds, or for characters without Extra Attack."
+      },
+      {
+        question: "What's the best build for Longbow users?",
+        answer: "Fighter or Ranger with Archery fighting style (+2 attack), Sharpshooter feat (-5/+10 damage), and eventually a +1/+2 Longbow. Samurai Fighter is particularly strong for ranged damage with Fighting Spirit advantage."
+      }
     ],
     searchVolume: 10980
   },
@@ -444,6 +756,28 @@ export const equipmentPages: EquipmentPage[] = [
       "The 80-foot range is sufficient for most dungeon and indoor encounters",
       "Druids and other nature-themed characters often prefer shortbows thematically"
     ],
+    faq: [
+      {
+        question: "Is a Shortbow good for Rogues?",
+        answer: "Yes! Rogues are proficient with shortbows (simple weapons), making them the easiest ranged option. At 1d6 + Sneak Attack, the base damage matters less than consistently landing Sneak Attack. Great for non-martial rogues."
+      },
+      {
+        question: "Is a Shortbow or Longbow better?",
+        answer: "Longbow is better IF you have proficiency (martial) and aren't Small. Shortbow is simpler (more classes proficient), lacks Heavy property (good for Small races), and has acceptable range for most encounters."
+      },
+      {
+        question: "Can Small races use Shortbows effectively?",
+        answer: "Absolutely! Unlike longbows, shortbows lack the Heavy property. Halfling rogues and gnome rangers can use shortbows without disadvantage, making them the optimal ranged choice for Small characters."
+      },
+      {
+        question: "What classes are proficient with Shortbows?",
+        answer: "Most classes! Shortbows are simple weapons, so everyone except Clerics, Sorcerers, and Wizards gets proficiency. Some Cleric domains and all Rogues also have shortbow proficiency despite lacking martial weapons."
+      },
+      {
+        question: "Is the Shortbow's range good enough?",
+        answer: "Usually yes! The 80 ft normal range covers most dungeon rooms and combat encounters. You only take disadvantage beyond 80 ft. For extreme range needs (outdoor combat, siege), consider upgrading to longbow."
+      }
+    ],
     searchVolume: 6420
   },
   {
@@ -472,6 +806,28 @@ export const equipmentPages: EquipmentPage[] = [
       "Great for spy, assassin, or urban rogue NPCs",
       "Consider the build implications before allowing easy access to Crossbow Expert feat",
       "The Loading property means this weapon is nearly useless for characters with Extra Attack unless they have Crossbow Expert"
+    ],
+    faq: [
+      {
+        question: "Why is the Hand Crossbow so popular in 5e?",
+        answer: "With Crossbow Expert feat, hand crossbows become the highest DPR ranged build! You ignore Loading, can fire in melee without disadvantage, and get a bonus action attack. It's mathematically one of the best ranged options."
+      },
+      {
+        question: "Do I need Crossbow Expert for Hand Crossbows?",
+        answer: "Essentially yes! Without Crossbow Expert, the Loading property prevents Extra Attack from working. For characters with only one attack (rogues), it's still usable, but for fighters/rangers, the feat is mandatory."
+      },
+      {
+        question: "Can I dual wield Hand Crossbows?",
+        answer: "Technically the Light property suggests yes, but you need a free hand to reload. Crossbow Expert ignores Loading but not the ammunition's free hand requirement. Most builds use one hand crossbow + empty hand for reloading."
+      },
+      {
+        question: "Is Hand Crossbow or Longbow better?",
+        answer: "Without feats, longbow is much better (no Loading, longer range). With Crossbow Expert, hand crossbow wins for DPR due to bonus action attacks. The 30 ft normal range is the main drawback for hand crossbow builds."
+      },
+      {
+        question: "What's the best Hand Crossbow build?",
+        answer: "Fighter with Crossbow Expert and Sharpshooter: bonus action attack + multiple attacks + Archery style + Action Surge = devastating damage. Rogues also benefit for double Sneak Attack attempts per turn."
+      }
     ],
     searchVolume: 8950
   },
@@ -502,6 +858,28 @@ export const equipmentPages: EquipmentPage[] = [
       "The Loading property is often overlooked - enforce it to balance ranged combat",
       "Consider heavy crossbows for siege weapons or mounted defenses thematically"
     ],
+    faq: [
+      {
+        question: "Is the Heavy Crossbow better than the Longbow?",
+        answer: "Generally no! Both deal 1d8 damage (wait, heavy crossbow is 1d10), but the Loading property prevents Extra Attack without Crossbow Expert feat. Longbow fires freely with all attacks and has longer range (150/600 vs 100/400)."
+      },
+      {
+        question: "Does Crossbow Expert work with Heavy Crossbows?",
+        answer: "Yes! Crossbow Expert removes the Loading property, allowing multiple attacks per turn. However, you don't get the bonus action attack (that's hand crossbow only). Still, it makes heavy crossbows viable for fighters with Extra Attack."
+      },
+      {
+        question: "Can Small races use Heavy Crossbows?",
+        answer: "Yes, but with disadvantage on attacks! The Heavy property penalizes Small creatures (halflings, gnomes). Small characters should use light crossbows or shortbows instead for ranged combat."
+      },
+      {
+        question: "When should I use a Heavy Crossbow over other ranged weapons?",
+        answer: "Heavy crossbows excel for characters with only one attack per turn (rogues, single-attack NPCs). The 1d10 damage is highest among standard ranged weapons. For Sneak Attack delivery, it's technically optimal damage."
+      },
+      {
+        question: "Is the Heavy Crossbow good for Rogues?",
+        answer: "Actually yes! Rogues only get one attack, so Loading doesn't matter. The 1d10 base damage (vs shortbow's 1d6) adds 2 average damage to every Sneak Attack. The trade-off is martial proficiency requirement and Heavy property issues."
+      }
+    ],
     searchVolume: 5820
   },
   {
@@ -530,6 +908,28 @@ export const equipmentPages: EquipmentPage[] = [
       "Shield spell reaction can stack with physical shield for incredible burst defense",
       "NPCs with shields are noticeably harder to hit - use them for elite guards and knights",
       "The 6 lb weight is negligible for most characters"
+    ],
+    faq: [
+      {
+        question: "How much AC does a Shield give in 5e?",
+        answer: "+2 AC! This flat bonus applies on top of your armor's AC. A fighter in chain mail (AC 16) with a shield has AC 18. This is one of the most efficient defensive options in the game."
+      },
+      {
+        question: "Can I cast spells while holding a Shield?",
+        answer: "Yes, if you're proficient and either: the shield is your spellcasting focus (Cleric, Paladin with holy symbol on shield), you have War Caster feat, or your other hand is free for somatic components. Material components work with focus on shield."
+      },
+      {
+        question: "Can I use a Shield with two-weapon fighting?",
+        answer: "No! Two-weapon fighting requires a weapon in each hand. A shield isn't a weapon (except as an improvised weapon dealing 1d4 damage). You'd need Dual Wielder feat and two actual weapons instead."
+      },
+      {
+        question: "How long does it take to equip or remove a Shield?",
+        answer: "Both donning and doffing a shield require an action. This is different from drawing/stowing weapons (free object interaction). You can't quickly drop your shield to grab a two-handed weapon mid-combat."
+      },
+      {
+        question: "What classes can use Shields?",
+        answer: "Classes with shield proficiency: Barbarian, Cleric, Druid, Fighter, Paladin, Ranger. Some subclasses grant shield proficiency (like College of Valor Bard). Rogues, Monks, Sorcerers, Warlocks, and Wizards typically can't use shields."
+      }
     ],
     searchVolume: 8640
   },
@@ -560,6 +960,28 @@ export const equipmentPages: EquipmentPage[] = [
       "Stealth disadvantage creates interesting party dynamics during infiltration",
       "Consider describing the distinctive sound of chain mail clinking during tense moments",
       "NPCs in chain mail are clearly armored warriors - good for guards and soldiers"
+    ],
+    faq: [
+      {
+        question: "What's the difference between Chain Mail and Chain Shirt?",
+        answer: "Chain mail is heavy armor (AC 16, Str 13 required, stealth disadvantage). Chain shirt is medium armor (AC 13 + Dex max 2, no requirements, no stealth penalty). They're completely different armor categories despite similar names!"
+      },
+      {
+        question: "Do I need Strength 13 for Chain Mail?",
+        answer: "You can wear chain mail without Strength 13, but your speed is reduced by 10 feet. If you have 30 ft speed, it becomes 20 ft. This makes meeting the Strength requirement important for mobile characters."
+      },
+      {
+        question: "Is Chain Mail good starting armor?",
+        answer: "Yes! AC 16 is excellent for level 1. Many martial classes start with chain mail. The stealth disadvantage and Strength requirement are drawbacks, but AC 16 at level 1 is hard to beat with other affordable options."
+      },
+      {
+        question: "Can I sleep in Chain Mail?",
+        answer: "The DMG (p. 77) suggests sleeping in medium or heavy armor prevents some benefits of long rests. Many tables require Constitution saves or impose exhaustion. Always check your table's ruling on this."
+      },
+      {
+        question: "When should I upgrade from Chain Mail?",
+        answer: "Upgrade to splint (AC 17, 200 gp) or plate (AC 18, 1500 gp) when affordable. Chain mail's AC 16 becomes less impressive as monsters' attack bonuses scale. Most characters upgrade around levels 5-10."
+      }
     ],
     searchVolume: 7230
   },
@@ -592,6 +1014,28 @@ export const equipmentPages: EquipmentPage[] = [
       "Plate armor is instantly recognizable - stealth missions become very challenging",
       "NPCs in plate armor are elite enemies - telegraphs threat level to players"
     ],
+    faq: [
+      {
+        question: "How much does Plate Armor cost in 5e?",
+        answer: "1,500 gp - the most expensive armor in the game! This typically means characters acquire plate around levels 5-10 through treasure, rewards, or saving gold. It's a major milestone purchase."
+      },
+      {
+        question: "Is Plate Armor the best armor in 5e?",
+        answer: "Yes for AC! AC 18 is the highest non-magical armor. However, the Strength 15 requirement, stealth disadvantage, 65 lb weight, and cost are significant trade-offs. Not every character can or should wear plate."
+      },
+      {
+        question: "Can I swim in Plate Armor?",
+        answer: "Yes, but it's very difficult! You're not automatically drowning, but Athletics checks to swim are extremely challenging. Many DMs impose disadvantage or increased DC. Removing plate takes 5 minutes - dangerous if you're sinking!"
+      },
+      {
+        question: "What happens if I don't meet Plate Armor's Strength requirement?",
+        answer: "Your speed is reduced by 10 feet. A character with 30 ft speed drops to 20 ft. This is significant! Strength 15 is a real investment for many builds. Consider whether the AC is worth the mobility loss."
+      },
+      {
+        question: "How long does it take to put on Plate Armor?",
+        answer: "10 minutes to don, 5 minutes to doff. With help from another person, donning time is halved to 5 minutes. You can't quickly equip plate armor - plan ahead before dangerous situations!"
+      }
+    ],
     searchVolume: 14280
   },
   {
@@ -622,6 +1066,28 @@ export const equipmentPages: EquipmentPage[] = [
       "The stealth disadvantage matters less for front-line characters who rarely sneak",
       "NPCs in half plate are professional soldiers or experienced adventurers"
     ],
+    faq: [
+      {
+        question: "Is Half Plate better than Breastplate?",
+        answer: "Half plate gives AC 15 + Dex (max 2) = 17 max. Breastplate gives AC 14 + Dex (max 2) = 16 max. Half plate has +1 AC but imposes stealth disadvantage. Choose based on whether you need to sneak."
+      },
+      {
+        question: "Is Half Plate better than Chain Mail?",
+        answer: "For characters with 14+ Dex, yes! Half plate (AC 17 with +2 Dex) beats chain mail (AC 16). Plus, no Strength requirement. If you have 12+ Dex and don't need stealth, half plate is usually superior."
+      },
+      {
+        question: "Why does Half Plate cost so much?",
+        answer: "At 750 gp, half plate is the best medium armor - you're paying for that AC 15 base. However, breastplate at 400 gp gives AC 14 without stealth disadvantage. The 350 gp difference buys +1 AC but costs stealth."
+      },
+      {
+        question: "Who should wear Half Plate?",
+        answer: "Medium-armor users who prioritize AC over stealth: front-line clerics, melee rangers, valor bards. If you're never sneaking, half plate's +1 AC over breastplate is pure value. Stealth-focused characters should stick with breastplate."
+      },
+      {
+        question: "Can I remove the stealth disadvantage from Half Plate?",
+        answer: "Only with magic! Mithral Half Plate (magic item) removes the stealth disadvantage. The Medium Armor Master feat also removes disadvantage if you have 16+ Dexterity, though half plate still caps your Dex bonus at +2."
+      }
+    ],
     searchVolume: 11450
   },
   {
@@ -650,6 +1116,28 @@ export const equipmentPages: EquipmentPage[] = [
       "Consider chain shirts as common loot from bandits or guards",
       "Not optimal for min-maxed builds but thematically appropriate for many characters",
       "At 50 gp, it's accessible but often outshined by other medium armor options"
+    ],
+    faq: [
+      {
+        question: "Is Chain Shirt good armor in 5e?",
+        answer: "It's decent but often not optimal. AC 13 + Dex (max 2) = 15 max. However, hide armor gives the same AC (12 + Dex max 2 = 14) for only 10 gp vs 50 gp. Scale mail gives AC 14 base for the same 50 gp price."
+      },
+      {
+        question: "What's the difference between Chain Shirt and Chain Mail?",
+        answer: "Very different! Chain shirt is medium armor (AC 13 + Dex max 2, no penalties). Chain mail is heavy armor (AC 16 flat, Str 13 required, stealth disadvantage). Despite similar names, they're completely different armor categories."
+      },
+      {
+        question: "Who should wear a Chain Shirt?",
+        answer: "Characters who want medium armor without stealth disadvantage and can't afford breastplate. With 14 Dex, you get AC 15. But honestly, scale mail (AC 14+2=16) or breastplate (AC 14+2=16) are usually better investments."
+      },
+      {
+        question: "Is Chain Shirt better than Hide Armor?",
+        answer: "Barely! Chain shirt gives AC 13 + Dex (max 2) = 15. Hide gives AC 12 + Dex (max 2) = 14. You're paying 40 gp extra for +1 AC. If gold is tight, hide armor at 10 gp is excellent value."
+      },
+      {
+        question: "Can I conceal a Chain Shirt under clothing?",
+        answer: "Historically yes, and many DMs allow it! The chain shirt is worn between layers of clothing. However, the PHB doesn't have explicit rules for concealed armor. Ask your DM - it's a reasonable ruling for urban adventures."
+      }
     ],
     searchVolume: 4870
   },
@@ -681,6 +1169,28 @@ export const equipmentPages: EquipmentPage[] = [
       "NPCs in breastplates are professional adventurers or elite guards",
       "The lack of stealth disadvantage makes this ideal for mixed stealth/combat encounters"
     ],
+    faq: [
+      {
+        question: "Is Breastplate the best medium armor?",
+        answer: "For most characters, yes! AC 14 + Dex (max 2) = 16, with no stealth disadvantage. Half plate gives +1 AC but has stealth disadvantage. Unless you never sneak, breastplate's versatility usually wins."
+      },
+      {
+        question: "Should I buy Breastplate or Half Plate?",
+        answer: "Breastplate if you ever sneak (AC 16, no stealth penalty, 400 gp). Half plate if you're pure front-line and never sneak (AC 17, stealth disadvantage, 750 gp). The +1 AC rarely outweighs stealth flexibility."
+      },
+      {
+        question: "Is Breastplate better than Scale Mail?",
+        answer: "Usually yes! Both cap at AC 16 (with +2 Dex), but scale mail has stealth disadvantage and breastplate doesn't. Scale mail costs only 50 gp vs 400 gp, but the stealth freedom is worth the investment."
+      },
+      {
+        question: "Who should wear a Breastplate?",
+        answer: "Any medium-armor user with 14+ Dex who values versatility: rangers, medium-armor rogues (via feat), stealthy clerics, valor bards. It's the go-to medium armor for characters who sometimes need to sneak."
+      },
+      {
+        question: "Does Breastplate have a Strength requirement?",
+        answer: "No! Unlike heavy armor, medium armor has no Strength requirements. Even a character with 8 Strength can wear breastplate at full effectiveness. This makes it accessible to Dexterity-focused builds."
+      }
+    ],
     searchVolume: 6240
   },
   {
@@ -709,6 +1219,28 @@ export const equipmentPages: EquipmentPage[] = [
       "Consider describing the source of the hide for flavor (bear, dinosaur, giant boar)",
       "Often overlooked but mathematically equivalent to chain shirt at 1/5 the cost",
       "Thematically appropriate for wilderness campaigns and primitive cultures"
+    ],
+    faq: [
+      {
+        question: "Is Hide Armor good in 5e?",
+        answer: "It's great for the price! AC 12 + Dex (max 2) = 14 maximum, for only 10 gp. It's the most cost-effective medium armor. Chain shirt gives +1 AC base but costs 5x more. Hide is perfect for budget builds."
+      },
+      {
+        question: "Can Druids wear Hide Armor?",
+        answer: "Absolutely! Hide armor contains no metal, making it suitable for druids who follow the traditional restriction. It's often the best armor option for druids who want protection without violating their beliefs about metal."
+      },
+      {
+        question: "Is Hide Armor better than Studded Leather?",
+        answer: "Depends on your Dexterity! Hide caps at AC 14 (12 + 2 Dex max). Studded leather has no cap, so with 16 Dex you get AC 15, with 18 Dex you get AC 16. High-Dex characters prefer studded leather."
+      },
+      {
+        question: "What animals can Hide Armor be made from?",
+        answer: "Any large beast: bears, boars, wolves, dinosaurs, giant creatures. The hide needs to be thick enough to provide protection. This creates great flavor opportunities - describe your character's armor based on their backstory!"
+      },
+      {
+        question: "Is Hide Armor better than Leather Armor?",
+        answer: "For characters with 14+ Dex who have medium armor proficiency, hide (AC 14) beats leather (AC 11 + full Dex). But leather users can add their full Dex bonus, so 16+ Dex characters do better with studded leather."
+      }
     ],
     searchVolume: 5120
   },
@@ -740,6 +1272,28 @@ export const equipmentPages: EquipmentPage[] = [
       "Rarely appears in treasure hoards because it's not desirable",
       "NPCs in ring mail are low-tier warriors or guards"
     ],
+    faq: [
+      {
+        question: "Is Ring Mail worth using in 5e?",
+        answer: "Rarely! AC 14 with stealth disadvantage and no Dex bonus is underwhelming. Scale mail gives AC 14 + Dex (max 2) = 16 for only 50 gp (vs 30 gp). Ring mail is only viable for characters with very low Dexterity who need cheap heavy armor."
+      },
+      {
+        question: "What's the difference between Ring Mail and Chain Mail?",
+        answer: "Huge difference! Ring mail is AC 14 (no Strength requirement). Chain mail is AC 16 (Str 13 required). For 45 gp more, chain mail gives +2 AC. Ring mail is almost never the optimal choice."
+      },
+      {
+        question: "When would I ever use Ring Mail?",
+        answer: "Almost never optimally. The only niche: you have heavy armor proficiency, 8-9 Dexterity, can't afford chain mail (75 gp), and don't care about stealth. Even then, saving 45 gp for chain mail is usually better."
+      },
+      {
+        question: "Does Ring Mail have a Strength requirement?",
+        answer: "No! Unlike chain mail (Str 13), splint (Str 15), and plate (Str 15), ring mail has no Strength requirement. But this rarely matters since scale mail (medium armor) gives better AC with some Dexterity."
+      },
+      {
+        question: "Why does Ring Mail exist in 5e?",
+        answer: "Mostly for historical flavor and NPC variety. Poor soldiers and militia might wear ring mail because they can't afford better. It fills the 'cheapest heavy armor' niche, even if it's rarely optimal for player characters."
+      }
+    ],
     searchVolume: 3240
   },
   {
@@ -768,6 +1322,28 @@ export const equipmentPages: EquipmentPage[] = [
       "Perfect weapon for NPCs like priests of forge gods, dwarven warriors, and smiths",
       "The versatile property creates tactical choices between defense (shield) and offense (two-handed)",
       "Warhammers are historically associated with holy warriors and religious orders"
+    ],
+    faq: [
+      {
+        question: "Is a Warhammer better than a Longsword?",
+        answer: "They're mechanically identical! Both deal 1d8/1d10 (versatile) damage. Longsword deals slashing, warhammer deals bludgeoning. Choose based on flavor, damage type needs (bludgeoning vs skeletons), or character theme."
+      },
+      {
+        question: "Can Clerics use Warhammers?",
+        answer: "Only if they have martial weapon proficiency! Base cleric doesn't have it. War Domain, Tempest Domain, and some other subclasses grant martial proficiency. Otherwise, clerics should use simple weapons like maces."
+      },
+      {
+        question: "Is the Warhammer a Monk weapon?",
+        answer: "No! Warhammers are martial weapons, not simple weapons or monk weapons. Monks can't use their Martial Arts features with warhammers unless they're Kensei monks who choose warhammer as a Kensei weapon."
+      },
+      {
+        question: "Is bludgeoning damage better than slashing?",
+        answer: "Situationally! Skeletons are often vulnerable to bludgeoning in some settings. Some constructs resist slashing/piercing but not bludgeoning. Generally, damage types rarely matter in 5e, but warhammer gives you options."
+      },
+      {
+        question: "What's the best Warhammer build?",
+        answer: "Forge Cleric or War Cleric with a shield! AC 18+ (chain mail + shield), versatile damage (1d8 one-handed), divine magic backup. Dwarven characters fit thematically, and dwarves get warhammer proficiency from their race."
+      }
     ],
     searchVolume: 7680
   }
@@ -1064,6 +1640,28 @@ export const magicItemPages: MagicItemPage[] = [
       "The 10-minute suffocation timer can create tension in kidnapping or hiding scenarios",
       "Price this around 500-4,000 gp depending on how much you want to boost party carrying capacity"
     ],
+    faq: [
+      {
+        question: "Can you put a Bag of Holding inside a Portable Hole?",
+        answer: "No! Placing a Bag of Holding inside a Portable Hole (or any extradimensional space) destroys both items instantly and opens a gate to the Astral Plane. Any creature within 10 feet is sucked through to a random location. This can be used tactically but destroys both items permanently."
+      },
+      {
+        question: "How much can a Bag of Holding actually carry?",
+        answer: "A Bag of Holding holds up to 500 pounds or 64 cubic feet of volume, whichever limit is reached first. The bag itself always weighs only 15 pounds regardless of contents. For context, 64 cubic feet is a 4-foot cube - enough for most adventuring gear, treasure, and even a Medium creature."
+      },
+      {
+        question: "Can creatures survive inside a Bag of Holding?",
+        answer: "Creatures can breathe inside for a limited time: 10 minutes divided by the number of creatures (minimum 1 minute). After that, they begin suffocating. This means one creature gets 10 minutes, two creatures get 5 minutes each, etc. It's not a comfortable hiding spot!"
+      },
+      {
+        question: "What happens if a Bag of Holding is destroyed?",
+        answer: "If the bag is overloaded, pierced, or torn, it ruptures and is destroyed. All contents are scattered in the Astral Plane, likely lost forever. Turning it inside out harmlessly spills contents, and you can put it right again to reuse it."
+      },
+      {
+        question: "Does retrieving items from a Bag of Holding take an action?",
+        answer: "Yes! Retrieving an item from the bag requires an action, not a bonus action or free object interaction. This is a commonly overlooked rule. You can't quickly grab a potion in combat without spending your action - plan accordingly."
+      }
+    ],
     searchVolume: 9450
   },
   {
@@ -1090,6 +1688,28 @@ export const magicItemPages: MagicItemPage[] = [
       "Pairs extremely well with the Dodge action or Defensive Duelist feat",
       "Area effects that require saves bypass this entirely - use them to counter it"
     ],
+    faq: [
+      {
+        question: "When does the Cloak of Displacement turn off?",
+        answer: "The displacement effect ends immediately when you take ANY damage, even 1 point. It reactivates at the start of your next turn. This means if an enemy hits you and deals damage, all subsequent attacks that turn have normal chances to hit. The effect also turns off if you're incapacitated, restrained, or unable to move."
+      },
+      {
+        question: "Does Cloak of Displacement affect saving throws?",
+        answer: "No. The cloak only imposes disadvantage on attack rolls against you. Spells and effects that require saving throws (like Fireball) are unaffected. This is why AoE spells and effects can be effective counters against Cloak of Displacement users."
+      },
+      {
+        question: "Can I turn Cloak of Displacement on and off?",
+        answer: "No, the effect is always active while you wear the cloak (assuming you're not incapacitated, restrained, or unable to move). You can't voluntarily suppress it. The only way to stop it is to take it off or get hit by an attack that deals damage."
+      },
+      {
+        question: "Does Cloak of Displacement work with other sources of disadvantage?",
+        answer: "Disadvantage doesn't stack - an attacker either has disadvantage or doesn't. However, if you combine the cloak with another disadvantage source (like being invisible), the attacker still has disadvantage even if one source is negated by advantage from another effect."
+      },
+      {
+        question: "Is Cloak of Displacement better than Cloak of Protection?",
+        answer: "It depends! Cloak of Displacement is arguably better for avoiding damage entirely (disadvantage is roughly -5 to hit), but Cloak of Protection's +1 to all saves provides consistent, always-on protection. Displacement is better for pure AC builds; Protection is better for overall survivability including saves."
+      }
+    ],
     searchVolume: 2950
   },
   {
@@ -1115,6 +1735,28 @@ export const magicItemPages: MagicItemPage[] = [
       "Works well as a family heirloom or organization badge in your campaign lore",
       "Typical price: 500-1,500 gp in magic item shops (if available)",
       "Can be combined with magical armor for a modest but meaningful defense boost"
+    ],
+    faq: [
+      {
+        question: "Does Cloak of Protection stack with Ring of Protection?",
+        answer: "Yes! Both items provide +1 to AC and saving throws, and these bonuses stack for a total of +2 to AC and all saves. However, both require attunement, so you're using 2 of your 3 attunement slots. This combination is powerful but costly in terms of attunement economy."
+      },
+      {
+        question: "Is Cloak of Protection worth an attunement slot?",
+        answer: "For most characters, yes. The +1 AC and +1 to ALL saving throws is universally useful. The saving throw bonus becomes increasingly valuable at higher levels when enemy DCs are higher. However, if you have access to more powerful attunement items, consider your options carefully."
+      },
+      {
+        question: "Does Cloak of Protection work while unconscious?",
+        answer: "Yes! Unlike some magic items, the Cloak of Protection's bonus is passive and doesn't require you to be conscious. You still get +1 AC and saves while unconscious, which can matter for death saving throws (though those use a flat d20, so saves don't apply, but the AC still helps prevent additional failed saves from hits)."
+      },
+      {
+        question: "Can I wear multiple cloaks for multiple bonuses?",
+        answer: "No. Per the magic item rules, you can only wear one cloak at a time. You can't stack multiple Cloaks of Protection or wear a Cloak of Protection with a Cloak of Displacement. Choose one cloak that best fits your needs."
+      },
+      {
+        question: "How does Cloak of Protection compare to +1 armor?",
+        answer: "Both give +1 AC, but Cloak of Protection also gives +1 to saves. However, Cloak of Protection requires attunement while +1 armor doesn't. If you have spare attunement slots, Cloak of Protection is often better. If attunement is tight, +1 armor frees up that slot for something else."
+      }
     ],
     searchVolume: 10760
   },
@@ -1145,6 +1787,28 @@ export const magicItemPages: MagicItemPage[] = [
       "The Avatar of Death created by the Skull card can TPK unprepared parties",
       "This item works best in high-level campaigns where players can handle the chaos"
     ],
+    faq: [
+      {
+        question: "How many cards should I draw from the Deck of Many Things?",
+        answer: "That depends on your risk tolerance! Drawing 1 card is risky but manageable. Drawing 3+ cards increases the chance of devastating effects. Remember: you MUST declare how many cards you'll draw BEFORE drawing, and you can't stop early. More cards = more risk of campaign-ending effects like Void or Donjon."
+      },
+      {
+        question: "What are the worst cards in the Deck of Many Things?",
+        answer: "The Void traps your soul in an object in a location of the DM's choice - you're essentially dead until rescued. Donjon makes you vanish, imprisoned in an extradimensional space. The Skull summons an Avatar of Death that fights only you. Flames gives you a powerful devil as a sworn enemy. All can end or derail characters."
+      },
+      {
+        question: "Can Wish undo Deck of Many Things effects?",
+        answer: "Possibly, but with limits. The Fates card specifically lets you undo one event. Wish might help with some effects (like freeing someone from Donjon), but the DM has discretion. Some effects (like making a powerful enemy via Flames) can't simply be wished away. Consult your DM."
+      },
+      {
+        question: "Does the Deck of Many Things work on NPCs?",
+        answer: "Yes! Anyone can draw from the deck. This can be used strategically - convince a villain to draw! However, DMs should consider the narrative implications. A BBEG drawing the Moon card (grants wishes) or Throne card (becomes ruler) could be disastrous for the campaign."
+      },
+      {
+        question: "What happens if I don't draw all my declared cards?",
+        answer: "If you fail to draw your declared number within 1 hour, the remaining cards fly from the deck and take effect simultaneously. You cannot avoid your fate! This prevents players from declaring many cards then trying to escape. Declare carefully."
+      }
+    ],
     searchVolume: 26010
   },
   {
@@ -1173,6 +1837,28 @@ export const magicItemPages: MagicItemPage[] = [
       "Describe the taste and effect uniquely for each batch to add flavor",
       "Consider making healing potions rarer to increase tension and value healing magic",
       "The 2d4+2 roll averages 7 HP - not enough to fully heal most characters"
+    ],
+    faq: [
+      {
+        question: "Can you drink a healing potion as a bonus action?",
+        answer: "Not by RAW (Rules As Written). Officially, drinking a potion requires an action. However, many DMs use a popular house rule allowing potions as a bonus action. Always check with your DM! Administering a potion to another creature always requires an action regardless of house rules."
+      },
+      {
+        question: "How much does each type of healing potion heal?",
+        answer: "Potion of Healing (Common): 2d4+2 (avg 7 HP). Greater Healing (Uncommon): 4d4+4 (avg 14 HP). Superior Healing (Rare): 8d4+8 (avg 28 HP). Supreme Healing (Very Rare): 10d4+20 (avg 45 HP). Each tier roughly doubles the healing of the previous."
+      },
+      {
+        question: "Can I use a healing potion on an unconscious ally?",
+        answer: "Yes! You can use your action to administer a potion to another creature, including an unconscious one. This is often the fastest way to get an ally back in the fight since it doesn't require any class features or spell slots - just the potion and your action."
+      },
+      {
+        question: "How do you identify an unknown potion?",
+        answer: "You can identify a potion by taking a small taste (doesn't use the potion), which takes an action. Alternatively, the Identify spell works. Some DMs allow Arcana checks. The appearance and smell of potions can hint at their effects but aren't definitive."
+      },
+      {
+        question: "Can healing potions heal undead or constructs?",
+        answer: "Healing potions work on any creature that can drink them. Most undead and constructs in 5e CAN benefit from healing potions unless they specifically can't be healed (like by having a trait that says so). Check individual creature entries for exceptions."
+      }
     ],
     searchVolume: 10820
   },
@@ -1205,6 +1891,28 @@ export const magicItemPages: MagicItemPage[] = [
       "Fire damage makes this excellent against trolls and other regenerating creatures",
       "Consider describing the appearance of the flames (color, intensity) for flavor"
     ],
+    faq: [
+      {
+        question: "Does Flame Tongue give a bonus to hit?",
+        answer: "No! Flame Tongue only adds 2d6 fire damage when activated - it doesn't provide any bonus to attack rolls. It's a magic weapon (so it overcomes resistance to nonmagical attacks), but you don't get +1, +2, or +3 to hit. For accuracy bonuses, you'd need a separate +X enchantment."
+      },
+      {
+        question: "Can I turn Flame Tongue on and off freely?",
+        answer: "Yes, but each activation or deactivation requires a bonus action and speaking the command word. The flames also automatically deactivate if you drop or sheathe the sword. You cannot simply will it on and off - it requires that bonus action each time."
+      },
+      {
+        question: "Does Flame Tongue's light ruin stealth?",
+        answer: "When activated, yes! The flaming blade sheds bright light in a 40-foot radius and dim light for another 40 feet. This makes stealth essentially impossible while the flames are active. Deactivate the sword when sneaking, but remember reactivation takes your bonus action in combat."
+      },
+      {
+        question: "Does the 2d6 fire damage benefit from Great Weapon Fighting?",
+        answer: "Yes! Great Weapon Fighting lets you reroll 1s and 2s on damage dice for attacks with two-handed or versatile weapons (used with two hands). The 2d6 fire damage counts as part of your attack damage, so you can reroll those low rolls too."
+      },
+      {
+        question: "What happens if I hit a creature immune to fire damage?",
+        answer: "The 2d6 fire damage is simply negated - you deal only the normal weapon damage. Against fire-resistant creatures, the 2d6 is halved. This makes Flame Tongue less effective against fire elementals, red dragons, and demons. Consider carrying a backup weapon for such encounters."
+      }
+    ],
     searchVolume: 8940
   },
   {
@@ -1234,6 +1942,28 @@ export const magicItemPages: MagicItemPage[] = [
       "Great as loot from defeated champions, found in ancient armories, or purchased in magic shops",
       "Some creatures (werewolves, devils) can only be harmed by magical weapons",
       "The +1 to attack is often more valuable than the +1 to damage at higher levels"
+    ],
+    faq: [
+      {
+        question: "Does a +1 weapon require attunement?",
+        answer: "No! Simple +1 weapons don't require attunement. This is one of their greatest strengths - you can use a +1 weapon alongside other attunement items without using up one of your three attunement slots. Only weapons with additional magical properties typically require attunement."
+      },
+      {
+        question: "Does +1 apply to both attack AND damage rolls?",
+        answer: "Yes! The +1 bonus applies to both your attack roll (making you more likely to hit) and your damage roll (dealing 1 extra damage per hit). Don't forget either bonus - many players remember only the attack bonus."
+      },
+      {
+        question: "Is a +1 weapon considered magical for overcoming resistance?",
+        answer: "Yes! All +1 weapons count as magical for the purpose of overcoming resistance and immunity to nonmagical attacks. This is crucial against creatures like werewolves, devils, and many high-CR monsters that resist or are immune to nonmagical weapon damage."
+      },
+      {
+        question: "Can any weapon be a +1 weapon?",
+        answer: "Yes! The +1 enchantment can be applied to any weapon type: swords, axes, bows, daggers, etc. For ranged weapons, the +1 bonus applies to attack and damage rolls with the weapon, regardless of ammunition. You can find or craft +1 versions of any base weapon."
+      },
+      {
+        question: "How much is a +1 weapon worth?",
+        answer: "As an uncommon magic item, a +1 weapon is typically valued at 101-500 gp according to the DMG guidelines. Many DMs price them around 300-500 gp. The exact price depends on campaign economics, rarity of magic items, and whether buying magic items is even possible in your setting."
+      }
     ],
     searchVolume: 14260
   },
@@ -1265,6 +1995,28 @@ export const magicItemPages: MagicItemPage[] = [
       "Consider legendary weapons that grow from +1 to +2 over time through story progression",
       "Some DMs restrict +2 weapons because they're powerful without requiring attunement"
     ],
+    faq: [
+      {
+        question: "Does a +2 weapon require attunement?",
+        answer: "No! Like +1 weapons, +2 weapons don't require attunement. This is remarkably powerful - you get significant combat bonuses without using one of your three attunement slots. This makes +2 weapons highly desirable for martial characters who want to stack multiple magic items."
+      },
+      {
+        question: "How much better is a +2 weapon than a +1 weapon?",
+        answer: "The +2 bonus to attack represents roughly a 10% increased hit chance (vs +1's 5%), and the +2 damage adds up quickly over multiple attacks. Against a typical AC, a +2 weapon increases expected damage by about 20-30% compared to a non-magical weapon, versus +1's 10-15% increase."
+      },
+      {
+        question: "When should characters get +2 weapons?",
+        answer: "+2 weapons are rated as rare items, appropriate for characters level 5 and higher. Most campaigns introduce them around levels 6-10 as significant rewards. Getting one earlier can make encounters too easy; getting one later maintains appropriate challenge."
+      },
+      {
+        question: "Can I have a +2 Flame Tongue or other combined weapon?",
+        answer: "RAW, Flame Tongue doesn't inherently include a + bonus, so technically you could have a +2 Flame Tongue. However, this would be a custom/homebrew item significantly more powerful than either item alone. Most DMs would treat this as a very rare or legendary item."
+      },
+      {
+        question: "What's the value of a +2 weapon?",
+        answer: "As a rare magic item, a +2 weapon is valued at 501-5,000 gp per DMG guidelines. Most DMs price them around 2,000-4,000 gp. Some campaigns make +2 weapons unavailable for purchase entirely, reserving them as treasure and quest rewards only."
+      }
+    ],
     searchVolume: 11780
   },
   {
@@ -1294,6 +2046,28 @@ export const magicItemPages: MagicItemPage[] = [
       "Great for NPCs who need to be hard to hit without complex abilities",
       "Can be combined with magical armor for very high AC builds",
       "Thematically appropriate for knights, paladins, and defensive specialists"
+    ],
+    faq: [
+      {
+        question: "Does a +1 Shield provide +1 or +3 AC?",
+        answer: "+3 total! A normal shield provides +2 AC, and the +1 magical bonus adds to that for +3 AC total. The +1 enhancement is ON TOP of the normal shield bonus, not replacing it. This is a common point of confusion."
+      },
+      {
+        question: "Does a +1 Shield require attunement?",
+        answer: "No! Like +1 weapons, +1 shields don't require attunement. You can use a +1 shield alongside other attunement items freely. This makes it easy to stack with +1 armor or a Ring of Protection for a very high AC build."
+      },
+      {
+        question: "Can I use a +1 Shield with two-handed weapons?",
+        answer: "No. Like any shield, a +1 shield occupies one hand, preventing the use of two-handed weapons. You also can't engage in two-weapon fighting while using a shield. The shield-and-weapon fighting style is distinct from two-handed or dual-wielding styles."
+      },
+      {
+        question: "Does the +1 Shield bonus work against all attacks?",
+        answer: "Yes! The +3 total AC bonus (2 base + 1 magical) applies against all attack rolls targeting your AC, whether melee, ranged, or spell attacks. It doesn't help against effects requiring saving throws, but all attack-based damage is affected."
+      },
+      {
+        question: "How does a +1 Shield interact with the Shield spell?",
+        answer: "They stack! The Shield spell gives +5 AC as a reaction, and your +1 shield's +3 AC is already included in your base AC. So if you have 18 AC with your +1 shield and cast Shield, you'd have 23 AC until the start of your next turn."
+      }
     ],
     searchVolume: 6840
   },
@@ -1325,6 +2099,28 @@ export const magicItemPages: MagicItemPage[] = [
       "Consider having armor be found sized for the party or magically resize to fit",
       "Plate +1 (AC 19) makes characters extremely hard to hit at mid-levels"
     ],
+    faq: [
+      {
+        question: "Does +1 armor require attunement?",
+        answer: "No! Despite being rated as rare (unlike uncommon +1 weapons), +1 armor doesn't require attunement. You can wear +1 armor and still use all three attunement slots for other items. This makes +1 armor extremely valuable for building high-AC characters."
+      },
+      {
+        question: "Does +1 armor remove stealth disadvantage?",
+        answer: "No. If the base armor (like chain mail or plate) imposes disadvantage on Stealth checks, the +1 version still has that disadvantage. The magical enhancement only improves AC, not other armor properties. For stealth, you need Mithral armor instead."
+      },
+      {
+        question: "Can +1 armor be any type of armor?",
+        answer: "Yes! +1 armor can be applied to any armor type: leather, studded leather, chain shirt, breastplate, half plate, chain mail, splint, or plate. The +1 bonus applies on top of the base armor's AC calculation."
+      },
+      {
+        question: "What's the total AC for +1 Plate armor?",
+        answer: "Plate armor has a base AC of 18. +1 Plate provides AC 19. If you add a +1 shield (AC +3), you'd have AC 22 without any other bonuses. Add a Cloak of Protection and a Ring of Protection (both require attunement) and you could reach AC 24!"
+      },
+      {
+        question: "Why is +1 armor rare when +1 weapons are uncommon?",
+        answer: "Game balance. Armor provides passive, always-on defense while weapons require active use. High AC can make characters nearly unhittable at lower levels, trivializing encounters. The rare classification means +1 armor appears less frequently than +1 weapons."
+      }
+    ],
     searchVolume: 9240
   },
   {
@@ -1354,6 +2150,28 @@ export const magicItemPages: MagicItemPage[] = [
       "+1 to all saves is roughly 5% better success rate on every save",
       "Consider this a legendary family heirloom or organization badge item",
       "Rings are easy to conceal and don't interfere with armor or clothing"
+    ],
+    faq: [
+      {
+        question: "Is Ring of Protection the same as Cloak of Protection?",
+        answer: "Mechanically, yes! Both provide +1 to AC and all saving throws, and both require attunement. The difference is the item slot - you can wear both simultaneously for +2 to AC and saves, using 2 of your 3 attunement slots. Choose based on what other items you want to use."
+      },
+      {
+        question: "Can I wear two Rings of Protection?",
+        answer: "No. While you can wear one magic ring on each hand, you can't attune to more than one copy of an item. Since both rings would be the same item, you can only benefit from one Ring of Protection at a time."
+      },
+      {
+        question: "Does Ring of Protection help with concentration saves?",
+        answer: "Yes! Concentration saves are Constitution saving throws, and the Ring of Protection grants +1 to ALL saving throws. This makes it valuable for spellcasters who need to maintain concentration on important spells during combat."
+      },
+      {
+        question: "Is the Ring of Protection worth the attunement slot?",
+        answer: "For most characters, yes. The +1 to AC and ALL saves is universally beneficial and scales well at all levels. At higher levels, the saving throw bonus often matters more than the AC bonus as enemy save DCs increase. It's rarely a bad choice."
+      },
+      {
+        question: "How much is a Ring of Protection worth?",
+        answer: "As a rare item requiring attunement, Ring of Protection is typically valued at 501-5,000 gp. Most DMs price it around 2,000-4,000 gp. Some campaigns make it unavailable for purchase, reserving it as treasure or quest rewards."
+      }
     ],
     searchVolume: 12460
   },
@@ -1385,6 +2203,28 @@ export const magicItemPages: MagicItemPage[] = [
       "Consider this item for characters frequently making concentration checks",
       "The HP boost at higher levels can be 20-40+ additional hit points"
     ],
+    faq: [
+      {
+        question: "How do I calculate hit points with Amulet of Health?",
+        answer: "Your Constitution modifier becomes +4 (from 19 Con). Calculate the HP difference: (new modifier - old modifier) × your level. For example, a level 10 wizard going from 14 Con (+2) to 19 Con (+4) gains (4-2) × 10 = 20 extra HP. Remember to recalculate if you remove the amulet!"
+      },
+      {
+        question: "Does Amulet of Health help concentration saves?",
+        answer: "Yes! Concentration saves are Constitution saving throws, and with 19 Constitution (+4 modifier), you get a significant bonus. For a wizard who previously had 10 Con (+0), this is a +4 improvement to every concentration check. This is one of the amulet's most valuable benefits."
+      },
+      {
+        question: "What if my Constitution is already 19 or higher?",
+        answer: "The amulet has no effect. It sets your Constitution to 19 - it doesn't add to it. Characters with naturally high Constitution (like Barbarians who invested in Con) get no benefit. This item is best for characters who dumped or neglected Constitution."
+      },
+      {
+        question: "Can I use Amulet of Health with other stat-setting items?",
+        answer: "Yes, as long as they affect different ability scores. You could wear Amulet of Health (Con 19) and Gauntlets of Ogre Power (Str 19) simultaneously, though the gauntlets require attunement and the amulet does too - using 2 of your 3 attunement slots."
+      },
+      {
+        question: "Does Amulet of Health affect death saving throws?",
+        answer: "Not directly. Death saving throws are flat d20 rolls that don't add your Constitution modifier. However, the increased hit points make you less likely to go down in the first place, and the improved Constitution saves help against effects that could reduce you to 0 HP."
+      }
+    ],
     searchVolume: 7820
   },
   {
@@ -1414,6 +2254,28 @@ export const magicItemPages: MagicItemPage[] = [
       "Great for reconnaissance, avoiding ground hazards, and reaching high places",
       "Enemies with ranged attacks become more important when PCs can fly",
       "Track whether players are conserving their 4 hours or using it all at once"
+    ],
+    faq: [
+      {
+        question: "How long can I fly with Winged Boots?",
+        answer: "You get 4 hours of flight per day. Once you've used 4 hours total (which doesn't have to be consecutive), the boots stop working until the next dawn. You can activate and deactivate them multiple times, but each activation and deactivation uses your bonus action."
+      },
+      {
+        question: "What happens if the flight time runs out mid-air?",
+        answer: "You fall! Unlike some flying effects, Winged Boots don't grant hovering - you must keep moving or land. If your 4 hours expire while you're airborne, you immediately begin falling. Always track your remaining time and land safely before it runs out."
+      },
+      {
+        question: "What is my flying speed with Winged Boots?",
+        answer: "Your flying speed equals your walking speed (typically 30 feet for most races). Unlike spells like Fly (60 feet), Winged Boots don't increase your speed. Monks and other fast characters benefit from having their enhanced walking speed apply to flying."
+      },
+      {
+        question: "Can Winged Boots be used in heavy armor?",
+        answer: "Yes! Unlike the Fly spell, Winged Boots don't have any restrictions based on armor or encumbrance. A fully armored paladin can fly just as well as a lightly equipped rogue. The wings are magical and can support any weight."
+      },
+      {
+        question: "Do Winged Boots require concentration?",
+        answer: "No! Unlike the Fly spell, Winged Boots don't require concentration. You can fly and cast concentration spells simultaneously without any risk of falling due to losing concentration. This is one of their major advantages over magical flight spells."
+      }
     ],
     searchVolume: 6240
   },
@@ -1445,6 +2307,28 @@ export const magicItemPages: MagicItemPage[] = [
       "Removes armor Strength requirements (can wear plate with originally low Strength)",
       "Great for solving strength-based puzzles or carrying heavy objects"
     ],
+    faq: [
+      {
+        question: "Does Gauntlets of Ogre Power work if my Strength is already 19+?",
+        answer: "No. The gauntlets SET your Strength to 19 - they don't add to it. If you already have 19 or higher Strength, the gauntlets provide no benefit. This item is best for characters who dumped Strength, like wizards or rogues, not for Strength-based fighters."
+      },
+      {
+        question: "What does 19 Strength actually give me?",
+        answer: "19 Strength provides a +4 modifier. This means +4 to Strength-based attack rolls, damage rolls, Athletics checks, Strength saving throws, and carrying capacity (285 lbs). It also meets the Strength requirement for heavy armor like plate (Str 15)."
+      },
+      {
+        question: "Can a wizard become a good melee fighter with these gauntlets?",
+        answer: "Decent, not great. With 19 Strength (+4), a wizard's melee attacks improve significantly. However, wizards lack Extra Attack, martial weapon proficiencies (usually), and hit points for front-line combat. The gauntlets help but don't replace martial class features."
+      },
+      {
+        question: "Do Gauntlets of Ogre Power affect grappling?",
+        answer: "Yes! Grappling uses Athletics (Strength) checks. With 19 Strength (+4), your grappling attempts improve significantly. Combined with the Athletics skill, you become a capable grappler even if your original Strength was low."
+      },
+      {
+        question: "How do these compare to Belt of Giant Strength (Hill Giant)?",
+        answer: "Gauntlets of Ogre Power set Strength to 19 (uncommon, requires attunement). Belt of Hill Giant Strength sets it to 21 (rare, requires attunement). The belt is better but rarer and more valuable. For most characters, either is transformative."
+      }
+    ],
     searchVolume: 8460
   },
   {
@@ -1475,6 +2359,28 @@ export const magicItemPages: MagicItemPage[] = [
       "Great for characters who want to grapple, shove, or dominate physical contests",
       "Consider this a legendary treasure or major quest reward due to its power"
     ],
+    faq: [
+      {
+        question: "What are all the different Belts of Giant Strength?",
+        answer: "There are six belts: Hill Giant (Str 21, Rare), Stone Giant (Str 23, Very Rare), Frost Giant (Str 23, Very Rare), Fire Giant (Str 25, Legendary), Cloud Giant (Str 27, Legendary), and Storm Giant (Str 29, Legendary). All require attunement."
+      },
+      {
+        question: "Does Belt of Giant Strength work if my Strength is already 21+?",
+        answer: "No. Each belt sets your Strength to a specific score - it doesn't add to it. If your Strength already equals or exceeds the belt's value, the belt provides no benefit. A character with 23 Strength wouldn't benefit from a Hill Giant (21) or Stone/Frost Giant (23) belt."
+      },
+      {
+        question: "What does 21 Strength actually give me?",
+        answer: "21 Strength provides a +5 modifier - the highest normally achievable through ability scores. This means +5 to Strength attacks and damage, Athletics checks, Strength saves, and carrying capacity (315 lbs). It's exceptional for any martial build."
+      },
+      {
+        question: "Can I use both Gauntlets of Ogre Power and a Belt of Giant Strength?",
+        answer: "You can wear both, but only the higher Strength value applies - they don't stack. If you have Gauntlets (19 Str) and a Hill Giant Belt (21 Str), your Strength is 21. Both require attunement, so you'd be using 2 of 3 slots for no additional benefit beyond the belt alone."
+      },
+      {
+        question: "Why would a Barbarian want this belt?",
+        answer: "Actually, Barbarians often DON'T benefit! Barbarians naturally max Strength to 20 (or 24 with Primal Champion at level 20). A Hill Giant belt (21 Str) barely beats a level 8+ Barbarian's natural 20. Higher-tier belts (Fire, Cloud, Storm) can help, but lower belts are wasted on Strength-focused characters."
+      }
+    ],
     searchVolume: 9870
   },
   {
@@ -1504,6 +2410,28 @@ export const magicItemPages: MagicItemPage[] = [
       "Can be used for escaping, chasing, or alpha-striking in important fights",
       "Monks especially benefit from doubling their already-high movement speed",
       "Consider saving uses for boss fights or critical moments"
+    ],
+    faq: [
+      {
+        question: "How are Boots of Speed different from the Haste spell?",
+        answer: "Boots of Speed provide similar benefits (doubled speed, extra action with limits) but DON'T require concentration and DON'T cause lethargy when the effect ends. However, they're once per day, while Haste can be cast multiple times. Boots are more reliable but less frequent."
+      },
+      {
+        question: "What can I do with the extra action from Boots of Speed?",
+        answer: "The extra action can ONLY be used to: Attack (one weapon attack only), Dash, Disengage, Hide, or Use an Object. You can't cast spells, use features that require the Attack action for multiple attacks, or take any other actions. It's specifically limited."
+      },
+      {
+        question: "Can I take two Attack actions with Boots of Speed?",
+        answer: "Sort of! Your normal action can be used to Attack (getting Extra Attack if you have it), and your extra action from the boots can also Attack - but only for ONE weapon attack, not your full Extra Attack. A Fighter with Extra Attack gets 3 attacks total, not 4."
+      },
+      {
+        question: "How long do Boots of Speed last?",
+        answer: "The effect lasts 10 minutes once activated (which requires a bonus action to click the heels). After those 10 minutes or when you click again to deactivate, the boots can't be used again until the next dawn. Save them for important encounters!"
+      },
+      {
+        question: "Does doubled movement stack with other speed increases?",
+        answer: "It depends on timing. Boots of Speed double your walking speed. If you have 30 base speed and Longstrider (+10), you have 40 speed, doubled to 80. If you also Dash, you can move 160 feet in one turn! Speed bonuses add, then the doubling applies."
+      }
     ],
     searchVolume: 7620
   },
@@ -1536,6 +2464,28 @@ export const magicItemPages: MagicItemPage[] = [
       "Consider making the staff sentient or with a personality for added depth",
       "This item can overshadow other party members - ensure everyone gets epic items"
     ],
+    faq: [
+      {
+        question: "Who can use a Staff of the Magi?",
+        answer: "Only sorcerers, warlocks, and wizards can attune to the Staff of the Magi. Other spellcasting classes (bards, clerics, druids) cannot use it, even if they can cast the spells the staff contains. This attunement restriction is absolute."
+      },
+      {
+        question: "What happens if I break the Staff of the Magi?",
+        answer: "You can use the Retributive Strike action to break the staff, releasing all stored energy in an explosion. There's a 50% chance you're transported to a random plane (avoiding damage) or take 16× the remaining charges in force damage. Everything within 30 feet takes this damage, within 30-120 feet takes half."
+      },
+      {
+        question: "How does spell absorption work?",
+        answer: "When you're targeted by a spell (not area effects), you can use your reaction to absorb it into the staff. The spell has no effect, and the staff gains charges equal to the spell's level. This is incredibly powerful against enemy casters but uses your reaction each time."
+      },
+      {
+        question: "How many charges does Staff of the Magi have?",
+        answer: "The staff has 50 charges maximum and regains 4d6+2 (average 16) charges each dawn. Unlike some staffs, it doesn't break when reduced to 0 charges - but you can intentionally break it for the Retributive Strike. Spells cost 2-7 charges depending on the spell."
+      },
+      {
+        question: "What bonuses does Staff of the Magi provide?",
+        answer: "It grants +2 to AC, saving throws, AND spell attack rolls while held. It also functions as a +2 quarterstaff. You have advantage on saves against spells while holding it. These passive bonuses alone make it exceptional, even before considering the stored spells!"
+      }
+    ],
     searchVolume: 11240
   },
   {
@@ -1567,6 +2517,28 @@ export const magicItemPages: MagicItemPage[] = [
       "Works especially well in campaigns featuring fiendish or undead main villains",
       "Some versions of Holy Avenger have additional abilities - customize as desired"
     ],
+    faq: [
+      {
+        question: "Who can use a Holy Avenger?",
+        answer: "Only paladins can attune to a Holy Avenger. Multiclass characters with paladin levels qualify, but fighters, clerics, or other holy warriors cannot use it. This is the quintessential paladin weapon, and the attunement restriction is absolute."
+      },
+      {
+        question: "What does the Holy Avenger's aura do?",
+        answer: "While you hold the drawn sword, you and all friendly creatures within 10 feet have advantage on saving throws against spells and magical effects. This is incredibly powerful for the whole party! The aura only works while you're conscious and can be toggled with a bonus action."
+      },
+      {
+        question: "How much damage does Holy Avenger deal to fiends and undead?",
+        answer: "Against fiends and undead, the Holy Avenger deals an extra 2d10 radiant damage per hit. Combined with the +3 to attack and damage and your Divine Smites, a single hit can deal massive damage. This makes paladins devastating against demons, devils, and vampires."
+      },
+      {
+        question: "Can Holy Avenger be any type of sword?",
+        answer: "Yes! Holy Avenger can be any sword that deals slashing damage: longsword, greatsword, scimitar, shortsword, etc. The item description specifies 'any sword.' A greatsword Holy Avenger deals 2d6+3 base damage plus potential 2d10 radiant against fiends/undead."
+      },
+      {
+        question: "Does the Holy Avenger's aura stack with Aura of Protection?",
+        answer: "They provide different benefits. Aura of Protection adds your Charisma modifier to saves. Holy Avenger's aura grants advantage on saves against spells/magic. You can have both active - allies get your Cha bonus AND advantage against magical effects, making them incredibly resilient."
+      }
+    ],
     searchVolume: 9640
   },
   {
@@ -1597,6 +2569,28 @@ export const magicItemPages: MagicItemPage[] = [
       "Consider describing the impossibly sharp edge and effortless cutting",
       "DM has final say on whether creatures can be decapitated (size, anatomy, etc.)"
     ],
+    faq: [
+      {
+        question: "What creatures are immune to Vorpal Sword decapitation?",
+        answer: "Creatures are immune if they: have no head, don't need their head to survive (like hydras or constructs), are immune to slashing damage, have legendary actions, or if the DM rules they're too large. Most boss monsters have legendary actions specifically to prevent instant death."
+      },
+      {
+        question: "What happens when I crit but can't decapitate?",
+        answer: "If you roll a natural 20 but the creature is immune to decapitation (legendary actions, no head, etc.), you deal an extra 6d8 slashing damage instead. That's an average of 27 extra damage, which is still excellent! The sword is powerful regardless of decapitation."
+      },
+      {
+        question: "Does Vorpal Sword work with expanded crit ranges?",
+        answer: "The decapitation only triggers on a natural 20, not other crits. Champion fighters rolling 18-19 for crits still need a natural 20 to attempt decapitation. However, crits on 18-19 still deal the 6d8 extra damage if the creature can't be decapitated."
+      },
+      {
+        question: "Can a Vorpal Sword be any weapon type?",
+        answer: "Vorpal Swords must be swords that deal slashing damage. This includes longswords, greatswords, scimitars, and similar weapons. A rapier (piercing) cannot be a Vorpal Sword. The weapon's base damage and properties depend on the sword type."
+      },
+      {
+        question: "Does Vorpal Sword ignore slashing resistance?",
+        answer: "Yes! The Vorpal Sword specifically ignores resistance to slashing damage. This is often overlooked but is significant against creatures like werewolves (in hybrid form) or constructs that might resist slashing. The sword cuts through nearly any defense."
+      }
+    ],
     searchVolume: 10820
   },
   {
@@ -1626,6 +2620,28 @@ export const magicItemPages: MagicItemPage[] = [
       "Great for creative players who enjoy problem-solving",
       "The DC 30 Strength check means even powerful creatures struggle to move it",
       "Encourage creative uses but maintain narrative consistency"
+    ],
+    faq: [
+      {
+        question: "How much weight can an Immovable Rod support?",
+        answer: "An Immovable Rod can hold up to 8,000 pounds before deactivating and falling. This is enough to support multiple fully-armored characters, act as a makeshift bridge, or hold open heavy doors. Exceeding 8,000 pounds causes immediate deactivation."
+      },
+      {
+        question: "Can anyone move a fixed Immovable Rod?",
+        answer: "Moving a fixed rod requires a DC 30 Strength check (action), which only moves it up to 10 feet on success. DC 30 is nearly impossible for most creatures - even creatures with +10 Strength need to roll 20. This makes the rod extremely reliable as an anchor or barrier."
+      },
+      {
+        question: "What are creative uses for an Immovable Rod?",
+        answer: "Popular uses include: climbing aids (activate, climb, deactivate, repeat), jamming doors open or closed, creating emergency platforms over pits, barring passages, anchoring rope for descents, makeshift perches, and even improvised weapons (activate inside a creature). Two rods enable 'ladder climbing' techniques."
+      },
+      {
+        question: "Does the Immovable Rod move with the planet?",
+        answer: "RAW is ambiguous! The rod is fixed in space, but if interpreted literally, planetary rotation would leave it behind. Most DMs rule it's fixed relative to the local reference frame (planet surface) to avoid absurd outcomes. Discuss with your DM for flying ships or similar edge cases."
+      },
+      {
+        question: "Does activating or deactivating an Immovable Rod take an action?",
+        answer: "Yes, pressing the button to activate or deactivate the rod requires an action. You can't freely toggle it mid-turn. Plan accordingly - you can't press it as a free action while falling or as a bonus action. This limitation prevents some otherwise broken uses."
+      }
     ],
     searchVolume: 8940
   }

@@ -1,3 +1,5 @@
+import { FAQItem } from "../components/FAQ";
+
 export type MonsterPage = {
   slug: string;
   name: string;
@@ -17,6 +19,7 @@ export type MonsterPage = {
   loot: string;
   commonMistakes: string[];
   dmTips: string[];
+  faq?: FAQItem[];
   searchVolume: number;
 };
 
@@ -74,6 +77,28 @@ export const monsterPages: MonsterPage[] = [
       "Foreshadow aboleth with dreams and visions weeks before encounter",
       "Make the lair partially flooded with varying water depths"
     ],
+    faq: [
+      {
+        question: "How does Aboleth's Enslave ability work?",
+        answer: "Target makes a DC 14 Wisdom save or becomes charmed for 24 hours. While charmed, the aboleth can telepathically command them (no action required). The target can repeat the save when they take damage or are more than 1 mile away."
+      },
+      {
+        question: "Can a Greater Restoration cure the mucous disease?",
+        answer: "Yes! Greater Restoration can end the disease that prevents air breathing. Lesser Restoration can also work since it removes diseases. Heal spell works too since it cures diseases."
+      },
+      {
+        question: "What happens if a charmed PC attacks other party members?",
+        answer: "They must follow the aboleth's telepathic commands, but taking damage allows another save. Smart parties will deal minor damage to break the charm. The enslaved PC might resist dangerous commands with DM discretion."
+      },
+      {
+        question: "Can an Aboleth be encountered outside of water?",
+        answer: "Technically yes, but it's slow (10 ft speed) and loses access to mucous cloud. Aboleths are ancient, intelligent creatures - they'll ensure combat happens in their watery domain where they have every advantage."
+      },
+      {
+        question: "Are Aboleths immortal and do they remember everything?",
+        answer: "Yes to both! Aboleths have perfect racial memory going back billions of years before gods existed. They remember when they ruled the world and deeply resent their current diminished state. Great for lore-heavy campaigns."
+      }
+    ],
     searchVolume: 8500
   },
   {
@@ -105,6 +130,28 @@ export const monsterPages: MonsterPage[] = [
       "Have one cockatrice already pecking at a petrified adventurer",
       "They nest in abandoned structures with stone debris"
     ],
+    faq: [
+      {
+        question: "How does Cockatrice petrification work step by step?",
+        answer: "1) Cockatrice hits with bite. 2) Target makes DC 11 Con save or becomes restrained. 3) At end of their next turn, repeat save. 4) Success = effect ends. Failure = petrified for 24 hours. After 24 hours, they return to normal."
+      },
+      {
+        question: "Can Greater Restoration cure Cockatrice petrification?",
+        answer: "Yes! Greater Restoration can end the petrified condition. Since cockatrice petrification only lasts 24 hours anyway, some parties just wait it out rather than spending a 5th-level slot."
+      },
+      {
+        question: "Is a Cockatrice intelligent enough to train?",
+        answer: "With Intelligence 2, cockatrices are animal-level intelligence like dogs. They can potentially be trained as guards or attack animals, though their petrification makes them dangerous to handlers. Some nobles keep them caged."
+      },
+      {
+        question: "What CR should a Cockatrice encounter be?",
+        answer: "At CR 1/2, a single cockatrice is appropriate for level 1-2 parties. But petrification is scary at any level! Use 2-4 cockatrices for level 3-4 parties. Their low HP (27) makes them glass cannons."
+      },
+      {
+        question: "Do Cockatrices eat the creatures they petrify?",
+        answer: "They can't eat stone, so no. They petrify threats, not prey. They eat insects, small animals, and carrion. The petrification is purely defensive - they're not particularly aggressive unless threatened."
+      }
+    ],
     searchVolume: 6200
   },
   {
@@ -135,6 +182,28 @@ export const monsterPages: MonsterPage[] = [
     dmTips: [
       "They hate blink dogs—use this for interesting encounters",
       "Describe their shimmer effect vividly to create tension"
+    ],
+    faq: [
+      {
+        question: "How does Displacement work exactly?",
+        answer: "Attackers have disadvantage on attack rolls against the displacer beast. When it's hit by an attack, the trait is disrupted until the start of its next turn. It's NOT active again until the start of its turn, not end."
+      },
+      {
+        question: "Does Displacement work against spell attacks?",
+        answer: "Yes! 'Attack rolls' includes all attack rolls - melee, ranged, and spell attacks. However, spells requiring saves (like Fireball) aren't affected. Area spells are the counter to Displacement."
+      },
+      {
+        question: "Why do Displacer Beasts hate Blink Dogs?",
+        answer: "Lore says they're ancient enemies from the Feywild. Blink Dogs are lawful good pack hunters; Displacer Beasts are lawful evil pack hunters. They compete for the same territory and their abilities counter each other perfectly."
+      },
+      {
+        question: "Can you make a cloak from a Displacer Beast?",
+        answer: "Yes! The Cloak of Displacement is canonically made from displacer beast hide. It grants the same displacement effect (disadvantage on attacks against you until you're hit). The hide is worth 300+ gold to the right buyer."
+      },
+      {
+        question: "How intelligent are Displacer Beasts?",
+        answer: "With INT 6, they're smarter than most animals but not sapient. They use pack tactics, set ambushes, and retreat when outmatched. They can be trained by powerful creatures but not reasoned with."
+      }
     ],
     searchVolume: 7800
   },
@@ -168,6 +237,28 @@ export const monsterPages: MonsterPage[] = [
       "They're tragic figures—consider adding roleplay opportunities",
       "Place them in three-dimensional combat spaces"
     ],
+    faq: [
+      {
+        question: "What's a Drider's origin story?",
+        answer: "Driders are drow who failed a test from Lolth, the Spider Queen. As punishment, their lower bodies were transformed into spider forms. Despite the monstrous appearance, they retain their intelligence, memories, and bitterness. They're outcasts, hated by drow society and surface dwellers alike."
+      },
+      {
+        question: "Can Driders climb walls like spiders?",
+        answer: "Yes! Spider Climb lets them climb difficult surfaces including ceilings without ability checks. Combined with Web Walker (ignoring web movement penalties), they excel at vertical combat. Smart driders attack from ceilings where melee fighters can't reach them."
+      },
+      {
+        question: "What spells do Driders have?",
+        answer: "Driders have innate spellcasting (Charisma, DC 12): At will - dancing lights; 1/day each - darkness, faerie fire. The darkness/faerie fire combo is deadly: cast darkness on themselves, then faerie fire on enemies. The drider can see normally while foes are blinded and outlined."
+      },
+      {
+        question: "Are Driders considered undead or living?",
+        answer: "Driders are living creatures (Monstrosities), not undead. They need food, water, and rest. They can be healed normally and are affected by sleep, charm, and other effects. Their Fey Ancestry gives advantage vs charm and immunity to magical sleep, like all drow."
+      },
+      {
+        question: "Can a Drider be cured or transformed back?",
+        answer: "RAW doesn't provide a cure for drider transformation. It's a divine curse from Lolth herself. In your campaign, perhaps a Wish spell, Lolth's direct intervention, or a quest to another deity might work. But canonically, drider transformation is permanent and irreversible."
+      }
+    ],
     searchVolume: 5400
   },
   {
@@ -200,6 +291,28 @@ export const monsterPages: MonsterPage[] = [
       "Use detailed town NPC list, secretly cross off victims session by session",
       "Have NPCs reference people who don't exist anymore"
     ],
+    faq: [
+      {
+        question: "Is the False Hydra official D&D content?",
+        answer: "No! The False Hydra is popular homebrew created by Arnold K on the Goblin Punch blog. It has no official stats, so DMs must create their own. It's become iconic in the D&D community for psychological horror campaigns, but you won't find it in any official sourcebook."
+      },
+      {
+        question: "How does the memory-erasing song work?",
+        answer: "The song forces a Wisdom save (typically DC 16-18) each round. Failed saves mean you can't perceive or remember the hydra. You see empty space where it stands. You forget anyone it eats ever existed. Deafened creatures or those with earplugs are immune, making that a key discovery."
+      },
+      {
+        question: "How do players discover a False Hydra exists?",
+        answer: "Clues include: extra place settings at tables, empty homes with no one missing, portraits with unknown people, journals mentioning friends who don't exist, and gaps in town census records. Players piece together that people are disappearing and being forgotten. Deafening themselves reveals the truth."
+      },
+      {
+        question: "Can a False Hydra grow new heads like a regular hydra?",
+        answer: "In most homebrew versions, yes. Each person consumed grows a new head. A false hydra under a town for years might have dozens of heads, one for each victim. Some versions don't regrow heads when severed, since the creature's threat is stealth, not regeneration."
+      },
+      {
+        question: "What level party should face a False Hydra?",
+        answer: "Most homebrew versions are CR 8-15 depending on head count. But the real challenge is discovery, not combat. A low-level party can defeat one if they figure out the mystery. A high-level party might TPK if they never realize they should plug their ears. It's an investigation, not a fight."
+      }
+    ],
     searchVolume: 12000
   },
   {
@@ -231,6 +344,28 @@ export const monsterPages: MonsterPage[] = [
       "Describe their hyena-like cackling during combat",
       "Show aftermath of gnoll raids for motivation"
     ],
+    faq: [
+      {
+        question: "How does Gnoll Rampage work?",
+        answer: "When a gnoll reduces a creature to 0 HP with a melee attack on its turn, it can use its bonus action to move up to half its speed AND make a bite attack. This triggers a chain reaction where killing one enemy lets the gnoll rush to the next. Multiple gnolls can cascade across a battlefield."
+      },
+      {
+        question: "Are Gnolls intelligent or just beasts?",
+        answer: "Gnolls have INT 6 - smarter than animals but not by much. They're driven by demonic hunger from Yeenoghu, the demon lord who created them. They can use simple tactics, set ambushes, and communicate, but they're essentially slaves to their bloodlust. They don't negotiate or show mercy."
+      },
+      {
+        question: "What's the connection between Gnolls and Yeenoghu?",
+        answer: "Gnolls were created when hyenas fed on the corpses left by Yeenoghu's rampage across the Material Plane. The hyenas transformed into the first gnolls. All gnolls feel a spiritual connection to Yeenoghu and hear his hunger driving them to kill and consume. They're essentially demonic servitors."
+      },
+      {
+        question: "Can Gnolls be reasoned with or redeemed?",
+        answer: "In standard D&D lore, no. Gnolls are fundamentally driven by Yeenoghu's demonic influence. They exist to destroy and consume. However, your campaign is yours - some DMs create gnoll individuals or tribes that have broken free from Yeenoghu's influence, similar to good-aligned drow."
+      },
+      {
+        question: "What other Gnoll variants exist?",
+        answer: "5e includes Gnoll Fang of Yeenoghu (CR 4, creates new gnolls), Gnoll Pack Lord (CR 2, pack leader), Gnoll Flesh Gnawer (CR 1, fast and vicious), Gnoll Hunter (CR 1/2, ranged), and Gnoll Witherling (CR 1/4, undead gnoll). Mix them for varied encounters."
+      }
+    ],
     searchVolume: 4800
   },
   {
@@ -261,6 +396,28 @@ export const monsterPages: MonsterPage[] = [
     dmTips: [
       "Use the traditional bow greeting (from Harry Potter fame)",
       "Great opportunity for mounted aerial combat if tamed"
+    ],
+    faq: [
+      {
+        question: "Can a Hippogriff be used as a mount?",
+        answer: "Yes! Hippogriffs are Large creatures that can carry Medium riders. They require training (DC 15 Animal Handling) and patient approach. Once tamed, they're loyal mounts with 60 ft fly speed. Unlike griffons, they're herbivores and don't need meat, making them easier to maintain."
+      },
+      {
+        question: "What's the difference between a Hippogriff and Griffon?",
+        answer: "Hippogriffs are eagle-horse hybrids (CR 1, herbivore, easier to tame). Griffons are eagle-lion hybrids (CR 2, carnivore, more aggressive). Griffons are more dangerous but also more prestigious mounts. Hippogriffs are more common and practical for adventurers."
+      },
+      {
+        question: "How do you approach a Hippogriff without scaring it?",
+        answer: "Hippogriffs are proud and skittish. Approach slowly, maintain eye contact, and bow - letting the hippogriff decide if you're worthy. Don't approach from behind or make sudden movements. An Animal Handling check (DC 12-15) determines if it accepts your approach."
+      },
+      {
+        question: "Can Hippogriffs attack while being ridden?",
+        answer: "An untrained hippogriff acts independently. A war-trained hippogriff mount can use its Claws attack (+5 to hit, 2d6+3 slashing) on your turn or its own. The Find Greater Steed spell creates a telepathically-linked hippogriff that follows commands perfectly."
+      },
+      {
+        question: "What do wild Hippogriffs eat?",
+        answer: "Hippogriffs are herbivores - they eat plants, fruits, and grains like horses. This makes them much easier to maintain than carnivorous griffons. They can forage in forests or be fed standard horse feed. Wild hippogriffs graze in mountain meadows."
+      }
     ],
     searchVolume: 3200
   },
@@ -294,6 +451,28 @@ export const monsterPages: MonsterPage[] = [
       "Place real treasure chests nearby to create paranoia",
       "Describe slight breathing motion on Investigation success"
     ],
+    faq: [
+      {
+        question: "Can Mimics only be treasure chests?",
+        answer: "No! Mimics can transform into any object of similar size: doors, tables, chairs, barrels, wardrobes, beds, or even floor sections. They choose forms that invite touch. A door mimic grabs anyone who reaches for the handle. The classic chest is just the most famous form."
+      },
+      {
+        question: "How do you detect a Mimic before touching it?",
+        answer: "Investigation check (DC varies by DM, typically 13-15) reveals subtle signs: slight breathing motion, unusual wetness, or texture inconsistencies. Throwing something at the 'object' might provoke a reaction. True Seeing reveals its true form. Experienced dungeon delvers poke everything with a 10-foot pole."
+      },
+      {
+        question: "Can Mimic adhesive be removed?",
+        answer: "A creature grappled by adhesive can escape with a DC 13 Strength check. Alcohol or universal solvent dissolves the adhesive. Fire damage to the mimic also weakens it. If the mimic dies, the adhesive dissolves within 1 minute. The mimic can choose not to use adhesive on things it wants to release."
+      },
+      {
+        question: "Are Mimics intelligent enough to negotiate?",
+        answer: "With INT 5, mimics are about as smart as a dog. They can't speak but understand Common. Some lore suggests mimics can be 'trained' or bargained with using food. A well-fed mimic might let adventurers pass. Hungry mimics attack anything that moves."
+      },
+      {
+        question: "Can Mimics move while disguised as objects?",
+        answer: "Mimics have 15 ft. speed in true form but are typically motionless when disguised. If you see a treasure chest slowly inching toward you... run. Some DMs rule they can 'scoot' objects slowly, which is terrifying when players notice the door has moved closer."
+      }
+    ],
     searchVolume: 9500
   },
   {
@@ -325,6 +504,28 @@ export const monsterPages: MonsterPage[] = [
     dmTips: [
       "Make them calculating and cruel, not mindless monsters",
       "Use telepathy for creepy mid-combat taunts"
+    ],
+    faq: [
+      {
+        question: "How does Mind Blast work?",
+        answer: "Mind Blast is a 60-foot cone requiring an Intelligence save (DC 15). On failure: 22 (4d8+4) psychic damage AND stunned for 1 minute (save ends each turn). On success: half damage, no stun. It recharges on 5-6. This is devastating - a failed save means a character is out of the fight potentially for several rounds."
+      },
+      {
+        question: "Can Mind Flayers extract brains from PCs?",
+        answer: "Extract Brain requires the target to be incapacitated (stunned, paralyzed, unconscious). It deals 55 (10d10) piercing damage and instantly kills if reduced to 0 HP. A stunned PC from Mind Blast is vulnerable. The mind flayer typically uses Mind Blast, then Extract Brain on stunned victims next turn."
+      },
+      {
+        question: "What's an Elder Brain?",
+        answer: "An Elder Brain (CR 14) is a massive brain in a pool of brine that leads mind flayer colonies. It's telepathically linked to all illithids within 5 miles, coordinates their activities, and absorbs the knowledge of consumed brains. Destroying it throws the colony into chaos."
+      },
+      {
+        question: "Can Mind Flayers be player characters?",
+        answer: "There's no official PC mind flayer race in 5e core rules, though some homebrew exists. Lore-wise, mind flayers require humanoid brains to survive and are inherently evil, making them problematic PCs. However, your table, your rules - work with your DM on roleplay implications."
+      },
+      {
+        question: "How are Mind Flayers created?",
+        answer: "Ceremorphosis: a mind flayer tadpole is inserted into a humanoid's ear, consuming the brain over 7 days and transforming the host into a new illithid. The process is horrifying and the host retains none of their original personality. Tadpoles that don't find hosts become intellect devourers."
+      }
     ],
     searchVolume: 11500
   },
@@ -358,6 +559,28 @@ export const monsterPages: MonsterPage[] = [
       "Have them burst through underbrush for dramatic entrance",
       "Use them as forest random encounters to drain resources"
     ],
+    faq: [
+      {
+        question: "Are Owlbears magical or natural creatures?",
+        answer: "Canonically, owlbears were created by a wizard's experiment gone wrong - fusing owls and bears. They've since bred naturally and are classified as Monstrosities, not Beasts. However, some settings treat them as natural creatures that evolved normally. Either way, they behave like territorial animals."
+      },
+      {
+        question: "Can you tame an Owlbear?",
+        answer: "It's extremely difficult but possible. Owlbears raised from eggs can be trained (DC 20 Animal Handling). Wild adults are nearly impossible to tame. Some settings have owlbear cavalry or trained guard owlbears. The 5e adventure Baldur's Gate: Descent into Avernus features a domesticated owlbear named Clompity-Clomp."
+      },
+      {
+        question: "How dangerous is an Owlbear encounter?",
+        answer: "At CR 3 with Multiattack (beak + claws), an owlbear can deal 24 damage per round. That's threatening to level 2-4 parties. A pair of owlbears is deadly for low-level groups. They're perfect 'oh no' wilderness encounters that teach players not everything should be fought."
+      },
+      {
+        question: "What do Owlbears eat?",
+        answer: "Owlbears are aggressive omnivores that eat anything they can catch - deer, rabbits, humanoids, carrion. They're always hungry and highly territorial. They'll attack creatures that enter their territory regardless of size. A hungry owlbear might attack a party just for their rations."
+      },
+      {
+        question: "Do Owlbears hoot or roar?",
+        answer: "Both! Owlbears make terrifying screeching hoots that echo through forests, warning prey of their approach. They also roar when attacking. The combination of owl-like hunting instincts and bear-like ferocity makes them unpredictable predators that players learn to fear."
+      }
+    ],
     searchVolume: 8200
   },
   {
@@ -389,6 +612,28 @@ export const monsterPages: MonsterPage[] = [
     dmTips: [
       "Describe bones clattering as they approach",
       "Great cannon fodder to drain party resources"
+    ],
+    faq: [
+      {
+        question: "Why are Skeletons vulnerable to bludgeoning?",
+        answer: "Bones shatter when struck with blunt force, so bludgeoning weapons deal double damage. This makes clubs, maces, and mauls particularly effective. A 1d6 club dealing 2d6 damage rivals a longsword against skeletons. It's a great reason for martial characters to carry backup bludgeoning weapons."
+      },
+      {
+        question: "Can Skeletons use any weapons or just swords?",
+        answer: "Skeletons use whatever weapons they had in life or that their creator provides. The stat block shows shortsword/shortbow, but skeleton archers, skeleton knights with greatswords, or skeleton mages are all valid. Adjust attacks based on equipped weapons."
+      },
+      {
+        question: "How does Animate Dead work with Skeletons?",
+        answer: "The Animate Dead spell (3rd level) creates a skeleton from a corpse or pile of bones. It obeys your mental commands for 24 hours. You must recast the spell to maintain control, or it becomes hostile. At 5th level, a wizard can maintain a small skeleton army."
+      },
+      {
+        question: "Are Skeletons intelligent or mindless?",
+        answer: "With INT 6 and WIS 8, skeletons have basic awareness and can follow complex commands. They're not creative thinkers - they follow orders literally. They can use weapons, navigate terrain, and recognize threats, but they don't improvise or strategize without direction from their controller."
+      },
+      {
+        question: "Can Turn Undead destroy Skeletons instantly?",
+        answer: "Turn Undead forces undead to flee for 1 minute (Wisdom save). The Destroy Undead feature (Cleric 5+) instantly destroys undead of CR 1/2 or lower that fail the save. Since skeletons are CR 1/4, a 5th-level cleric can obliterate entire skeleton hordes with one Channel Divinity."
+      }
     ],
     searchVolume: 5900
   },
@@ -422,6 +667,28 @@ export const monsterPages: MonsterPage[] = [
       "Foreshadow its awakening for months—earthquakes, ancient prophecies",
       "Make it a regional event affecting entire nations"
     ],
+    faq: [
+      {
+        question: "Can a Tarrasque be permanently killed?",
+        answer: "In 5e, RAW says yes - if reduced to 0 HP with no regeneration, it dies. However, classic lore requires a Wish spell to keep it dead, otherwise it regenerates. Many DMs use this lore. There's only ONE tarrasque in existence, and legends say it will awaken at the world's end."
+      },
+      {
+        question: "How does Reflective Carapace work?",
+        answer: "When targeted by Magic Missile, a line spell, or a spell requiring an attack roll, roll d6: 1-5, the tarrasque is unaffected; 6, the spell reflects back at the caster. This makes spellcasters dangerous to themselves. Area spells like Fireball (Dex saves) bypass this entirely."
+      },
+      {
+        question: "Can a Tarrasque be beaten by flying characters?",
+        answer: "In 5e, the tarrasque has no ranged attacks or flight - theoretically, flying characters with ranged attacks can kite it forever. Many DMs consider this a design oversight and add thrown rocks, a terrifying leap, or the ability to swallow flying creatures. Your tarrasque, your rules."
+      },
+      {
+        question: "What level should a party be to fight the Tarrasque?",
+        answer: "The tarrasque is CR 30 - the highest in the game. It's designed for level 20 parties with legendary items, and even then it's brutal. 676 HP, 25 AC, immunity to most conditions, and Legendary Resistance 3/day mean it takes a coordinated, well-equipped party to have any chance."
+      },
+      {
+        question: "Where does the Tarrasque come from?",
+        answer: "The tarrasque sleeps deep underground between awakenings. Some lore places it below Faerûn's Spine of the World mountains. When it awakens, it rampages until it's eaten enough (cities, armies, everything), then returns to slumber. Awakenings are centuries apart - your campaign is special to feature one."
+      }
+    ],
     searchVolume: 14500
   },
   {
@@ -452,6 +719,28 @@ export const monsterPages: MonsterPage[] = [
     dmTips: [
       "Describe the horror of fighting former neighbors or loved ones",
       "Use zombie hordes to create time pressure"
+    ],
+    faq: [
+      {
+        question: "How does Undead Fortitude work?",
+        answer: "When damage reduces a zombie to 0 HP, it makes a Constitution save (DC = 5 + damage taken). On success, it drops to 1 HP instead. This DOESN'T work against radiant damage or critical hits. A zombie that takes 10 damage makes a DC 15 Con save - with +3 Con, it succeeds on 12+."
+      },
+      {
+        question: "Can Zombies run?",
+        answer: "No! Zombies have 20 ft. speed (most creatures have 30 ft.) and cannot take reactions or bonus actions. They're classic slow zombies - threatening in numbers or confined spaces, but easily outrun in open terrain. Smart parties use hit-and-run tactics."
+      },
+      {
+        question: "What's the difference between Zombies and Skeletons?",
+        answer: "Zombies: slow (20 ft), tough (Undead Fortitude), single attack (1d6+1 slam). Skeletons: normal speed (30 ft), fragile (vulnerable to bludgeoning), better damage and ranged option. Zombies are tanks, skeletons are damage dealers. Necromancers mix both for effective undead armies."
+      },
+      {
+        question: "Can Zombies spread infection like in movies?",
+        answer: "Not in base 5e - zombie bites don't cause zombification. However, many DMs add this for horror campaigns. A bitten creature might need to make a Constitution save or become infected, rising as a zombie if they die. This makes zombie encounters much scarier."
+      },
+      {
+        question: "How many Zombies can Animate Dead create?",
+        answer: "Animate Dead (3rd level) creates one zombie or skeleton from a corpse. Cast at higher levels: +2 undead per slot level above 3rd. A 5th-level slot creates 5 undead. You must recast within 24 hours to maintain control. A dedicated necromancer can field an army."
+      }
     ],
     searchVolume: 7300
   },
@@ -486,6 +775,28 @@ export const monsterPages: MonsterPage[] = [
       "Use the lair actions to make the environment itself hostile",
       "The antimagic cone is a cone FROM the central eye — position matters"
     ],
+    faq: [
+      {
+        question: "How does the Antimagic Cone work tactically?",
+        answer: "The 150-foot cone emanates from the beholder's central eye in the direction it's looking. Everything in the cone is affected by Antimagic Field - no spells, no magic items, no magical effects. The beholder can't use its eye rays through the cone. Smart beholders point the cone at spellcasters while using eye rays on martial characters."
+      },
+      {
+        question: "Are Eye Rays random or chosen?",
+        answer: "RAW, the beholder shoots 3 eye rays per turn at random targets within 120 feet. Roll d10 for each ray to determine which effect. However, the beholder chooses the targets for each ray - it just can't pick which ray fires. This creates chaos that even the beholder can't fully control."
+      },
+      {
+        question: "Can a Beholder be surprised?",
+        answer: "Beholders don't sleep - they dream while awake, imagining threats. They're paranoid beyond reason, setting traps and minions everywhere. However, they CAN be surprised mechanically if the party beats their Perception. Catching a beholder off-guard is a significant tactical advantage."
+      },
+      {
+        question: "What happens when a Beholder dreams?",
+        answer: "Beholder dreams can literally create reality! If a beholder dreams of other beholders, those dreams can manifest as real creatures (beholder spawn, spectators, or full beholders). If it dreams of treasure, that treasure might appear. This explains their paranoid isolation - they fear creating rivals."
+      },
+      {
+        question: "What's the best way to fight a Beholder?",
+        answer: "Spread out (limits eye ray targets), use non-magical attacks (bypass Antimagic Cone), and attack from multiple angles (can't point cone at everyone). Area spells like Fireball force Dex saves, not attack rolls, so they work normally. Monks and fighters with magic weapons are excellent beholder hunters."
+      }
+    ],
     searchVolume: 18100
   },
   {
@@ -518,6 +829,28 @@ export const monsterPages: MonsterPage[] = [
       "Give the dragon a name, history, and personality",
       "Use lair actions every round to make the environment fight too",
       "Ancient dragons speak many languages and will negotiate if outmatched"
+    ],
+    faq: [
+      {
+        question: "How much damage does Fire Breath actually deal?",
+        answer: "26d6 fire damage in a 90-foot cone - that's an average of 91 damage! On a failed DC 24 Dex save, most characters take full damage. Even on a successful save, 45 damage can down lower-level characters. Evasion rogues and monks are your best defense. Fire resistance is essential."
+      },
+      {
+        question: "How do Legendary Resistances work?",
+        answer: "Three times per day, when the dragon fails a saving throw, it can choose to succeed instead. No roll, just 'I succeed.' This makes save-or-suck spells much less reliable. Smart parties bait out Legendary Resistances with lower-level spells before using their best options."
+      },
+      {
+        question: "What are Lair Actions for Ancient Red Dragons?",
+        answer: "Once per round on initiative 20, the dragon can: 1) Create volcanic tremors (DC 15 Dex or knocked prone), 2) Volcanic gases erupt (DC 15 Con or poisoned until next initiative 20), or 3) Magma erupts dealing 21 (6d6) fire damage in an area. The lair itself fights you."
+      },
+      {
+        question: "Can an Ancient Red Dragon be reasoned with?",
+        answer: "Red dragons are arrogant but intelligent (INT 18). They'll negotiate if clearly outmatched - demanding tribute, territory, or magical items. However, they hold grudges forever and will eventually seek revenge. Any deal with a red dragon is temporary at best. They never truly submit."
+      },
+      {
+        question: "What level party can fight an Ancient Red Dragon?",
+        answer: "CR 24 suggests a party of four level 20 characters. Realistically, you want: fire resistance for everyone, healing capacity, ranged options, and a plan for Frightful Presence. Even optimized level 17+ parties can TPK to bad breath weapon rolls. This is a campaign-ending boss fight."
+      }
     ],
     searchVolume: 14800
   },
@@ -553,6 +886,28 @@ export const monsterPages: MonsterPage[] = [
       "Give it a motivation beyond 'evil' — what drove it to seek immortality?",
       "Use the phylactery as a multi-session quest hook"
     ],
+    faq: [
+      {
+        question: "What's a Phylactery and how does it work?",
+        answer: "A phylactery is a magical container holding the lich's soul. If the lich's body is destroyed, it reforms near the phylactery in 1d10 days. The phylactery must be destroyed to permanently kill a lich. It can be any object - often a small box, amulet, or gem - hidden somewhere protected."
+      },
+      {
+        question: "What spells does a Lich have?",
+        answer: "Liches are 18th-level spellcasters with access to the full wizard spell list. The standard lich stat block includes Power Word Kill, Dominate Monster, Finger of Death, Globe of Invulnerability, and Counterspell. They prepare different spells daily - customize their list based on expected threats."
+      },
+      {
+        question: "What happens if a Lich doesn't feed souls to its Phylactery?",
+        answer: "A lich must periodically trap souls in its phylactery or begin to decay. After missing feedings, it becomes a demilich - just a floating skull with reduced power but terrifying abilities like Howl (fear) and Drain Life. Demiliches are CR 18, down from the lich's CR 21."
+      },
+      {
+        question: "Can a Lich be good-aligned?",
+        answer: "Creating a phylactery requires trapping souls, an inherently evil act. However, 'baelnorn' are elven liches who use alternative methods and can be good. Archliches in some settings achieved lichdom through different means. But standard liches are always evil due to the soul-consuming requirement."
+      },
+      {
+        question: "How does a Wizard become a Lich?",
+        answer: "The ritual involves creating a phylactery (expensive, rare materials), brewing a potion of transformation (including poison that kills the wizard), and trapping souls. The process requires evil acts and high-level magic (typically 17th+ level wizards). The exact details are deliberately vague in official sources."
+      }
+    ],
     searchVolume: 16200
   },
   {
@@ -587,6 +942,28 @@ export const monsterPages: MonsterPage[] = [
       "Use vampire spawn as lesser threats that lead back to the master",
       "The coffin and its location should be a quest in itself"
     ],
+    faq: [
+      {
+        question: "What are a Vampire's weaknesses?",
+        answer: "Sunlight (20 radiant damage/turn, disadvantage on attacks/checks), running water (20 acid damage/turn if ending turn in it), stake through heart while in resting place (paralyzed then destroyed if beheaded), can't enter residence without invitation, repelled by holy symbols (if presented with conviction)."
+      },
+      {
+        question: "How does Misty Escape work?",
+        answer: "When a vampire drops to 0 HP outside its resting place, it transforms into mist instead of dying. It must reach its coffin within 2 hours or be destroyed. In mist form, it can't attack and has 0 HP but is immune to nonmagical damage. You must destroy the coffin to truly kill it."
+      },
+      {
+        question: "Can a Vampire create Vampire Spawn?",
+        answer: "Yes! A humanoid killed by the vampire's bite and buried rises as a vampire spawn under the vampire's control the next night. Spawn are CR 5 and completely loyal to their creator. A vampire might have dozens of spawn servants. Killing the master frees the spawn (but they remain vampires)."
+      },
+      {
+        question: "What's the Charm ability save DC?",
+        answer: "DC 17 Wisdom save. On failure, the target is charmed for 24 hours and regards the vampire as a trusted friend. The vampire can issue commands (no action required). The charm ends if the vampire or its companions damage the target. One target per Charm use."
+      },
+      {
+        question: "Do Vampires need to drink blood?",
+        answer: "Yes! Vampires must consume blood to survive. They don't technically die without it but become weakened and desperate. The bite attack's necrotic damage and HP drain represent feeding. A vampire that goes too long without blood might attack allies or become feral. Blood from animals works but is unsatisfying."
+      }
+    ],
     searchVolume: 12100
   },
   {
@@ -620,6 +997,28 @@ export const monsterPages: MonsterPage[] = [
       "Describe the 'clean' corridor as a clue before the encounter",
       "Great for teaching new players about dungeon awareness"
     ],
+    faq: [
+      {
+        question: "Why is the Gelatinous Cube so hard to see?",
+        answer: "The cube is transparent! Even in plain sight, spotting a motionless cube requires a DC 15 Perception check. In dim dungeons, it's nearly invisible. Creatures that don't notice it are surprised when it moves into their space. The only visual clues are floating objects (coins, bones) inside it."
+      },
+      {
+        question: "How does Engulf work?",
+        answer: "When the cube moves into a creature's space, that creature must make a DC 12 Dex save. On failure, they're engulfed - inside the cube, taking 3d6 acid damage at the start of each of the cube's turns. Engulfed creatures are restrained and can't breathe. They can try to escape (DC 12 Strength) on their turn."
+      },
+      {
+        question: "Can a Gelatinous Cube digest magic items?",
+        answer: "Gelatinous cubes digest organic matter but can't dissolve metal, stone, or magical items. That's why you see coins, weapons, and jewelry floating inside them! After killing a cube, you can salvage these items. Magic items are completely immune to the acid."
+      },
+      {
+        question: "How big is a Gelatinous Cube exactly?",
+        answer: "A standard gelatinous cube is 10 feet on each side - it perfectly fills a standard dungeon corridor. This is intentional! The cube evolved (or was created) as a dungeon cleaner, consuming everything in its path. In 15-foot-wide corridors, you can squeeze past. In 10-foot corridors, you must go through it."
+      },
+      {
+        question: "Are Gelatinous Cubes intelligent?",
+        answer: "No! With INT 1 (the lowest possible for a creature), cubes are mindless. They can't be reasoned with, tricked, or trained. They simply ooze toward organic matter and engulf it. They don't strategize, recognize threats, or retreat. They're essentially mobile acid traps."
+      }
+    ],
     searchVolume: 8900
   },
   {
@@ -652,6 +1051,28 @@ export const monsterPages: MonsterPage[] = [
       "Goblins are perfect first enemies for new campaigns",
       "Give goblin leaders names and distinct personalities",
       "Use goblin humor — they should be funny-scary, not just scary"
+    ],
+    faq: [
+      {
+        question: "How does Nimble Escape work?",
+        answer: "As a bonus action every turn, goblins can take the Disengage or Hide action. This means they can attack and then Disengage (no opportunity attacks) or attack and Hide (becoming hidden for advantage on next attack). This makes goblins surprisingly mobile and annoying despite their low CR."
+      },
+      {
+        question: "What's the relationship between Goblins, Hobgoblins, and Bugbears?",
+        answer: "All three are goblinoids! Goblins are small, cowardly, and cunning (CR 1/4). Hobgoblins are disciplined soldiers (CR 1/2). Bugbears are large, brutal ambushers (CR 1). Hobgoblins often command goblin armies with bugbear shock troops. They share a language and occasionally cooperate in warbands."
+      },
+      {
+        question: "Can Goblins be good-aligned?",
+        answer: "In standard lore, goblins trend evil due to their deity Maglubiyet's influence. However, individual goblins can be any alignment. Campaigns like Acquisitions Incorporated feature friendly goblins. Some tables play goblins as mischievous rather than malicious. Your goblins, your rules."
+      },
+      {
+        question: "What makes 'Tucker's Kobolds' famous?",
+        answer: "Tucker's Kobolds is a legendary D&D story about kobolds (similar tactics to goblins) using traps, terrain, and hit-and-run tactics to devastate a high-level party. The lesson: low-CR creatures in well-designed lairs are terrifying. Goblins with preparation can challenge any party."
+      },
+      {
+        question: "How many Goblins make a challenging encounter?",
+        answer: "For a level 1 party of 4: 4-6 goblins is a Medium encounter, 8-10 is Hard. But add a boss (bugbear or goblin boss), traps, and difficult terrain and even fewer goblins become deadly. Goblins should never be a straight-up fight - add ambush elements."
+      }
     ],
     searchVolume: 22000
   },
@@ -687,6 +1108,28 @@ export const monsterPages: MonsterPage[] = [
       "Their lairs corrupt the surrounding land — dead trees, acidic water, perpetual fog",
       "Use the dragon as a regional threat before the party ever faces it directly"
     ],
+    faq: [
+      {
+        question: "How does Acid Breath compare to other dragon breaths?",
+        answer: "Black dragon acid breath is a 60-foot line (5 feet wide), dealing 12d8 acid damage (DC 18 Dex save). Lines hit fewer targets than cones but are harder to avoid in corridors. The acid continues to damage terrain and objects, creating environmental hazards. It recharges on 5-6."
+      },
+      {
+        question: "Can Black Dragons breathe underwater?",
+        answer: "Yes! Black dragons have Amphibious - they breathe air and water equally. They often lair in swamps, attacking from below murky water. Their acid breath works underwater too (though this isn't explicitly stated, most DMs allow it). This makes swamp encounters terrifying."
+      },
+      {
+        question: "What personality do Black Dragons have?",
+        answer: "Black dragons are the most cruel, sadistic, and vicious chromatic dragons. They love to torture prey and watch them suffer. They're patient predators who toy with victims. While intelligent (INT 14), they're driven more by cruelty than greed. They hold grudges forever and always seek revenge."
+      },
+      {
+        question: "What level party should fight an Adult Black Dragon?",
+        answer: "At CR 14, an adult black dragon is appropriate for a party of four level 14 characters. However, in its swamp lair with Legendary Actions and Lair Actions, it's much deadlier. Acid resistance, healing, and ranged options are essential. Level 12+ with good gear can attempt it."
+      },
+      {
+        question: "How does a Black Dragon's lair affect the area?",
+        answer: "Within 6 miles: water becomes fouled and acidic, fogs and mists are common, plant life withers. Lair actions include: pools of acid erupting, swarms of insects attacking, and magical darkness. The land itself becomes hostile territory that warns of the dragon's presence."
+      }
+    ],
     searchVolume: 9800
   },
   {
@@ -719,6 +1162,28 @@ export const monsterPages: MonsterPage[] = [
       "Describe the regeneration visually — severed limbs reattaching, wounds knitting shut",
       "Troll encounters teach an important D&D lesson: research your enemies",
       "Variant trolls (ice troll, spirit troll) keep the concept fresh at higher levels"
+    ],
+    faq: [
+      {
+        question: "How does Troll Regeneration work exactly?",
+        answer: "At the START of each of its turns, the troll regains 10 HP. If it took fire OR acid damage since its last turn, it doesn't regenerate that turn. The troll only dies if it starts its turn at 0 HP AND doesn't regenerate. Without fire/acid, a troll literally cannot be killed - it keeps getting back up."
+      },
+      {
+        question: "Does the troll need fire AND acid or just one?",
+        answer: "Just ONE! Either fire OR acid damage prevents regeneration for that turn. Any amount works - even 1 fire damage from a torch stops regeneration. This is why smart adventurers always carry torches, alchemist's fire, or acid vials when fighting trolls."
+      },
+      {
+        question: "Can you sever a troll's limbs?",
+        answer: "RAW doesn't support this, but it's classic troll lore! Some DMs rule that severed limbs regenerate independently, creating two smaller threats. This makes trolls even scarier but isn't in the 5e stat block. At minimum, describe wounds visibly healing for horror effect."
+      },
+      {
+        question: "What if the party has no fire or acid?",
+        answer: "They're in trouble! Options: find environmental fire (torches, campfires), flee and return prepared, use spells like Firebolt or Acid Splash, or reduce the troll to 0 HP and RUN while it regenerates. Smart parties always ask about threats before adventuring."
+      },
+      {
+        question: "Are there different types of Trolls?",
+        answer: "Yes! 5e includes: Dire Troll (CR 13, larger and meaner), Rot Troll (CR 9, necrotic damage), Spirit Troll (CR 11, incorporeal), Venom Troll (CR 7, poison), and Ice Troll (weak to fire, not acid). Each variant adds unique threats while keeping the regeneration theme."
+      }
     ],
     searchVolume: 11200
   },
@@ -753,6 +1218,28 @@ export const monsterPages: MonsterPage[] = [
       "Use the kraken's Intelligence (22) — it plans, negotiates, and plots",
       "Kraken cults and kraken priests make great adventure hooks"
     ],
+    faq: [
+      {
+        question: "How many tentacles does a Kraken have?",
+        answer: "Ten tentacles, each capable of grappling a separate creature! With 30-foot reach, a kraken can grab multiple party members, the ship's mast, AND the anchor simultaneously. Grappled creatures can be flung 60 feet as a legendary action. Escaping requires DC 18 Strength - not easy."
+      },
+      {
+        question: "Can a Kraken capsize a ship?",
+        answer: "Absolutely! A kraken can grapple a ship's hull and drag it underwater. Using its tentacles and Legendary Actions, it can attack the ship while drowning grappled crew. Most ships have AC 15 and 300-500 HP. A kraken deals massive damage per round to vehicles."
+      },
+      {
+        question: "How intelligent is a Kraken?",
+        answer: "INT 22 - smarter than most player characters! Krakens are ancient beings that form cults, make pacts, and pursue long-term plans. They can be negotiated with, though their goals are alien. A kraken might demand tribute, worship, or specific artifacts rather than just attack."
+      },
+      {
+        question: "What's a Kraken's lair like?",
+        answer: "Krakens lair in deep ocean trenches, underwater caves, or sunken cities. Lair actions include strong currents (difficult terrain), lightning strikes, and spectral tentacles. Regional effects within 6 miles include unnaturally rough seas and aquatic creatures serving as spies."
+      },
+      {
+        question: "Can a Kraken be fought on land?",
+        answer: "Technically yes, but a kraken has only 20 ft. land speed vs 60 ft. swim speed. It would be dramatically weakened on land. However, krakens are intelligent enough to never let this happen. They fight in water, near water, or not at all. Lure it onto land at your own risk - it won't follow."
+      }
+    ],
     searchVolume: 10500
   },
   {
@@ -785,6 +1272,28 @@ export const monsterPages: MonsterPage[] = [
       "Orcs work best as a faction with camps, raiding parties, and war chiefs",
       "Give orc leaders names and battle strategies",
       "Orc society worships Gruumsh — use religious elements for depth"
+    ],
+    faq: [
+      {
+        question: "How does the Aggressive trait work?",
+        answer: "As a bonus action, an orc can move up to its speed (30 ft.) toward a hostile creature it can see. This effectively gives orcs 60 feet of movement when charging. Combined with their Strength, orcs close gaps fast and can reach back-line casters in one turn."
+      },
+      {
+        question: "What's the difference between Orcs and Half-Orcs?",
+        answer: "Orcs are monsters (CR 1/2) driven by Gruumsh's bloodlust. Half-orcs are a playable race with orc and human heritage, often torn between cultures. Half-orcs can be any alignment and are accepted in most civilized areas. Full orcs are almost always hostile."
+      },
+      {
+        question: "Who is Gruumsh and why do Orcs worship him?",
+        answer: "Gruumsh One-Eye is the orc god of conquest and destruction. Legends say he lost his eye to Corellon (elf god) and swore vengeance on all elves. Orc clerics are 'Eyes of Gruumsh' who sometimes gouge out an eye in devotion. Gruumsh drives orcs to constant warfare."
+      },
+      {
+        question: "Can Orcs be non-evil?",
+        answer: "In standard D&D lore, orcs are influenced by Gruumsh toward chaos and violence. However, individual orcs can reject this - Tasha's Cauldron of Everything explicitly states any race can be any alignment. Many tables feature orc NPCs or even PCs who've broken from orcish culture."
+      },
+      {
+        question: "What Orc variants exist in 5e?",
+        answer: "Orc War Chief (CR 4, inspires allies), Orc Eye of Gruumsh (CR 2, cleric abilities), Orc Blade of Ilneval (CR 4, tactical commander), Orc Claw of Luthic (CR 2, healer), Orc Red Fang of Shargaas (CR 3, assassin), and Tanarukk (CR 5, demon-blooded). Mix them for varied encounters."
+      }
     ],
     searchVolume: 14500
   },
@@ -819,6 +1328,28 @@ export const monsterPages: MonsterPage[] = [
       "They lead goblin groups — use them as the 'boss room' encounter",
       "Describe their size and ferocity to intimidate low-level parties"
     ],
+    faq: [
+      {
+        question: "How does Surprise Attack work?",
+        answer: "If a bugbear surprises a creature AND hits it with an attack during the FIRST ROUND of combat, that attack deals an extra 2d6 damage. This only works once per combat, only on the first round, and only against surprised targets. It represents the bugbear's ambush nature."
+      },
+      {
+        question: "What's the Brute ability?",
+        answer: "A bugbear's melee weapons deal one extra die of damage (already included in the stat block). Their morningstar deals 2d8+2 instead of 1d8+2. This makes bugbears hit harder than their CR suggests. Combined with Surprise Attack, a first-hit can deal 2d8+2+2d6 damage!"
+      },
+      {
+        question: "How do Bugbears relate to Goblins?",
+        answer: "Bugbears, goblins, and hobgoblins are all goblinoids who share a language and occasionally work together. Bugbears often bully goblins into service, using them as scouts and trap-setters. A classic dungeon has goblins as minions with a bugbear as the 'boss' - they're natural allies."
+      },
+      {
+        question: "How stealthy are Bugbears?",
+        answer: "Very! Bugbears have +6 to Stealth despite their size. They're ambush predators who hide in caves, behind doors, or in dark corners. A Medium-sized bugbear squeezing through a doorway to ambush is a classic encounter. They prefer to attack from surprise rather than fight fair."
+      },
+      {
+        question: "What level party should face a Bugbear?",
+        answer: "At CR 1, a bugbear is appropriate for level 1 parties, but Surprise Attack makes them deadly to unprepared groups. A single bugbear hitting a 1st-level wizard with Surprise Attack can deal 2d8+2+2d6 (average 15) damage - enough to one-shot many characters. Use with caution at level 1."
+      }
+    ],
     searchVolume: 9100
   },
   {
@@ -850,6 +1381,28 @@ export const monsterPages: MonsterPage[] = [
       "Stone statues in the lair tell a story — who were these people?",
       "The 'avert your eyes' mechanic creates interesting tactical choices",
       "Greater Restoration or basilisk venom can cure petrification"
+    ],
+    faq: [
+      {
+        question: "How does Petrifying Gaze work?",
+        answer: "If you START your turn within 30 feet of a basilisk and you can see each other, it can force a DC 12 Con save. Failure = you begin turning to stone (restrained). Fail again = petrified. You can avert your eyes to avoid this, but then attacks against the basilisk have disadvantage."
+      },
+      {
+        question: "Can you fight a Basilisk with a mirror?",
+        answer: "Classic tactic! RAW doesn't explicitly cover this, but many DMs rule that a basilisk seeing its own reflection must save against its own gaze. A polished shield or mirror could force the save. This rewards creative thinking and references the mythological Perseus strategy."
+      },
+      {
+        question: "Is Basilisk petrification permanent?",
+        answer: "Yes, unless cured! Greater Restoration (5th level) removes petrification. Basilisk venom, if properly prepared (alchemist's supplies, DC 15), can also cure petrification within 1 hour of application. Otherwise, the victim remains a statue indefinitely - potentially for centuries."
+      },
+      {
+        question: "What's the difference between a Basilisk and Cockatrice?",
+        answer: "Basilisks (CR 3) are larger, tougher, and have permanent petrification with a gaze attack. Cockatrices (CR 1/2) are smaller, use a bite attack, and their petrification only lasts 24 hours. Basilisks are far more dangerous and their petrification requires magic to cure."
+      },
+      {
+        question: "Can you avert your eyes and still attack effectively?",
+        answer: "You can avert eyes at the start of your turn to avoid the gaze. You then have disadvantage on attacks against the basilisk. However, the basilisk also attacks normally. Some players attack with eyes closed (disadvantage) to avoid the risk. It's a tactical trade-off."
+      }
     ],
     searchVolume: 7600
   },
@@ -883,6 +1436,28 @@ export const monsterPages: MonsterPage[] = [
       "Werewolf encounters are best as horror/mystery scenarios",
       "A PC bitten by a werewolf creates incredible roleplay opportunities",
       "Use the full moon cycle to build tension over multiple sessions"
+    ],
+    faq: [
+      {
+        question: "How does werewolf damage immunity work?",
+        answer: "Werewolves are immune to bludgeoning, piercing, and slashing damage from nonmagical attacks NOT made with silvered weapons. This means: magic weapons work normally, silvered weapons work normally, spells work normally. Only normal weapons bounce off. This is why carrying silver matters."
+      },
+      {
+        question: "Can a PC become a werewolf?",
+        answer: "Yes! A humanoid bitten by a werewolf must succeed on a DC 12 Constitution save or be cursed with lycanthropy. The curse can be removed by Remove Curse before the first full moon transformation. After that, only a Wish spell can remove it. An afflicted PC might embrace or fight the curse."
+      },
+      {
+        question: "Do werewolves only transform during full moons?",
+        answer: "Werewolves can transform at will between human, hybrid, and wolf forms. The full moon is traditionally when they MUST transform and lose control. Most DMs rule that new werewolves are forced to transform on full moons until they gain control, adding tension to the curse."
+      },
+      {
+        question: "Can werewolves be good-aligned?",
+        answer: "Technically possible but difficult. The stat block says Chaotic Evil, representing the curse's corrupting influence. A PC or NPC werewolf might fight the evil urges through willpower, divine intervention, or finding a way to control transformations. The Bloodhunter class explores this theme."
+      },
+      {
+        question: "What other lycanthropes exist in 5e?",
+        answer: "Besides werewolves (CR 3), 5e includes: Werebear (CR 5, often good), Wereboar (CR 4, aggressive), Wererat (CR 2, sneaky), and Weretiger (CR 4, solitary). Each has different alignments and behaviors. All have similar immunity to non-silvered, nonmagical weapons."
+      }
     ],
     searchVolume: 9700
   },
@@ -918,6 +1493,28 @@ export const monsterPages: MonsterPage[] = [
       "They make deals — and always honor the letter while violating the spirit",
       "Use lesser devils as a 'preview' of what's coming"
     ],
+    faq: [
+      {
+        question: "Where do Pit Fiends rank in Hell's hierarchy?",
+        answer: "Pit fiends are the generals of Hell's armies, second only to the archdevils (Asmodeus, Mephistopheles, etc.) who rule the Nine Hells. They command legions of lesser devils and answer directly to archdevils. There are only a few dozen pit fiends in existence - each one is a legendary threat."
+      },
+      {
+        question: "How does the Fear Aura work?",
+        answer: "Any hostile creature that STARTS its turn within 20 feet must make a DC 21 Wisdom save or be frightened until the start of its next turn. This triggers automatically every round! Even brave adventurers struggle against DC 21. Paladins' Aura of Courage (immune to fear within 10 ft.) is invaluable."
+      },
+      {
+        question: "Can Pit Fiends be summoned by Warlocks?",
+        answer: "Not directly by warlock spells in RAW. Pit fiends are CR 20 - far beyond typical summoning. However, a warlock with a fiendish patron might negotiate a pit fiend's appearance through extensive roleplay and campaign events. It's more of a narrative deal than a spell effect."
+      },
+      {
+        question: "What happens if a Pit Fiend dies on the Material Plane?",
+        answer: "Like all devils, a pit fiend killed outside the Nine Hells reforms in its home layer after some time (typically years). To permanently destroy a devil, you must kill it in the Nine Hells. This makes pit fiends recurring villains - they can return for revenge."
+      },
+      {
+        question: "How much damage does a Pit Fiend deal per round?",
+        answer: "With Multiattack: bite (4d6+8 + 6d6 poison), claw (2d8+8), mace (2d6+8), and tail (2d10+8). That's roughly 90 damage per round before spells! Add Hold Monster, Wall of Fire, and Fireball, and a pit fiend can devastate parties. It also has Magic Resistance for defense."
+      }
+    ],
     searchVolume: 8200
   },
   {
@@ -950,6 +1547,28 @@ export const monsterPages: MonsterPage[] = [
       "Hill giants are motivated almost entirely by hunger",
       "Use them as a low-level 'big threat' that the party must outsmart rather than outfight",
       "The ordning (giant social hierarchy) means hill giants are bullied by all other giants"
+    ],
+    faq: [
+      {
+        question: "How smart are Hill Giants?",
+        answer: "INT 5 - the dumbest of all true giants. They can speak (Giant and sometimes Common) and follow simple plans, but complex tactics are beyond them. They solve problems through violence and eating. They can be tricked, bribed with food, or led into traps by clever adventurers."
+      },
+      {
+        question: "What is the Ordning?",
+        answer: "The ordning is giant social hierarchy: Storm Giants (top), Cloud Giants, Fire Giants, Frost Giants, Stone Giants, and Hill Giants (bottom). Hill giants are bullied and exploited by all other giants. They desperately seek to rise in status, usually by eating more than anyone else."
+      },
+      {
+        question: "How dangerous is a Hill Giant's rock throw?",
+        answer: "3d10+5 damage (average 21.5) at 60/240 foot range! That can one-shot a low-level character. Hill giants aren't accurate (+8 to hit) but when they connect, it hurts. Fighting at range against a hill giant is still dangerous. They carry a bag of rocks for multiple throws."
+      },
+      {
+        question: "Can Hill Giants be reasoned with?",
+        answer: "Food is the key! Hill giants are obsessed with eating and will accept food as tribute or payment. Offer enough livestock and they might leave a village alone (temporarily). They're not evil by philosophy - they're just constantly hungry. Manipulate that hunger for negotiation."
+      },
+      {
+        question: "What level party should fight a Hill Giant?",
+        answer: "At CR 5, a hill giant is appropriate for level 5 parties. But with 105 HP, +8 to hit, and 42 average damage per round (two greatclub attacks), they're dangerous to lower-level groups. A single hill giant can challenge level 3-4 parties. Multiple hill giants are deadly."
+      }
     ],
     searchVolume: 6800
   },
@@ -984,6 +1603,28 @@ export const monsterPages: MonsterPage[] = [
       "Their connection to dragons can tie into larger campaign arcs",
       "Kobold inventors and trap-smiths add variety to encounters"
     ],
+    faq: [
+      {
+        question: "How does Pack Tactics work?",
+        answer: "A kobold has ADVANTAGE on attack rolls if at least one ally is within 5 feet of the target AND the ally isn't incapacitated. With multiple kobolds, they essentially always have advantage. This offsets Sunlight Sensitivity and makes kobold swarms much more dangerous than their CR suggests."
+      },
+      {
+        question: "What is Sunlight Sensitivity?",
+        answer: "In direct sunlight, kobolds have disadvantage on attack rolls and Perception checks relying on sight. This is why kobolds live underground and fight at night! Pack Tactics (advantage) and Sunlight Sensitivity (disadvantage) cancel out in daylight, making them fight normally outdoors."
+      },
+      {
+        question: "Why do Kobolds worship dragons?",
+        answer: "Kobolds believe they're descended from dragons (they might be - they have draconic blood). They revere dragons as gods and will serve any dragon that claims them. A kobold warren with a dragon patron is fanatically loyal. Some kobolds develop small dragon-like abilities."
+      },
+      {
+        question: "What makes 'Tucker's Kobolds' legendary?",
+        answer: "Tucker's Kobolds is a famous Dragon Magazine story about kobolds using superior tactics (murder holes, traps, ambushes, retreats, terrain) to devastate a high-level party. The moral: environment and tactics matter more than CR. A well-designed kobold warren challenges any level party."
+      },
+      {
+        question: "What Kobold variants exist?",
+        answer: "Beyond basic kobolds: Kobold Inventor (CR 1/4, uses wacky inventions), Kobold Scale Sorcerer (CR 1, draconic magic), Kobold Dragonshield (CR 1, tank with shield), and Winged Kobold/Urd (CR 1/4, flying kobolds). Mix variants for dynamic encounters that feel like more than just 'small lizard swarm.'"
+      }
+    ],
     searchVolume: 13500
   },
   {
@@ -1017,6 +1658,28 @@ export const monsterPages: MonsterPage[] = [
       "Give them a cause — are they Robin Hood or a pure villain?",
       "Use them at any level by adjusting the number and type of minions"
     ],
+    faq: [
+      {
+        question: "How does the Parry reaction work?",
+        answer: "As a reaction when hit by a melee attack the captain can see, they add +2 to their AC against THAT attack. This might cause the attack to miss. It only works on one attack per round (reaction), requires seeing the attacker, and requires holding a melee weapon. It's like a mini-Shield spell."
+      },
+      {
+        question: "How many attacks does a Bandit Captain get?",
+        answer: "Three attacks with Multiattack: two scimitar (1d6+3 each) and one dagger (1d4+3). That's 3d6+3d3+9 damage per round if all hit (average 19.5). For CR 2, that's respectable output. The captain fights well but should have minions (bandits, thugs) to protect them."
+      },
+      {
+        question: "What minions should accompany a Bandit Captain?",
+        answer: "Classic combo: 4-6 Bandits (CR 1/8, 11 HP each) or 2-3 Thugs (CR 1/2, 32 HP each). Bandits are cannon fodder; thugs are bodyguards. Add a Bandit (Scout) variant for ranged support. The captain's tactics involve using minions as shields while dealing damage personally."
+      },
+      {
+        question: "Can Bandit Captains be non-combat encounters?",
+        answer: "Absolutely! Bandit captains are intelligent and want to survive. They might demand tolls, accept bribes, or negotiate passage. Some are Robin Hood types who only rob the wealthy. Others might hire the party for a job. Not every encounter needs to be combat - social encounters are often more interesting."
+      },
+      {
+        question: "How can I make a Bandit Captain more interesting?",
+        answer: "Give them a name, backstory, and motivation. Are they a former soldier, dispossessed noble, or freedom fighter? What do they spend their loot on? Do they have family, rivals, or a code of honor? A captain who becomes a recurring NPC adds depth to your world."
+      }
+    ],
     searchVolume: 7400
   },
   {
@@ -1049,6 +1712,28 @@ export const monsterPages: MonsterPage[] = [
       "Wyverns are great 'dragon-lite' encounters for mid-level parties",
       "A wyvern nest on a cliff makes for an excellent exploration encounter",
       "Tamed wyverns as mounts can be a campaign reward"
+    ],
+    faq: [
+      {
+        question: "What's the difference between a Wyvern and a Dragon?",
+        answer: "Wyverns are beasts (INT 5) - dangerous animals but not intelligent. They have two legs and wings (no front arms), a poisonous tail stinger, and no breath weapon. Dragons are intelligent, have four legs plus wings, breath weapons, and spellcasting at older ages. Wyverns are essentially big, poisonous flying lizards."
+      },
+      {
+        question: "How dangerous is the Wyvern's poison?",
+        answer: "The stinger deals 2d6+4 piercing PLUS 7d6 poison damage (DC 15 Con save for half). That's potentially 38 damage from one tail attack! The poison alone averages 24.5 damage. For a CR 6 creature, this is devastating. Poison resistance or immunity trivializes wyvern encounters."
+      },
+      {
+        question: "Can Wyverns be tamed as mounts?",
+        answer: "Yes, but it's difficult and dangerous! Wyverns must be raised from eggs or broken through force. They're aggressive and can't truly be domesticated like horses. Some cultures (notably certain goblinoid tribes) use wyvern cavalry. A tamed wyvern is a prestigious but unpredictable mount."
+      },
+      {
+        question: "How does a Wyvern fight?",
+        answer: "Wyverns are dive-bombers. They swoop down (80 ft. fly speed), make a bite and stinger attack, then fly away. They might grab prey in claws and drop them from height. They're not smart enough for complex tactics but use their flight advantage instinctively."
+      },
+      {
+        question: "What level party should fight a Wyvern?",
+        answer: "At CR 6, wyverns are appropriate for level 6 parties. However, the 7d6 poison can one-shot low-HP characters. A single wyvern is manageable; a mating pair (common) is much deadlier. Ensure the party has ranged attacks - grounded characters are helpless against flying wyverns."
+      }
     ],
     searchVolume: 8100
   },
@@ -1084,6 +1769,28 @@ export const monsterPages: MonsterPage[] = [
       "They can only be permanently destroyed by redeeming their soul",
       "Lord Soth from Dragonlance is the original death knight — great inspiration"
     ],
+    faq: [
+      {
+        question: "What is a Death Knight's origin?",
+        answer: "Death knights are paladins who broke their sacred oaths so severely that they were cursed with undeath. The oath-breaking must be catastrophic - betraying their god, murdering innocents they swore to protect, or similar evil. They retain their martial prowess and paladin spellcasting, now twisted to evil."
+      },
+      {
+        question: "How powerful is Hellfire Orb?",
+        answer: "It's a 20-foot radius explosion dealing 10d6 fire PLUS 10d6 necrotic damage (DC 18 Dex save for half). That's 70 average damage! It's usable once per day but can devastate entire parties who cluster together. This single ability makes death knights terrifying artillery."
+      },
+      {
+        question: "Can a Death Knight be permanently killed?",
+        answer: "Only through redemption. If a death knight's soul finds peace - through atoning for their sins or completing an act of true selflessness - they're destroyed forever. Simply reducing them to 0 HP doesn't work; they'll reform. The quest to redeem (or permanently destroy) a death knight makes a great campaign arc."
+      },
+      {
+        question: "What paladin spells does a Death Knight have?",
+        answer: "19th-level paladin casting! They have destructive wave, staggering smite, banishing smite, elemental weapon, dispel magic, and command. Combined with 5d8 necrotic damage on every sword hit, their melee output is devastating. They can also use smite spells for even more burst damage."
+      },
+      {
+        question: "Who is Lord Soth?",
+        answer: "Lord Soth, the Knight of the Black Rose, is the original death knight from the Dragonlance setting. He was a Knight of Solamnia who committed terrible sins, including allowing the Cataclysm to occur. His story inspired all D&D death knights. Reading his tale provides excellent DM inspiration."
+      }
+    ],
     searchVolume: 7900
   },
   {
@@ -1117,6 +1824,28 @@ export const monsterPages: MonsterPage[] = [
       "Use them sparingly — players HATE losing gear",
       "Give players time to realize what's happening and adapt tactics"
     ],
+    faq: [
+      {
+        question: "Can Rust Monsters destroy magic items?",
+        answer: "No! Rust Metal only affects NONMAGICAL ferrous (iron-containing) metal. Magic weapons, +1 armor, and similar items are completely immune. This is intentional - rust monsters threaten mundane gear but won't destroy precious magic items. Fighters often carry backup nonmagical weapons just for rust monsters."
+      },
+      {
+        question: "How does the antennae attack work?",
+        answer: "The rust monster's antennae can touch nonmagical ferrous metal, giving it a -1 penalty (weapons lose damage, armor loses AC). Items reduced below usefulness (weapon at -5 damage, armor at 10 AC for most) are destroyed. One touch can start the corrosion process on any iron item."
+      },
+      {
+        question: "What metals do Rust Monsters affect?",
+        answer: "Only FERROUS metals - iron, steel, and similar alloys. Copper, bronze, gold, silver, mithral, and adamantine are immune! A bronze sword or leather armor is perfectly safe. This rewards players who know metallurgy. Mithral armor vs rust monsters is a significant advantage."
+      },
+      {
+        question: "Are Rust Monsters aggressive?",
+        answer: "Not really! They're driven by hunger for metal, not malice. A rust monster will chase the tastiest metal source (plate armor over a dagger) and ignore creatures who abandon their metal gear. They flee from fire. They're essentially metal-eating cattle, not predators."
+      },
+      {
+        question: "How do you fight a Rust Monster safely?",
+        answer: "Use nonferrous weapons (wooden clubs, bone daggers), natural weapons (monk, druid), or spells. Keep metal-armored characters away. Distract the rust monster with scrap metal while others attack. Or just feed it your spare iron rations container and walk away - sometimes avoidance is best."
+      }
+    ],
     searchVolume: 6500
   },
   {
@@ -1149,6 +1878,28 @@ export const monsterPages: MonsterPage[] = [
       "Gibbering mouthers are perfect Lovecraftian horror encounters",
       "Describe the babbling as fragments of speech from consumed victims",
       "Use them in tight spaces where their slow speed doesn't matter"
+    ],
+    faq: [
+      {
+        question: "What is the Gibbering ability?",
+        answer: "At the START of your turn, if you're within 20 feet and can hear the mouther, make a DC 10 Wisdom save. Failure means you can't take reactions until your next turn and must roll d8 for movement direction - you move randomly! This represents being driven mad by the cacophony of voices."
+      },
+      {
+        question: "How does Aberrant Ground work?",
+        answer: "The ground within 10 feet of the mouther becomes difficult terrain (like thick mud). If you START your turn there, DC 10 Strength save or your speed is reduced to 0 until the start of your next turn. This traps victims near the mouther while it slowly engulfs them. Very hard to escape."
+      },
+      {
+        question: "What's the mouther's origin?",
+        answer: "Gibbering mouthers form from the psychic residue of torture, madness, and suffering. They might spawn in insane asylums, torture chambers, or places touched by the Far Realm. The mouths and eyes are absorbed from consumed victims - each one belongs to someone the mouther ate."
+      },
+      {
+        question: "Can the Gibbering Mouther speak intelligibly?",
+        answer: "Not intentionally! The mouther babbles constantly in fragments of languages from its absorbed victims. DMs often describe players hearing snippets of Common, Elvish, or other languages - pieces of last words, names, or screams. It's horrifying when players recognize words from NPCs they knew."
+      },
+      {
+        question: "How do you fight a Gibbering Mouther effectively?",
+        answer: "Stay at range! The mouther has 10 ft. speed and no ranged attacks. Deafen yourself to ignore Gibbering (stuffed ears, Silence spell). Avoid melee if possible - Aberrant Ground makes escape difficult. Fire, cold, and other elemental damage work normally. The mouther is a horror encounter, not a fair fight."
+      }
     ],
     searchVolume: 5900
   }

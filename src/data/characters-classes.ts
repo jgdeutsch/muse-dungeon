@@ -112,7 +112,29 @@ export const classPages: ClassPage[] = [
       "Remember artificers can attune to more items than other classes (4-6 vs standard 3)",
       "Their spell list is limited but versatile - expect lots of utility and support casting"
     ],
-    searchVolume: 8500
+    searchVolume: 8500,
+    faq: [
+      {
+        question: "What book is the Artificer in for 5e?",
+        answer: "The Artificer class appears in two official sources: Eberron: Rising from the Last War (2019) and Tasha's Cauldron of Everything (2020). Tasha's version is slightly updated and is the most commonly used. The class is not in the Player's Handbook, which is why many players miss it when first starting D&D."
+      },
+      {
+        question: "What are the best Artificer subclasses in 5e?",
+        answer: "Battle Smith is widely considered the strongest for combat, offering a Steel Defender companion and Intelligence-based weapon attacks. Armorer is excellent for tanking or infiltration with its Guardian/Infiltrator modes. Artillerist provides consistent damage with turrets. Alchemist is the weakest mechanically but offers good utility with random elixirs."
+      },
+      {
+        question: "How do Artificer infusions work?",
+        answer: "You learn a number of infusion options and can have a limited number active (2 at level 2, scaling to 6). During a long rest, you touch mundane objects to infuse them with magic, creating temporary magic items. You can end an infusion early to free up a slot. Key infusions include Enhanced Weapon, Bag of Holding, and Homunculus Servant."
+      },
+      {
+        question: "Is Artificer a good class in 5e?",
+        answer: "Artificer is a solid support class with unique strengths. They excel at creating magic items, buffing allies with Flash of Genius, and providing utility. They're not top-tier damage dealers but shine in parties that lack magic item access. Their ability to attune to 4-6 items (vs normal 3) makes them powerful at high levels."
+      },
+      {
+        question: "What's the difference between Artificer 5e 2014 and 2024?",
+        answer: "The 2024 D&D rules haven't significantly changed the Artificer, which remains mostly from Tasha's Cauldron of Everything. The main updates are compatibility adjustments with the revised 2024 core rules. If you're using 2024 D&D, check with your DM about which version to use."
+      }
+    ]
   },
   {
     slug: "barbarian-5e",
@@ -203,7 +225,29 @@ export const classPages: ClassPage[] = [
       "At high levels, Persistent Rage and damage resistance make them incredibly durable"
     ],
     searchVolume: 22100,
-    aliases: ["dnd-barbarian"]
+    aliases: ["dnd-barbarian"],
+    faq: [
+      {
+        question: "What are the best Barbarian subclasses in 5e?",
+        answer: "Totem Warrior (Bear) is the tankiest option with resistance to all damage except psychic while raging. Zealot deals excellent damage and is incredibly hard to keep dead. Ancestral Guardian is the best defender, protecting allies by debuffing enemies. Wild Magic is fun but unpredictable. Berserker is powerful but exhaustion penalties hurt."
+      },
+      {
+        question: "How does Rage work in 5e?",
+        answer: "Activate Rage as a bonus action to gain: advantage on Strength checks/saves, bonus melee damage (+2 scaling to +4), and resistance to bludgeoning, piercing, and slashing damage. Rage lasts 1 minute but ends early if you don't attack a hostile creature or take damage on your turn. You can't cast or concentrate on spells while raging."
+      },
+      {
+        question: "Can Barbarians wear heavy armor in 5e?",
+        answer: "Barbarians can wear heavy armor but lose key benefits: Unarmored Defense (10 + DEX + CON AC), Rage damage resistance, and Fast Movement bonus speed. Heavy armor proficiency must come from multiclassing or a feat. Most barbarians use medium armor (half-plate + shield = 19 AC) or go unarmored with high DEX/CON."
+      },
+      {
+        question: "What's the difference between Barbarian 5e 2014 and 2024?",
+        answer: "The 2024 Barbarian received significant updates: Rage damage resistance now applies to all damage types (not just physical), weapon mastery features, improved Brutal Critical, and Primal Knowledge for extra skills. Path of the Berserker was buffed to reduce exhaustion problems. Overall, 2024 Barbarians are stronger."
+      },
+      {
+        question: "Is Barbarian good for beginners in 5e?",
+        answer: "Yes, Barbarian is one of the most beginner-friendly classes. The core mechanics are simple: rage, hit things, don't die. High HP (d12 hit die) and damage resistance make mistakes forgiving. The main thing to remember is maintaining rage by attacking or taking damage each turn. Champion Fighter is the only simpler martial option."
+      }
+    ]
   },
   {
     slug: "bard-5e",
@@ -298,7 +342,29 @@ export const classPages: ClassPage[] = [
       "High Charisma makes them natural party faces - prepare social encounters",
       "Jack of All Trades makes them decent at everything, reducing party weaknesses"
     ],
-    searchVolume: 18700
+    searchVolume: 18700,
+    faq: [
+      {
+        question: "What are the best Bard spells in 5e?",
+        answer: "Essential bard spells include: Healing Word (bonus action healing), Faerie Fire (advantage for party), Hypnotic Pattern (crowd control), Polymorph (utility/damage), and Counterspell (via Magical Secrets). For Magical Secrets, top picks are Find Greater Steed, Counterspell, Fireball, Spirit Guardians, and Steel Wind Strike."
+      },
+      {
+        question: "What are the best Bard colleges (subclasses) in 5e?",
+        answer: "College of Eloquence is mechanically strongest with guaranteed minimum rolls on Persuasion/Deception and improved Bardic Inspiration. Lore Bard gets early Magical Secrets at 6th level. Glamour is excellent for support. Swords and Valor work for combat builds. Creation is fun but niche."
+      },
+      {
+        question: "How does Bardic Inspiration work?",
+        answer: "As a bonus action, give an ally a Bardic Inspiration die (d6 scaling to d12). They can add it to one ability check, attack roll, or saving throw within 10 minutes. You have uses equal to your Charisma modifier, and at 5th level (Font of Inspiration) they recharge on short rest instead of long rest."
+      },
+      {
+        question: "Is Bard a good class in 5e?",
+        answer: "Bard is one of the strongest classes in 5e. They excel at skills (Jack of All Trades + Expertise), support (Bardic Inspiration), and have incredible spell versatility through Magical Secrets. They're the best party face and can fill almost any role. The main downside is complexity - new players may find the options overwhelming."
+      },
+      {
+        question: "What's the difference between Lore Bard and Eloquence Bard?",
+        answer: "Lore Bard gets Cutting Words (subtract from enemy rolls), three extra skills, and Additional Magical Secrets at 6th level (4 levels early). Eloquence Bard gets minimum roll of 10 on Persuasion/Deception, and unused Bardic Inspiration dice return to allies. Lore is more versatile; Eloquence is the ultimate social character."
+      }
+    ]
   },
   {
     slug: "bladesinger-5e",
@@ -353,7 +419,29 @@ export const classPages: ClassPage[] = [
       "Advantage on concentration saves while Bladesonging makes them hard to interrupt",
       "Song of Defense can burn through spell slots quickly if pressured with consistent damage"
     ],
-    searchVolume: 12400
+    searchVolume: 12400,
+    faq: [
+      {
+        question: "What is the difference between Bladesinger 2014 and 2024?",
+        answer: "The 2024 Bladesinger has several balancing changes: weapons can now be used as spellcasting foci, armor and AC calculations are rebalanced, and some features are adjusted for the new rules. The core concept remains the same - a wizard who excels in melee combat while maintaining spellcasting ability."
+      },
+      {
+        question: "Is Bladesinging a good subclass?",
+        answer: "Bladesinger is one of the most powerful and versatile subclasses in 5e. It excels at melee-range hybrid combat, outshines Hexblade in spell variety, gets Extra Attack that other gish builds lack, and maintains full wizard spellcasting. It's considered A-tier or S-tier by most optimization guides."
+      },
+      {
+        question: "What is the best race for a Bladesinger?",
+        answer: "Races with flying (Aarakocra, Fairy, Owlin, Winged Tiefling) are excellent for mobility. Variant Human and Custom Lineage provide early feats. High Elf gives a free cantrip. Yuan-Ti Pureblood offers magic resistance. Any race with DEX and INT bonuses works well since Bladesingers need both stats."
+      },
+      {
+        question: "Should Bladesingers dual wield?",
+        answer: "No, Bladesingers should not dual wield. The Bladesong feature explicitly ends if you use two hands to make an attack with a weapon OR if you hold a shield or weapon in your off hand. Use a one-handed weapon (rapier is popular) and keep your other hand free for somatic spell components."
+      },
+      {
+        question: "What are the best Bladesinger spells?",
+        answer: "Essential spells include: Shield (reaction for +5 AC), Absorb Elements (elemental defense), Shadow Blade (great with Extra Attack), Haste (stacks with Bladesong), and Mirror Image (doesn't require concentration). For cantrips, Booming Blade and Green-Flame Blade combo with Extra Attack's cantrip option."
+      }
+    ]
   },
   {
     slug: "blood-hunter-5e",
@@ -433,7 +521,29 @@ export const classPages: ClassPage[] = [
       "This is unofficial content - confirm with player which version they're using (2020 update recommended)",
       "Order of the Lycan can become very powerful but has roleplay consequences"
     ],
-    searchVolume: 9800
+    searchVolume: 9800,
+    faq: [
+      {
+        question: "Why did Matt Mercer make the Blood Hunter?",
+        answer: "Matt Mercer created the Blood Hunter inspired by his character from the movie The Last Witch Hunter, with additional influence from The Witcher series of books and games. After a one-shot, he saw potential to build a full standalone class that uses health as its main resource for supernatural abilities."
+      },
+      {
+        question: "Is the Blood Hunter official D&D content?",
+        answer: "Blood Hunter is not official Wizards of the Coast content. It's popular homebrew created by Matt Mercer for Critical Role. However, it's widely accepted at tables and available on D&D Beyond as unofficial content. Always confirm with your DM before using it."
+      },
+      {
+        question: "Is Blood Hunter fun to play in 5e?",
+        answer: "Blood Hunter is exciting for players who enjoy risk/reward mechanics. The health sacrifice system creates dramatic moments, especially when tanking. The 'swinginess' of combat in D&D 5e allows for spectacular moments. However, managing HP loss while being effective requires attention to resource management."
+      },
+      {
+        question: "What are the best Blood Hunter subclasses?",
+        answer: "Order of the Lycan is popular for its werewolf transformation and regeneration. Order of the Ghostslayer excels against undead with its rite damage ignoring resistance. Order of the Profane Soul offers warlock-style spellcasting. Order of the Mutant provides versatile buffs through mutagens. All are viable."
+      },
+      {
+        question: "How do Crimson Rites work?",
+        answer: "As a bonus action, take necrotic damage equal to your hit die (d10) to activate a rite on your weapon, adding extra elemental damage (fire, cold, lightning, etc.) to attacks. The damage reduces your HP maximum, not current HP. The rite lasts until you finish a short or long rest or become unconscious."
+      }
+    ]
   },
   {
     slug: "cleric-5e",
@@ -548,7 +658,29 @@ export const classPages: ClassPage[] = [
       "Some domains (Twilight, Peace) are considered overpowered - discuss balance with players",
       "Track Channel Divinity uses (1-3 per rest depending on level)"
     ],
-    searchVolume: 24600
+    searchVolume: 24600,
+    faq: [
+      {
+        question: "What are the best Cleric spells in 5e?",
+        answer: "Essential cleric spells include: Healing Word (1st, bonus action heal), Bless (1st, +1d4 to attacks/saves), Spiritual Weapon (2nd, bonus action damage), Spirit Guardians (3rd, incredible sustained damage), and Revivify (3rd, resurrection). Higher levels: Banishment, Death Ward, and Heal are excellent."
+      },
+      {
+        question: "What are the best Cleric subclasses (domains) in 5e?",
+        answer: "Twilight Domain is considered the strongest with its temp HP aura and shared darkvision. Peace Domain's Emboldening Bond is extremely powerful. Life Domain is the best pure healer. Tempest Domain offers excellent damage with Destructive Wrath. Forge and War Domains provide strong martial options with heavy armor."
+      },
+      {
+        question: "Is Cleric good for beginners in 5e?",
+        answer: "Yes, Cleric is great for beginners. You can change your prepared spells daily (forgiving if you choose poorly), have good AC and HP for a caster, and Life Domain is straightforward to play. The main complexity is choosing from their large spell list daily, but you can start with a simple set of staple spells."
+      },
+      {
+        question: "Can Clerics wear heavy armor in 5e?",
+        answer: "Not by default. Base Cleric only gets light and medium armor. However, several domains grant heavy armor proficiency at 1st level: Life, Nature, Order, Tempest, War, Forge, and Twilight. This makes these domains popular for frontline 'battle cleric' builds."
+      },
+      {
+        question: "How does Turn Undead work?",
+        answer: "As an action using Channel Divinity, each undead within 30 feet that can see/hear you must make a Wisdom save. On failure, they're turned for 1 minute (must flee, can't take reactions, can't move toward you). At higher levels (5th+), weak undead are instantly destroyed instead. It's situational but devastating in undead-heavy campaigns."
+      }
+    ]
   },
   {
     slug: "paladin-5e",
@@ -778,7 +910,29 @@ export const classPages: ClassPage[] = [
       "Entangle, Spike Growth, and Conjure Animals are notorious for slowing combat",
       "They refuse metal armor for roleplay reasons but can use hide or other materials"
     ],
-    searchVolume: 19200
+    searchVolume: 19200,
+    faq: [
+      {
+        question: "What are the best Druid spells in 5e?",
+        answer: "Essential druid spells include: Entangle (1st, control), Healing Word (1st), Pass Without Trace (2nd, +10 Stealth for party), Spike Growth (2nd, area denial), Conjure Animals (3rd, summoning), and Polymorph (4th). Higher levels: Wall of Stone, Transport via Plants, and Shapechange are excellent."
+      },
+      {
+        question: "What are the best Druid subclasses (circles) in 5e?",
+        answer: "Circle of the Moon is the iconic Wild Shape tank, especially strong at low levels. Circle of the Shepherd dominates with summoning and spirit totems. Circle of Stars offers reliable damage and healing in Starry Form. Circle of Spores is unique but niche. Circle of the Land is solid for casters who want spell recovery."
+      },
+      {
+        question: "How does Wild Shape work in 5e?",
+        answer: "Use an action (bonus action for Moon Druid) to transform into a beast you've seen. CR limit starts at 1/4, scaling to CR 1 at 8th level (Moon Druids get higher CR earlier). You use the beast's physical stats but keep your mental stats, proficiencies, and class features. Beast HP is separate - overflow damage carries to your form."
+      },
+      {
+        question: "Can Druids wear metal armor in 5e?",
+        answer: "The PHB says druids 'will not wear armor or use shields made of metal' but it's a choice, not a mechanical restriction. Most DMs treat this as flavor that can be ignored or worked around with non-metal materials (dragon scale, ironwood, etc.). Discuss with your DM if you want heavy armor."
+      },
+      {
+        question: "Is Moon Druid overpowered?",
+        answer: "Moon Druid is very strong at levels 2-4, where Wild Shape HP essentially doubles or triples your survivability. Power spikes again at level 10 (elemental forms) and level 20 (unlimited Wild Shapes). It's less dominant at mid-levels (5-9) where martial classes catch up. Overall strong but not broken."
+      }
+    ]
   },
   {
     slug: "eldritch-knight-5e",
@@ -844,7 +998,29 @@ export const classPages: ClassPage[] = [
       "Eldritch Strike disadvantage combos well with allies casting save spells"
     ],
     searchVolume: 11300,
-    aliases: ["eldritch-knight-5e-alt"]
+    aliases: ["eldritch-knight-5e-alt"],
+    faq: [
+      {
+        question: "What is Eldritch Knight good for?",
+        answer: "Eldritch Knights excel at tactical combat, combining Fighter's martial prowess with defensive magic. Shield and Absorb Elements make them incredibly durable. War Magic lets you cast Booming Blade then attack. They're tankier than pure fighters but with less damage than Battle Master. Great for players wanting magic without complexity."
+      },
+      {
+        question: "Is Eldritch Knight better than Warlock?",
+        answer: "For a melee combatant using heavy armor and greatswords, Eldritch Knight is superior. Warlocks don't get heavy armor without Hexblade, and even Hexblade lacks the Fighter's Action Surge, four attacks, and fighting styles. Warlocks excel at ranged combat (Eldritch Blast) and utility casting. Different roles entirely."
+      },
+      {
+        question: "What race is best for Eldritch Knight?",
+        answer: "Shield Dwarf provides 17 Strength and Constitution for excellent tanking. Githyanki offers medium armor, greatsword proficiency, and free spells. Variant Human gives an early feat (War Caster is excellent). Half-Elf provides flexible stats and skills. Any race with Strength/Constitution bonuses works well."
+      },
+      {
+        question: "Is Eldritch Knight or Bladesinger better?",
+        answer: "Eldritch Knight is a fighter pretending to be a wizard (martial focus with some magic). Bladesinger is a wizard pretending to be a fighter (full casting with melee ability). At levels 1-5, Eldritch Knight is stronger in melee. At higher levels, Bladesinger's full spell progression pulls ahead. Choose based on whether you want martial or caster primary."
+      },
+      {
+        question: "What are the best Eldritch Knight spells?",
+        answer: "Essential spells: Shield (reaction +5 AC), Absorb Elements (halve elemental damage), and Booming Blade (pairs with War Magic). Shadow Blade is excellent if allowed. For non-abjuration/evocation picks at levels 8/14/20: Find Familiar, Misty Step, or Haste. Focus on defensive and utility spells - you're a fighter first."
+      }
+    ]
   },
   {
     slug: "fighter-5e",
@@ -944,7 +1120,29 @@ export const classPages: ClassPage[] = [
       "Echo Knight can be confusing - the echo isn't a creature and has unique rules",
       "Short rest classes like Fighter excel in dungeons with multiple encounters per day"
     ],
-    searchVolume: 21500
+    searchVolume: 21500,
+    faq: [
+      {
+        question: "What are the best Fighter subclasses in 5e?",
+        answer: "Battle Master is the most popular for its tactical maneuvers and versatility. Echo Knight (Wildemount) is extremely powerful with its echo clone. Rune Knight offers size increases and rune magic. Eldritch Knight adds spellcasting. Champion is simple but effective. Samurai provides reliable advantage and survivability."
+      },
+      {
+        question: "How does Action Surge work?",
+        answer: "Once per short or long rest (twice at 17th level), you can take one additional action on your turn. This stacks with Extra Attack, so a 5th-level fighter can make 4 attacks in one turn. It doesn't grant an extra bonus action. Action Surge is incredibly powerful for burst damage or clutch moments."
+      },
+      {
+        question: "Is Fighter good for beginners in 5e?",
+        answer: "Fighter is one of the best beginner classes, especially Champion subclass. Simple mechanics (hit things, Action Surge, Second Wind), high HP and AC for survivability, and no spell management. Battle Master adds tactical depth when ready. The straightforward playstyle lets new players focus on learning the game."
+      },
+      {
+        question: "How many attacks do Fighters get?",
+        answer: "Fighters get Extra Attack at 5th level (2 attacks), 11th level (3 attacks), and 20th level (4 attacks) - more than any other class. With Action Surge, a 20th-level Fighter can make 8 attacks in one turn (9 with certain feats/features). This consistent damage output is the Fighter's core strength."
+      },
+      {
+        question: "What's the difference between Battle Master and Champion?",
+        answer: "Battle Master uses Superiority Dice (d8s) to fuel tactical maneuvers like Trip Attack, Riposte, and Precision Attack. More complex but more powerful. Champion simply expands critical hit range (19-20, then 18-20) and gains extra fighting styles. Champion is simpler; Battle Master rewards tactical play."
+      }
+    ]
   },
   {
     slug: "gunslinger-5e",
@@ -1009,7 +1207,29 @@ export const classPages: ClassPage[] = [
       "Trick Shots are limited by grit points (WIS modifier) so they're a finite resource",
       "Requires tinker's tools, materials, and downtime to craft ammunition and repair"
     ],
-    searchVolume: 7200
+    searchVolume: 7200,
+    faq: [
+      {
+        question: "Is Gunslinger official 5e content?",
+        answer: "No, Gunslinger is homebrew content created by Matt Mercer for Critical Role. It's a Fighter subclass available on D&D Beyond as unofficial content. While widely accepted, always confirm with your DM before using it. The 2020 version is the most balanced and commonly used."
+      },
+      {
+        question: "How do firearms work in Gunslinger 5e?",
+        answer: "Firearms have unique properties: higher damage than crossbows but limited range, ammunition requirements, and misfire scores. If you roll equal to or below the misfire score on an attack, the gun jams and can't fire until repaired. You need tinker's tools to craft ammo and repair misfires."
+      },
+      {
+        question: "How does Grit work in Gunslinger?",
+        answer: "Grit points equal your Wisdom modifier (minimum 1). Spend grit on Trick Shots like Deadeye (advantage), Disarming Shot (drop weapon), or Violent Shot (extra damage). Regain grit on short/long rest or when you score a killing blow with a firearm. Managing grit is key to the class."
+      },
+      {
+        question: "What stats does Gunslinger need?",
+        answer: "Prioritize Dexterity (attack/damage with firearms) and Wisdom (grit points and some saves). Constitution is important for HP since you'll take aggro with high damage. Intelligence isn't needed despite the tinkering flavor. A 16 DEX / 14 WIS / 14 CON start is solid."
+      },
+      {
+        question: "What are the best Gunslinger firearms?",
+        answer: "The Pepperbox offers 6 shots before reloading with decent damage. The Bad News does massive damage (2d12) but has high misfire risk. The Hand Mortar provides AoE options. Most Gunslingers start with a Pistol (1d10) and work toward better weapons through crafting."
+      }
+    ]
   },
   {
     slug: "hexblade-warlock-5e",
@@ -1069,7 +1289,29 @@ export const classPages: ClassPage[] = [
       "They have limited spell slots but regain on short rest - encourage short rests",
       "Hexblade's Curse + Hex spell stacks for massive single-target damage"
     ],
-    searchVolume: 15600
+    searchVolume: 15600,
+    faq: [
+      {
+        question: "Is a Hexblade Warlock good?",
+        answer: "Hexblade is mechanically the best Warlock patron regardless of whether you fight with weapons or Eldritch Blast alone. Medium armor, shields, and Charisma-based weapon attacks are its main selling points. It's particularly powerful for multiclassing with Paladin, Bard, or Sorcerer."
+      },
+      {
+        question: "Is Hexblade the same as Pact of the Blade?",
+        answer: "No, they're different features. Hexblade is a patron (subclass) chosen at 1st level that grants medium armor, shields, martial weapons, and CHA-based attacks. Pact of the Blade is a pact boon available to any warlock at 3rd level that creates a magical weapon. They synergize well but are separate features."
+      },
+      {
+        question: "Is it worth taking Pact of the Blade with Hexblade?",
+        answer: "Yes, Pact of the Blade is excellent with Hexblade. It lets you summon any weapon form, use your pact weapon as your Hex Warrior weapon without touching it, and access blade-specific invocations like Thirsting Blade (Extra Attack) and Lifedrinker (+CHA to damage). It's the most popular combination."
+      },
+      {
+        question: "Why is Hexblade so popular?",
+        answer: "Hexblade is popular because it front-loads powerful features at level 1: medium armor, shields, martial weapons, and Charisma-based attacks. This makes 1-2 level dips extremely attractive for Paladins, Sorcerers, and Bards who want weapon combat. It's also the strongest pure warlock for melee builds."
+      },
+      {
+        question: "What are the best Hexblade spells?",
+        answer: "Essential spells: Hex (bonus damage), Shield (reaction defense), Armor of Agathys (temp HP + damage), Shadow of Moil (obscurement + damage), and Banishing Smite (high level burst). Also consider Eldritch Smite invocation for prone + damage on crits. Don't neglect Eldritch Blast for ranged option."
+      }
+    ]
   },
   {
     slug: "monk-5e",
@@ -1169,7 +1411,29 @@ export const classPages: ClassPage[] = [
       "They're ki-dependent and shine with short rests between encounters",
       "Relatively low damage compared to other martials but excellent control with stuns"
     ],
-    searchVolume: 16800
+    searchVolume: 16800,
+    faq: [
+      {
+        question: "What are the best Monk subclasses in 5e?",
+        answer: "Way of Mercy is widely considered the strongest, offering healing and necrotic damage. Way of the Open Hand is the classic option with enhanced Flurry effects. Way of Shadow provides ninja-like stealth and teleportation. Way of the Astral Self uses WIS for attacks. Avoid Way of Four Elements (underpowered)."
+      },
+      {
+        question: "How does Ki work in 5e?",
+        answer: "Monks have ki points equal to their monk level, refreshing on short or long rest. Spend ki on Flurry of Blows (1 ki for 2 bonus attacks), Patient Defense (1 ki to Dodge as bonus action), Step of the Wind (1 ki to Disengage/Dash as bonus action), Stunning Strike (1 ki per attempt), and subclass features."
+      },
+      {
+        question: "Is Monk a good class in 5e?",
+        answer: "Monk is considered one of the weaker classes in 5e. They're ki-starved at low levels, deal less damage than other martials, and require multiple good stats (DEX, WIS, CON). However, they have unmatched mobility, Stunning Strike is powerful, and they're fun to play. The 2024 version significantly buffs monks."
+      },
+      {
+        question: "What stats do Monks need?",
+        answer: "Monks are MAD (Multiple Ability Dependent), needing Dexterity (attacks, AC, saves), Wisdom (AC, ki save DC, some abilities), and Constitution (HP). Prioritize DEX > WIS > CON. A good starting array is 16 DEX, 16 WIS, 14 CON. This stat hunger is why monks are considered challenging to build."
+      },
+      {
+        question: "How does Stunning Strike work?",
+        answer: "When you hit a creature with a melee weapon attack, spend 1 ki to force a Constitution save. On failure, they're stunned until the end of your next turn (can't act, auto-fail STR/DEX saves, attacks against them have advantage). You can try multiple times per turn. It's incredibly powerful against single targets."
+      }
+    ]
   },
   {
     slug: "ranger-5e",
@@ -1269,7 +1533,29 @@ export const classPages: ClassPage[] = [
       "Pass Without Trace makes entire party stealthy (+10 to Stealth)",
       "Conjure Animals can slow combat - consider using average stats for swarms"
     ],
-    searchVolume: 17900
+    searchVolume: 17900,
+    faq: [
+      {
+        question: "What are the best Ranger spells in 5e?",
+        answer: "Essential ranger spells: Hunter's Mark or Favored Foe (damage), Pass Without Trace (+10 Stealth for party), Spike Growth (area control), Conjure Animals (summoning), and Absorb Elements (defense). Goodberry is great for out-of-combat healing. Higher levels: Guardian of Nature and Swift Quiver."
+      },
+      {
+        question: "What are the best Ranger subclasses in 5e?",
+        answer: "Gloom Stalker is the strongest, with Dread Ambusher (extra attack + damage on turn 1), invisibility to darkvision, and WIS to initiative. Horizon Walker offers teleportation and force damage. Fey Wanderer adds CHA to skills. Beast Master (Tasha's version) is now viable. Drakewarden has a dragon companion."
+      },
+      {
+        question: "Is Ranger good in 5e?",
+        answer: "With Tasha's Cauldron optional features, Ranger is solid. Without them, the PHB Ranger is one of the weakest classes. Always use Tasha's: Deft Explorer (replaces Natural Explorer), Favored Foe (replaces Favored Enemy), and Primal Awareness. With these fixes, Ranger is a capable damage dealer and scout."
+      },
+      {
+        question: "What's the difference between PHB Ranger and Tasha's Ranger?",
+        answer: "PHB Ranger's Favored Enemy and Natural Explorer are situational and often useless. Tasha's replaces these: Deft Explorer gives expertise and useful exploration abilities; Favored Foe gives concentration-free extra damage. Tasha's also improves Beast Master significantly. Always use Tasha's options if your DM allows."
+      },
+      {
+        question: "Is Hunter's Mark worth concentrating on?",
+        answer: "Hunter's Mark is good at low levels but becomes questionable at higher levels when you have better concentration options (Conjure Animals, Guardian of Nature). Favored Foe (Tasha's) doesn't require concentration, making it often better. Use Hunter's Mark when you have no other concentration spell to use."
+      }
+    ]
   },
   {
     slug: "rogue-5e",
@@ -1374,7 +1660,29 @@ export const classPages: ClassPage[] = [
       "Reliable Talent at 11th level means they rarely fail skill checks - let them feel competent",
       "Assassins need surprise to shine - clearly communicate surprise rules and stealth mechanics"
     ],
-    searchVolume: 19400
+    searchVolume: 19400,
+    faq: [
+      {
+        question: "What are the best Rogue subclasses in 5e?",
+        answer: "Soulknife is excellent with psychic blades and telepathy. Phantom deals damage to multiple targets and has great utility. Swashbuckler excels at melee combat with easy Sneak Attack. Arcane Trickster adds spellcasting. Assassin is powerful but depends on DM rulings on surprise. Scout is great for wilderness campaigns."
+      },
+      {
+        question: "How does Sneak Attack work?",
+        answer: "Once per turn, deal extra damage (1d6 scaling to 10d6) when you hit with a finesse or ranged weapon AND have either: advantage on the attack, OR an ally within 5 feet of the target. You don't need to be hidden or sneaking. It also works on opportunity attacks (once per turn, not once per round)."
+      },
+      {
+        question: "Does Sneak Attack require hiding?",
+        answer: "No! This is a common misconception. Sneak Attack requires advantage OR having an ally within 5 feet of your target (and not having disadvantage). Hiding gives you advantage, but it's not the only way. A rogue standing next to a fighter attacking the same enemy gets Sneak Attack without any stealth."
+      },
+      {
+        question: "Is Rogue good in 5e?",
+        answer: "Rogues are excellent at skills (4 expertise by level 6, Reliable Talent at 11), single-target damage (10d6 Sneak Attack), and survivability (Uncanny Dodge, Evasion). They're less effective against multiple weak enemies and in white-room combat without cover. Great for players who enjoy skill challenges and precision."
+      },
+      {
+        question: "What's the difference between Assassin and Swashbuckler?",
+        answer: "Assassin focuses on surprise attacks (auto-crit surprised enemies, Assassinate) but is highly dependent on achieving surprise. Swashbuckler is more reliable: gets Sneak Attack in 1v1 without allies nearby, free Disengage after attacking, and CHA to initiative. Most players find Swashbuckler more consistent."
+      }
+    ]
   },
   {
     slug: "sorcerer-5e",
@@ -1460,7 +1768,29 @@ export const classPages: ClassPage[] = [
       "Subtle Spell bypasses Counterspell - remember NPCs can't counter what they can't see"
     ],
     searchVolume: 20300,
-    aliases: ["dnd-sorcerer"]
+    aliases: ["dnd-sorcerer"],
+    faq: [
+      {
+        question: "What are the best Sorcerer spells in 5e?",
+        answer: "Essential sorcerer spells: Shield (1st), Absorb Elements (1st), Web (2nd), Fireball (3rd), Polymorph (4th), and Animate Objects (5th). Metamagic makes certain spells better: Twinned Haste, Quickened Fireball, Subtle Counterspell. Focus on spells that benefit from metamagic since you know very few spells."
+      },
+      {
+        question: "What are the best Sorcerer subclasses in 5e?",
+        answer: "Clockwork Soul and Aberrant Mind (Tasha's) are strongest with extra spells known. Divine Soul accesses the entire Cleric spell list. Draconic Bloodline provides AC and damage bonuses. Shadow Magic offers darkness tricks and free revival. Wild Magic is chaotic fun but inconsistent."
+      },
+      {
+        question: "How does Metamagic work?",
+        answer: "At 3rd level, choose 2 metamagic options (more later). Spend sorcery points to modify spells: Quickened (2 SP, cast as bonus action), Twinned (spell level in SP, target two creatures), Subtle (1 SP, no verbal/somatic components), Heightened (3 SP, disadvantage on save). Metamagic is your main advantage over wizards."
+      },
+      {
+        question: "Is Sorcerer or Wizard better in 5e?",
+        answer: "Wizards know more spells, can ritual cast, and learn from scrolls. Sorcerers have fewer spells but metamagic makes those spells more powerful/flexible. Subtle Spell beats Counterspell; Twinned Haste buffs two allies; Quickened Spell gives two actions. Wizard = versatility, Sorcerer = specialization and burst."
+      },
+      {
+        question: "What are the best Metamagic options?",
+        answer: "Quickened Spell (bonus action casting) and Twinned Spell (target two creatures) are universally excellent. Subtle Spell is incredible for social situations and counterspell wars. Heightened Spell helps land crucial save spells. Empowered and Extended are situational. Careful is generally weak."
+      }
+    ]
   },
   {
     slug: "swashbuckler-5e",
@@ -1519,7 +1849,29 @@ export const classPages: ClassPage[] = [
       "Panache creates interesting tactical situations - consider how enemies react to being 'taunted'",
       "Their high initiative and mobility can dictate combat flow - use terrain and ranged enemies"
     ],
-    searchVolume: 8900
+    searchVolume: 8900,
+    faq: [
+      {
+        question: "How does Swashbuckler get Sneak Attack?",
+        answer: "Swashbucklers have Rakish Audacity, which grants Sneak Attack when you're within 5 feet of your target, no other creatures are within 5 feet of you, and you don't have disadvantage. This means 1v1 duels always qualify for Sneak Attack - no ally needed, no advantage needed."
+      },
+      {
+        question: "Is Swashbuckler a good Rogue subclass?",
+        answer: "Swashbuckler is considered one of the best Rogue subclasses for melee combat. Rakish Audacity ensures reliable Sneak Attack, Fancy Footwork gives free Disengage after attacking, and adding CHA to initiative means going first. It's more consistent than Assassin and better in melee than other subclasses."
+      },
+      {
+        question: "What stats does Swashbuckler need?",
+        answer: "Prioritize Dexterity (attacks, AC, skills) and Charisma (initiative via Rakish Audacity, Panache, and social skills). Constitution is third for HP. A typical start is 16 DEX, 14 CHA, 14 CON. Unlike most rogues, Swashbucklers actually benefit from Charisma investment."
+      },
+      {
+        question: "What are the best feats for Swashbuckler?",
+        answer: "Sentinel is excellent - when enemies stop near you in 1v1, you lock them down. Dual Wielder gives another attack to fish for Sneak Attack. Mobile is redundant with Fancy Footwork. Lucky is always good. Piercer or Slasher add consistent damage. Alert for going even earlier in initiative."
+      },
+      {
+        question: "How does Fancy Footwork work?",
+        answer: "When you make a melee attack against a creature, that creature can't make opportunity attacks against you for the rest of your turn. Note: it only prevents opportunity attacks from creatures you attacked - other enemies can still opportunity attack you. It's essentially free Disengage for that enemy."
+      }
+    ]
   },
   {
     slug: "warlock-5e",
@@ -1619,7 +1971,29 @@ export const classPages: ClassPage[] = [
       "Invocations can be very powerful (Devil's Sight + Darkness, infinite Disguise Self, etc)",
       "Hexblade multiclass is extremely popular for CHA-based weapon builds"
     ],
-    searchVolume: 23700
+    searchVolume: 23700,
+    faq: [
+      {
+        question: "What are the best Warlock spells in 5e?",
+        answer: "Essential warlock spells: Hex (1st, bonus damage), Armor of Agathys (1st, temp HP), Darkness (2nd, with Devil's Sight invocation), Hypnotic Pattern (3rd, control), Summon Greater Demon (4th, summoning), and Synaptic Static (5th). Eldritch Blast with Agonizing Blast is your primary damage source."
+      },
+      {
+        question: "What are the best Warlock subclasses in 5e?",
+        answer: "Hexblade is mechanically strongest for any build. Genie (Tasha's) offers excellent damage and utility with the Bottled Respite sanctuary. Fiend provides temp HP and survivability. Great Old One gives telepathy and psychic abilities. Celestial adds healing capability. Fathomless has good tentacle damage."
+      },
+      {
+        question: "How do Warlock spell slots work?",
+        answer: "Warlocks have very few spell slots (2 at most levels, 3 at 11th, 4 at 17th) but all slots are always your highest level, and they recharge on short OR long rest. This means you cast every spell at maximum power and should take short rests frequently. Mystic Arcanum at higher levels gives extra once-per-day spells."
+      },
+      {
+        question: "What are the best Warlock invocations?",
+        answer: "Agonizing Blast is mandatory (+CHA to Eldritch Blast damage). Other top picks: Devil's Sight (120ft darkvision through magical darkness), Repelling Blast (push 10ft per beam), Eldritch Mind (advantage on concentration). Mask of Many Faces (at-will Disguise Self) and Misty Visions (at-will Silent Image) are great utility."
+      },
+      {
+        question: "Which Pact Boon is best for Warlock?",
+        answer: "Pact of the Tome is most versatile with extra cantrips and Book of Ancient Secrets for ritual casting. Pact of the Blade is essential for melee builds (especially Hexblade). Pact of the Chain gives an improved familiar for scouting. Pact of the Talisman (Tasha's) is decent but least exciting."
+      }
+    ]
   },
   {
     slug: "wizard-5e",
@@ -1739,7 +2113,29 @@ export const classPages: ClassPage[] = [
       "Spellbooks are valuable treasure and can be stolen/destroyed",
       "They're incredibly versatile but fragile (d6 hit die, no armor) - target them in combat"
     ],
-    searchVolume: 25100
+    searchVolume: 25100,
+    faq: [
+      {
+        question: "What are the best Wizard spells in 5e?",
+        answer: "Must-have spells: Shield (1st), Find Familiar (1st), Web (2nd), Counterspell (3rd), Fireball (3rd), Polymorph (4th), Wall of Force (5th), and Simulacrum (7th). Ritual spells like Detect Magic, Identify, and Leomund's Tiny Hut don't use slots. Wizards have the largest spell list - build for versatility."
+      },
+      {
+        question: "What are the best Wizard subclasses in 5e?",
+        answer: "Divination (Portent dice control d20 results) and Chronurgy (time manipulation) are considered strongest. War Magic offers consistent defense. Bladesinging is best for melee builds. Abjuration provides tanking capability. Order of Scribes has excellent utility. Evocation's Sculpt Spells protects allies from your Fireballs."
+      },
+      {
+        question: "How does the Wizard spellbook work?",
+        answer: "You start with 6 spells and learn 2 free spells per level. You can also copy spells from scrolls and other spellbooks (2 hours and 50 gp per spell level). You prepare INT mod + wizard level spells each morning. The spellbook system gives wizards the most spell options of any class - build a large library."
+      },
+      {
+        question: "Is Wizard good for beginners in 5e?",
+        answer: "Wizard is challenging for beginners due to the huge spell list and daily preparation decisions. However, they're very powerful once mastered. For new players, start with a curated spell list and stick to straightforward subclasses like Evocation. Simpler casters like Sorcerer or Warlock may be better first choices."
+      },
+      {
+        question: "What's the difference between Wizard and Sorcerer?",
+        answer: "Wizards have the largest spell list, can change prepared spells daily, learn from scrolls, and ritual cast. Sorcerers know fewer spells but have metamagic to modify them (Twinned, Quickened, Subtle). Wizard = versatility and preparation; Sorcerer = fewer options but more powerful/flexible execution."
+      }
+    ]
   }
 ];
 
