@@ -5,6 +5,7 @@ import { Warning, Tip } from "./Warning";
 import { Sources } from "./Sources";
 import { AssignToCharacter } from "./AssignToCharacter";
 import { AddMonsterToGame } from "./AddMonsterToGame";
+import { FAQ, FAQItem } from "./FAQ";
 
 type MonsterPageData = {
   slug: string;
@@ -24,6 +25,7 @@ type MonsterPageData = {
   loot: string;
   commonMistakes: string[];
   dmTips: string[];
+  faq?: FAQItem[];
 };
 
 function mod(score: number) {
@@ -48,6 +50,7 @@ export function MonsterPageComponent({ data }: { data: MonsterPageData }) {
     { id: "encounter", label: "Encounter Tips" },
     { id: "mistakes", label: "Common Mistakes" },
     { id: "tips", label: "DM Tips" },
+    ...(data.faq && data.faq.length > 0 ? [{ id: "faq", label: "FAQ" }] : []),
     { id: "sources", label: "Sources" },
   ];
 
@@ -177,6 +180,9 @@ export function MonsterPageComponent({ data }: { data: MonsterPageData }) {
           <Tip key={i}>{t}</Tip>
         ))}
       </section>
+
+      {/* FAQ */}
+      {data.faq && data.faq.length > 0 && <FAQ items={data.faq} />}
 
       <Sources
         sources={[

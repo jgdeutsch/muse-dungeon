@@ -3,6 +3,7 @@ import { JumpTo } from "./JumpTo";
 import { Warning, Tip } from "./Warning";
 import { Sources } from "./Sources";
 import { AssignToCharacter } from "./AssignToCharacter";
+import { FAQ, FAQItem } from "./FAQ";
 
 type GenericPageData = {
   name: string;
@@ -10,6 +11,7 @@ type GenericPageData = {
   sections: { id: string; title: string; content: string }[];
   commonMistakes?: string[];
   dmTips?: string[];
+  faq?: FAQItem[];
 };
 
 type BreadcrumbItem = { label: string; href?: string };
@@ -31,6 +33,7 @@ export function GenericPageComponent({
     ...data.sections.map((s) => ({ id: s.id, label: s.title })),
     ...(data.commonMistakes?.length ? [{ id: "mistakes", label: "Common Mistakes" }] : []),
     ...(data.dmTips?.length ? [{ id: "tips", label: "DM Tips" }] : []),
+    ...(data.faq?.length ? [{ id: "faq", label: "FAQ" }] : []),
     ...(sources?.length ? [{ id: "sources", label: "Sources" }] : []),
   ];
 
@@ -90,6 +93,8 @@ export function GenericPageComponent({
           ))}
         </section>
       )}
+
+      {data.faq && data.faq.length > 0 && <FAQ items={data.faq} />}
 
       {sources && sources.length > 0 && <Sources sources={sources} />}
     </>

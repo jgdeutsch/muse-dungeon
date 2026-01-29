@@ -4,6 +4,7 @@ import { JumpTo } from "./JumpTo";
 import { Warning, Tip } from "./Warning";
 import { Sources } from "./Sources";
 import { AssignToCharacter } from "./AssignToCharacter";
+import { FAQ, FAQItem } from "./FAQ";
 
 type EquipmentData = {
   slug: string;
@@ -16,6 +17,7 @@ type EquipmentData = {
   properties: string[];
   commonMistakes: string[];
   dmTips: string[];
+  faq?: FAQItem[];
 };
 
 type MagicItemData = {
@@ -28,6 +30,7 @@ type MagicItemData = {
   mechanics: string;
   commonMistakes: string[];
   dmTips: string[];
+  faq?: FAQItem[];
 };
 
 export function EquipmentPageComponent({ data }: { data: EquipmentData }) {
@@ -41,6 +44,7 @@ export function EquipmentPageComponent({ data }: { data: EquipmentData }) {
     { id: "mechanics", label: "Mechanics" },
     { id: "mistakes", label: "Common Mistakes" },
     { id: "tips", label: "DM Tips" },
+    ...(data.faq && data.faq.length > 0 ? [{ id: "faq", label: "FAQ" }] : []),
     { id: "sources", label: "Sources" },
   ];
 
@@ -109,6 +113,8 @@ export function EquipmentPageComponent({ data }: { data: EquipmentData }) {
         ))}
       </section>
 
+      {data.faq && data.faq.length > 0 && <FAQ items={data.faq} />}
+
       <Sources
         sources={[
           {
@@ -138,6 +144,7 @@ export function MagicItemPageComponent({ data }: { data: MagicItemData }) {
     { id: "mechanics", label: "Mechanics" },
     { id: "mistakes", label: "Common Mistakes" },
     { id: "tips", label: "DM Tips" },
+    ...(data.faq && data.faq.length > 0 ? [{ id: "faq", label: "FAQ" }] : []),
     { id: "sources", label: "Sources" },
   ];
 
@@ -191,6 +198,8 @@ export function MagicItemPageComponent({ data }: { data: MagicItemData }) {
           <Tip key={i}>{t}</Tip>
         ))}
       </section>
+
+      {data.faq && data.faq.length > 0 && <FAQ items={data.faq} />}
 
       <Sources
         sources={[
