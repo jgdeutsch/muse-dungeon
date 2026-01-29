@@ -4,6 +4,7 @@ import { JumpTo } from "./JumpTo";
 import { Warning, Tip } from "./Warning";
 import { Sources } from "./Sources";
 import { AddToGameButton } from "./AddToGameButton";
+import { FAQ, FAQItem } from "./FAQ";
 
 type ClassPageData = {
   slug: string;
@@ -20,6 +21,7 @@ type ClassPageData = {
   subclasses: { name: string; source: string; focus: string }[];
   commonMistakes: string[];
   dmTips: string[];
+  faq?: FAQItem[];
 };
 
 export function ClassPageComponent({ data }: { data: ClassPageData }) {
@@ -39,6 +41,7 @@ export function ClassPageComponent({ data }: { data: ClassPageData }) {
     { id: "subclasses", label: "Subclasses" },
     { id: "mistakes", label: "Common Mistakes" },
     { id: "tips", label: "DM Tips" },
+    ...(data.faq && data.faq.length > 0 ? [{ id: "faq", label: "FAQ" }] : []),
     { id: "sources", label: "Sources" },
   ];
 
@@ -136,6 +139,9 @@ export function ClassPageComponent({ data }: { data: ClassPageData }) {
           <Tip key={i}>{t}</Tip>
         ))}
       </section>
+
+      {/* FAQ */}
+      {data.faq && data.faq.length > 0 && <FAQ items={data.faq} />}
 
       <Sources
         sources={[

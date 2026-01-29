@@ -1,3 +1,8 @@
+export type FAQItem = {
+  question: string;
+  answer: string;
+};
+
 export type ClassPage = {
   slug: string;
   name: string;
@@ -16,6 +21,7 @@ export type ClassPage = {
   dmTips: string[];
   searchVolume: number;
   aliases?: string[];
+  faq?: FAQItem[];
 };
 
 export type ClassOverviewPage = {
@@ -643,7 +649,41 @@ export const classPages: ClassPage[] = [
       "Smite damage makes them excellent against single big targets but less effective against swarms"
     ],
     searchVolume: 28900,
-    aliases: ["paladin-5e-alt"]
+    aliases: ["paladin-5e-alt"],
+    faq: [
+      {
+        question: "How do you effectively play a paladin in 5e?",
+        answer: "Focus on positioning near allies to share your Aura of Protection (+CHA to all saves within 10ft). Use Divine Smite after confirming hits rather than before rolling. Balance spell slots between smites and utility spells like Bless or Shield of Faith. Don't waste Lay on Hands in combat - save it for emergencies or out-of-combat healing. As a half-caster, you're a frontline fighter first and spellcaster second."
+      },
+      {
+        question: "Are paladins hard to play in D&D 5e?",
+        answer: "Paladins are beginner-friendly but have depth for experienced players. The core gameplay is simple: hit things, smite, use auras. However, managing limited spell slots between smites and spells, knowing when to use Lay on Hands, and maximizing your aura positioning adds tactical complexity. Roleplay-wise, following your oath's tenets can be challenging but rewarding."
+      },
+      {
+        question: "How do you build the best paladin in 5e?",
+        answer: "Prioritize Strength (or Dexterity for finesse) and Charisma, with Constitution third. Start with 16 STR and 16 CHA if possible. Take Defense or Dueling fighting style. For race, Half-Elf, Variant Human, or Custom Lineage work well. Oath of Vengeance is best for damage, Oath of Ancients for party protection. Key feats include Sentinel, Great Weapon Master (if two-handed), or Polearm Master."
+      },
+      {
+        question: "Which paladin oath is the strongest in 5e?",
+        answer: "There's no single strongest oath - it depends on your role. Oath of Vengeance excels at single-target burst damage with Vow of Enmity. Oath of Ancients provides incredible spell damage resistance for the party. Oath of Conquest controls enemies through fear. Oath of the Watchers is excellent against extraplanar threats. All oaths share powerful base features like Divine Smite and Aura of Protection."
+      },
+      {
+        question: "What are the best paladin spells in 5e?",
+        answer: "Essential spells include Bless (1st) for party-wide attack/save bonuses, Shield of Faith (1st) for +2 AC, Find Steed (2nd) for a permanent mount, and Revivify (3rd) for emergency resurrection. Wrathful Smite and Thunderous Smite add control effects to attacks. At higher levels, Aura of Vitality provides efficient out-of-combat healing, and Banishment removes threats from combat."
+      },
+      {
+        question: "Can paladins heal in 5e?",
+        answer: "Yes, paladins have excellent healing. Lay on Hands provides a pool of HP equal to 5 × paladin level that you can distribute in any amount as an action. You also have access to healing spells like Cure Wounds and Lay on Hands can cure diseases and poisons for 5 HP each. While not as heal-focused as clerics, paladins make solid off-healers."
+      },
+      {
+        question: "What is Divine Smite and how does it work?",
+        answer: "Divine Smite is the paladin's signature ability. When you hit with a melee weapon attack, you can expend a spell slot to deal extra radiant damage: 2d8 for a 1st-level slot, plus 1d8 per slot level above 1st (max 5d8). You deal an extra 1d8 against undead and fiends. Crucially, you declare smite after hitting, making it reliable, and the damage dice double on critical hits."
+      },
+      {
+        question: "How does Aura of Protection work?",
+        answer: "At 6th level, you and friendly creatures within 10 feet of you gain a bonus to all saving throws equal to your Charisma modifier (minimum +1). At 18th level, the range increases to 30 feet. This is one of the strongest abilities in the game - a +4 or +5 to all saves for your entire party makes everyone significantly more resilient against spells and effects."
+      }
+    ]
   },
   {
     slug: "druid-5e",
