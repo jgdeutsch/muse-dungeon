@@ -47,6 +47,7 @@ export default async function RuleSlugPage({
         sections: rule.sections,
         commonMistakes: rule.commonMistakes,
         dmTips: rule.dmTips,
+        faq: rule.faq,
       }}
       breadcrumbs={[
         { label: "Home", href: "/" },

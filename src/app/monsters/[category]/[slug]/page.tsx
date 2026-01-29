@@ -45,6 +45,7 @@ export default async function MonsterSlugPage({
       sections: { id: string; title: string; content: string }[];
       commonMistakes: string[];
       dmTips: string[];
+      faq?: { question: string; answer: string }[];
     };
     return (
       <GenericPageComponent
