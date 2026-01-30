@@ -73,8 +73,11 @@ body {
 }
 
 /* Content links - underlined for visibility */
-main a:not(.btn):not([class*="bg-"]) {
-  text-decoration: underline;
+main p a,
+main li a,
+main ul a,
+main .prose a {
+  text-decoration: underline !important;
   text-underline-offset: 2px;
 }
 
