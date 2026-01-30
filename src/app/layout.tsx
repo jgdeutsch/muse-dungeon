@@ -6,7 +6,6 @@ import { Footer } from "@/components/Footer";
 import { AuthProvider } from "@/context/AuthContext";
 import { GameProvider } from "@/context/GameContext";
 import { Toasts } from "@/components/Toasts";
-import { EntityLinkManager } from "@/components/EntityLinkManager";
 
 export const metadata: Metadata = {
   title: {
@@ -65,7 +64,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             </div>
             <Footer />
             <Toasts />
-            <EntityLinkManager />
           </GameProvider>
         </AuthProvider>
       </body>

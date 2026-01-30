@@ -120,7 +120,7 @@ export const rulePages: RulePage[] = [
     slug: "exhaustion-5e",
     name: "Exhaustion 5e",
     category: "conditions",
-    description: "Complete guide to the <a href=\"/rules/conditions/exhaustion-condition-5e/\">exhaustion</a> condition in D&D 5e, with all six levels and their effects.",
+    description: "Complete guide to the <a href=\"/rules/core-mechanics/exhaustion-5e/\">exhaustion</a> condition in D&D 5e, with all six levels and their effects.",
     searchVolume: 14020,
     sections: [
       {
@@ -131,7 +131,7 @@ export const rulePages: RulePage[] = [
       {
         id: "gaining-exhaustion",
         title: "Gaining Exhaustion",
-        content: `<p>Common sources: going without food/water, extreme temperatures, forced marches, certain spells and abilities (like Frenzy <a href=\"/characters/classes/barbarian-5e/\">barbarian</a> rage).</p><p><a href=\"/spells/healing-support/greater-restoration-5e/\">Greater Restoration</a> removes one level of exhaustion instantly.</p>`
+        content: `<p>Common sources: going without food/water, extreme temperatures, forced marches, certain spells and abilities (like Frenzy <a href=\"/characters/classes/barbarian-5e/\">barbarian</a> rage).</p><p><a href=\"/spells/support-healing/greater-restoration-5e/\">Greater Restoration</a> removes one level of exhaustion instantly.</p>`
       }
     ],
     commonMistakes: [
@@ -147,7 +147,7 @@ export const rulePages: RulePage[] = [
     faq: [
       {
         question: "How do you remove exhaustion in 5e?",
-        answer: "A long rest removes ONE level of exhaustion (provided you have food and water). The spell <a href=\"/spells/healing-support/greater-restoration-5e/\">Greater Restoration</a> also removes one level instantly. There's no quick way to remove multiple levels - recovering from severe exhaustion takes days of rest, making it a serious condition."
+        answer: "A long rest removes ONE level of exhaustion (provided you have food and water). The spell <a href=\"/spells/support-healing/greater-restoration-5e/\">Greater Restoration</a> also removes one level instantly. There's no quick way to remove multiple levels - recovering from severe exhaustion takes days of rest, making it a serious condition."
       },
       {
         question: "Do exhaustion effects stack?",
@@ -155,7 +155,7 @@ export const rulePages: RulePage[] = [
       },
       {
         question: "What causes exhaustion besides lack of food and water?",
-        answer: "Many sources: Berserker <a href=\"/characters/classes/barbarian-5e/\">Barbarian's</a> Frenzy (1 level after rage), forced marches (Con save or 1 level per hour beyond 8), extreme heat/cold, certain spells like <a href=\"/spells/damage-offensive/sickening-radiance-5e/\">Sickening Radiance</a>, some monster abilities, and resurrection spells like <a href=\"/spells/healing-support/raise-dead-5e/\">Raise Dead</a> cause exhaustion."
+        answer: "Many sources: Berserker <a href=\"/characters/classes/barbarian-5e/\">Barbarian's</a> Frenzy (1 level after rage), forced marches (Con save or 1 level per hour beyond 8), extreme heat/cold, certain spells like <a href=\"/spells/offensive/sickening-radiance-5e/\">Sickening Radiance</a>, some monster abilities, and resurrection spells like <a href=\"/spells/support-healing/raise-dead-5e/\">Raise Dead</a> cause exhaustion."
       },
       {
         question: "Can you die from exhaustion?",
@@ -261,7 +261,7 @@ export const rulePages: RulePage[] = [
       },
       {
         question: "Can I cast higher-level spells with multiclass spell slots?",
-        answer: "You can use higher-level slots to cast spells you know at higher levels (like upcasting <a href=\"/spells/healing-support/cure-wounds-5e/\">Cure Wounds</a>), but you can only LEARN/PREPARE spells based on each individual class's level. A <a href=\"/characters/classes/cleric-5e/\">Cleric</a> 5/<a href=\"/characters/classes/wizard-5e/\">Wizard</a> 5 has 5th-level slots but can only learn 3rd-level spells from each class."
+        answer: "You can use higher-level slots to cast spells you know at higher levels (like upcasting <a href=\"/spells/support-healing/cure-wounds-5e/\">Cure Wounds</a>), but you can only LEARN/PREPARE spells based on each individual class's level. A <a href=\"/characters/classes/cleric-5e/\">Cleric</a> 5/<a href=\"/characters/classes/wizard-5e/\">Wizard</a> 5 has 5th-level slots but can only learn 3rd-level spells from each class."
       },
       {
         question: "Does multiclassing delay Extra Attack?",
@@ -330,7 +330,7 @@ export const rulePages: RulePage[] = [
       {
         id: "wild-magic-surge",
         title: "Wild Magic Surge (d100)",
-        content: `<table class="stat-table"><thead><tr><th>d100</th><th>Effect</th></tr></thead><tbody><tr><td>01-02</td><td>Roll again; both effects occur</td></tr><tr><td>03-04</td><td>You teleport 60 feet to a random space</td></tr><tr><td>05-06</td><td><a href="/spells/damage-offensive/fireball-5e/">Fireball</a> centered on you (3rd-level)</td></tr><tr><td>07-08</td><td>Cast <a href="/spells/damage-offensive/magic-missile-5e/">Magic Missile</a> (5th-level)</td></tr><tr><td>09-10</td><td>You turn into a potted plant until start of next turn</td></tr><tr><td>11-12</td><td>Cast <a href="/spells/utility-control/levitate-5e/">Levitate</a> on yourself</td></tr><tr><td>13-14</td><td><a href="/monsters/unicorn-5e/">Unicorn</a> appears within 5 feet for 1 minute</td></tr><tr><td>15-16</td><td>You grow a long beard made of feathers</td></tr><tr><td>17-18</td><td>You regain your lowest-level expended spell slot</td></tr><tr><td>19-20</td><td>All creatures within 30 feet <a href="/rules/conditions/invisible-condition-5e/">invisible</a> for 1 minute</td></tr></tbody></table><p>Roll on this table when the DM calls for a Wild Magic Surge (typically when you roll a 1 on d20 after casting a spell).</p>`
+        content: `<table class="stat-table"><thead><tr><th>d100</th><th>Effect</th></tr></thead><tbody><tr><td>01-02</td><td>Roll again; both effects occur</td></tr><tr><td>03-04</td><td>You teleport 60 feet to a random space</td></tr><tr><td>05-06</td><td><a href="/spells/offensive/fireball-5e/">Fireball</a> centered on you (3rd-level)</td></tr><tr><td>07-08</td><td>Cast <a href="/spells/offensive/magic-missile-5e/">Magic Missile</a> (5th-level)</td></tr><tr><td>09-10</td><td>You turn into a potted plant until start of next turn</td></tr><tr><td>11-12</td><td>Cast <a href="/spells/utility-control/levitate-5e/">Levitate</a> on yourself</td></tr><tr><td>13-14</td><td>Unicorn appears within 5 feet for 1 minute</td></tr><tr><td>15-16</td><td>You grow a long beard made of feathers</td></tr><tr><td>17-18</td><td>You regain your lowest-level expended spell slot</td></tr><tr><td>19-20</td><td>All creatures within 30 feet <a href="/rules/conditions/invisible-condition-5e/">invisible</a> for 1 minute</td></tr></tbody></table><p>Roll on this table when the DM calls for a Wild Magic Surge (typically when you roll a 1 on d20 after casting a spell).</p>`
       },
       {
         id: "triggering-surge",
@@ -355,7 +355,7 @@ export const rulePages: RulePage[] = [
       },
       {
         question: "Can Wild Magic Surge kill my character?",
-        answer: "Potentially! Roll 05-06 casts <a href=\"/spells/damage-offensive/fireball-5e/\">Fireball</a> centered on yourself (8d6 fire damage in 20-foot radius). At low levels, this can down or kill your character and nearby allies. Most effects are harmless or beneficial, but the danger is part of the subclass's appeal."
+        answer: "Potentially! Roll 05-06 casts <a href=\"/spells/offensive/fireball-5e/\">Fireball</a> centered on yourself (8d6 fire damage in 20-foot radius). At low levels, this can down or kill your character and nearby allies. Most effects are harmless or beneficial, but the danger is part of the subclass's appeal."
       },
       {
         question: "Does the <a href=\"/characters/classes/sorcerer-5e/\">Sorcerer</a> control Wild Magic Surge effects?",
@@ -693,12 +693,12 @@ export const rulePages: RulePage[] = [
       {
         id: "standard-languages",
         title: "Standard Languages",
-        content: `<table class="stat-table"><thead><tr><th>Language</th><th>Typical Speakers</th><th>Script</th></tr></thead><tbody><tr><td>Common</td><td><a href="/characters/races/human-5e/">Humans</a></td><td>Common</td></tr><tr><td>Dwarvish</td><td><a href="/characters/races/dwarf-5e/">Dwarves</a></td><td>Dwarvish</td></tr><tr><td>Elvish</td><td><a href="/characters/races/elf-5e/">Elves</a></td><td>Elvish</td></tr><tr><td>Giant</td><td>Ogres, <a href="/monsters/giant-5e/">Giants</a></td><td>Dwarvish</td></tr><tr><td>Gnomish</td><td><a href="/characters/races/gnome-5e/">Gnomes</a></td><td>Dwarvish</td></tr><tr><td>Goblin</td><td><a href="/monsters/goblin-5e/">Goblinoids</a></td><td>Dwarvish</td></tr><tr><td>Halfling</td><td><a href="/characters/races/halfling-5e/">Halflings</a></td><td>Common</td></tr><tr><td>Orc</td><td><a href="/monsters/orc-5e/">Orcs</a></td><td>Dwarvish</td></tr></tbody></table>`
+        content: `<table class="stat-table"><thead><tr><th>Language</th><th>Typical Speakers</th><th>Script</th></tr></thead><tbody><tr><td>Common</td><td><a href="/characters/races/human-5e/">Humans</a></td><td>Common</td></tr><tr><td>Dwarvish</td><td><a href="/characters/races/dwarf-5e/">Dwarves</a></td><td>Dwarvish</td></tr><tr><td>Elvish</td><td><a href="/characters/races/elf-5e/">Elves</a></td><td>Elvish</td></tr><tr><td>Giant</td><td>Ogres, Giants</td><td>Dwarvish</td></tr><tr><td>Gnomish</td><td><a href="/characters/races/gnome-5e/">Gnomes</a></td><td>Dwarvish</td></tr><tr><td>Goblin</td><td><a href="/monsters/creatures/goblin-5e/">Goblinoids</a></td><td>Dwarvish</td></tr><tr><td>Halfling</td><td><a href="/characters/races/halfling-5e/">Halflings</a></td><td>Common</td></tr><tr><td>Orc</td><td><a href="/monsters/creatures/orc-5e/">Orcs</a></td><td>Dwarvish</td></tr></tbody></table>`
       },
       {
         id: "exotic-languages",
         title: "Exotic Languages",
-        content: `<table class="stat-table"><thead><tr><th>Language</th><th>Typical Speakers</th></tr></thead><tbody><tr><td>Abyssal</td><td>Demons</td></tr><tr><td>Celestial</td><td>Celestials</td></tr><tr><td>Draconic</td><td>Dragons, <a href="/characters/races/dragonborn-5e/">Dragonborn</a></td></tr><tr><td>Deep Speech</td><td><a href="/monsters/mind-flayer-5e/">Mind Flayers</a>, <a href="/monsters/beholder-5e/">Beholders</a></td></tr><tr><td>Infernal</td><td>Devils</td></tr><tr><td>Primordial</td><td>Elementals (includes Aquan, Auran, Ignan, Terran)</td></tr><tr><td>Sylvan</td><td>Fey creatures</td></tr><tr><td>Undercommon</td><td>Underdark traders</td></tr></tbody></table><p>Thieves' Cant is a secret language used by <a href="/characters/classes/rogue-5e/">rogues</a> for hidden messages.</p>`
+        content: `<table class="stat-table"><thead><tr><th>Language</th><th>Typical Speakers</th></tr></thead><tbody><tr><td>Abyssal</td><td>Demons</td></tr><tr><td>Celestial</td><td>Celestials</td></tr><tr><td>Draconic</td><td>Dragons, <a href="/characters/races/dragonborn-5e/">Dragonborn</a></td></tr><tr><td>Deep Speech</td><td><a href="/monsters/creatures/mind-flayer-5e/">Mind Flayers</a>, <a href="/monsters/creatures/beholder-5e/">Beholders</a></td></tr><tr><td>Infernal</td><td>Devils</td></tr><tr><td>Primordial</td><td>Elementals (includes Aquan, Auran, Ignan, Terran)</td></tr><tr><td>Sylvan</td><td>Fey creatures</td></tr><tr><td>Undercommon</td><td>Underdark traders</td></tr></tbody></table><p>Thieves' Cant is a secret language used by <a href="/characters/classes/rogue-5e/">rogues</a> for hidden messages.</p>`
       }
     ],
     commonMistakes: [
@@ -908,12 +908,12 @@ export const rulePages: RulePage[] = [
 
 <p><strong>Common Upcasting Examples:</strong></p>
 <ul>
-<li><a href="/spells/damage-offensive/magic-missile-5e/">Magic Missile</a> (1st level): Base 3 darts, +1 dart per level</li>
-<li><a href="/spells/damage-offensive/fireball-5e/">Fireball</a> (3rd level): 8d6 base, +1d6 per level</li>
+<li><a href="/spells/offensive/magic-missile-5e/">Magic Missile</a> (1st level): Base 3 darts, +1 dart per level</li>
+<li><a href="/spells/offensive/fireball-5e/">Fireball</a> (3rd level): 8d6 base, +1d6 per level</li>
 <li><a href="/spells/utility-control/hold-person-5e/">Hold Person</a> (2nd level): 1 target, +1 target per level</li>
 </ul>
 
-<p><strong>Not All Spells Upcast Well:</strong> Some spells like <a href="/spells/abjuration/shield-5e/">Shield</a> or <a href="/spells/utility-control/misty-step-5e/">Misty Step</a> don't improve with higher slots. Check the spell description for "At Higher Levels."</p>`
+<p><strong>Not All Spells Upcast Well:</strong> Some spells like <a href="/spells/reaction-defense/shield-5e/">Shield</a> or <a href="/spells/utility-control/misty-step-5e/">Misty Step</a> don't improve with higher slots. Check the spell description for "At Higher Levels."</p>`
       },
       {
         id: "recovering-slots",
@@ -1080,8 +1080,8 @@ export const rulePages: RulePage[] = [
 <p><strong>Magical Protection:</strong></p>
 <ul>
 <li>Some DMs allow magical protections (traps, locks)</li>
-<li><a href="/spells/utility-control/illusory-script-5e/">Illusory Script</a> can hide the contents</li>
-<li><a href="/spells/abjuration/arcane-lock-5e/">Arcane Lock</a> on a carrying case</li>
+<li>Illusory Script can hide the contents</li>
+<li>Arcane Lock on a carrying case</li>
 <li>Nystul's Magic Aura to hide its magical nature</li>
 </ul>`
       }
@@ -1162,16 +1162,16 @@ export const rulePages: RulePage[] = [
 <li><a href="/spells/utility-control/detect-magic-5e/">Detect Magic</a> (1st): Find magic items, traps, invisible creatures</li>
 <li><a href="/spells/utility-control/find-familiar-5e/">Find Familiar</a> (1st): Permanent companion, scout, Help action</li>
 <li><a href="/spells/utility-control/identify-5e/">Identify</a> (1st): Learn properties of magic items</li>
-<li><a href="/spells/utility-control/comprehend-languages-5e/">Comprehend Languages</a> (1st): Understand any language</li>
-<li><a href="/spells/abjuration/tiny-hut-5e/">Tiny Hut</a> (3rd): Safe long rest anywhere</li>
+<li>Comprehend Languages (1st): Understand any language</li>
+<li>Tiny Hut (3rd): Safe long rest anywhere</li>
 </ul>
 
 <p><strong>Other Valuable Rituals:</strong></p>
 <ul>
-<li><a href="/spells/abjuration/alarm-5e/">Alarm</a> (1st): Safe short rests</li>
+<li>Alarm (1st): Safe short rests</li>
 <li>Unseen Servant (1st): Utility helper</li>
-<li><a href="/spells/utility-control/phantom-steed-5e/">Phantom Steed</a> (3rd): Fast travel</li>
-<li><a href="/spells/utility-control/water-breathing-5e/">Water Breathing</a> (3rd): Underwater exploration</li>
+<li>Phantom Steed (3rd): Fast travel</li>
+<li>Water Breathing (3rd): Underwater exploration</li>
 <li>Contact Other Plane (5th): Information gathering</li>
 </ul>`
       },
@@ -1444,8 +1444,8 @@ export const rulePages: RulePage[] = [
         title: "Resting Safely",
         content: `<p><strong>Spells for Safe Rests:</strong></p>
 <ul>
-<li><a href="/spells/abjuration/tiny-hut-5e/">Tiny Hut</a> (3rd level): 10-foot dome, nothing can enter - <a href="/rules/core-mechanics/ritual-casting-5e/">ritual</a> cast it!</li>
-<li><a href="/spells/abjuration/alarm-5e/">Alarm</a> (1st level): 20-foot cube, alerts to intruders - ritual!</li>
+<li>Tiny Hut (3rd level): 10-foot dome, nothing can enter - <a href="/rules/core-mechanics/ritual-casting-5e/">ritual</a> cast it!</li>
+<li>Alarm (1st level): 20-foot cube, alerts to intruders - ritual!</li>
 <li>Rope Trick (2nd level): Extradimensional space, but only 1 hour</li>
 </ul>
 
@@ -1583,14 +1583,14 @@ export const rulePages: RulePage[] = [
 
 <p><strong>Ability Checks with Disadvantage:</strong></p>
 <ul>
-<li><a href="/rules/conditions/exhaustion-condition-5e/">Exhaustion</a> level 1</li>
+<li><a href="/rules/conditions/exhaustion-5e/">Exhaustion</a> level 1</li>
 <li>Heavy obscurement (Perception)</li>
 <li>DM-imposed circumstances</li>
 </ul>
 
 <p><strong>Saving Throws with Disadvantage:</strong></p>
 <ul>
-<li><a href="/rules/conditions/exhaustion-condition-5e/">Exhaustion</a> level 3</li>
+<li><a href="/rules/conditions/exhaustion-5e/">Exhaustion</a> level 3</li>
 <li>Certain spell effects</li>
 </ul>`
       },
@@ -1806,7 +1806,7 @@ export const rulePages: RulePage[] = [
 
 <p><strong>Spells and Features:</strong></p>
 <ul>
-<li><a href="/spells/healing-support/bless-5e/">Bless</a>: +1d4 to saving throws</li>
+<li><a href="/spells/support-healing/bless-5e/">Bless</a>: +1d4 to saving throws</li>
 <li><a href="/characters/classes/paladin-5e/">Paladin's</a> Aura of Protection: +Charisma modifier to saves within 10 feet</li>
 <li><a href="/characters/classes/monk-5e/">Monk's</a> Diamond Soul (14th): Proficiency in all saving throws</li>
 </ul>
@@ -1902,7 +1902,7 @@ export const rulePages: RulePage[] = [
 <p><strong>Situational Bonuses:</strong></p>
 <ul>
 <li>Magic weapon bonus (+1, +2, +3)</li>
-<li><a href="/spells/healing-support/bless-5e/">Bless</a> spell: +1d4</li>
+<li><a href="/spells/support-healing/bless-5e/">Bless</a> spell: +1d4</li>
 <li>Bardic Inspiration: +1d6/d8/d10/d12</li>
 <li>Fighting Style (Archery): +2 to ranged attacks</li>
 </ul>
@@ -1989,8 +1989,8 @@ export const rulePages: RulePage[] = [
 
 <p><strong>Spells:</strong></p>
 <ul>
-<li><a href="/spells/abjuration/mage-armor-5e/">Mage Armor</a>: 13 + Dex (no armor)</li>
-<li><a href="/spells/abjuration/barkskin-5e/">Barkskin</a>: AC can't be less than 16</li>
+<li><a href="/spells/reaction-defense/mage-armor-5e/">Mage Armor</a>: 13 + Dex (no armor)</li>
+<li>Barkskin: AC can't be less than 16</li>
 </ul>
 
 <p><strong>Important:</strong> Alternative calculations don't stack. Choose the best one. Shields and other AC BONUSES stack with any calculation.</p>`
@@ -2008,8 +2008,8 @@ export const rulePages: RulePage[] = [
 
 <p><strong>Spells (Bonuses):</strong></p>
 <ul>
-<li><a href="/spells/abjuration/shield-5e/">Shield</a> (reaction): +5 AC until next turn</li>
-<li><a href="/spells/abjuration/shield-of-faith-5e/">Shield of Faith</a>: +2 AC for 10 minutes</li>
+<li><a href="/spells/reaction-defense/shield-5e/">Shield</a> (reaction): +5 AC until next turn</li>
+<li>Shield of Faith: +2 AC for 10 minutes</li>
 <li><a href="/spells/utility-control/haste-5e/">Haste</a>: +2 AC</li>
 </ul>
 
@@ -2056,7 +2056,7 @@ export const rulePages: RulePage[] = [
 
 <p><strong>Outside Your Turn:</strong></p>
 <ul>
-<li><strong>One Reaction</strong> - <a href="/rules/core-mechanics/opportunity-attacks-5e/">Opportunity attack</a>, <a href="/spells/abjuration/shield-5e/">Shield</a> spell, etc.</li>
+<li><strong>One Reaction</strong> - <a href="/rules/core-mechanics/opportunity-attacks-5e/">Opportunity attack</a>, <a href="/spells/reaction-defense/shield-5e/">Shield</a> spell, etc.</li>
 </ul>
 
 <p>You can split your movement before and after your action.</p>`
@@ -2109,8 +2109,8 @@ export const rulePages: RulePage[] = [
         content: `<p><strong>One reaction per round (resets at start of your turn):</strong></p>
 <ul>
 <li><a href="/rules/core-mechanics/opportunity-attacks-5e/">Opportunity Attacks</a> - When an enemy leaves your reach</li>
-<li><a href="/spells/abjuration/shield-5e/">Shield</a> spell - +5 AC when hit</li>
-<li><a href="/spells/abjuration/counterspell-5e/">Counterspell</a> - Negate an enemy spell</li>
+<li><a href="/spells/reaction-defense/shield-5e/">Shield</a> spell - +5 AC when hit</li>
+<li><a href="/spells/reaction-defense/counterspell-5e/">Counterspell</a> - Negate an enemy spell</li>
 <li><a href="/spells/utility-control/feather-fall-5e/">Feather Fall</a> - When you or allies fall</li>
 <li>Readied actions - Trigger you specified</li>
 <li>Class features (Uncanny Dodge, etc.)</li>
@@ -2173,7 +2173,7 @@ export const rulePages: RulePage[] = [
 <p><strong>Forced Movement:</strong></p>
 <ul>
 <li>Being pushed, pulled, or teleported doesn't provoke</li>
-<li>Spells like <a href="/spells/damage-offensive/thunderwave-5e/">Thunderwave</a> push without provoking</li>
+<li>Spells like <a href="/spells/offensive/thunderwave-5e/">Thunderwave</a> push without provoking</li>
 <li>Grapple-and-drag doesn't provoke for the dragged creature</li>
 </ul>
 
@@ -2312,9 +2312,9 @@ export const rulePages: RulePage[] = [
 
 <p><strong>Common Sources:</strong></p>
 <ul>
-<li><a href="/spells/abjuration/armor-of-agathys-5e/">Armor of Agathys</a> (<a href="/characters/classes/warlock-5e/">Warlock</a>)</li>
-<li><a href="/spells/utility-control/heroism-5e/">Heroism</a> spell</li>
-<li><a href="/spells/damage-offensive/false-life-5e/">False Life</a> spell</li>
+<li><a href="/spells/reaction-defense/armor-of-agathys-5e/">Armor of Agathys</a> (<a href="/characters/classes/warlock-5e/">Warlock</a>)</li>
+<li>Heroism spell</li>
+<li>False Life spell</li>
 <li>Inspiring Leader feat</li>
 <li><a href="/characters/classes/fighter-5e/">Fighter</a> (Champion) at 18th level</li>
 </ul>`
@@ -2397,7 +2397,7 @@ export const rulePages: RulePage[] = [
         content: `<p><strong>Healing Spells:</strong></p>
 <ul>
 <li>Any healing brings you to at least 1 HP</li>
-<li><a href="/spells/healing-support/healing-word-5e/">Healing Word</a> is excellent (bonus action, 60 ft range)</li>
+<li><a href="/spells/support-healing/healing-word-5e/">Healing Word</a> is excellent (bonus action, 60 ft range)</li>
 <li>Character immediately wakes up and can act</li>
 </ul>
 
@@ -2415,7 +2415,7 @@ export const rulePages: RulePage[] = [
 <li>No proficiency required</li>
 </ul>
 
-<p><strong><a href="/spells/healing-support/spare-the-dying-5e/">Spare the Dying</a> Cantrip:</strong></p>
+<p><strong>Spare the Dying Cantrip:</strong></p>
 <ul>
 <li>Touch range, action</li>
 <li>Automatically stabilizes</li>
@@ -2505,7 +2505,7 @@ export const rulePages: RulePage[] = [
 
 <p><strong>Spells:</strong></p>
 <ul>
-<li><a href="/spells/utility-control/gift-of-alacrity-5e/">Gift of Alacrity</a>: +1d8 to initiative</li>
+<li>Gift of Alacrity: +1d8 to initiative</li>
 </ul>`
       },
       {
@@ -2593,11 +2593,11 @@ export const rulePages: RulePage[] = [
 
 <p><strong>Examples of Concentration Spells:</strong></p>
 <ul>
-<li><a href="/spells/healing-support/bless-5e/">Bless</a></li>
+<li><a href="/spells/support-healing/bless-5e/">Bless</a></li>
 <li><a href="/spells/utility-control/hold-person-5e/">Hold Person</a></li>
 <li><a href="/spells/utility-control/haste-5e/">Haste</a></li>
 <li><a href="/spells/utility-control/invisibility-5e/">Invisibility</a></li>
-<li><a href="/spells/damage-offensive/flaming-sphere-5e/">Flaming Sphere</a></li>
+<li>Flaming Sphere</li>
 </ul>`
       },
       {
@@ -2621,7 +2621,7 @@ export const rulePages: RulePage[] = [
 <p><strong>Multiple Damage Sources:</strong></p>
 <ul>
 <li>Each source requires a separate check</li>
-<li><a href="/spells/damage-offensive/magic-missile-5e/">Magic Missile</a> = 3 checks (one per dart)</li>
+<li><a href="/spells/offensive/magic-missile-5e/">Magic Missile</a> = 3 checks (one per dart)</li>
 <li>One failed check = concentration lost</li>
 </ul>`
       },
@@ -2675,7 +2675,7 @@ export const rulePages: RulePage[] = [
 <p><strong>Other Helps:</strong></p>
 <ul>
 <li>Lucky feat for rerolls</li>
-<li><a href="/spells/healing-support/bless-5e/">Bless</a> (if someone else casts it)</li>
+<li><a href="/spells/support-healing/bless-5e/">Bless</a> (if someone else casts it)</li>
 <li>Avoiding damage entirely (cover, positioning)</li>
 </ul>`
       }
@@ -2753,7 +2753,7 @@ export const rulePages: RulePage[] = [
 
 <p><strong>Against Spells:</strong></p>
 <ul>
-<li>Cover helps against Dex save spells (<a href="/spells/damage-offensive/fireball-5e/">Fireball</a>, <a href="/spells/damage-offensive/lightning-bolt-5e/">Lightning Bolt</a>)</li>
+<li>Cover helps against Dex save spells (<a href="/spells/offensive/fireball-5e/">Fireball</a>, <a href="/spells/offensive/lightning-bolt-5e/">Lightning Bolt</a>)</li>
 <li>Total cover blocks line-of-sight spells entirely</li>
 <li>Some spells can curve around cover</li>
 </ul>
@@ -2761,7 +2761,7 @@ export const rulePages: RulePage[] = [
 <p><strong>Creating Cover:</strong></p>
 <ul>
 <li>Flip tables for half cover</li>
-<li><a href="/spells/damage-offensive/wall-of-fire-5e/">Wall</a> spells create cover</li>
+<li><a href="/spells/offensive/wall-of-fire-5e/">Wall</a> spells create cover</li>
 <li>Pile up bodies (grim but effective)</li>
 </ul>`
       }
@@ -2843,7 +2843,7 @@ export const rulePages: RulePage[] = [
 
 <p><strong>Force:</strong></p>
 <ul>
-<li>Pure magical energy (<a href="/spells/damage-offensive/magic-missile-5e/">Magic Missile</a>, <a href="/spells/damage-offensive/eldritch-blast-5e/">Eldritch Blast</a>)</li>
+<li>Pure magical energy (<a href="/spells/offensive/magic-missile-5e/">Magic Missile</a>, <a href="/spells/offensive/eldritch-blast-5e/">Eldritch Blast</a>)</li>
 <li>NOTHING is resistant or immune to force damage</li>
 <li>The most reliable damage type</li>
 </ul>
@@ -3180,7 +3180,7 @@ export const rulePages: RulePage[] = [
 <ul>
 <li>See normally in magical and nonmagical darkness</li>
 <li>120-foot range</li>
-<li>Combos well with <a href="/spells/utility-control/darkness-5e/">Darkness</a> spell</li>
+<li>Combos well with Darkness spell</li>
 </ul>`
       },
       {
@@ -3191,17 +3191,17 @@ export const rulePages: RulePage[] = [
 <li>Torch: 20 ft bright, 20 ft dim (lasts 1 hour)</li>
 <li>Lantern: 30 ft bright, 30 ft dim</li>
 <li><a href="/spells/cantrips/light-5e/">Light</a> cantrip: 20 ft bright, 20 ft dim</li>
-<li><a href="/spells/utility-control/dancing-lights-5e/">Dancing Lights</a>: 10 ft dim each</li>
+<li>Dancing Lights: 10 ft dim each</li>
 </ul>
 
 <p><strong>Spells Affecting Light:</strong></p>
 <ul>
-<li><a href="/spells/utility-control/darkness-5e/">Darkness</a>: Creates magical darkness (darkvision doesn't work)</li>
-<li><a href="/spells/utility-control/daylight-5e/">Daylight</a>: 60 ft bright light</li>
+<li>Darkness: Creates magical darkness (darkvision doesn't work)</li>
+<li>Daylight: 60 ft bright light</li>
 <li><a href="/spells/cantrips/dancing-lights-5e/">Dancing Lights</a>: Dim light only</li>
 </ul>
 
-<p><strong>Important:</strong> <a href="/spells/utility-control/darkness-5e/">Darkness</a> spell blocks normal darkvision. Only special abilities like Devil's Sight or Truesight can see through it.</p>`
+<p><strong>Important:</strong> Darkness spell blocks normal darkvision. Only special abilities like Devil's Sight or Truesight can see through it.</p>`
       }
     ],
     commonMistakes: [

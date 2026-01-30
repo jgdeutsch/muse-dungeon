@@ -16,7 +16,7 @@ export const conditionPages: RulePage[] = [
       {
         id: "common-sources",
         title: "Common Sources",
-        content: `<p>Blindness can be caused by spells like <a href="/spells/utility-control/blindness-deafness-5e/"><strong>Blindness/Deafness</strong></a>, <a href="/spells/utility-control/color-spray-5e/"><strong>Color Spray</strong></a>, and <a href="/spells/utility-control/darkness-5e/"><strong>Darkness</strong></a> (if the creature can't see through magical darkness). Environmental effects such as fog, smoke, or being in a completely dark area without darkvision also cause this condition.</p>`,
+        content: `<p>Blindness can be caused by spells like <strong>Blindness/Deafness</strong>, <strong>Color Spray</strong>, and <strong>Darkness</strong> (if the creature can't see through magical darkness). Environmental effects such as fog, smoke, or being in a completely dark area without darkvision also cause this condition.</p>`,
       },
       {
         id: "interactions",
@@ -48,7 +48,7 @@ export const conditionPages: RulePage[] = [
       },
       {
         question: "Does the Darkness spell blind creatures inside it?",
-        answer: "Creatures without special senses (darkvision doesn't help in magical darkness) effectively have the blinded condition while in the <a href=\"/spells/utility-control/darkness-5e/\">Darkness</a> spell's area. They can't see, auto-fail sight-based checks, have disadvantage on attacks, and attacks against them have advantage."
+        answer: "Creatures without special senses (darkvision doesn't help in magical darkness) effectively have the blinded condition while in the Darkness spell's area. They can't see, auto-fail sight-based checks, have disadvantage on attacks, and attacks against them have advantage."
       },
       {
         question: "How does blindsight or tremorsense interact with the blinded condition?",
@@ -71,7 +71,7 @@ export const conditionPages: RulePage[] = [
       {
         id: "common-sources",
         title: "Common Sources",
-        content: `<p>Spells like <a href="/spells/utility-control/charm-person-5e/"><strong>Charm Person</strong></a>, <a href="/spells/utility-control/charm-monster-5e/"><strong>Charm Monster</strong></a>, <a href="/spells/utility-control/hypnotic-pattern-5e/"><strong>Hypnotic Pattern</strong></a>, and <a href="/spells/utility-control/suggestion-5e/"><strong>Suggestion</strong></a>. Some creatures like <a href="/monsters/vampire-5e/">Vampires</a> and <a href="/monsters/succubus-5e/">Succubi</a> have innate charm abilities.</p>`,
+        content: `<p>Spells like <a href="/spells/utility-control/charm-person-5e/"><strong>Charm Person</strong></a>, <strong>Charm Monster</strong>, <strong>Hypnotic Pattern</strong>, and <a href="/spells/utility-control/suggestion-5e/"><strong>Suggestion</strong></a>. Some creatures like <a href="/monsters/creatures/vampire-5e/">Vampires</a> and Succubi have innate charm abilities.</p>`,
       },
       {
         id: "interactions",
@@ -126,7 +126,7 @@ export const conditionPages: RulePage[] = [
       {
         id: "common-sources",
         title: "Common Sources",
-        content: `<p>The <a href="/spells/utility-control/blindness-deafness-5e/"><strong>Blindness/Deafness</strong></a> spell can cause deafness. <a href="/spells/offensive/thunderwave-5e/">Thunderwave</a> and similar loud effects might temporarily deafen at DM discretion. Some monster abilities also cause deafness.</p>`,
+        content: `<p>The <strong>Blindness/Deafness</strong> spell can cause deafness. <a href="/spells/offensive/thunderwave-5e/">Thunderwave</a> and similar loud effects might temporarily deafen at DM discretion. Some monster abilities also cause deafness.</p>`,
       },
       {
         id: "interactions",
@@ -180,7 +180,7 @@ export const conditionPages: RulePage[] = [
       {
         id: "common-sources",
         title: "Common Sources",
-        content: `<p>Spells like <a href="/spells/utility-control/fear-5e/"><strong>Fear</strong></a>, <a href="/spells/utility-control/cause-fear-5e/"><strong>Cause Fear</strong></a>, and <a href="/spells/offensive/phantasmal-killer-5e/"><strong>Phantasmal Killer</strong></a>. Dragon's <strong>Frightful Presence</strong>, the <a href="/characters/classes/paladin-5e/">Conquest Paladin's</a> <strong>Conquering Presence</strong>, and the <a href="/characters/classes/barbarian-5e/">Berserker Barbarian's</a> <strong>Intimidating Presence</strong>.</p>`,
+        content: `<p>Spells like <a href="/spells/utility-control/fear-5e/"><strong>Fear</strong></a>, <strong>Cause Fear</strong>, and <strong>Phantasmal Killer</strong>. Dragon's <strong>Frightful Presence</strong>, the <a href="/characters/classes/paladin-5e/">Conquest Paladin's</a> <strong>Conquering Presence</strong>, and the <a href="/characters/classes/barbarian-5e/">Berserker Barbarian's</a> <strong>Intimidating Presence</strong>.</p>`,
       },
       {
         id: "interactions",
@@ -290,7 +290,7 @@ export const conditionPages: RulePage[] = [
       {
         id: "common-sources",
         title: "Common Sources",
-        content: `<p>Rarely applied on its own — it's typically part of other conditions. Some effects like <a href="/spells/utility-control/hypnotic-pattern-5e/"><strong>Hypnotic Pattern</strong></a> (incapacitated while <a href="/rules/conditions/charmed-condition-5e/">charmed</a> by it) and certain monster abilities apply it directly.</p>`,
+        content: `<p>Rarely applied on its own — it's typically part of other conditions. Some effects like <strong>Hypnotic Pattern</strong> (incapacitated while <a href="/rules/conditions/charmed-condition-5e/">charmed</a> by it) and certain monster abilities apply it directly.</p>`,
       },
       {
         id: "interactions",
@@ -344,12 +344,12 @@ export const conditionPages: RulePage[] = [
       {
         id: "common-sources",
         title: "Common Sources",
-        content: `<p><a href="/spells/utility-control/invisibility-5e/"><strong>Invisibility</strong></a> and <a href="/spells/utility-control/greater-invisibility-5e/"><strong>Greater Invisibility</strong></a> spells. <a href="/items/potion-of-invisibility-5e/"><strong>Potion of Invisibility</strong></a>. Some creatures have innate invisibility. The <strong>Hide</strong> action doesn't make you invisible — it makes you hidden (different thing).</p>`,
+        content: `<p><a href="/spells/utility-control/invisibility-5e/"><strong>Invisibility</strong></a> and <a href="/spells/utility-control/greater-invisibility-5e/"><strong>Greater Invisibility</strong></a> spells. <strong>Potion of Invisibility</strong>. Some creatures have innate invisibility. The <strong>Hide</strong> action doesn't make you invisible — it makes you hidden (different thing).</p>`,
       },
       {
         id: "interactions",
         title: "Key Interactions",
-        content: `<ul><li>Regular <a href="/spells/utility-control/invisibility-5e/">Invisibility</a> ends when you attack or cast a spell. <a href="/spells/utility-control/greater-invisibility-5e/">Greater Invisibility</a> does not.</li><li>Invisible does NOT mean undetectable — creatures can still hear, smell, or feel you.</li><li>Attacking an invisible creature you can't see: you must guess the square. If wrong, you miss automatically (DM may not reveal this).</li><li><a href="/spells/utility-control/see-invisibility-5e/">See Invisibility</a>, Truesight, Blindsight, and Tremorsense can all detect invisible creatures.</li><li><a href="/spells/utility-control/faerie-fire-5e/">Faerie Fire</a> outlines invisible creatures, negating the invisibility's combat benefits.</li></ul>`,
+        content: `<ul><li>Regular <a href="/spells/utility-control/invisibility-5e/">Invisibility</a> ends when you attack or cast a spell. <a href="/spells/utility-control/greater-invisibility-5e/">Greater Invisibility</a> does not.</li><li>Invisible does NOT mean undetectable — creatures can still hear, smell, or feel you.</li><li>Attacking an invisible creature you can't see: you must guess the square. If wrong, you miss automatically (DM may not reveal this).</li><li>See Invisibility, Truesight, Blindsight, and Tremorsense can all detect invisible creatures.</li><li>Faerie Fire outlines invisible creatures, negating the invisibility's combat benefits.</li></ul>`,
       },
     ],
     commonMistakes: [
@@ -399,12 +399,12 @@ export const conditionPages: RulePage[] = [
       {
         id: "common-sources",
         title: "Common Sources",
-        content: `<p><a href="/spells/utility-control/hold-person-5e/"><strong>Hold Person</strong></a> (humanoids only), <a href="/spells/utility-control/hold-monster-5e/"><strong>Hold Monster</strong></a> (any creature), <a href="/monsters/ghoul-5e/"><strong>Ghoul's</strong></a> Claws (paralysis on failed Con save), and some poisons.</p>`,
+        content: `<p><a href="/spells/utility-control/hold-person-5e/"><strong>Hold Person</strong></a> (humanoids only), <a href="/spells/utility-control/hold-monster-5e/"><strong>Hold Monster</strong></a> (any creature), <strong>Ghoul's</strong> Claws (paralysis on failed Con save), and some poisons.</p>`,
       },
       {
         id: "interactions",
         title: "Key Interactions",
-        content: `<ul><li>Paralyzed is one of the most devastating conditions — auto-crits from melee make it extremely dangerous.</li><li><a href="/spells/utility-control/hold-person-5e/">Hold Person</a> allows a new save at the end of each turn.</li><li>Elves are immune to the <a href="/monsters/ghoul-5e/">Ghoul's</a> paralysis (but not Hold Person).</li><li>Paralyzed ends concentration spells since it includes <a href="/rules/conditions/incapacitated-condition-5e/">incapacitated</a>.</li></ul>`,
+        content: `<ul><li>Paralyzed is one of the most devastating conditions — auto-crits from melee make it extremely dangerous.</li><li><a href="/spells/utility-control/hold-person-5e/">Hold Person</a> allows a new save at the end of each turn.</li><li>Elves are immune to the Ghoul's paralysis (but not Hold Person).</li><li>Paralyzed ends concentration spells since it includes <a href="/rules/conditions/incapacitated-condition-5e/">incapacitated</a>.</li></ul>`,
       },
     ],
     commonMistakes: [
@@ -454,7 +454,7 @@ export const conditionPages: RulePage[] = [
       {
         id: "common-sources",
         title: "Common Sources",
-        content: `<p><a href="/spells/utility-control/flesh-to-stone-5e/"><strong>Flesh to Stone</strong></a> spell (gradual petrification over multiple saves), <a href="/monsters/basilisk-5e/"><strong>Basilisk's</strong></a> petrifying gaze, <a href="/monsters/medusa-5e/"><strong>Medusa's</strong></a> petrifying gaze, <a href="/monsters/cockatrice-5e/"><strong>Cockatrice's</strong></a> bite, and <a href="/monsters/beholder-5e/"><strong>Beholder's</strong></a> petrification ray.</p>`,
+        content: `<p><strong>Flesh to Stone</strong> spell (gradual petrification over multiple saves), <a href="/monsters/creatures/basilisk-5e/"><strong>Basilisk's</strong></a> petrifying gaze, <strong>Medusa's</strong> petrifying gaze, <a href="/monsters/creatures/cockatrice-5e/"><strong>Cockatrice's</strong></a> bite, and <a href="/monsters/creatures/beholder-5e/"><strong>Beholder's</strong></a> petrification ray.</p>`,
       },
       {
         id: "interactions",
@@ -508,12 +508,12 @@ export const conditionPages: RulePage[] = [
       {
         id: "common-sources",
         title: "Common Sources",
-        content: `<p>Many monster attacks (<a href="/monsters/giant-spider-5e/">Giant Spiders</a>, <a href="/monsters/poisonous-snake-5e/">Poisonous Snakes</a>, <a href="/monsters/wyvern-5e/">Wyverns</a>), <strong>poisons</strong> applied to weapons, <a href="/spells/offensive/ray-of-sickness-5e/"><strong>Ray of Sickness</strong></a> spell, <a href="/spells/offensive/cloudkill-5e/"><strong>Cloudkill</strong></a>, Assassin's poison, and poisoned food/drink.</p>`,
+        content: `<p>Many monster attacks (Giant Spiders, Poisonous Snakes, <a href="/monsters/creatures/wyvern-5e/">Wyverns</a>), <strong>poisons</strong> applied to weapons, <strong>Ray of Sickness</strong> spell, <strong>Cloudkill</strong>, Assassin's poison, and poisoned food/drink.</p>`,
       },
       {
         id: "interactions",
         title: "Key Interactions",
-        content: `<ul><li><a href="/characters/races/dwarf-5e/"><strong>Dwarves</strong></a> have advantage on saves against poison and resistance to poison damage (Dwarven Resilience).</li><li><a href="/spells/support-healing/protection-from-poison-5e/"><strong>Protection from Poison</strong></a> spell suppresses the condition and gives advantage on saves.</li><li><a href="/spells/support-healing/lesser-restoration-5e/"><strong>Lesser Restoration</strong></a> cures the poisoned condition.</li><li>Many creatures (undead, constructs, fiends) are <strong>immune</strong> to the poisoned condition.</li></ul>`,
+        content: `<ul><li><a href="/characters/races/dwarf-5e/"><strong>Dwarves</strong></a> have advantage on saves against poison and resistance to poison damage (Dwarven Resilience).</li><li><strong>Protection from Poison</strong> spell suppresses the condition and gives advantage on saves.</li><li><a href="/spells/support-healing/lesser-restoration-5e/"><strong>Lesser Restoration</strong></a> cures the poisoned condition.</li><li>Many creatures (undead, constructs, fiends) are <strong>immune</strong> to the poisoned condition.</li></ul>`,
       },
     ],
     commonMistakes: [
@@ -618,12 +618,12 @@ export const conditionPages: RulePage[] = [
       {
         id: "common-sources",
         title: "Common Sources",
-        content: `<p><a href="/spells/utility-control/entangle-5e/"><strong>Entangle</strong></a> spell, <a href="/spells/utility-control/web-5e/"><strong>Web</strong></a> spell, <a href="/spells/offensive/ensnaring-strike-5e/"><strong>Ensnaring Strike</strong></a>, <strong>Net</strong> weapon, grappling vines, and many monster abilities (<a href="/monsters/roper-5e/">Roper's</a> tendrils, <a href="/monsters/giant-spider-5e/">Giant Spider's</a> web).</p>`,
+        content: `<p><a href="/spells/utility-control/entangle-5e/"><strong>Entangle</strong></a> spell, <a href="/spells/utility-control/web-5e/"><strong>Web</strong></a> spell, <strong>Ensnaring Strike</strong>, <strong>Net</strong> weapon, grappling vines, and many monster abilities (Roper's tendrils, Giant Spider's web).</p>`,
       },
       {
         id: "interactions",
         title: "Key Interactions",
-        content: `<ul><li>Restrained is stronger than <a href="/rules/conditions/grappled-condition-5e/">grappled</a> — it adds advantage on attacks against the creature and disadvantage on their attacks and Dex saves.</li><li>The <a href="/spells/utility-control/entangle-5e/">Entangle</a> spell is a 1st-level spell that can restrain multiple creatures — very efficient.</li><li><a href="/spells/utility-control/freedom-of-movement-5e/">Freedom of Movement</a> makes you immune to being restrained.</li></ul>`,
+        content: `<ul><li>Restrained is stronger than <a href="/rules/conditions/grappled-condition-5e/">grappled</a> — it adds advantage on attacks against the creature and disadvantage on their attacks and Dex saves.</li><li>The <a href="/spells/utility-control/entangle-5e/">Entangle</a> spell is a 1st-level spell that can restrain multiple creatures — very efficient.</li><li>Freedom of Movement makes you immune to being restrained.</li></ul>`,
       },
     ],
     commonMistakes: [
@@ -672,7 +672,7 @@ export const conditionPages: RulePage[] = [
       {
         id: "common-sources",
         title: "Common Sources",
-        content: `<p><strong>Stunning Strike</strong> (<a href="/characters/classes/monk-5e/">Monk</a>), <a href="/spells/utility-control/power-word-stun-5e/"><strong>Power Word Stun</strong></a>, <a href="/spells/offensive/contagion-5e/"><strong>Contagion</strong></a> (Flesh Rot), <a href="/spells/utility-control/divine-word-5e/"><strong>Divine Word</strong></a>, <a href="/spells/utility-control/symbol-5e/"><strong>Symbol</strong></a> (Stunning), <a href="/monsters/mind-flayer-5e/">Mind Flayer's</a> <strong>Mind Blast</strong>, and various monster abilities.</p>`,
+        content: `<p><strong>Stunning Strike</strong> (<a href="/characters/classes/monk-5e/">Monk</a>), <strong>Power Word Stun</strong>, <strong>Contagion</strong> (Flesh Rot), <strong>Divine Word</strong>, <strong>Symbol</strong> (Stunning), <a href="/monsters/creatures/mind-flayer-5e/">Mind Flayer's</a> <strong>Mind Blast</strong>, and various monster abilities.</p>`,
       },
       {
         id: "interactions",

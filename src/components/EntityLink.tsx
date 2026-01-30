@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import { findEntityByName, type EntityData } from "@/lib/entity-lookup";
 
@@ -22,7 +20,7 @@ export function EntityLink({ name, children, entity: providedEntity }: Props) {
   }
 
   return (
-    <Link href={entity.url} className="entity-link">
+    <Link href={entity.url}>
       {children || name}
     </Link>
   );

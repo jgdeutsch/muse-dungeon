@@ -1044,7 +1044,7 @@ export const equipmentPages: EquipmentPage[] = [
       "The 5 gp cost makes shields extremely affordable and accessible",
       "Consider magical shields (+1, +2, +3) or shields with special properties as rewards",
       "Animated Shield is a fun magic item that allows shield bonus without occupying a hand",
-      "<a href=\"/spells/abjuration/shield-5e/\">Shield</a> spell reaction can stack with physical shield for incredible burst defense",
+      "<a href=\"/spells/reaction-defense/shield-5e/\">Shield</a> spell reaction can stack with physical shield for incredible burst defense",
       "NPCs with shields are noticeably harder to hit - use them for elite guards and knights",
       "The 6 lb weight is negligible for most characters"
     ],
@@ -1834,7 +1834,7 @@ export const magicItemPages: MagicItemPage[] = [
       },
       {
         question: "Does Cloak of Displacement affect saving throws?",
-        answer: "No. The cloak only imposes disadvantage on attack rolls against you. Spells and effects that require saving throws (like <a href=\"/spells/damage-offensive/fireball-5e/\">Fireball</a>) are unaffected. This is why AoE spells and effects can be effective counters against Cloak of Displacement users."
+        answer: "No. The cloak only imposes disadvantage on attack rolls against you. Spells and effects that require saving throws (like <a href=\"/spells/offensive/fireball-5e/\">Fireball</a>) are unaffected. This is why AoE spells and effects can be effective counters against Cloak of Displacement users."
       },
       {
         question: "Can I turn Cloak of Displacement on and off?",
@@ -2205,7 +2205,7 @@ export const magicItemPages: MagicItemPage[] = [
       },
       {
         question: "How does a +1 Shield interact with the Shield spell?",
-        answer: "They stack! The <a href=\"/spells/abjuration/shield-5e/\">Shield</a> spell gives +5 AC as a reaction, and your +1 shield's +3 AC is already included in your base AC. So if you have 18 AC with your +1 shield and cast Shield, you'd have 23 AC until the start of your next turn."
+        answer: "They stack! The <a href=\"/spells/reaction-defense/shield-5e/\">Shield</a> spell gives +5 AC as a reaction, and your +1 shield's +3 AC is already included in your base AC. So if you have 18 AC with your +1 shield and cast Shield, you'd have 23 AC until the start of your next turn."
       }
     ],
     searchVolume: 6840

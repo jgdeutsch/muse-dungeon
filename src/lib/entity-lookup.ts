@@ -75,17 +75,12 @@ function addEntity(data: EntityData, aliases?: string[]) {
 function initializeLookup() {
   // Spells
   for (const spell of allSpells) {
-    const categoryPath = spell.category === "cantrips" ? "cantrips" :
-      spell.category === "offensive" ? "damage-offensive" :
-      spell.category === "utility-control" ? "utility-control" :
-      spell.category === "support-healing" ? "healing-support" :
-      spell.category === "reaction-defense" ? "abjuration" : spell.category;
-
+    // Use the spell's category directly - it matches the URL path
     addEntity({
       type: "spell",
       name: spell.name,
       slug: spell.slug,
-      url: `/spells/${categoryPath}/${spell.slug}/`,
+      url: `/spells/${spell.category}/${spell.slug}/`,
       shortDescription: truncate(stripHtml(spell.description), 150),
       details: {
         level: spell.level,
