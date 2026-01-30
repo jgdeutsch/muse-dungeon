@@ -20,7 +20,7 @@ export function EntityLink({ name, children, entity: providedEntity }: Props) {
   }
 
   return (
-    <Link href={entity.url}>
+    <Link href={entity.url} className="underline">
       {children || name}
     </Link>
   );

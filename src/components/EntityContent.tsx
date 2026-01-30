@@ -8,13 +8,16 @@ type Props = {
 };
 
 /**
- * Renders HTML content with plain anchor links
+ * Renders HTML content with plain anchor links (underlined)
  */
 export function EntityContent({ html, className, as: Element = "div" }: Props) {
+  // Add underline class to all anchor tags
+  const processedHtml = html.replace(/<a\s+href="/g, '<a class="underline" href="');
+
   return (
     <Element
       className={className}
-      dangerouslySetInnerHTML={{ __html: html }}
+      dangerouslySetInnerHTML={{ __html: processedHtml }}
     />
   );
 }
