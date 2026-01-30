@@ -6,6 +6,7 @@ import { Sources } from "./Sources";
 import { AddRaceToGame } from "./AddRaceToGame";
 import { AssignToCharacter } from "./AssignToCharacter";
 import { FAQ, FAQItem } from "./FAQ";
+import { TextWithEntityLinks } from "./TextWithEntityLinks";
 
 type RacePageData = {
   slug: string;
@@ -59,9 +60,11 @@ export function RacePageComponent({ data }: { data: RacePageData }) {
         <h1 className="font-['Cinzel'] text-3xl font-bold mb-2 leading-tight">
           {data.name}
         </h1>
-        <p className="text-[var(--text-dim)] text-base leading-relaxed">
-          {data.description}
-        </p>
+        <TextWithEntityLinks
+          text={data.description}
+          as="p"
+          className="text-[var(--text-dim)] text-base leading-relaxed"
+        />
       </div>
 
       <AtAGlance stats={stats} />
@@ -85,7 +88,9 @@ export function RacePageComponent({ data }: { data: RacePageData }) {
             {data.traits.map((t, i) => (
               <tr key={i}>
                 <td className="font-medium text-[var(--text)]">{t.name}</td>
-                <td>{t.description}</td>
+                <td>
+                  <TextWithEntityLinks text={t.description} />
+                </td>
               </tr>
             ))}
           </tbody>
@@ -109,7 +114,9 @@ export function RacePageComponent({ data }: { data: RacePageData }) {
               {data.subraces.map((s, i) => (
                 <tr key={i}>
                   <td className="font-medium text-[var(--text)]">{s.name}</td>
-                  <td>{s.bonus}</td>
+                  <td>
+                    <TextWithEntityLinks text={s.bonus} />
+                  </td>
                 </tr>
               ))}
             </tbody>

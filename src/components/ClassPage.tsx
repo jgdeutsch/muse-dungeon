@@ -5,6 +5,7 @@ import { Warning, Tip } from "./Warning";
 import { Sources } from "./Sources";
 import { AddToGameButton } from "./AddToGameButton";
 import { FAQ, FAQItem } from "./FAQ";
+import { TextWithEntityLinks } from "./TextWithEntityLinks";
 
 type ClassPageData = {
   slug: string;
@@ -62,9 +63,11 @@ export function ClassPageComponent({ data }: { data: ClassPageData }) {
         <h1 className="font-['Cinzel'] text-3xl font-bold mb-2 leading-tight">
           {data.name}
         </h1>
-        <p className="text-[var(--text-dim)] text-base leading-relaxed">
-          {data.description}
-        </p>
+        <TextWithEntityLinks
+          text={data.description}
+          as="p"
+          className="text-[var(--text-dim)] text-base leading-relaxed"
+        />
       </div>
 
       <AddToGameButton className={data.className} classSlug={data.slug} />
@@ -90,7 +93,9 @@ export function ClassPageComponent({ data }: { data: ClassPageData }) {
               <tr key={i}>
                 <td className="font-medium text-[var(--text)]">{f.name}</td>
                 <td>{f.level}</td>
-                <td>{f.description}</td>
+                <td>
+                  <TextWithEntityLinks text={f.description} />
+                </td>
               </tr>
             ))}
           </tbody>
@@ -115,7 +120,9 @@ export function ClassPageComponent({ data }: { data: ClassPageData }) {
               <tr key={i}>
                 <td className="font-medium text-[var(--text)]">{s.name}</td>
                 <td>{s.source}</td>
-                <td>{s.focus}</td>
+                <td>
+                  <TextWithEntityLinks text={s.focus} />
+                </td>
               </tr>
             ))}
           </tbody>

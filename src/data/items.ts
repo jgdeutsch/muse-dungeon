@@ -103,7 +103,7 @@ export const equipmentPages: EquipmentPage[] = [
     itemType: "Armor",
     cost: "10 gp",
     weight: "10 lbs",
-    description: "Leather armor is made from carefully tanned and stitched animal hides. It's the most common light armor, favored by rogues, rangers, and other adventurers who value mobility over protection. The armor is boiled and hardened to provide a reasonable degree of protection without restricting movement.",
+    description: "Leather armor is made from carefully tanned and stitched animal hides. It's the most common light armor, favored by <a href=\"/characters/classes/rogue-5e/\">rogues</a>, <a href=\"/characters/classes/ranger-5e/\">rangers</a>, and other adventurers who value mobility over protection. The armor is boiled and hardened to provide a reasonable degree of protection without restricting movement.",
     mechanics: "Armor Class: 11 + Dexterity modifier. Light armor lets you add your full Dexterity modifier to your AC. You can don leather armor in 1 minute and doff it in 1 minute. No Strength requirement. No disadvantage on Stealth checks.",
     properties: ["Light Armor"],
     commonMistakes: [
@@ -133,11 +133,11 @@ export const equipmentPages: EquipmentPage[] = [
       },
       {
         question: "Who should wear Leather Armor?",
-        answer: "Leather armor suits rogues, rangers, bards, monks (if they want armor), and any Dexterity-focused character early game. However, most should upgrade to studded leather as soon as they can afford the 45 gp cost."
+        answer: "Leather armor suits <a href=\"/characters/classes/rogue-5e/\">rogues</a>, <a href=\"/characters/classes/ranger-5e/\">rangers</a>, <a href=\"/characters/classes/bard-5e/\">bards</a>, <a href=\"/characters/classes/monk-5e/\">monks</a> (if they want armor), and any Dexterity-focused character early game. However, most should upgrade to studded leather as soon as they can afford the 45 gp cost."
       },
       {
         question: "Is Leather Armor better than no armor for a Monk?",
-        answer: "Usually no! Monks with 16 Dex and 16 Wis have AC 16 with Unarmored Defense, while leather + 16 Dex gives only AC 14. Monks should typically stay unarmored unless they have very low Wisdom."
+        answer: "Usually no! <a href=\"/characters/classes/monk-5e/\">Monks</a> with 16 Dex and 16 Wis have AC 16 with Unarmored Defense, while leather + 16 Dex gives only AC 14. Monks should typically stay unarmored unless they have very low Wisdom."
       }
     ],
     searchVolume: 13190
@@ -149,25 +149,25 @@ export const equipmentPages: EquipmentPage[] = [
     itemType: "Weapon",
     cost: "2 sp",
     weight: "4 lbs",
-    description: "A quarterstaff is a simple wooden staff, typically 6 to 9 feet long. It's one of the most versatile and accessible weapons in D&D, used by monks, druids, and wizards alike. The staff can be wielded with one or two hands, making it adaptable to different combat situations.",
+    description: "A quarterstaff is a simple wooden staff, typically 6 to 9 feet long. It's one of the most versatile and accessible weapons in D&D, used by <a href=\"/characters/classes/monk-5e/\">monks</a>, <a href=\"/characters/classes/druid-5e/\">druids</a>, and <a href=\"/characters/classes/wizard-5e/\">wizards</a> alike. The staff can be wielded with one or two hands, making it adaptable to different combat situations.",
     mechanics: "Damage: 1d6 bludgeoning (one-handed) or 1d8 bludgeoning (two-handed). Melee weapon attack using Strength modifier. Range: 5 feet (reach). The Versatile property allows you to use either damage die depending on whether you use one or two hands.",
     properties: ["Simple Melee Weapon", "Versatile (1d8)"],
     commonMistakes: [
       "Forgetting you can switch between one-handed and two-handed as part of your attack",
       "Thinking the staff has reach (it doesn't extend your attack range beyond 5 feet)",
-      "Not realizing monks can use Dexterity instead of Strength with this weapon",
+      "Not realizing <a href=\"/characters/classes/monk-5e/\">monks</a> can use Dexterity instead of Strength with this weapon",
       "Assuming the versatile damage applies when wielding two quarterstaffs (you can't)"
     ],
     dmTips: [
       "Quarterstaffs are great improvised weapons - a walking stick is essentially a quarterstaff",
-      "Monks with Martial Arts can use this weapon with their Dex and deal their Martial Arts die instead",
+      "<a href=\"/characters/classes/monk-5e/\">Monks</a> with Martial Arts can use this weapon with their Dex and deal their Martial Arts die instead",
       "The low cost makes it accessible for peasant NPCs in combat encounters",
       "Consider magical quarterstaffs as rewards - they're iconic for spellcasters"
     ],
     faq: [
       {
         question: "Can a Monk use a Quarterstaff with Dexterity?",
-        answer: "Yes! The quarterstaff is a monk weapon, so monks can use their Martial Arts feature to attack with Dexterity instead of Strength. They can also replace the damage die with their Martial Arts die if it's higher."
+        answer: "Yes! The quarterstaff is a <a href=\"/characters/classes/monk-5e/\">monk</a> weapon, so monks can use their Martial Arts feature to attack with Dexterity instead of Strength. They can also replace the damage die with their Martial Arts die if it's higher."
       },
       {
         question: "Can I use a Quarterstaff with a Shield?",
@@ -175,11 +175,11 @@ export const equipmentPages: EquipmentPage[] = [
       },
       {
         question: "Is a Quarterstaff better than other simple weapons?",
-        answer: "The quarterstaff is excellent for its versatility: 1d6 one-handed or 1d8 two-handed, usable by monks with Dex, and works as a spellcasting focus for certain subclasses. At 2 sp, it's also one of the cheapest weapons!"
+        answer: "The quarterstaff is excellent for its versatility: 1d6 one-handed or 1d8 two-handed, usable by <a href=\"/characters/classes/monk-5e/\">monks</a> with Dex, and works as a spellcasting focus for certain subclasses. At 2 sp, it's also one of the cheapest weapons!"
       },
       {
         question: "Can I use Polearm Master with a Quarterstaff?",
-        answer: "Absolutely! Polearm Master lets you make a bonus action attack for 1d4 bludgeoning damage with a quarterstaff. You also get opportunity attacks when enemies enter your reach. It's a popular monk/fighter combo."
+        answer: "Absolutely! Polearm Master lets you make a bonus action attack for 1d4 bludgeoning damage with a quarterstaff. You also get opportunity attacks when enemies enter your reach. It's a popular <a href=\"/characters/classes/monk-5e/\">monk</a>/<a href=\"/characters/classes/fighter-5e/\">fighter</a> combo."
       },
       {
         question: "Does the Quarterstaff count as a magic staff for spellcasters?",
@@ -195,7 +195,7 @@ export const equipmentPages: EquipmentPage[] = [
     itemType: "Armor",
     cost: "50 gp",
     weight: "45 lbs",
-    description: "Scale mail consists of a coat and leggings of leather covered with overlapping pieces of metal, much like the scales of a fish. It's a popular choice for clerics and other adventurers who need substantial protection but can't wear heavy armor. The suit includes gauntlets.",
+    description: "Scale mail consists of a coat and leggings of leather covered with overlapping pieces of metal, much like the scales of a fish. It's a popular choice for <a href=\"/characters/classes/cleric-5e/\">clerics</a> and other adventurers who need substantial protection but can't wear heavy armor. The suit includes gauntlets.",
     mechanics: "Armor Class: 14 + Dexterity modifier (max +2). Medium armor lets you add your Dexterity modifier, up to a maximum of +2, to your AC. You can don scale mail in 5 minutes and doff it in 1 minute. No Strength requirement, but you have disadvantage on Stealth checks while wearing it.",
     properties: ["Medium Armor", "Stealth Disadvantage"],
     commonMistakes: [
@@ -205,7 +205,7 @@ export const equipmentPages: EquipmentPage[] = [
       "Confusing scale mail with half plate (which has AC 15)"
     ],
     dmTips: [
-      "Scale mail is the sweet spot for clerics who can't wear heavy armor",
+      "Scale mail is the sweet spot for <a href=\"/characters/classes/cleric-5e/\">clerics</a> who can't wear heavy armor",
       "The stealth disadvantage creates interesting party dynamics when sneaking",
       "At 50 gp, it's a significant early investment - make earning it feel rewarding",
       "Consider describing the distinctive sound of scales clinking during tense moments",
@@ -214,7 +214,7 @@ export const equipmentPages: EquipmentPage[] = [
     faq: [
       {
         question: "Why does Scale Mail give Stealth disadvantage?",
-        answer: "The overlapping metal scales clink and scrape against each other when you move, creating noise. This is a mechanical tradeoff: you get AC 14 + Dex (max 2) but sacrifice stealth. Perfect for clerics who don't sneak anyway!"
+        answer: "The overlapping metal scales clink and scrape against each other when you move, creating noise. This is a mechanical tradeoff: you get AC 14 + Dex (max 2) but sacrifice stealth. Perfect for <a href=\"/characters/classes/cleric-5e/\">clerics</a> who don't sneak anyway!"
       },
       {
         question: "Is Scale Mail better than Chain Shirt?",
@@ -222,7 +222,7 @@ export const equipmentPages: EquipmentPage[] = [
       },
       {
         question: "Who should wear Scale Mail?",
-        answer: "Scale mail suits medium-armor clerics, druids (though they won't wear metal), fighters transitioning to heavy armor, and any character who prioritizes AC over stealth. At 50 gp, it's affordable mid-tier protection."
+        answer: "Scale mail suits medium-armor <a href=\"/characters/classes/cleric-5e/\">clerics</a>, <a href=\"/characters/classes/druid-5e/\">druids</a> (though they won't wear metal), <a href=\"/characters/classes/fighter-5e/\">fighters</a> transitioning to heavy armor, and any character who prioritizes AC over stealth. At 50 gp, it's affordable mid-tier protection."
       },
       {
         question: "Can I remove the Stealth disadvantage from Scale Mail?",
@@ -230,7 +230,7 @@ export const equipmentPages: EquipmentPage[] = [
       },
       {
         question: "Is Scale Mail good for characters with high Dexterity?",
-        answer: "No! The +2 Dex cap means characters with 16+ Dex waste their bonus. A rogue with 18 Dex gets AC 16 from scale mail but AC 16 from studded leather (12 + 4) without stealth disadvantage. Choose light armor instead."
+        answer: "No! The +2 Dex cap means characters with 16+ Dex waste their bonus. A <a href=\"/characters/classes/rogue-5e/\">rogue</a> with 18 Dex gets AC 16 from scale mail but AC 16 from studded leather (12 + 4) without stealth disadvantage. Choose light armor instead."
       }
     ],
     searchVolume: 13450
@@ -252,7 +252,7 @@ export const equipmentPages: EquipmentPage[] = [
       "Not considering whether the upgrade from leather is worth the gold early on"
     ],
     dmTips: [
-      "This is the best non-magical armor for high-Dex characters like rogues and rangers",
+      "This is the best non-magical armor for high-Dex characters like <a href=\"/characters/classes/rogue-5e/\">rogues</a> and <a href=\"/characters/classes/ranger-5e/\">rangers</a>",
       "The 45 gp cost makes it a good first major purchase for starting characters",
       "Consider offering studded leather as loot after tough early encounters",
       "The armor can be described in various ways - studded, riveted, or reinforced",
@@ -277,7 +277,7 @@ export const equipmentPages: EquipmentPage[] = [
       },
       {
         question: "Who should wear Studded Leather?",
-        answer: "Any Dexterity-focused character: rogues, rangers, bards, fighters with the Dexterity build, monks who want armor over Unarmored Defense, and light-armor warlocks. It's the optimal choice for most Dex-based builds."
+        answer: "Any Dexterity-focused character: <a href=\"/characters/classes/rogue-5e/\">rogues</a>, <a href=\"/characters/classes/ranger-5e/\">rangers</a>, <a href=\"/characters/classes/bard-5e/\">bards</a>, <a href=\"/characters/classes/fighter-5e/\">fighters</a> with the Dexterity build, <a href=\"/characters/classes/monk-5e/\">monks</a> who want armor over Unarmored Defense, and light-armor <a href=\"/characters/classes/warlock-5e/\">warlocks</a>. It's the optimal choice for most Dex-based builds."
       }
     ],
     searchVolume: 40
@@ -336,7 +336,7 @@ export const equipmentPages: EquipmentPage[] = [
     itemType: "Weapon",
     cost: "15 gp",
     weight: "3 lbs",
-    description: "The longsword is one of the most iconic and versatile weapons in D&D, favored by fighters, paladins, and other martial warriors. This double-edged blade typically measures about 3 to 4 feet in length with a cruciform hilt. The longsword can be wielded effectively with one or two hands, making it adaptable to different combat situations and allowing the wielder to pair it with a shield or maximize damage output.",
+    description: "The longsword is one of the most iconic and versatile weapons in D&D, favored by <a href=\"/characters/classes/fighter-5e/\">fighters</a>, <a href=\"/characters/classes/paladin-5e/\">paladins</a>, and other martial warriors. This double-edged blade typically measures about 3 to 4 feet in length with a cruciform hilt. The longsword can be wielded effectively with one or two hands, making it adaptable to different combat situations and allowing the wielder to pair it with a shield or maximize damage output.",
     mechanics: "Damage: 1d8 slashing (one-handed) or 1d10 slashing (two-handed). Melee weapon attack using Strength modifier. Range: 5 feet (reach). The Versatile property allows you to choose between wielding it one-handed (1d8) or two-handed (1d10) on each attack. When wielding one-handed, you can use a shield or keep a hand free for other purposes.",
     properties: ["Martial Melee Weapon", "Versatile (1d10)"],
     commonMistakes: [
@@ -369,7 +369,7 @@ export const equipmentPages: EquipmentPage[] = [
       },
       {
         question: "Who gets Longsword proficiency?",
-        answer: "All martial classes (Fighter, Paladin, Ranger, Barbarian), plus Elves (all subraces), Hobgoblins, and some subclasses/backgrounds. Bards, Clerics, and Rogues typically need special features for proficiency."
+        answer: "All martial classes (<a href=\"/characters/classes/fighter-5e/\">Fighter</a>, <a href=\"/characters/classes/paladin-5e/\">Paladin</a>, <a href=\"/characters/classes/ranger-5e/\">Ranger</a>, <a href=\"/characters/classes/barbarian-5e/\">Barbarian</a>), plus <a href=\"/characters/races/elf-5e/\">Elves</a> (all subraces), <a href=\"/characters/races/hobgoblin-5e/\">Hobgoblins</a>, and some subclasses/backgrounds. <a href=\"/characters/classes/bard-5e/\">Bards</a>, <a href=\"/characters/classes/cleric-5e/\">Clerics</a>, and <a href=\"/characters/classes/rogue-5e/\">Rogues</a> typically need special features for proficiency."
       },
       {
         question: "Is a Longsword better than a Greatsword?",
@@ -396,9 +396,9 @@ export const equipmentPages: EquipmentPage[] = [
       "Thinking you can sheathe and draw a greatsword as a free action (drawing requires an action or object interaction)"
     ],
     dmTips: [
-      "Perfect weapon for Strength-based damage dealers like Barbarians and Fighters",
+      "Perfect weapon for Strength-based damage dealers like <a href=\"/characters/classes/barbarian-5e/\">Barbarians</a> and <a href=\"/characters/classes/fighter-5e/\">Fighters</a>",
       "The 2d6 damage pairs exceptionally well with the Great Weapon Master feat",
-      "Barbarian's Brutal Critical and Half-Orc's Savage Attacks benefit more from the greataxe's d12",
+      "<a href=\"/characters/classes/barbarian-5e/\">Barbarian's</a> Brutal Critical and <a href=\"/characters/races/half-orc-5e/\">Half-Orc's</a> Savage Attacks benefit more from the greataxe's d12",
       "Consider describing the weight and power of greatsword strikes for cinematic effect",
       "The 50 gp cost makes it a significant early investment but very affordable at mid-levels",
       "Great Weapon Fighting style adds about 1.33 damage per attack with this weapon"
@@ -406,7 +406,7 @@ export const equipmentPages: EquipmentPage[] = [
     faq: [
       {
         question: "Is the Greatsword or Greataxe better?",
-        answer: "Greatsword (2d6) averages 7 damage with more consistency. Greataxe (1d12) averages 6.5 but has higher crit potential. For Barbarians with Brutal Critical, greataxe wins. For everyone else, greatsword is mathematically superior."
+        answer: "Greatsword (2d6) averages 7 damage with more consistency. Greataxe (1d12) averages 6.5 but has higher crit potential. For <a href=\"/characters/classes/barbarian-5e/\">Barbarians</a> with Brutal Critical, greataxe wins. For everyone else, greatsword is mathematically superior."
       },
       {
         question: "Can Small races use a Greatsword?",
@@ -422,7 +422,7 @@ export const equipmentPages: EquipmentPage[] = [
       },
       {
         question: "What classes use Greatswords best?",
-        answer: "Fighters (multiple attacks, GWF style), Paladins (Divine Smite on 2d6 hits), and Barbarians (though they often prefer greataxes for Brutal Critical). Any Strength-based martial benefits from greatswords."
+        answer: "<a href=\"/characters/classes/fighter-5e/\">Fighters</a> (multiple attacks, GWF style), <a href=\"/characters/classes/paladin-5e/\">Paladins</a> (Divine Smite on 2d6 hits), and <a href=\"/characters/classes/barbarian-5e/\">Barbarians</a> (though they often prefer greataxes for Brutal Critical). Any Strength-based martial benefits from greatswords."
       }
     ],
     searchVolume: 12950
@@ -434,18 +434,18 @@ export const equipmentPages: EquipmentPage[] = [
     itemType: "Weapon",
     cost: "25 gp",
     weight: "2 lbs",
-    description: "The rapier is an elegant thrusting sword with a slender, sharply pointed blade typically 3 to 4 feet long. This weapon is the highest-damaging finesse weapon available in standard D&D 5e, making it the preferred choice for Dexterity-based martial characters like rogues, swashbuckling fighters, and dexterous rangers. The rapier's design emphasizes precision and technique over brute force, allowing skilled duelists to exploit enemy weaknesses.",
+    description: "The rapier is an elegant thrusting sword with a slender, sharply pointed blade typically 3 to 4 feet long. This weapon is the highest-damaging finesse weapon available in standard D&D 5e, making it the preferred choice for Dexterity-based martial characters like <a href=\"/characters/classes/rogue-5e/\">rogues</a>, swashbuckling <a href=\"/characters/classes/fighter-5e/\">fighters</a>, and dexterous <a href=\"/characters/classes/ranger-5e/\">rangers</a>. The rapier's design emphasizes precision and technique over brute force, allowing skilled duelists to exploit enemy weaknesses.",
     mechanics: "Damage: 1d8 piercing. Melee weapon attack using Strength OR Dexterity modifier (your choice). Range: 5 feet (reach). The Finesse property allows you to use your Dexterity modifier instead of Strength for attack and damage rolls, making it ideal for characters with high Dexterity. This is the only finesse weapon that deals 1d8 damage without requiring two hands or being a monk weapon.",
     properties: ["Martial Melee Weapon", "Finesse"],
     commonMistakes: [
       "Forgetting the rapier lacks the Light property (you need the Dual Wielder feat to two-weapon fight with it)",
       "Thinking the rapier is a slashing weapon (it's piercing damage only)",
-      "Not realizing this is the best weapon for Sneak Attack damage for rogues",
+      "Not realizing this is the best weapon for Sneak Attack damage for <a href=\"/characters/classes/rogue-5e/\">rogues</a>",
       "Assuming you must use Dexterity (you can choose Strength if it's higher)",
       "Thinking the rapier has reach or special defensive properties beyond finesse"
     ],
     dmTips: [
-      "The rapier is THE weapon for optimized Dexterity builds - especially rogues",
+      "The rapier is THE weapon for optimized Dexterity builds - especially <a href=\"/characters/classes/rogue-5e/\">rogues</a>",
       "Perfect for swashbuckler and duelist character archetypes",
       "Consider offering magical rapiers with additional properties for finesse characters",
       "The 25 gp cost makes it accessible but not trivial for starting characters",
@@ -463,12 +463,12 @@ export const equipmentPages: EquipmentPage[] = [
         answer: "Not without the Dual Wielder feat! Rapiers lack the Light property required for two-weapon fighting. With Dual Wielder, you can wield two rapiers and draw both in one turn."
       },
       {
-        question: "Is a Rapier better than a Shortsword for Rogues?",
-        answer: "For single-weapon rogues, absolutely! Rapier deals 1d8 vs shortsword's 1d6 - that's +1 average damage on every Sneak Attack. Only choose shortsword if you're two-weapon fighting."
+        question: "Is a Rapier better than a Shortsword for <a href=\"/characters/classes/rogue-5e/\">Rogues</a>?",
+        answer: "For single-weapon <a href=\"/characters/classes/rogue-5e/\">rogues</a>, absolutely! Rapier deals 1d8 vs shortsword's 1d6 - that's +1 average damage on every Sneak Attack. Only choose shortsword if you're two-weapon fighting."
       },
       {
         question: "Can I use a Rapier with a Shield?",
-        answer: "Yes! The rapier is one-handed, leaving your other hand free for a shield. A Dex fighter with rapier + shield + Dueling style (+2 damage) is an excellent defensive build with solid damage output."
+        answer: "Yes! The rapier is one-handed, leaving your other hand free for a shield. A Dex <a href=\"/characters/classes/fighter-5e/\">fighter</a> with rapier + shield + Dueling style (+2 damage) is an excellent defensive build with solid damage output."
       },
       {
         question: "What's the best Fighting Style for Rapiers?",
@@ -484,23 +484,23 @@ export const equipmentPages: EquipmentPage[] = [
     itemType: "Weapon",
     cost: "10 gp",
     weight: "2 lbs",
-    description: "The shortsword is a short-bladed martial weapon approximately 2 feet long, designed for quick, agile combat. Unlike its larger cousin the longsword, the shortsword excels in close-quarters fighting and dual-wielding scenarios. This weapon is favored by rogues, rangers, and other warriors who value speed and versatility. The shortsword's Light property makes it ideal for two-weapon fighting, while its Finesse property allows Dexterity-based characters to use it effectively.",
+    description: "The shortsword is a short-bladed martial weapon approximately 2 feet long, designed for quick, agile combat. Unlike its larger cousin the longsword, the shortsword excels in close-quarters fighting and dual-wielding scenarios. This weapon is favored by <a href=\"/characters/classes/rogue-5e/\">rogues</a>, <a href=\"/characters/classes/ranger-5e/\">rangers</a>, and other warriors who value speed and versatility. The shortsword's Light property makes it ideal for two-weapon fighting, while its Finesse property allows Dexterity-based characters to use it effectively.",
     mechanics: "Damage: 1d6 piercing. Melee weapon attack using Strength OR Dexterity modifier (your choice). Range: 5 feet (reach). The Finesse property lets you use Dexterity instead of Strength for attack and damage rolls. The Light property allows you to engage in two-weapon fighting, attacking with a second shortsword (or other light weapon) as a bonus action without needing a feat.",
     properties: ["Martial Melee Weapon", "Finesse", "Light"],
     commonMistakes: [
       "Forgetting that two-weapon fighting with shortswords doesn't add your ability modifier to the bonus action attack damage (unless you have the Two-Weapon Fighting style)",
-      "Not realizing shortswords are martial weapons (rogues and rangers are proficient, but many classes aren't)",
-      "Thinking shortswords are better than rapiers for single-weapon rogues (rapier deals 1d8)",
+      "Not realizing shortswords are martial weapons (<a href=\"/characters/classes/rogue-5e/\">rogues</a> and <a href=\"/characters/classes/ranger-5e/\">rangers</a> are proficient, but many classes aren't)",
+      "Thinking shortswords are better than rapiers for single-weapon <a href=\"/characters/classes/rogue-5e/\">rogues</a> (rapier deals 1d8)",
       "Assuming drawing two shortswords at once is free (requires Dual Wielder feat or two separate actions)",
       "Using two shortswords but forgetting you can't use a shield"
     ],
     dmTips: [
       "Shortswords are the iconic dual-wielding weapon for Dexterity builds",
-      "Perfect for Two-Weapon Fighting style rangers and rogues",
+      "Perfect for Two-Weapon Fighting style <a href=\"/characters/classes/ranger-5e/\">rangers</a> and <a href=\"/characters/classes/rogue-5e/\">rogues</a>",
       "The 10 gp cost makes dual-wielding affordable at low levels (20 gp for two)",
       "Consider offering matched pairs of magical shortswords as loot",
-      "Rangers with Two-Weapon Fighting style add their Dex mod to bonus action attacks",
-      "Single-weapon rogues should prefer rapiers (1d8) over shortswords (1d6) for Sneak Attack",
+      "<a href=\"/characters/classes/ranger-5e/\">Rangers</a> with Two-Weapon Fighting style add their Dex mod to bonus action attacks",
+      "Single-weapon <a href=\"/characters/classes/rogue-5e/\">rogues</a> should prefer rapiers (1d8) over shortswords (1d6) for Sneak Attack",
       "Great for pirates, scouts, and agile fighter NPCs"
     ],
     faq: [
@@ -510,15 +510,15 @@ export const equipmentPages: EquipmentPage[] = [
       },
       {
         question: "Is a Shortsword better than a Rapier?",
-        answer: "Only for dual-wielding! A single rapier (1d8) out-damages a single shortsword (1d6). But two shortswords give you a bonus action attack, which can be better for rogues trying to land Sneak Attack or builds stacking on-hit effects."
+        answer: "Only for dual-wielding! A single rapier (1d8) out-damages a single shortsword (1d6). But two shortswords give you a bonus action attack, which can be better for <a href=\"/characters/classes/rogue-5e/\">rogues</a> trying to land Sneak Attack or builds stacking on-hit effects."
       },
       {
-        question: "Why would a Rogue use Shortswords over Rapiers?",
+        question: "Why would a <a href=\"/characters/classes/rogue-5e/\">Rogue</a> use Shortswords over Rapiers?",
         answer: "Dual shortswords give two chances to land Sneak Attack per turn - if you miss with your main attack, you get another try with the bonus action. However, a single rapier deals more damage when you consistently hit."
       },
       {
-        question: "Is Shortsword a Monk weapon?",
-        answer: "Yes! Shortswords are monk weapons, so monks can use Dexterity and their Martial Arts die (if higher than 1d6). However, most monk features focus on unarmed strikes, so shortswords are often just backup weapons."
+        question: "Is Shortsword a <a href=\"/characters/classes/monk-5e/\">Monk</a> weapon?",
+        answer: "Yes! Shortswords are <a href=\"/characters/classes/monk-5e/\">monk</a> weapons, so monks can use Dexterity and their Martial Arts die (if higher than 1d6). However, most monk features focus on unarmed strikes, so shortswords are often just backup weapons."
       },
       {
         question: "What's the difference between Shortsword and Scimitar?",
@@ -538,16 +538,16 @@ export const equipmentPages: EquipmentPage[] = [
     mechanics: "Damage: 1d12 slashing. Melee weapon attack using Strength modifier. Range: 5 feet (reach). This weapon requires two hands to use (you cannot use a shield with it). The Heavy property means Small creatures have disadvantage on attack rolls with this weapon. Rolling a single d12 gives you a chance at maximum damage of 12 on each hit, though it's less consistent than the greatsword's 2d6.",
     properties: ["Martial Melee Weapon", "Heavy", "Two-Handed"],
     commonMistakes: [
-      "Not realizing the greataxe is better than greatsword for Barbarians (Brutal Critical adds extra d12s)",
+      "Not realizing the greataxe is better than greatsword for <a href=\"/characters/classes/barbarian-5e/\">Barbarians</a> (Brutal Critical adds extra d12s)",
       "Forgetting Small creatures have disadvantage with Heavy weapons",
       "Thinking the greataxe deals more average damage than greatsword (it deals slightly less: 6.5 vs 7)",
-      "Not understanding that Half-Orc's Savage Attacks benefits more from d12 weapons",
+      "Not understanding that <a href=\"/characters/races/half-orc-5e/\">Half-Orc's</a> Savage Attacks benefits more from d12 weapons",
       "Assuming you can use Great Weapon Fighting style to reroll the damage (you can, it's just one die)"
     ],
     dmTips: [
-      "The greataxe is THE weapon for critical-focused builds (Barbarian, Half-Orc)",
-      "Barbarian's Brutal Critical at level 9+ adds an extra d12 on crits (massive damage spike)",
-      "Half-Orc's Savage Attacks adds an extra weapon die on crits (another d12)",
+      "The greataxe is THE weapon for critical-focused builds (<a href=\"/characters/classes/barbarian-5e/\">Barbarian</a>, <a href=\"/characters/races/half-orc-5e/\">Half-Orc</a>)",
+      "<a href=\"/characters/classes/barbarian-5e/\">Barbarian's</a> Brutal Critical at level 9+ adds an extra d12 on crits (massive damage spike)",
+      "<a href=\"/characters/races/half-orc-5e/\">Half-Orc's</a> Savage Attacks adds an extra weapon die on crits (another d12)",
       "The 30 gp cost is 20 gp cheaper than a greatsword, making it more accessible",
       "Perfect for berserkers, orcs, and brutish warrior NPCs",
       "Consider magical greataxes with on-crit effects to emphasize the crit-fishing playstyle",
@@ -556,15 +556,15 @@ export const equipmentPages: EquipmentPage[] = [
     faq: [
       {
         question: "Is the Greataxe or Greatsword better?",
-        answer: "For most characters, greatsword (2d6, avg 7) beats greataxe (1d12, avg 6.5). But Barbarians should use greataxe! Brutal Critical adds extra d12s on crits, and Half-Orcs add another d12. High-crit builds favor greataxe."
+        answer: "For most characters, greatsword (2d6, avg 7) beats greataxe (1d12, avg 6.5). But <a href=\"/characters/classes/barbarian-5e/\">Barbarians</a> should use greataxe! Brutal Critical adds extra d12s on crits, and <a href=\"/characters/races/half-orc-5e/\">Half-Orcs</a> add another d12. High-crit builds favor greataxe."
       },
       {
-        question: "Why do Barbarians prefer Greataxes?",
-        answer: "Brutal Critical (level 9+) adds extra weapon dice on crits. A d12 is better than d6 for this. Combined with Reckless Attack's advantage (more crits) and potential Half-Orc Savage Attacks, greataxes maximize crit damage."
+        question: "Why do <a href=\"/characters/classes/barbarian-5e/\">Barbarians</a> prefer Greataxes?",
+        answer: "Brutal Critical (level 9+) adds extra weapon dice on crits. A d12 is better than d6 for this. Combined with Reckless Attack's advantage (more crits) and potential <a href=\"/characters/races/half-orc-5e/\">Half-Orc</a> Savage Attacks, greataxes maximize crit damage."
       },
       {
         question: "Can Small races use a Greataxe?",
-        answer: "Yes, but with disadvantage on attacks due to the Heavy property. Halfling and gnome barbarians should consider non-Heavy alternatives, or just accept the disadvantage for the raw damage potential."
+        answer: "Yes, but with disadvantage on attacks due to the Heavy property. <a href=\"/characters/races/halfling-5e/\">Halfling</a> and <a href=\"/characters/races/gnome-5e/\">gnome</a> <a href=\"/characters/classes/barbarian-5e/\">barbarians</a> should consider non-Heavy alternatives, or just accept the disadvantage for the raw damage potential."
       },
       {
         question: "Does Great Weapon Fighting work with Greataxes?",
@@ -572,7 +572,7 @@ export const equipmentPages: EquipmentPage[] = [
       },
       {
         question: "What's the max damage a Greataxe can do?",
-        answer: "Normal max is 12 + Strength mod. On a crit with a level 17+ Barbarian Half-Orc using Brutal Critical, you roll 5d12 (weapon + 3 brutal + 1 savage attacks) = up to 60 damage before mods! That's why barbarians love greataxes."
+        answer: "Normal max is 12 + Strength mod. On a crit with a level 17+ <a href=\"/characters/classes/barbarian-5e/\">Barbarian</a> <a href=\"/characters/races/half-orc-5e/\">Half-Orc</a> using Brutal Critical, you roll 5d12 (weapon + 3 brutal + 1 savage attacks) = up to 60 damage before mods! That's why barbarians love greataxes."
       }
     ],
     searchVolume: 8760
@@ -677,6 +677,145 @@ export const equipmentPages: EquipmentPage[] = [
       }
     ],
     searchVolume: 11340
+  },
+  {
+    slug: "dart-5e",
+    name: "Dart",
+    category: "equipment",
+    itemType: "Weapon",
+    cost: "5 cp",
+    weight: "1/4 lb",
+    description: "Darts are small, aerodynamic projectiles consisting of a pointed tip and weighted body, designed for throwing. At just 5 copper pieces each, they're the cheapest ranged weapon option in the game. While their 1d4 damage is modest, darts are lightweight, inexpensive, and work with Dexterity, making them excellent backup weapons for spellcasters and Dex-based characters.",
+    mechanics: "Damage: 1d4 piercing. Ranged weapon attack using Dexterity modifier. Range: 20/60 feet. Darts use Dexterity for attack and damage rolls. As a simple weapon, almost every class has proficiency with darts. The Finesse property allows the damage to scale with your Dex modifier. Unlike daggers, darts are purely ranged weapons and cannot be used in melee.",
+    properties: ["Simple Ranged Weapon", "Finesse", "Thrown (20/60)"],
+    commonMistakes: [
+      "Trying to use darts as melee weapons (they're ranged only, unlike daggers)",
+      "Forgetting darts use Dexterity, not Strength for attack and damage",
+      "Not carrying enough darts (at 5 cp each, buy 20+)",
+      "Thinking darts are less useful than daggers (darts are cheaper and lighter)",
+      "Not tracking thrown darts (they land near the target, retrieve them after combat)"
+    ],
+    dmTips: [
+      "Darts are perfect starter weapons for commoners and low-level NPCs",
+      "At 5 cp each, even a peasant can afford a handful of darts",
+      "Wizards can use darts as their ranged option when cantrips aren't ideal",
+      "The extremely light weight (1/4 lb) means characters can carry many",
+      "Poison-coated darts are classic traps and assassin weapons",
+      "Blowgun darts are a separate item with different rules"
+    ],
+    faq: [
+      {
+        question: "Can Wizards use Darts?",
+        answer: "Yes! Darts are simple weapons, and Wizards have proficiency with darts specifically listed in their weapon proficiencies. They're a great ranged option when you want to save spell slots."
+      },
+      {
+        question: "What's the difference between Darts and Daggers?",
+        answer: "Daggers can be used in melee OR thrown, use Str or Dex (Finesse), cost 2 gp, and weigh 1 lb. Darts are throwing-only, use Dex, cost 5 cp, and weigh 1/4 lb. Daggers are more versatile; darts are cheaper and lighter."
+      },
+      {
+        question: "How many Darts should I carry?",
+        answer: "Carry at least 10-20 darts. At 5 cp each and only 1/4 lb, you can easily carry a quiver full. Remember you lose them when thrown unless you retrieve them after combat."
+      },
+      {
+        question: "Do Darts work with Sneak Attack?",
+        answer: "Yes! Darts have the Finesse property, which qualifies them for Sneak Attack. However, daggers are often preferred because they can also be used in melee."
+      }
+    ],
+    searchVolume: 4280
+  },
+  {
+    slug: "sling-5e",
+    name: "Sling",
+    category: "equipment",
+    itemType: "Weapon",
+    cost: "1 sp",
+    weight: "—",
+    description: "The sling is a simple ranged weapon consisting of a leather pouch attached to two cords. Users place a stone or sling bullet in the pouch, swing it overhead, and release one cord to hurl the projectile. Despite being one of the oldest ranged weapons, the sling is remarkably effective in D&D 5e, offering respectable range and damage at almost no cost or weight.",
+    mechanics: "Damage: 1d4 bludgeoning. Ranged weapon attack using Dexterity modifier. Range: 30/120 feet. Requires ammunition (sling bullets cost 4 cp for 20, or use stones for free). The sling has no weight listed, making it essentially weightless. As a simple weapon, most characters have proficiency.",
+    properties: ["Simple Ranged Weapon", "Ammunition (30/120)"],
+    commonMistakes: [
+      "Forgetting you need one free hand to load the sling (no shield + sling)",
+      "Not realizing you can use free stones as ammunition in most environments",
+      "Thinking slings are inferior to shortbows (slings cost 1 sp vs 25 gp)",
+      "Not tracking ammunition if using purchased sling bullets",
+      "Assuming slings can't be effective (halflings have cultural proficiency for good reason)"
+    ],
+    dmTips: [
+      "Slings are the perfect weapon for peasant militias and poor communities",
+      "Halflings canonically favor slings, and giant-slaying slingers are folk heroes",
+      "Characters can gather stones during travel for free ammunition",
+      "Sling bullets can be silver-plated or enchanted just like arrows",
+      "The biblical David vs Goliath fight is a classic sling reference"
+    ],
+    faq: [
+      {
+        question: "Can I use rocks instead of sling bullets?",
+        answer: "Yes! While sling bullets are the 'proper' ammunition (4 cp for 20), you can use stones found in most environments for free. DMs may rule that improvised stones have slightly less accuracy or damage in certain situations."
+      },
+      {
+        question: "Is a Sling good for a Wizard?",
+        answer: "Wizards aren't proficient with slings (only daggers, darts, slings, quarterstaffs, and light crossbows). Actually, yes - Wizards ARE proficient with slings! It's a decent ranged option that doesn't cost spell slots."
+      },
+      {
+        question: "Can I use a Sling with a Shield?",
+        answer: "No. Slings have the Ammunition property, which requires a free hand to load. You need one hand for the sling and one free hand for ammunition. Shield users should consider hand crossbows with Crossbow Expert feat."
+      },
+      {
+        question: "What's the advantage of a Sling over a Shortbow?",
+        answer: "Slings cost 1 sp vs 25 gp for a shortbow. Ammunition can be free (stones). The sling weighs nothing. The downsides: loading requires a free hand, and shortbows deal 1d6 vs 1d4 damage. Slings are budget-friendly."
+      }
+    ],
+    searchVolume: 3650
+  },
+  {
+    slug: "light-crossbow-5e",
+    name: "Light Crossbow",
+    category: "equipment",
+    itemType: "Weapon",
+    cost: "25 gp",
+    weight: "5 lb",
+    description: "The light crossbow is a mechanical ranged weapon that uses a trigger mechanism to release a taut string, propelling bolts with deadly accuracy. It's the go-to ranged weapon for characters who lack martial weapon proficiency or want decent damage without investing in Strength. The Loading property limits it to one shot per action, but the reliable 1d8 damage makes it a solid choice for Wizards, Rogues, and other Dexterity-focused characters.",
+    mechanics: "Damage: 1d8 piercing. Ranged weapon attack using Dexterity modifier. Range: 80/320 feet. Requires bolts as ammunition (1 gp for 20). The Loading property means you can only fire once per action regardless of Extra Attack (unless you have the Crossbow Expert feat). Two-handed to fire but can be held in one hand when not firing.",
+    properties: ["Simple Ranged Weapon", "Ammunition (80/320)", "Loading", "Two-Handed"],
+    commonMistakes: [
+      "Forgetting the Loading property - you can only attack once per action without Crossbow Expert",
+      "Not realizing Loading prevents Extra Attack from working (each attack requires an action to reload)",
+      "Thinking you need two hands at all times (only when firing)",
+      "Confusing light crossbow with hand crossbow (different weapons, different properties)",
+      "Using a crossbow with a shield (you need two hands to fire)",
+      "Not tracking bolt ammunition"
+    ],
+    dmTips: [
+      "Light crossbows are the standard ranged weapon for town guards and militia",
+      "The Loading property is intentionally limiting - it's a balance feature",
+      "Crossbow Expert feat removes the Loading limitation entirely",
+      "Light crossbows are ideal for Wizards who want more damage than cantrips at early levels",
+      "Rogues can deliver Sneak Attack with a light crossbow effectively",
+      "Consider describing the mechanical 'click' of loading and firing for flavor"
+    ],
+    faq: [
+      {
+        question: "Can I attack twice with a Light Crossbow if I have Extra Attack?",
+        answer: "No, not without the Crossbow Expert feat. The Loading property states you can only fire once per action regardless of how many attacks you can normally make. Crossbow Expert removes this limitation."
+      },
+      {
+        question: "Is Light Crossbow better than a Shortbow?",
+        answer: "Light crossbow deals 1d8 vs shortbow's 1d6, and has better range (80/320 vs 80/320 - actually the same). The shortbow is lighter (2 lbs vs 5 lbs) and doesn't have Loading. For single attacks, crossbow wins; for multiple attacks, shortbow wins."
+      },
+      {
+        question: "Can a Wizard use a Light Crossbow?",
+        answer: "Yes! Wizards are specifically proficient with light crossbows. At 1d8 damage with 80-foot range, it's often better than cantrips at early levels before cantrip scaling kicks in at level 5."
+      },
+      {
+        question: "What's the difference between Light, Hand, and Heavy Crossbows?",
+        answer: "Light: 1d8, simple weapon, Loading. Hand: 1d6, martial weapon, Light and Loading (can dual-wield with feat). Heavy: 1d10, martial weapon, Heavy and Loading. Hand crossbow + Crossbow Expert is the optimal build."
+      },
+      {
+        question: "Can I use a Light Crossbow with a Shield?",
+        answer: "No. Light crossbows are Two-Handed when firing. You need both hands free to load and shoot. For shield users wanting ranged options, consider a hand crossbow with Crossbow Expert feat."
+      }
+    ],
+    searchVolume: 8920
   },
   {
     slug: "longbow-5e",
@@ -896,16 +1035,16 @@ export const equipmentPages: EquipmentPage[] = [
       "Forgetting that donning or doffing a shield requires an action (not free)",
       "Thinking you can use a shield with two-handed weapons (you can't)",
       "Not realizing you can cast spells with somatic components while holding a shield (if you're proficient and it's your spellcasting focus or the other hand is free)",
-      "Assuming all characters are proficient with shields (wizards, sorcerers, rogues, monks typically aren't)",
+      "Assuming all characters are proficient with shields (<a href=\"/characters/classes/wizard-5e/\">wizards</a>, <a href=\"/characters/classes/sorcerer-5e/\">sorcerers</a>, <a href=\"/characters/classes/rogue-5e/\">rogues</a>, <a href=\"/characters/classes/monk-5e/\">monks</a> typically aren't)",
       "Forgetting that shields prevent two-weapon fighting unless you have Dual Wielder feat"
     ],
     dmTips: [
       "The +2 AC from shields is mathematically equivalent to roughly 25% more durability",
-      "Shields are essential for front-line defensive characters (paladins, clerics, sword-and-board fighters)",
+      "Shields are essential for front-line defensive characters (<a href=\"/characters/classes/paladin-5e/\">paladins</a>, <a href=\"/characters/classes/cleric-5e/\">clerics</a>, sword-and-board <a href=\"/characters/classes/fighter-5e/\">fighters</a>)",
       "The 5 gp cost makes shields extremely affordable and accessible",
       "Consider magical shields (+1, +2, +3) or shields with special properties as rewards",
       "Animated Shield is a fun magic item that allows shield bonus without occupying a hand",
-      "Shield spell reaction can stack with physical shield for incredible burst defense",
+      "<a href=\"/spells/abjuration/shield-5e/\">Shield</a> spell reaction can stack with physical shield for incredible burst defense",
       "NPCs with shields are noticeably harder to hit - use them for elite guards and knights",
       "The 6 lb weight is negligible for most characters"
     ],
@@ -916,7 +1055,7 @@ export const equipmentPages: EquipmentPage[] = [
       },
       {
         question: "Can I cast spells while holding a Shield?",
-        answer: "Yes, if you're proficient and either: the shield is your spellcasting focus (Cleric, Paladin with holy symbol on shield), you have War Caster feat, or your other hand is free for somatic components. Material components work with focus on shield."
+        answer: "Yes, if you're proficient and either: the shield is your spellcasting focus (<a href=\"/characters/classes/cleric-5e/\">Cleric</a>, <a href=\"/characters/classes/paladin-5e/\">Paladin</a> with holy symbol on shield), you have War Caster feat, or your other hand is free for somatic components. Material components work with focus on shield."
       },
       {
         question: "Can I use a Shield with two-weapon fighting?",
@@ -928,7 +1067,7 @@ export const equipmentPages: EquipmentPage[] = [
       },
       {
         question: "What classes can use Shields?",
-        answer: "Classes with shield proficiency: Barbarian, Cleric, Druid, Fighter, Paladin, Ranger. Some subclasses grant shield proficiency (like College of Valor Bard). Rogues, Monks, Sorcerers, Warlocks, and Wizards typically can't use shields."
+        answer: "Classes with shield proficiency: <a href=\"/characters/classes/barbarian-5e/\">Barbarian</a>, <a href=\"/characters/classes/cleric-5e/\">Cleric</a>, <a href=\"/characters/classes/druid-5e/\">Druid</a>, <a href=\"/characters/classes/fighter-5e/\">Fighter</a>, <a href=\"/characters/classes/paladin-5e/\">Paladin</a>, <a href=\"/characters/classes/ranger-5e/\">Ranger</a>. Some subclasses grant shield proficiency (like College of Valor <a href=\"/characters/classes/bard-5e/\">Bard</a>). <a href=\"/characters/classes/rogue-5e/\">Rogues</a>, <a href=\"/characters/classes/monk-5e/\">Monks</a>, <a href=\"/characters/classes/sorcerer-5e/\">Sorcerers</a>, <a href=\"/characters/classes/warlock-5e/\">Warlocks</a>, and <a href=\"/characters/classes/wizard-5e/\">Wizards</a> typically can't use shields."
       }
     ],
     searchVolume: 8640
@@ -1342,7 +1481,7 @@ export const equipmentPages: EquipmentPage[] = [
       },
       {
         question: "What's the best Warhammer build?",
-        answer: "Forge Cleric or War Cleric with a shield! AC 18+ (chain mail + shield), versatile damage (1d8 one-handed), divine magic backup. Dwarven characters fit thematically, and dwarves get warhammer proficiency from their race."
+        answer: "Forge <a href=\"/characters/classes/cleric-5e/\">Cleric</a> or War Cleric with a shield! AC 18+ (chain mail + shield), versatile damage (1d8 one-handed), divine magic backup. <a href=\"/characters/races/dwarf-5e/\">Dwarven</a> characters fit thematically, and dwarves get warhammer proficiency from their race."
       }
     ],
     searchVolume: 7680
@@ -1672,16 +1811,16 @@ export const magicItemPages: MagicItemPage[] = [
     attunement: true,
     itemType: "Wondrous Item",
     description: "This item appears to be a normal cloak, but when worn, it projects an illusion that makes the wearer appear to be standing in a place near their actual location. The cloak creates a constant displacement effect, causing attacks to veer off course. The shimmering illusion gives the wearer a ghostly, hard-to-pin-down appearance.",
-    mechanics: "While you wear this cloak, it projects an illusion that makes you appear to be standing in a place near your actual location, causing any creature to have disadvantage on attack rolls against you. If you take damage, the property ceases to function until the start of your next turn. This property is suppressed while you are incapacitated, restrained, or otherwise unable to move.",
+    mechanics: "While you wear this cloak, it projects an illusion that makes you appear to be standing in a place near your actual location, causing any creature to have disadvantage on attack rolls against you. If you take damage, the property ceases to function until the start of your next turn. This property is suppressed while you are <a href=\"/rules/conditions/incapacitated-condition-5e/\">incapacitated</a>, <a href=\"/rules/conditions/restrained-condition-5e/\">restrained</a>, or otherwise unable to move.",
     commonMistakes: [
       "Forgetting that the effect ends after taking ANY damage, including from saving throws",
       "Thinking the effect persists through multiple hits in one round (it ends on first damage)",
       "Assuming the disadvantage applies to saving throws (it only affects attack rolls)",
-      "Not realizing that being grappled or restrained suppresses the effect",
+      "Not realizing that being <a href=\"/rules/conditions/grappled-condition-5e/\">grappled</a> or <a href=\"/rules/conditions/restrained-condition-5e/\">restrained</a> suppresses the effect",
       "Thinking you can choose when to activate it (it's always active when worn)"
     ],
     dmTips: [
-      "This item shines on characters who can avoid being hit (high AC rogues, monks)",
+      "This item shines on characters who can avoid being hit (high AC <a href=\"/characters/classes/rogue-5e/\">rogues</a>, <a href=\"/characters/classes/monk-5e/\">monks</a>)",
       "The 'first hit breaks it' mechanic rewards tactical positioning and defensive play",
       "Great for making boss NPCs more challenging without just increasing HP",
       "Consider describing the visual displacement effect during combat for immersion",
@@ -1691,19 +1830,19 @@ export const magicItemPages: MagicItemPage[] = [
     faq: [
       {
         question: "When does the Cloak of Displacement turn off?",
-        answer: "The displacement effect ends immediately when you take ANY damage, even 1 point. It reactivates at the start of your next turn. This means if an enemy hits you and deals damage, all subsequent attacks that turn have normal chances to hit. The effect also turns off if you're incapacitated, restrained, or unable to move."
+        answer: "The displacement effect ends immediately when you take ANY damage, even 1 point. It reactivates at the start of your next turn. This means if an enemy hits you and deals damage, all subsequent attacks that turn have normal chances to hit. The effect also turns off if you're <a href=\"/rules/conditions/incapacitated-condition-5e/\">incapacitated</a>, <a href=\"/rules/conditions/restrained-condition-5e/\">restrained</a>, or unable to move."
       },
       {
         question: "Does Cloak of Displacement affect saving throws?",
-        answer: "No. The cloak only imposes disadvantage on attack rolls against you. Spells and effects that require saving throws (like Fireball) are unaffected. This is why AoE spells and effects can be effective counters against Cloak of Displacement users."
+        answer: "No. The cloak only imposes disadvantage on attack rolls against you. Spells and effects that require saving throws (like <a href=\"/spells/damage-offensive/fireball-5e/\">Fireball</a>) are unaffected. This is why AoE spells and effects can be effective counters against Cloak of Displacement users."
       },
       {
         question: "Can I turn Cloak of Displacement on and off?",
-        answer: "No, the effect is always active while you wear the cloak (assuming you're not incapacitated, restrained, or unable to move). You can't voluntarily suppress it. The only way to stop it is to take it off or get hit by an attack that deals damage."
+        answer: "No, the effect is always active while you wear the cloak (assuming you're not <a href=\"/rules/conditions/incapacitated-condition-5e/\">incapacitated</a>, <a href=\"/rules/conditions/restrained-condition-5e/\">restrained</a>, or unable to move). You can't voluntarily suppress it. The only way to stop it is to take it off or get hit by an attack that deals damage."
       },
       {
         question: "Does Cloak of Displacement work with other sources of disadvantage?",
-        answer: "Disadvantage doesn't stack - an attacker either has disadvantage or doesn't. However, if you combine the cloak with another disadvantage source (like being invisible), the attacker still has disadvantage even if one source is negated by advantage from another effect."
+        answer: "Disadvantage doesn't stack - an attacker either has disadvantage or doesn't. However, if you combine the cloak with another disadvantage source (like being <a href=\"/rules/conditions/invisible-condition-5e/\">invisible</a>), the attacker still has disadvantage even if one source is negated by advantage from another effect."
       },
       {
         question: "Is Cloak of Displacement better than Cloak of Protection?",
@@ -1746,8 +1885,8 @@ export const magicItemPages: MagicItemPage[] = [
         answer: "For most characters, yes. The +1 AC and +1 to ALL saving throws is universally useful. The saving throw bonus becomes increasingly valuable at higher levels when enemy DCs are higher. However, if you have access to more powerful attunement items, consider your options carefully."
       },
       {
-        question: "Does Cloak of Protection work while unconscious?",
-        answer: "Yes! Unlike some magic items, the Cloak of Protection's bonus is passive and doesn't require you to be conscious. You still get +1 AC and saves while unconscious, which can matter for death saving throws (though those use a flat d20, so saves don't apply, but the AC still helps prevent additional failed saves from hits)."
+        question: "Does Cloak of Protection work while <a href=\"/rules/conditions/unconscious-condition-5e/\">unconscious</a>?",
+        answer: "Yes! Unlike some magic items, the Cloak of Protection's bonus is passive and doesn't require you to be conscious. You still get +1 AC and saves while <a href=\"/rules/conditions/unconscious-condition-5e/\">unconscious</a>, which can matter for death saving throws (though those use a flat d20, so saves don't apply, but the AC still helps prevent additional failed saves from hits)."
       },
       {
         question: "Can I wear multiple cloaks for multiple bonuses?",
@@ -1823,7 +1962,7 @@ export const magicItemPages: MagicItemPage[] = [
     commonMistakes: [
       "Drinking a potion as a bonus action (official rules require an action, though many tables house-rule this)",
       "Not specifying whether you're drinking or administering (both take an action)",
-      "Forgetting that administering to an unconscious ally requires an action",
+      "Forgetting that administering to an <a href=\"/rules/conditions/unconscious-condition-5e/\">unconscious</a> ally requires an action",
       "Rolling healing when you don't need to (some DMs allow taking the average)",
       "Assuming anyone can identify a potion by looking (requires tasting or Identify spell)",
       "Not tracking potion costs - they're worth 50 gp (common) to 50,000 gp (supreme)"
@@ -1848,8 +1987,8 @@ export const magicItemPages: MagicItemPage[] = [
         answer: "Potion of Healing (Common): 2d4+2 (avg 7 HP). Greater Healing (Uncommon): 4d4+4 (avg 14 HP). Superior Healing (Rare): 8d4+8 (avg 28 HP). Supreme Healing (Very Rare): 10d4+20 (avg 45 HP). Each tier roughly doubles the healing of the previous."
       },
       {
-        question: "Can I use a healing potion on an unconscious ally?",
-        answer: "Yes! You can use your action to administer a potion to another creature, including an unconscious one. This is often the fastest way to get an ally back in the fight since it doesn't require any class features or spell slots - just the potion and your action."
+        question: "Can I use a healing potion on an <a href=\"/rules/conditions/unconscious-condition-5e/\">unconscious</a> ally?",
+        answer: "Yes! You can use your action to administer a potion to another creature, including an <a href=\"/rules/conditions/unconscious-condition-5e/\">unconscious</a> one. This is often the fastest way to get an ally back in the fight since it doesn't require any class features or spell slots - just the potion and your action."
       },
       {
         question: "How do you identify an unknown potion?",
@@ -1883,12 +2022,12 @@ export const magicItemPages: MagicItemPage[] = [
       "The 2d6 extra fire damage is significant but balanced by requiring attunement and activation",
       "Enemies resistant or immune to fire dramatically reduce this weapon's effectiveness",
       "The bright light can be a drawback in stealth scenarios but useful in darkness",
-      "Perfect thematic weapon for paladins, fighters, and martial characters",
+      "Perfect thematic weapon for <a href=\"/characters/classes/paladin-5e/\">paladins</a>, <a href=\"/characters/classes/fighter-5e/\">fighters</a>, and martial characters",
       "Consider the environmental implications of carrying a flaming sword (lighting, fire hazards)",
       "The activation/deactivation mechanic adds tactical depth to combat",
       "Typical market value around 5,000-7,000 gp as a rare magic weapon",
       "Works well with Great Weapon Fighting style (can reroll 1s and 2s on the 2d6 fire damage)",
-      "Fire damage makes this excellent against trolls and other regenerating creatures",
+      "Fire damage makes this excellent against <a href=\"/monsters/troll-5e/\">trolls</a> and other regenerating creatures",
       "Consider describing the appearance of the flames (color, intensity) for flavor"
     ],
     faq: [
@@ -1910,7 +2049,7 @@ export const magicItemPages: MagicItemPage[] = [
       },
       {
         question: "What happens if I hit a creature immune to fire damage?",
-        answer: "The 2d6 fire damage is simply negated - you deal only the normal weapon damage. Against fire-resistant creatures, the 2d6 is halved. This makes Flame Tongue less effective against fire elementals, red dragons, and demons. Consider carrying a backup weapon for such encounters."
+        answer: "The 2d6 fire damage is simply negated - you deal only the normal weapon damage. Against fire-resistant creatures, the 2d6 is halved. This makes Flame Tongue less effective against <a href=\"/monsters/fire-elemental-5e/\">fire elementals</a>, <a href=\"/monsters/red-dragon-5e/\">red dragons</a>, and demons. Consider carrying a backup weapon for such encounters."
       }
     ],
     searchVolume: 8940
@@ -2066,7 +2205,7 @@ export const magicItemPages: MagicItemPage[] = [
       },
       {
         question: "How does a +1 Shield interact with the Shield spell?",
-        answer: "They stack! The Shield spell gives +5 AC as a reaction, and your +1 shield's +3 AC is already included in your base AC. So if you have 18 AC with your +1 shield and cast Shield, you'd have 23 AC until the start of your next turn."
+        answer: "They stack! The <a href=\"/spells/abjuration/shield-5e/\">Shield</a> spell gives +5 AC as a reaction, and your +1 shield's +3 AC is already included in your base AC. So if you have 18 AC with your +1 shield and cast Shield, you'd have 23 AC until the start of your next turn."
       }
     ],
     searchVolume: 6840
@@ -2192,14 +2331,14 @@ export const magicItemPages: MagicItemPage[] = [
       "Failing to account for improved death saving throws if Constitution modifier increases"
     ],
     dmTips: [
-      "This item is transformative for characters with low Constitution (wizards, sorcerers, etc.)",
+      "This item is transformative for characters with low Constitution (<a href=\"/characters/classes/wizard-5e/\">wizards</a>, <a href=\"/characters/classes/sorcerer-5e/\">sorcerers</a>, etc.)",
       "A wizard with 14 Con who attunes to this gains significant hit points (+2 HP per level)",
       "Standard value around 4,000-8,000 gp as a rare attunement item",
       "Concentration casters benefit enormously from the improved Constitution saves",
       "The attunement requirement means it competes with other powerful items",
       "Perfect for squishy spellcasters who need survivability",
       "Setting Con to 19 gives +4 modifier, which is excellent for most characters",
-      "Barbarians and front-line fighters with already-high Con get less benefit",
+      "<a href=\"/characters/classes/barbarian-5e/\">Barbarians</a> and front-line <a href=\"/characters/classes/fighter-5e/\">fighters</a> with already-high Con get less benefit",
       "Consider this item for characters frequently making concentration checks",
       "The HP boost at higher levels can be 20-40+ additional hit points"
     ],
@@ -2214,7 +2353,7 @@ export const magicItemPages: MagicItemPage[] = [
       },
       {
         question: "What if my Constitution is already 19 or higher?",
-        answer: "The amulet has no effect. It sets your Constitution to 19 - it doesn't add to it. Characters with naturally high Constitution (like Barbarians who invested in Con) get no benefit. This item is best for characters who dumped or neglected Constitution."
+        answer: "The amulet has no effect. It sets your Constitution to 19 - it doesn't add to it. Characters with naturally high Constitution (like <a href=\"/characters/classes/barbarian-5e/\">Barbarians</a> who invested in Con) get no benefit. This item is best for characters who dumped or neglected Constitution."
       },
       {
         question: "Can I use Amulet of Health with other stat-setting items?",
@@ -2266,15 +2405,15 @@ export const magicItemPages: MagicItemPage[] = [
       },
       {
         question: "What is my flying speed with Winged Boots?",
-        answer: "Your flying speed equals your walking speed (typically 30 feet for most races). Unlike spells like Fly (60 feet), Winged Boots don't increase your speed. Monks and other fast characters benefit from having their enhanced walking speed apply to flying."
+        answer: "Your flying speed equals your walking speed (typically 30 feet for most races). Unlike spells like <a href=\"/spells/utility-control/fly-5e/\">Fly</a> (60 feet), Winged Boots don't increase your speed. <a href=\"/characters/classes/monk-5e/\">Monks</a> and other fast characters benefit from having their enhanced walking speed apply to flying."
       },
       {
         question: "Can Winged Boots be used in heavy armor?",
-        answer: "Yes! Unlike the Fly spell, Winged Boots don't have any restrictions based on armor or encumbrance. A fully armored paladin can fly just as well as a lightly equipped rogue. The wings are magical and can support any weight."
+        answer: "Yes! Unlike the <a href=\"/spells/utility-control/fly-5e/\">Fly</a> spell, Winged Boots don't have any restrictions based on armor or encumbrance. A fully armored <a href=\"/characters/classes/paladin-5e/\">paladin</a> can fly just as well as a lightly equipped <a href=\"/characters/classes/rogue-5e/\">rogue</a>. The wings are magical and can support any weight."
       },
       {
         question: "Do Winged Boots require concentration?",
-        answer: "No! Unlike the Fly spell, Winged Boots don't require concentration. You can fly and cast concentration spells simultaneously without any risk of falling due to losing concentration. This is one of their major advantages over magical flight spells."
+        answer: "No! Unlike the <a href=\"/spells/utility-control/fly-5e/\">Fly</a> spell, Winged Boots don't require concentration. You can fly and cast concentration spells simultaneously without any risk of falling due to losing concentration. This is one of their major advantages over magical flight spells."
       }
     ],
     searchVolume: 6240
@@ -2349,12 +2488,12 @@ export const magicItemPages: MagicItemPage[] = [
     ],
     dmTips: [
       "This item dramatically transforms any character into a strength powerhouse",
-      "A wizard with 8 Strength suddenly has 21 Strength and +5 modifier - game-changing",
+      "A <a href=\"/characters/classes/wizard-5e/\">wizard</a> with 8 Strength suddenly has 21 Strength and +5 modifier - game-changing",
       "Standard value around 5,000-10,000 gp as a rare attunement item",
       "Perfect for enabling martial multiclasses or unconventional melee builds",
       "The Hill Giant version (21 Str) is the weakest but still extraordinary",
       "Higher-rarity belts (Stone, Frost, etc.) are progressively more powerful",
-      "Fighters and Barbarians typically can't benefit as much (they have high Strength already)",
+      "<a href=\"/characters/classes/fighter-5e/\">Fighters</a> and <a href=\"/characters/classes/barbarian-5e/\">Barbarians</a> typically can't benefit as much (they have high Strength already)",
       "Setting Strength to 21 provides +5 modifier, which is exceptional",
       "Great for characters who want to grapple, shove, or dominate physical contests",
       "Consider this a legendary treasure or major quest reward due to its power"
@@ -2377,8 +2516,8 @@ export const magicItemPages: MagicItemPage[] = [
         answer: "You can wear both, but only the higher Strength value applies - they don't stack. If you have Gauntlets (19 Str) and a Hill Giant Belt (21 Str), your Strength is 21. Both require attunement, so you'd be using 2 of 3 slots for no additional benefit beyond the belt alone."
       },
       {
-        question: "Why would a Barbarian want this belt?",
-        answer: "Actually, Barbarians often DON'T benefit! Barbarians naturally max Strength to 20 (or 24 with Primal Champion at level 20). A Hill Giant belt (21 Str) barely beats a level 8+ Barbarian's natural 20. Higher-tier belts (Fire, Cloud, Storm) can help, but lower belts are wasted on Strength-focused characters."
+        question: "Why would a <a href=\"/characters/classes/barbarian-5e/\">Barbarian</a> want this belt?",
+        answer: "Actually, <a href=\"/characters/classes/barbarian-5e/\">Barbarians</a> often DON'T benefit! Barbarians naturally max Strength to 20 (or 24 with Primal Champion at level 20). A Hill Giant belt (21 Str) barely beats a level 8+ Barbarian's natural 20. Higher-tier belts (Fire, Cloud, Storm) can help, but lower belts are wasted on Strength-focused characters."
       }
     ],
     searchVolume: 9870
@@ -2400,7 +2539,7 @@ export const magicItemPages: MagicItemPage[] = [
       "Not tracking the 10-minute duration"
     ],
     dmTips: [
-      "These boots essentially grant the Haste spell without concentration or lethargy drawback",
+      "These boots essentially grant the <a href=\"/spells/buff-debuff/haste-5e/\">Haste</a> spell without concentration or lethargy drawback",
       "The extra attack action makes this incredible for martial characters",
       "Standard value around 3,000-8,000 gp as a rare attunement item",
       "10 minutes is enough for most combat encounters plus some exploration",
@@ -2408,13 +2547,13 @@ export const magicItemPages: MagicItemPage[] = [
       "Perfect for melee characters who need to close distance quickly",
       "The once-per-day limit prevents this from being overpowered",
       "Can be used for escaping, chasing, or alpha-striking in important fights",
-      "Monks especially benefit from doubling their already-high movement speed",
+      "<a href=\"/characters/classes/monk-5e/\">Monks</a> especially benefit from doubling their already-high movement speed",
       "Consider saving uses for boss fights or critical moments"
     ],
     faq: [
       {
         question: "How are Boots of Speed different from the Haste spell?",
-        answer: "Boots of Speed provide similar benefits (doubled speed, extra action with limits) but DON'T require concentration and DON'T cause lethargy when the effect ends. However, they're once per day, while Haste can be cast multiple times. Boots are more reliable but less frequent."
+        answer: "Boots of Speed provide similar benefits (doubled speed, extra action with limits) but DON'T require concentration and DON'T cause lethargy when the effect ends. However, they're once per day, while <a href=\"/spells/buff-debuff/haste-5e/\">Haste</a> can be cast multiple times. Boots are more reliable but less frequent."
       },
       {
         question: "What can I do with the extra action from Boots of Speed?",
@@ -2422,7 +2561,7 @@ export const magicItemPages: MagicItemPage[] = [
       },
       {
         question: "Can I take two Attack actions with Boots of Speed?",
-        answer: "Sort of! Your normal action can be used to Attack (getting Extra Attack if you have it), and your extra action from the boots can also Attack - but only for ONE weapon attack, not your full Extra Attack. A Fighter with Extra Attack gets 3 attacks total, not 4."
+        answer: "Sort of! Your normal action can be used to Attack (getting Extra Attack if you have it), and your extra action from the boots can also Attack - but only for ONE weapon attack, not your full Extra Attack. A <a href=\"/characters/classes/fighter-5e/\">Fighter</a> with Extra Attack gets 3 attacks total, not 4."
       },
       {
         question: "How long do Boots of Speed last?",

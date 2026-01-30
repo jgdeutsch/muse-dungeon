@@ -59,31 +59,32 @@ export function Nav() {
   const { characters } = useGame();
   const { user, loading, authError, signIn, signOut } = useAuth();
   const count = characters.length;
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const navLinks = [
+    { href: "/spells/", label: "Spells" },
+    { href: "/characters/", label: "Characters" },
+    { href: "/monsters/", label: "Monsters" },
+    { href: "/items/", label: "Items" },
+    { href: "/rules/", label: "Rules" },
+  ];
 
   return (
-    <nav className="py-5 flex justify-between items-center border-b border-[var(--border)]">
+    <nav className="py-5 flex justify-between items-center border-b border-[var(--border)] relative">
       <Link
         href="/"
         className="font-['Cinzel'] text-lg font-semibold text-[var(--accent)] no-underline tracking-wide"
       >
         Muse Dungeon
       </Link>
-      <div className="flex gap-6 items-center">
-        <Link href="/spells/" className="text-sm text-[var(--text-dim)] no-underline hover:text-[var(--accent)] transition-colors">
-          Spells
-        </Link>
-        <Link href="/characters/" className="text-sm text-[var(--text-dim)] no-underline hover:text-[var(--accent)] transition-colors">
-          Characters
-        </Link>
-        <Link href="/monsters/" className="text-sm text-[var(--text-dim)] no-underline hover:text-[var(--accent)] transition-colors">
-          Monsters
-        </Link>
-        <Link href="/items/" className="text-sm text-[var(--text-dim)] no-underline hover:text-[var(--accent)] transition-colors">
-          Items
-        </Link>
-        <Link href="/rules/" className="text-sm text-[var(--text-dim)] no-underline hover:text-[var(--accent)] transition-colors">
-          Rules
-        </Link>
+
+      {/* Desktop nav */}
+      <div className="hidden md:flex gap-6 items-center">
+        {navLinks.map((link) => (
+          <Link key={link.href} href={link.href} className="text-sm text-[var(--text-dim)] no-underline hover:text-[var(--accent)] transition-colors">
+            {link.label}
+          </Link>
+        ))}
         <Link
           href="/game/"
           className="text-sm font-semibold text-[var(--accent)] no-underline hover:opacity-80 transition-opacity flex items-center gap-1.5"
@@ -115,6 +116,66 @@ export function Nav() {
           )
         )}
       </div>
+
+      {/* Mobile: My Game + hamburger */}
+      <div className="md:hidden flex items-center gap-3">
+        <Link
+          href="/game/"
+          className="text-sm font-semibold text-[var(--accent)] no-underline hover:opacity-80 transition-opacity flex items-center gap-1.5"
+        >
+          My Game
+          {count > 0 && (
+            <span className="bg-[var(--accent)] text-white text-[10px] font-bold rounded-full w-5 h-5 flex items-center justify-center leading-none">
+              {count}
+            </span>
+          )}
+        </Link>
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="flex flex-col gap-1 p-2 bg-transparent border-0 cursor-pointer"
+          aria-label="Toggle menu"
+        >
+          <span className={`block w-5 h-0.5 bg-[var(--text)] transition-transform ${menuOpen ? "rotate-45 translate-y-1.5" : ""}`} />
+          <span className={`block w-5 h-0.5 bg-[var(--text)] transition-opacity ${menuOpen ? "opacity-0" : ""}`} />
+          <span className={`block w-5 h-0.5 bg-[var(--text)] transition-transform ${menuOpen ? "-rotate-45 -translate-y-1.5" : ""}`} />
+        </button>
+      </div>
+
+      {/* Mobile menu */}
+      {menuOpen && (
+        <div className="absolute top-full left-0 right-0 bg-[var(--bg)] border-b border-[var(--border)] py-4 px-5 flex flex-col gap-4 md:hidden z-50">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              onClick={() => setMenuOpen(false)}
+              className="text-sm text-[var(--text-dim)] no-underline hover:text-[var(--accent)] transition-colors"
+            >
+              {link.label}
+            </Link>
+          ))}
+          {!loading && (
+            user ? (
+              <div className="pt-2 border-t border-[var(--border)]">
+                <div className="text-xs text-[var(--text-dim)] mb-2">{user.email}</div>
+                <button
+                  onClick={() => { signOut(); setMenuOpen(false); }}
+                  className="text-xs text-[var(--red)] bg-transparent border-0 cursor-pointer p-0"
+                >
+                  Sign out
+                </button>
+              </div>
+            ) : (
+              <button
+                onClick={() => { signIn(); setMenuOpen(false); }}
+                className="text-xs text-[var(--text-dim)] bg-transparent border border-[var(--border)] rounded-lg px-3 py-1.5 cursor-pointer hover:border-[var(--accent)] hover:text-[var(--accent)] transition-colors w-fit"
+              >
+                Sign in
+              </button>
+            )
+          )}
+        </div>
+      )}
     </nav>
   );
 }

@@ -57,7 +57,7 @@ export const utilityControlSpells: {
       },
       {
         question: "Where do native creatures go when banished?",
-        answer: "To a harmless demiplane where they're incapacitated. When the spell ends (concentration breaks or 1 minute passes), they return to the space they left or nearest unoccupied space. They're not permanently removed."
+        answer: "To a harmless demiplane where they're <a href=\"/rules/conditions/incapacitated-condition-5e/\">incapacitated</a>. When the spell ends (concentration breaks or 1 minute passes), they return to the space they left or nearest unoccupied space. They're not permanently removed."
       },
       {
         question: "Does the target get multiple saving throws?",
@@ -193,18 +193,18 @@ export const utilityControlSpells: {
     concentration: false,
     ritual: false,
     classes: ["Bard", "Druid", "Sorcerer", "Warlock", "Wizard"],
-    description: "You attempt to charm a humanoid you can see within range. It must make a Wisdom saving throw, with advantage if you or your companions are fighting it. If it fails, it is charmed by you until the spell ends or until you or your companions do anything harmful to it. The charmed creature regards you as a friendly acquaintance. When the spell ends, the creature knows it was charmed by you.",
+    description: "You attempt to charm a humanoid you can see within range. It must make a Wisdom saving throw, with advantage if you or your companions are fighting it. If it fails, it is <a href=\"/rules/conditions/charmed-condition-5e/\">charmed</a> by you until the spell ends or until you or your companions do anything harmful to it. The charmed creature regards you as a friendly acquaintance. When the spell ends, the creature knows it was charmed by you.",
     damage: null,
     savingThrow: "Wisdom",
     higherLevels: "When you cast this spell using a spell slot of 2nd level or higher, you can target one additional creature for each slot level above 1st. The creatures must be within 30 feet of each other when you target them.",
     commonMistakes: [
-      "Thinking charmed means mind control - it only makes them friendly, not obedient",
+      "Thinking <a href=\"/rules/conditions/charmed-condition-5e/\">charmed</a> means mind control - it only makes them friendly, not obedient",
       "Forgetting the target knows it was charmed when the spell ends",
       "Not giving advantage on the save when the party is hostile or in combat",
       "Assuming charmed creatures will fight for you or endanger themselves"
     ],
     dmTips: [
-      "Charmed creatures are friendly but not stupid - they won't give away critical secrets immediately",
+      "<a href=\"/rules/conditions/charmed-condition-5e/\">Charmed</a> creatures are friendly but not stupid - they won't give away critical secrets immediately",
       "Describe the charm wearing off and the target realizing what happened for dramatic effect",
       "Remember that harmful actions from companions also break the spell",
       "This is great for social encounters but can trivialize some interactions if overused"
@@ -212,11 +212,11 @@ export const utilityControlSpells: {
     faq: [
       {
         question: "Does Charm Person make the target obey commands?",
-        answer: "No! A charmed creature regards you as a friendly acquaintance - like a casual friend. They won't obey orders, endanger themselves, give away secrets, or do anything they wouldn't do for a friendly stranger."
+        answer: "No! A <a href=\"/rules/conditions/charmed-condition-5e/\">charmed</a> creature regards you as a friendly acquaintance - like a casual friend. They won't obey orders, endanger themselves, give away secrets, or do anything they wouldn't do for a friendly stranger."
       },
       {
         question: "Does the target know they were charmed when it ends?",
-        answer: "Yes. The spell explicitly states the creature knows it was charmed by you when the spell ends. This often creates enemies and can have social/political consequences."
+        answer: "Yes. The spell explicitly states the creature knows it was <a href=\"/rules/conditions/charmed-condition-5e/\">charmed</a> by you when the spell ends. This often creates enemies and can have social/political consequences."
       },
       {
         question: "Why does the target get advantage during combat?",
@@ -265,7 +265,7 @@ export const utilityControlSpells: {
     faq: [
       {
         question: "What one-word commands work with Command?",
-        answer: "Common examples: Approach (move toward you), Drop (release held items), Flee (dash away), Grovel (fall prone, ends turn), Halt (stop moving, takes no actions). Creative options like 'Confess', 'Surrender', 'Sleep', or 'Strip' can work at DM discretion."
+        answer: "Common examples: Approach (move toward you), Drop (release held items), Flee (dash away), Grovel (fall <a href=\"/rules/conditions/prone-condition-5e/\">prone</a>, ends turn), Halt (stop moving, takes no actions). Creative options like 'Confess', 'Surrender', 'Sleep', or 'Strip' can work at DM discretion."
       },
       {
         question: "Why doesn't 'Die' work as a Command?",
@@ -322,7 +322,7 @@ export const utilityControlSpells: {
       },
       {
         question: "What's the most powerful option for Conjure Animals?",
-        answer: "8 CR 1/4 beasts is often strongest due to action economy. Eight wolves get Pack Tactics and can prone enemies. Pixies (fey, not beasts) don't work. At higher levels, 16 or 32 wolves become devastating but slow gameplay."
+        answer: "8 CR 1/4 beasts is often strongest due to action economy. Eight wolves get Pack Tactics and can knock enemies <a href=\"/rules/conditions/prone-condition-5e/\">prone</a>. Pixies (fey, not beasts) don't work. At higher levels, 16 or 32 wolves become devastating but slow gameplay."
       },
       {
         question: "How do you handle Conjure Animals without slowing combat?",
@@ -374,8 +374,8 @@ export const utilityControlSpells: {
         answer: "It can penetrate most barriers but is blocked by: 1 foot of stone, 1 inch of common metal, a thin sheet of lead, or 3 feet of wood or dirt. Thinner barriers allow detection through them."
       },
       {
-        question: "Does Detect Magic reveal invisible creatures?",
-        answer: "It detects magic, including the magic making something invisible, but doesn't reveal the creature itself. You'd know 'there's illusion magic here' but not see the invisible creature's location precisely."
+        question: "Does Detect Magic reveal <a href=\"/rules/conditions/invisible-condition-5e/\">invisible</a> creatures?",
+        answer: "It detects magic, including the magic making something invisible, but doesn't reveal the creature itself. You'd know 'there's illusion magic here' but not see the <a href=\"/rules/conditions/invisible-condition-5e/\">invisible</a> creature's location precisely."
       },
       {
         question: "Can Detect Magic be cast as a ritual?",
@@ -617,13 +617,13 @@ export const utilityControlSpells: {
     concentration: true,
     ritual: false,
     classes: ["Druid"],
-    description: "Grasping weeds and vines sprout from the ground in a 20-foot square starting from a point within range. For the duration, these plants turn the ground in the area into difficult terrain. A creature in the area when you cast the spell must succeed on a Strength saving throw or become restrained by the entangling plants until the spell ends. A restrained creature can use its action to make a Strength check against your spell save DC. On a success, it frees itself. When the spell ends, the conjured plants wilt away.",
+    description: "Grasping weeds and vines sprout from the ground in a 20-foot square starting from a point within range. For the duration, these plants turn the ground in the area into difficult terrain. A creature in the area when you cast the spell must succeed on a Strength saving throw or become <a href=\"/rules/conditions/restrained-condition-5e/\">restrained</a> by the entangling plants until the spell ends. A restrained creature can use its action to make a Strength check against your spell save DC. On a success, it frees itself. When the spell ends, the conjured plants wilt away.",
     damage: null,
     savingThrow: "Strength",
     higherLevels: null,
     commonMistakes: [
       "Forgetting the area becomes difficult terrain even for creatures that save",
-      "Not allowing restrained creatures to use their action to attempt escape",
+      "Not allowing <a href=\"/rules/conditions/restrained-condition-5e/\">restrained</a> creatures to use their action to attempt escape",
       "Thinking creatures that enter the area later are automatically restrained - they're not, only at casting",
       "Forgetting this requires plants/ground - doesn't work on stone floors or in midair"
     ],
@@ -635,11 +635,11 @@ export const utilityControlSpells: {
     ],
     faq: [
       {
-        question: "Do creatures that enter Entangle's area later get restrained?",
+        question: "Do creatures that enter Entangle's area later get <a href=\"/rules/conditions/restrained-condition-5e/\">restrained</a>?",
         answer: "No. Only creatures in the area when you cast the spell must make the Strength save. Creatures entering later only deal with difficult terrain - they don't get restrained automatically."
       },
       {
-        question: "What can restrained creatures do to escape?",
+        question: "What can <a href=\"/rules/conditions/restrained-condition-5e/\">restrained</a> creatures do to escape?",
         answer: "Use their action to make a Strength check against your spell save DC. On success, they're no longer restrained. They can repeat this check each turn. No other actions can break free (like attacking the vines)."
       },
       {
@@ -651,7 +651,7 @@ export const utilityControlSpells: {
         answer: "Yes! Even if all creatures save against being restrained, the entire 20-foot square becomes difficult terrain for the duration. This slows enemy movement and affects tactical positioning."
       },
       {
-        question: "Does the restrained condition affect more than movement?",
+        question: "Does the <a href=\"/rules/conditions/restrained-condition-5e/\">restrained</a> condition affect more than movement?",
         answer: "Yes! Restrained creatures have speed 0, attack rolls against them have advantage, their attack rolls have disadvantage, and they have disadvantage on Dexterity saving throws. It's a powerful debuff."
       }
     ],
@@ -735,7 +735,7 @@ export const utilityControlSpells: {
     ],
     dmTips: [
       "This spell is incredibly powerful for martial characters in combat",
-      "Track concentration carefully - losing it means the target is stunned for a round",
+      "Track concentration carefully - losing it means the target is essentially <a href=\"/rules/conditions/stunned-condition-5e/\">stunned</a> for a round",
       "The lethargy effect can be devastating if concentration breaks at a critical moment",
       "Consider the dramatic description of supernatural speed and then sudden exhaustion"
     ],
@@ -829,12 +829,12 @@ export const utilityControlSpells: {
     concentration: true,
     ritual: false,
     classes: ["Bard", "Cleric", "Druid", "Sorcerer", "Warlock", "Wizard"],
-    description: "Choose a humanoid that you can see within range. The target must succeed on a Wisdom saving throw or be paralyzed for the duration. At the end of each of its turns, the target can make another Wisdom saving throw. On a success, the spell ends on the target.",
+    description: "Choose a humanoid that you can see within range. The target must succeed on a Wisdom saving throw or be <a href=\"/rules/conditions/paralyzed-condition-5e/\">paralyzed</a> for the duration. At the end of each of its turns, the target can make another Wisdom saving throw. On a success, the spell ends on the target.",
     damage: null,
     savingThrow: "Wisdom",
     higherLevels: "When you cast this spell using a spell slot of 3rd level or higher, you can target one additional humanoid for each slot level above 2nd. The humanoids must be within 30 feet of each other when you target them.",
     commonMistakes: [
-      "Forgetting that paralyzed creatures auto-fail Strength and Dexterity saves",
+      "Forgetting that <a href=\"/rules/conditions/paralyzed-condition-5e/\">paralyzed</a> creatures auto-fail Strength and Dexterity saves",
       "Not remembering that attacks against paralyzed creatures have advantage",
       "Forgetting that hits against paralyzed creatures within 5 feet are automatic critical hits",
       "Trying to use on non-humanoids - this only works on humanoids"
@@ -847,8 +847,8 @@ export const utilityControlSpells: {
     ],
     faq: [
       {
-        question: "What does paralyzed actually mean?",
-        answer: "Paralyzed creatures are incapacitated (can't take actions or reactions), can't move or speak, automatically fail Strength and Dexterity saves, attacks against them have advantage, and hits from within 5 feet are automatic critical hits."
+        question: "What does <a href=\"/rules/conditions/paralyzed-condition-5e/\">paralyzed</a> actually mean?",
+        answer: "<a href=\"/rules/conditions/paralyzed-condition-5e/\">Paralyzed</a> creatures are <a href=\"/rules/conditions/incapacitated-condition-5e/\">incapacitated</a> (can't take actions or reactions), can't move or speak, automatically fail Strength and Dexterity saves, attacks against them have advantage, and hits from within 5 feet are automatic critical hits."
       },
       {
         question: "Does Hold Person work on all enemies?",
@@ -935,18 +935,18 @@ export const utilityControlSpells: {
     concentration: true,
     ritual: false,
     classes: ["Bard", "Sorcerer", "Warlock", "Wizard"],
-    description: "A creature you touch becomes invisible until the spell ends. Anything the target is wearing or carrying is invisible as long as it is on the target's person. The spell ends for a target that attacks or casts a spell.",
+    description: "A creature you touch becomes <a href=\"/rules/conditions/invisible-condition-5e/\">invisible</a> until the spell ends. Anything the target is wearing or carrying is invisible as long as it is on the target's person. The spell ends for a target that attacks or casts a spell.",
     damage: null,
     savingThrow: null,
     higherLevels: "When you cast this spell using a spell slot of 3rd level or higher, you can target one additional creature for each slot level above 2nd.",
     commonMistakes: [
       "Forgetting the spell ends immediately when the target attacks or casts a spell",
-      "Thinking invisible means undetectable - creatures can still be heard, smelled, or leave tracks",
+      "Thinking <a href=\"/rules/conditions/invisible-condition-5e/\">invisible</a> means undetectable - creatures can still be heard, smelled, or leave tracks",
       "Not enforcing that dropped items become visible",
       "Assuming invisibility grants advantage on all attacks - only if the attacker is unseen"
     ],
     dmTips: [
-      "Invisible creatures still make noise, have a scent, and leave footprints",
+      "<a href=\"/rules/conditions/invisible-condition-5e/\">Invisible</a> creatures still make noise, have a scent, and leave footprints",
       "Enemies can make Perception checks to notice signs of invisible creatures",
       "Remember that attacking ends the spell, so it's great for positioning but not sustained combat",
       "Describe how NPCs react to invisible party members - confusion, alarm, sweeping attacks"
@@ -957,11 +957,11 @@ export const utilityControlSpells: {
         answer: "Attacking or casting a spell. That's it. You can open doors, pick locks, move objects, speak, drink potions, and even shove creatures without breaking invisibility. Only attacks and spells end it."
       },
       {
-        question: "Can enemies still detect an invisible creature?",
+        question: "Can enemies still detect an <a href=\"/rules/conditions/invisible-condition-5e/\">invisible</a> creature?",
         answer: "Yes. Invisibility makes you unseen, not undetectable. Enemies can hear footsteps, smell you, notice disturbed objects, or feel you brush past. They attack with disadvantage if they know your location."
       },
       {
-        question: "Do I get advantage on attacks while invisible?",
+        question: "Do I get advantage on attacks while <a href=\"/rules/conditions/invisible-condition-5e/\">invisible</a>?",
         answer: "Yes, if the target can't see you. Being invisible means you're an unseen attacker, granting advantage on attack rolls. But remember, attacking ends the spell immediately."
       },
       {
@@ -1103,7 +1103,7 @@ export const utilityControlSpells: {
     commonMistakes: [
       "Forgetting the +10 bonus only applies to creatures within 30 feet of you",
       "Not tracking that creatures who leave the 30-foot radius lose the bonus",
-      "Thinking it makes you invisible - it only grants a Stealth bonus",
+      "Thinking it makes you <a href=\"/rules/conditions/invisible-condition-5e/\">invisible</a> - it only grants a Stealth bonus",
       "Forgetting that the bonus applies to ongoing Stealth checks, not just the initial one"
     ],
     dmTips: [
@@ -1122,7 +1122,7 @@ export const utilityControlSpells: {
         answer: "Yes. The bonus only applies to creatures within 30 feet of you. If a scout moves too far ahead, they lose the +10 bonus and leave tracks again."
       },
       {
-        question: "Does Pass Without Trace make you invisible?",
+        question: "Does Pass Without Trace make you <a href=\"/rules/conditions/invisible-condition-5e/\">invisible</a>?",
         answer: "No. It grants a Stealth bonus and prevents tracking, but you're still visible. You still need to hide behind cover and stay out of line of sight."
       },
       {
@@ -1202,7 +1202,7 @@ export const utilityControlSpells: {
     concentration: true,
     ritual: true,
     classes: ["Bard", "Cleric", "Ranger"],
-    description: "For the duration, no sound can be created within or pass through a 20-foot-radius sphere centered on a point you choose within range. Any creature or object entirely inside the sphere is immune to thunder damage, and creatures are deafened while entirely inside it. Casting a spell that includes a verbal component is impossible there.",
+    description: "For the duration, no sound can be created within or pass through a 20-foot-radius sphere centered on a point you choose within range. Any creature or object entirely inside the sphere is immune to thunder damage, and creatures are <a href=\"/rules/conditions/deafened-condition-5e/\">deafened</a> while entirely inside it. Casting a spell that includes a verbal component is impossible there.",
     damage: null,
     savingThrow: null,
     higherLevels: null,
@@ -1308,7 +1308,7 @@ export const utilityControlSpells: {
     concentration: false,
     ritual: false,
     classes: ["Bard", "Sorcerer", "Wizard"],
-    description: "This spell sends creatures into a magical slumber. Roll 5d8; the total is how many hit points of creatures this spell can affect. Creatures within 20 feet of a point you choose within range are affected in ascending order of their current hit points (ignoring unconscious creatures). Starting with the creature that has the lowest current hit points, each creature affected by this spell falls unconscious until the spell ends, the sleeper takes damage, or someone uses an action to shake or slap the sleeper awake. Subtract each creature's hit points from the total before moving on to the next creature. A creature's hit points must be equal to or less than the remaining total for that creature to be affected. Undead and creatures immune to being charmed aren't affected by this spell.",
+    description: "This spell sends creatures into a magical slumber. Roll 5d8; the total is how many hit points of creatures this spell can affect. Creatures within 20 feet of a point you choose within range are affected in ascending order of their current hit points (ignoring <a href=\"/rules/conditions/unconscious-condition-5e/\">unconscious</a> creatures). Starting with the creature that has the lowest current hit points, each creature affected by this spell falls unconscious until the spell ends, the sleeper takes damage, or someone uses an action to shake or slap the sleeper awake. Subtract each creature's hit points from the total before moving on to the next creature. A creature's hit points must be equal to or less than the remaining total for that creature to be affected. Undead and creatures immune to being <a href=\"/rules/conditions/charmed-condition-5e/\">charmed</a> aren't affected by this spell.",
     damage: null,
     savingThrow: null,
     higherLevels: "When you cast this spell using a spell slot of 2nd level or higher, roll an additional 2d8 for each slot level above 1st.",
@@ -1327,7 +1327,7 @@ export const utilityControlSpells: {
     faq: [
       {
         question: "Does Sleep allow a saving throw?",
-        answer: "No! This is what makes it powerful. If a creature's current HP is low enough, they automatically fall asleep. No save, no attack roll - just unconscious."
+        answer: "No! This is what makes it powerful. If a creature's current HP is low enough, they automatically fall asleep. No save, no attack roll - just <a href=\"/rules/conditions/unconscious-condition-5e/\">unconscious</a>."
       },
       {
         question: "What order does Sleep affect creatures?",
@@ -1339,7 +1339,7 @@ export const utilityControlSpells: {
       },
       {
         question: "Does Sleep work on undead?",
-        answer: "No. Undead and creatures immune to the charmed condition are completely immune to Sleep. This includes vampires, zombies, skeletons, and many constructs."
+        answer: "No. Undead and creatures immune to the <a href=\"/rules/conditions/charmed-condition-5e/\">charmed</a> condition are completely immune to Sleep. This includes vampires, zombies, skeletons, and many constructs."
       },
       {
         question: "Is Sleep good at higher levels?",
@@ -1467,7 +1467,7 @@ export const utilityControlSpells: {
     concentration: true,
     ritual: false,
     classes: ["Bard", "Sorcerer", "Warlock", "Wizard"],
-    description: "You suggest a course of activity (limited to a sentence or two) and magically influence a creature you can see within range that can hear and understand you. Creatures that can't be charmed are immune to this effect. The suggestion must be worded in such a manner as to make the course of action sound reasonable. Asking the creature to stab itself, throw itself onto a spear, immolate itself, or do some other obviously harmful act ends the spell. The target must make a Wisdom saving throw. On a failed save, it pursues the course of action you described to the best of its ability. The suggested course of action can continue for the entire duration. If the suggested activity can be completed in a shorter time, the spell ends when the subject finishes what it was asked to do.",
+    description: "You suggest a course of activity (limited to a sentence or two) and magically influence a creature you can see within range that can hear and understand you. Creatures that can't be <a href=\"/rules/conditions/charmed-condition-5e/\">charmed</a> are immune to this effect. The suggestion must be worded in such a manner as to make the course of action sound reasonable. Asking the creature to stab itself, throw itself onto a spear, immolate itself, or do some other obviously harmful act ends the spell. The target must make a Wisdom saving throw. On a failed save, it pursues the course of action you described to the best of its ability. The suggested course of action can continue for the entire duration. If the suggested activity can be completed in a shorter time, the spell ends when the subject finishes what it was asked to do.",
     damage: null,
     savingThrow: "Wisdom",
     higherLevels: null,
@@ -1497,7 +1497,7 @@ export const utilityControlSpells: {
         answer: "Up to 8 hours with concentration. The spell ends when the suggested activity is completed or the duration ends. 'Go home and stay there' could last all 8 hours."
       },
       {
-        question: "Does the target know they were charmed afterward?",
+        question: "Does the target know they were <a href=\"/rules/conditions/charmed-condition-5e/\">charmed</a> afterward?",
         answer: "RAW, not automatically. Unlike some charm effects, Suggestion doesn't specify the target knows. DM discretion applies - they might rationalize their behavior or realize something was off."
       },
       {
@@ -1626,7 +1626,7 @@ export const utilityControlSpells: {
     concentration: true,
     ritual: false,
     classes: ["Sorcerer", "Wizard"],
-    description: "You gain the ability to move or manipulate creatures or objects by thought. When you cast the spell, and as your action each round for the duration, you can exert your will on one creature or object that you can see within range, causing the appropriate effect below. You can affect the same target round after round, or choose a new one at any time. If you switch targets, the prior target is no longer affected by the spell. Creature: You can try to move a Huge or smaller creature. The target must make a Strength check contested by your spellcasting ability check. If you win, you move the creature up to 30 feet in any direction, including upward but not beyond the range of this spell. Until the end of your next turn, the creature is restrained in your telekinetic grip. Object: You can try to move an object that weighs up to 1,000 pounds. If the object isn't being worn or carried, you automatically move it up to 30 feet in any direction, but not beyond the range of this spell. If the object is worn or carried by a creature, you must make an ability check with your spellcasting ability contested by that creature's Strength check. If you succeed, you pull the object away and can move it up to 30 feet.",
+    description: "You gain the ability to move or manipulate creatures or objects by thought. When you cast the spell, and as your action each round for the duration, you can exert your will on one creature or object that you can see within range, causing the appropriate effect below. You can affect the same target round after round, or choose a new one at any time. If you switch targets, the prior target is no longer affected by the spell. Creature: You can try to move a Huge or smaller creature. The target must make a Strength check contested by your spellcasting ability check. If you win, you move the creature up to 30 feet in any direction, including upward but not beyond the range of this spell. Until the end of your next turn, the creature is <a href=\"/rules/conditions/restrained-condition-5e/\">restrained</a> in your telekinetic grip. Object: You can try to move an object that weighs up to 1,000 pounds. If the object isn't being worn or carried, you automatically move it up to 30 feet in any direction, but not beyond the range of this spell. If the object is worn or carried by a creature, you must make an ability check with your spellcasting ability contested by that creature's Strength check. If you succeed, you pull the object away and can move it up to 30 feet.",
     damage: null,
     savingThrow: null,
     higherLevels: null,
@@ -1639,13 +1639,13 @@ export const utilityControlSpells: {
     dmTips: [
       "Great for environmental puzzles and creative problem-solving",
       "Lifting creatures and dropping them can be devastating - they take fall damage",
-      "The restrained condition is powerful - advantage for attackers, disadvantage for the target",
+      "The <a href=\"/rules/conditions/restrained-condition-5e/\">restrained</a> condition is powerful - advantage for attackers, disadvantage for the target",
       "Consider having enemies target the caster's concentration when someone is held telekinetically"
     ],
     faq: [
       {
         question: "Can I throw creatures or objects to deal damage?",
-        answer: "The spell moves targets up to 30 feet but doesn't explicitly grant attack actions. However, dropping a creature causes fall damage (1d6 per 10 feet). Dropping 30 feet = 3d6 damage, and they're prone."
+        answer: "The spell moves targets up to 30 feet but doesn't explicitly grant attack actions. However, dropping a creature causes fall damage (1d6 per 10 feet). Dropping 30 feet = 3d6 damage, and they're <a href=\"/rules/conditions/prone-condition-5e/\">prone</a>."
       },
       {
         question: "Does Telekinesis require my action every round?",
@@ -1661,7 +1661,7 @@ export const utilityControlSpells: {
       },
       {
         question: "Can enemies break free from Telekinesis?",
-        answer: "Each round you try to affect a creature, they contest your spellcasting ability check with their Strength. If they win, they resist that round. The restrained condition only lasts until end of your next turn."
+        answer: "Each round you try to affect a creature, they contest your spellcasting ability check with their Strength. If they win, they resist that round. The <a href=\"/rules/conditions/restrained-condition-5e/\">restrained</a> condition only lasts until end of your next turn."
       }
     ],
     category: "utility-control",
@@ -1686,19 +1686,19 @@ export const utilityControlSpells: {
     commonMistakes: [
       "Forgetting it only requires a bonus action - you can still cast a cantrip as your action",
       "Trying to teleport to spaces you can't see",
-      "Not using it to escape grapples or restraints - teleportation frees you",
+      "Not using it to escape <a href=\"/rules/conditions/grappled-condition-5e/\">grapples</a> or <a href=\"/rules/conditions/restrained-condition-5e/\">restraints</a> - teleportation frees you",
       "Forgetting it's only 30 feet, not unlimited"
     ],
     dmTips: [
       "One of the best mobility spells in the game due to bonus action casting",
-      "Perfect for escaping grapples, webs, or dangerous situations",
+      "Perfect for escaping <a href=\"/rules/conditions/grappled-condition-5e/\">grapples</a>, webs, or dangerous situations",
       "Can be used to reach high places, cross chasms, or bypass obstacles",
       "The silvery mist is great for description and atmosphere"
     ],
     faq: [
       {
-        question: "Does Misty Step escape grapples?",
-        answer: "Yes! Teleportation doesn't require movement, so being grappled or restrained doesn't prevent it. You vanish from the grappler's grip and reappear up to 30 feet away. Excellent escape tool."
+        question: "Does Misty Step escape <a href=\"/rules/conditions/grappled-condition-5e/\">grapples</a>?",
+        answer: "Yes! Teleportation doesn't require movement, so being <a href=\"/rules/conditions/grappled-condition-5e/\">grappled</a> or <a href=\"/rules/conditions/restrained-condition-5e/\">restrained</a> doesn't prevent it. You vanish from the grappler's grip and reappear up to 30 feet away. Excellent escape tool."
       },
       {
         question: "Can I cast another spell the same turn?",
@@ -1798,7 +1798,7 @@ export const utilityControlSpells: {
     dmTips: [
       "Much more powerful than regular Invisibility due to persisting through attacks",
       "Devastating when used on a rogue or other damage dealer",
-      "Invisible creatures can still be detected through sound, scent, or tracks",
+      "<a href=\"/rules/conditions/invisible-condition-5e/\">Invisible</a> creatures can still be detected through sound, scent, or tracks",
       "Can trivialize some encounters, so consider enemies with blindsight or tremorsense"
     ],
     faq: [
@@ -1808,7 +1808,7 @@ export const utilityControlSpells: {
       },
       {
         question: "Do I get advantage on all attacks while invisible?",
-        answer: "Yes. You're an unseen attacker, so you have advantage on attack rolls. Enemies attack you with disadvantage because they can't see you. This stacks offensively and defensively."
+        answer: "Yes. You're an unseen attacker, so you have advantage on attack rolls. Enemies attack you with disadvantage because they can't see you (<a href=\"/rules/conditions/invisible-condition-5e/\">invisible</a> condition benefits). This stacks offensively and defensively."
       },
       {
         question: "Can enemies target me at all?",
@@ -1820,7 +1820,7 @@ export const utilityControlSpells: {
       },
       {
         question: "Does True Seeing counter Greater Invisibility?",
-        answer: "Yes. True Seeing lets a creature see invisible creatures and objects. Creatures with blindsight also ignore invisibility entirely, perceiving you through other senses."
+        answer: "Yes. True Seeing lets a creature see <a href=\"/rules/conditions/invisible-condition-5e/\">invisible</a> creatures and objects. Creatures with blindsight also ignore invisibility entirely, perceiving you through other senses."
       }
     ],
     category: "utility-control",
@@ -1838,7 +1838,7 @@ export const utilityControlSpells: {
     concentration: true,
     ritual: false,
     classes: ["Sorcerer", "Wizard"],
-    description: "You conjure a mass of thick, sticky webbing at a point of your choice within range. The webs fill a 20-foot cube from that point for the duration. The webs are difficult terrain and lightly obscure their area. If the webs aren't anchored between two solid masses (such as walls or trees) or layered across a floor, wall, or ceiling, the conjured web collapses on itself, and the spell ends at the start of your next turn. Webs layered over a flat surface have a depth of 5 feet. Each creature that starts its turn in the webs or that enters them during its turn must make a Dexterity saving throw. On a failed save, the creature is restrained as long as it remains in the webs or until it breaks free. A creature restrained by the webs can use its action to make a Strength check against your spell save DC. If it succeeds, it is no longer restrained. The webs are flammable. Any 5-foot cube of webs exposed to fire burns away in 1 round, dealing 2d4 fire damage to any creature that starts its turn in the fire.",
+    description: "You conjure a mass of thick, sticky webbing at a point of your choice within range. The webs fill a 20-foot cube from that point for the duration. The webs are difficult terrain and lightly obscure their area. If the webs aren't anchored between two solid masses (such as walls or trees) or layered across a floor, wall, or ceiling, the conjured web collapses on itself, and the spell ends at the start of your next turn. Webs layered over a flat surface have a depth of 5 feet. Each creature that starts its turn in the webs or that enters them during its turn must make a Dexterity saving throw. On a failed save, the creature is <a href=\"/rules/conditions/restrained-condition-5e/\">restrained</a> as long as it remains in the webs or until it breaks free. A creature <a href=\"/rules/conditions/restrained-condition-5e/\">restrained</a> by the webs can use its action to make a Strength check against your spell save DC. If it succeeds, it is no longer restrained. The webs are flammable. Any 5-foot cube of webs exposed to fire burns away in 1 round, dealing 2d4 fire damage to any creature that starts its turn in the fire.",
     damage: "2d4 fire (if webs ignited)",
     savingThrow: "Dexterity",
     higherLevels: null,
@@ -1861,7 +1861,7 @@ export const utilityControlSpells: {
       },
       {
         question: "Can creatures escape from Web?",
-        answer: "Yes. Restrained creatures can use their action to make a Strength check against your spell save DC. On success, they're no longer restrained but still in difficult terrain and may need to save again."
+        answer: "Yes. <a href=\"/rules/conditions/restrained-condition-5e/\">Restrained</a> creatures can use their action to make a Strength check against your spell save DC. On success, they're no longer <a href=\"/rules/conditions/restrained-condition-5e/\">restrained</a> but still in difficult terrain and may need to save again."
       },
       {
         question: "What happens if you set Web on fire?",
@@ -1869,7 +1869,7 @@ export const utilityControlSpells: {
       },
       {
         question: "Do creatures automatically get restrained in Web?",
-        answer: "Not always. Creatures make a Dexterity save when they start their turn in the webs OR enter them. On success, they're not restrained - just in difficult terrain that lightly obscures the area."
+        answer: "Not always. Creatures make a Dexterity save when they start their turn in the webs OR enter them. On success, they're not <a href=\"/rules/conditions/restrained-condition-5e/\">restrained</a> - just in difficult terrain that lightly obscures the area."
       },
       {
         question: "How big is Web's area?",
@@ -1891,14 +1891,14 @@ export const utilityControlSpells: {
     concentration: true,
     ritual: false,
     classes: ["Bard", "Sorcerer", "Warlock", "Wizard"],
-    description: "Choose a creature that you can see within range. The target must succeed on a Wisdom saving throw or be paralyzed for the duration. This spell has no effect on undead. At the end of each of its turns, the target can make another Wisdom saving throw. On a success, the spell ends on the target.",
+    description: "Choose a creature that you can see within range. The target must succeed on a Wisdom saving throw or be <a href=\"/rules/conditions/paralyzed-condition-5e/\">paralyzed</a> for the duration. This spell has no effect on undead. At the end of each of its turns, the target can make another Wisdom saving throw. On a success, the spell ends on the target.",
     damage: null,
     savingThrow: "Wisdom",
     higherLevels: "When you cast this spell using a spell slot of 6th level or higher, you can target one additional creature for each slot level above 5th. The creatures must be within 30 feet of each other when you target them.",
     commonMistakes: [
       "Forgetting it doesn't work on undead",
       "Not remembering attacks within 5 feet are automatic critical hits",
-      "Forgetting paralyzed creatures auto-fail Strength and Dexterity saves",
+      "Forgetting <a href=\"/rules/conditions/paralyzed-condition-5e/\">paralyzed</a> creatures auto-fail Strength and Dexterity saves",
       "Not tracking that the target gets a save at the end of each of its turns"
     ],
     dmTips: [
@@ -1913,8 +1913,8 @@ export const utilityControlSpells: {
         answer: "Hold Person (2nd level) only works on humanoids. Hold Monster (5th level) works on any creature type except undead. The 3-level difference reflects the massive increase in valid targets."
       },
       {
-        question: "What exactly does paralyzed do?",
-        answer: "Incapacitated (no actions/reactions), can't move or speak, auto-fails Strength and Dexterity saves, attacks against have advantage, and hits from within 5 feet are automatic critical hits."
+        question: "What exactly does <a href=\"/rules/conditions/paralyzed-condition-5e/\">paralyzed</a> do?",
+        answer: "<a href=\"/rules/conditions/incapacitated-condition-5e/\">Incapacitated</a> (no actions/reactions), can't move or speak, auto-fails Strength and Dexterity saves, attacks against have advantage, and hits from within 5 feet are automatic critical hits."
       },
       {
         question: "Why doesn't Hold Monster work on undead?",
@@ -1974,8 +1974,8 @@ export const utilityControlSpells: {
         answer: "The spell says 'creatures' without the word 'willing,' so RAW you can. However, it prevents fall damage - this would typically help enemies, not harm them."
       },
       {
-        question: "Does Feather Fall work if I'm unconscious?",
-        answer: "You need to cast it as a reaction, which requires being conscious. If you're knocked out mid-flight, you can't save yourself. An ally must cast it to save you."
+        question: "Does Feather Fall work if I'm <a href=\"/rules/conditions/unconscious-condition-5e/\">unconscious</a>?",
+        answer: "You need to cast it as a reaction, which requires being conscious. If you're knocked <a href=\"/rules/conditions/unconscious-condition-5e/\">unconscious</a> mid-flight, you can't save yourself. An ally must cast it to save you."
       },
       {
         question: "Can I target 5 people falling from different heights?",
@@ -2209,12 +2209,12 @@ export const utilityControlSpells: {
     concentration: true,
     ritual: false,
     classes: ["Bard", "Sorcerer", "Warlock", "Wizard"],
-    description: "You project a phantasmal image of a creature's worst fears. Each creature in a 30-foot cone must succeed on a Wisdom saving throw or drop whatever it is holding and become frightened for the duration. While frightened by this spell, a creature must take the Dash action and move away from you by the safest available route on each of its turns, unless there is nowhere to move. If the creature ends its turn in a location where it doesn't have line of sight to you, the creature can make a Wisdom saving throw. On a successful save, the spell ends for that creature.",
+    description: "You project a phantasmal image of a creature's worst fears. Each creature in a 30-foot cone must succeed on a Wisdom saving throw or drop whatever it is holding and become <a href=\"/rules/conditions/frightened-condition-5e/\">frightened</a> for the duration. While <a href=\"/rules/conditions/frightened-condition-5e/\">frightened</a> by this spell, a creature must take the Dash action and move away from you by the safest available route on each of its turns, unless there is nowhere to move. If the creature ends its turn in a location where it doesn't have line of sight to you, the creature can make a Wisdom saving throw. On a successful save, the spell ends for that creature.",
     damage: null,
     savingThrow: "Wisdom",
     higherLevels: null,
     commonMistakes: [
-      "Forgetting frightened creatures drop what they're holding",
+      "Forgetting <a href=\"/rules/conditions/frightened-condition-5e/\">frightened</a> creatures drop what they're holding",
       "Not enforcing that creatures must use Dash to flee",
       "Allowing saves too easily - creature must end turn without line of sight to you",
       "Thinking creatures can attack while fleeing - they must use Dash action"
@@ -2227,11 +2227,11 @@ export const utilityControlSpells: {
     ],
     faq: [
       {
-        question: "Do frightened creatures drop their weapons?",
+        question: "Do <a href=\"/rules/conditions/frightened-condition-5e/\">frightened</a> creatures drop their weapons?",
         answer: "Yes! The spell explicitly states creatures 'drop whatever they're holding.' This can disarm dangerous foes or cause them to drop spell focuses, making casting difficult."
       },
       {
-        question: "Can frightened creatures do anything besides flee?",
+        question: "Can <a href=\"/rules/conditions/frightened-condition-5e/\">frightened</a> creatures do anything besides flee?",
         answer: "Not really. They must use the Dash action to move away from you by the safest route on each turn. They can't attack, cast spells (besides Dash), or take other actions while fleeing."
       },
       {
@@ -2580,7 +2580,7 @@ export const utilityControlSpells: {
     concentration: true,
     ritual: false,
     classes: ["Bard", "Wizard"],
-    description: "You attempt to reshape another creature's memories. One creature that you can see must make a Wisdom saving throw. If you are fighting the creature, it has advantage on the saving throw. On a failed save, the target becomes charmed by you for the duration. The charmed target is incapacitated and unaware of its surroundings, though it can still hear you. If it takes any damage or is targeted by another spell, this spell ends, and none of the target's memories are modified. While this charm lasts, you can affect the target's memory of an event that it experienced within the last 24 hours and that lasted no more than 10 minutes. You can permanently eliminate all memory of the event, allow the target to recall the event with perfect clarity, reduce its clarity, or change its memory. You must speak to the target to describe how its memories are affected, and it must be able to understand your language for the modified memories to take root. Its mind fills in any gaps in the details of your description. If the spell ends before you have finished describing the modified memories, the creature's memory isn't altered. Otherwise, the modified memories take hold when the spell ends.",
+    description: "You attempt to reshape another creature's memories. One creature that you can see must make a Wisdom saving throw. If you are fighting the creature, it has advantage on the saving throw. On a failed save, the target becomes <a href=\"/rules/conditions/charmed-condition-5e/\">charmed</a> by you for the duration. The <a href=\"/rules/conditions/charmed-condition-5e/\">charmed</a> target is <a href=\"/rules/conditions/incapacitated-condition-5e/\">incapacitated</a> and unaware of its surroundings, though it can still hear you. If it takes any damage or is targeted by another spell, this spell ends, and none of the target's memories are modified. While this charm lasts, you can affect the target's memory of an event that it experienced within the last 24 hours and that lasted no more than 10 minutes. You can permanently eliminate all memory of the event, allow the target to recall the event with perfect clarity, reduce its clarity, or change its memory. You must speak to the target to describe how its memories are affected, and it must be able to understand your language for the modified memories to take root. Its mind fills in any gaps in the details of your description. If the spell ends before you have finished describing the modified memories, the creature's memory isn't altered. Otherwise, the modified memories take hold when the spell ends.",
     damage: null,
     savingThrow: "Wisdom",
     higherLevels: "If you cast this spell using a spell slot of 6th level or higher, you can alter the target's memories of an event that took place up to 7 days ago (6th level), 30 days ago (7th level), 1 year ago (8th level), or any time in the creature's past (9th level).",
@@ -2615,7 +2615,7 @@ export const utilityControlSpells: {
       },
       {
         question: "Can I use this in combat?",
-        answer: "Technically, but the target has advantage on the save, you need 1 minute of concentration while they're charmed and incapacitated, and any damage ends it. Better for non-combat situations."
+        answer: "Technically, but the target has advantage on the save, you need 1 minute of concentration while they're <a href=\"/rules/conditions/charmed-condition-5e/\">charmed</a> and <a href=\"/rules/conditions/incapacitated-condition-5e/\">incapacitated</a>, and any damage ends it. Better for non-combat situations."
       }
     ],
     category: "utility-control",
@@ -2633,7 +2633,7 @@ export const utilityControlSpells: {
     concentration: false,
     ritual: false,
     classes: ["Bard", "Cleric", "Druid", "Paladin", "Wizard"],
-    description: "You place a magical command on a creature that you can see within range, forcing it to carry out some service or refrain from some action or course of activity as you decide. If the creature can understand you, it must succeed on a Wisdom saving throw or become charmed by you for the duration. While the creature is charmed by you, it takes 5d10 psychic damage each time it acts in a manner directly counter to your instructions, but no more than once each day. A creature that can't understand you is unaffected by the spell. You can issue any command you choose, short of an activity that would result in certain death. Should you issue a suicidal command, the spell ends. You can end the spell early by using an action to dismiss it. A remove curse, greater restoration, or wish spell also ends it.",
+    description: "You place a magical command on a creature that you can see within range, forcing it to carry out some service or refrain from some action or course of activity as you decide. If the creature can understand you, it must succeed on a Wisdom saving throw or become <a href=\"/rules/conditions/charmed-condition-5e/\">charmed</a> by you for the duration. While the creature is <a href=\"/rules/conditions/charmed-condition-5e/\">charmed</a> by you, it takes 5d10 psychic damage each time it acts in a manner directly counter to your instructions, but no more than once each day. A creature that can't understand you is unaffected by the spell. You can issue any command you choose, short of an activity that would result in certain death. Should you issue a suicidal command, the spell ends. You can end the spell early by using an action to dismiss it. A remove curse, greater restoration, or wish spell also ends it.",
     damage: "5d10 psychic (if command disobeyed)",
     savingThrow: "Wisdom",
     higherLevels: "When you cast this spell using a spell slot of 7th or 8th level, the duration is 1 year. When you use a 9th level spell slot, the spell lasts until it is ended by one of the spells mentioned above.",
@@ -2673,5 +2673,117 @@ export const utilityControlSpells: {
     ],
     category: "utility-control",
     searchVolume: 6100
+  },
+  {
+    slug: "find-familiar-5e",
+    name: "Find Familiar",
+    level: "1st",
+    school: "Conjuration",
+    castingTime: "1 hour",
+    range: "10 feet",
+    components: "V, S, M (10 gp worth of charcoal, incense, and herbs consumed in a brass brazier)",
+    duration: "Instantaneous",
+    concentration: false,
+    ritual: true,
+    classes: ["Wizard"],
+    description: "You gain the service of a familiar, a spirit that takes an animal form you choose. The familiar appears in an unoccupied space within range. It can be a bat, cat, crab, frog (toad), hawk, lizard, octopus, owl, poisonous snake, fish (quipper), rat, raven, sea horse, spider, or weasel. The familiar has the statistics of the chosen form, but is a celestial, fey, or fiend (your choice) instead of a beast. Your familiar acts independently but obeys your commands. In combat, it rolls its own initiative and acts on its own turn. A familiar can't attack, but can take other actions. When the familiar drops to 0 hit points, it disappears, leaving behind no physical form, and reappears after you cast this spell again. You can communicate telepathically with your familiar within 100 feet, and as an action, you can see through your familiar's eyes and hear what it hears until the start of your next turn (gaining any special senses the familiar has). As an action, you can dismiss your familiar to a pocket dimension or summon it from there to within 30 feet of you. You can only have one familiar at a time.",
+    damage: null,
+    savingThrow: null,
+    higherLevels: null,
+    commonMistakes: [
+      "Forgetting that familiars can't attack (but can take Help action, deliver touch spells, etc.)",
+      "Not using ritual casting - this spell doesn't need to consume a spell slot",
+      "Forgetting the 10 gp material component is consumed each time you cast it",
+      "Not tracking the 100-foot telepathy range",
+      "Assuming the familiar dies when reduced to 0 HP - it just disappears and can be resummoned"
+    ],
+    dmTips: [
+      "Familiars are incredible for scouting - especially owls with flyby and darkvision",
+      "The familiar's ability to deliver touch spells is extremely powerful for wizards",
+      "Consider the familiar as a character with personality, not just a tool",
+      "Being able to see through familiar's eyes breaks many puzzles - plan accordingly",
+      "Owl familiar with Help action every turn giving advantage is very strong in combat"
+    ],
+    faq: [
+      {
+        question: "What's the best familiar choice?",
+        answer: "Owl is generally considered best: 60 ft. flying, Flyby (no opportunity attacks), darkvision 120 ft., and +3 Perception. It's perfect for scouting and using the Help action in combat. Cat is good for urban stealth, spider for climbing."
+      },
+      {
+        question: "Can my familiar attack?",
+        answer: "No. Familiars explicitly cannot attack. They CAN take the Help action (granting advantage to an ally), deliver touch spells, use the Search action, take the Dodge action, and use special abilities like grappling."
+      },
+      {
+        question: "How does delivering touch spells work?",
+        answer: "Your familiar can deliver a touch spell you cast if it's within 100 feet of you. You cast the spell, then the familiar can use its reaction to deliver it. The familiar must be in range to touch the target. This is incredibly useful for spells like Shocking Grasp or Vampiric Touch."
+      },
+      {
+        question: "What happens when my familiar 'dies'?",
+        answer: "It doesn't truly die - it disappears leaving no body. You can resummon it by casting Find Familiar again (1 hour, 10 gp). The same spirit returns in whatever form you choose. In the meantime, you have no familiar."
+      },
+      {
+        question: "Can I change my familiar's form?",
+        answer: "Yes! When you cast Find Familiar, you can choose a new form. It's still the same spirit, just different shape. Some wizards change forms based on the situation (owl for travel, spider for dungeon crawling, etc.)."
+      }
+    ],
+    category: "utility-control",
+    searchVolume: 14800,
+    aliases: ["familiar-5e", "find familiar"]
+  },
+  {
+    slug: "leomunds-tiny-hut-5e",
+    name: "Leomund's Tiny Hut",
+    level: "3rd",
+    school: "Evocation",
+    castingTime: "1 minute",
+    range: "Self (10-foot-radius hemisphere)",
+    components: "V, S, M (a small crystal bead)",
+    duration: "8 hours",
+    concentration: false,
+    ritual: true,
+    classes: ["Bard", "Wizard"],
+    description: "A 10-foot-radius immobile dome of force springs into existence around and above you. The spell fails if a creature larger than you is in the area. Nine creatures of Medium size or smaller can fit inside. Creatures and objects within the dome when you cast this spell can move through it freely. All other creatures and objects are barred from passing through. The atmosphere inside is comfortable and dry, regardless of weather outside. Until the spell ends, you can command the interior to become dimly lit or dark. The dome is opaque from the outside, but transparent from inside.",
+    damage: null,
+    savingThrow: null,
+    higherLevels: null,
+    commonMistakes: [
+      "Thinking the Tiny Hut is indestructible (Dispel Magic removes it)",
+      "Forgetting creatures inside when cast can freely pass through the dome",
+      "Assuming you can attack from inside the dome (objects can't pass through either direction)",
+      "Not realizing the caster must remain inside or the spell ends",
+      "Thinking it blocks teleportation (it doesn't - enemies can teleport in)"
+    ],
+    dmTips: [
+      "Tiny Hut makes safe long rests almost guaranteed - plan around this at higher levels",
+      "Creatures inside at casting can leave and re-enter; creatures outside cannot enter at all",
+      "You CAN dispel it - have enemy casters use Dispel Magic for dramatic effect",
+      "Enemies can still surround the hut and attack when the party emerges",
+      "Some DMs allow attacks from inside (Crawford has given conflicting rulings) - establish house rules early"
+    ],
+    faq: [
+      {
+        question: "Can we attack from inside Leomund's Tiny Hut?",
+        answer: "RAW, no. 'Objects are barred from passing through' means arrows, spell effects, etc. can't exit. Some tables allow it since the dome is transparent from inside. Discuss with your DM."
+      },
+      {
+        question: "Does Dispel Magic work on Tiny Hut?",
+        answer: "Yes! Dispel Magic ends the hut immediately. Smart enemies will use this - the party isn't as safe as they think if facing spellcasters."
+      },
+      {
+        question: "Can enemies teleport into the hut?",
+        answer: "Yes. The hut blocks physical passage, not teleportation. Misty Step, Dimension Door, and similar spells can bypass it. Something to consider in high-magic settings."
+      },
+      {
+        question: "What happens if the caster leaves?",
+        answer: "The spell ends immediately. The caster must remain inside for the full duration. This means the wizard can't scout ahead while the party rests in the hut."
+      },
+      {
+        question: "Can creatures dig under the hut?",
+        answer: "The spell creates a hemisphere, not a full sphere. Creatures can theoretically tunnel under it (DM discretion). Most tables don't bother with this, but it's technically possible."
+      }
+    ],
+    category: "utility-control",
+    searchVolume: 8900,
+    aliases: ["tiny-hut-5e", "tiny hut", "leomunds tiny hut"]
   }
 ];

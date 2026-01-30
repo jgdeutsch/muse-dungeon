@@ -66,7 +66,7 @@ export const spellOverview: SpellOverviewPage = {
   <li>When you take damage, you must make a Constitution saving throw to maintain concentration</li>
   <li>DC = 10 or half the damage taken, whichever is higher</li>
   <li>Taking damage from multiple sources requires separate saves for each instance</li>
-  <li>Being incapacitated or killed automatically breaks concentration</li>
+  <li>Being <a href="/rules/conditions/incapacitated-condition-5e/">incapacitated</a> or killed automatically breaks concentration</li>
 </ul>
 
 <p><strong>Common Concentration Spells:</strong></p>
@@ -143,16 +143,16 @@ export const spellOverview: SpellOverviewPage = {
 
 <p><strong>Examples:</strong></p>
 <ul>
-  <li><strong>5th-level Wizard (Int 18):</strong> 8 + 3 (proficiency) + 4 (Int mod) = <strong>DC 15</strong></li>
-  <li><strong>10th-level Cleric (Wis 20):</strong> 8 + 4 (proficiency) + 5 (Wis mod) = <strong>DC 17</strong></li>
-  <li><strong>3rd-level Warlock (Cha 16):</strong> 8 + 2 (proficiency) + 3 (Cha mod) = <strong>DC 13</strong></li>
+  <li><strong>5th-level <a href="/characters/classes/wizard-5e/">Wizard</a> (Int 18):</strong> 8 + 3 (proficiency) + 4 (Int mod) = <strong>DC 15</strong></li>
+  <li><strong>10th-level <a href="/characters/classes/cleric-5e/">Cleric</a> (Wis 20):</strong> 8 + 4 (proficiency) + 5 (Wis mod) = <strong>DC 17</strong></li>
+  <li><strong>3rd-level <a href="/characters/classes/warlock-5e/">Warlock</a> (Cha 16):</strong> 8 + 2 (proficiency) + 3 (Cha mod) = <strong>DC 13</strong></li>
 </ul>
 
 <p><strong>Spellcasting Ability by Class:</strong></p>
 <ul>
-  <li><strong>Intelligence:</strong> Wizard, Eldritch Knight, Arcane Trickster</li>
-  <li><strong>Wisdom:</strong> Cleric, Druid, Ranger</li>
-  <li><strong>Charisma:</strong> Bard, Paladin, Sorcerer, Warlock</li>
+  <li><strong>Intelligence:</strong> <a href="/characters/classes/wizard-5e/">Wizard</a>, Eldritch Knight, Arcane Trickster</li>
+  <li><strong>Wisdom:</strong> <a href="/characters/classes/cleric-5e/">Cleric</a>, <a href="/characters/classes/druid-5e/">Druid</a>, <a href="/characters/classes/ranger-5e/">Ranger</a></li>
+  <li><strong>Charisma:</strong> <a href="/characters/classes/bard-5e/">Bard</a>, <a href="/characters/classes/paladin-5e/">Paladin</a>, <a href="/characters/classes/sorcerer-5e/">Sorcerer</a>, <a href="/characters/classes/warlock-5e/">Warlock</a></li>
 </ul>
 
 <p><strong>Important:</strong> Your spell save DC applies to all your spells - you don't roll anything when enemies make saves. The target makes the d20 roll and must meet or exceed your DC to succeed.</p>`
@@ -167,9 +167,9 @@ export const spellOverview: SpellOverviewPage = {
 
 <p><strong>Examples:</strong></p>
 <ul>
-  <li><strong>5th-level Wizard (Int 18):</strong> 3 (proficiency) + 4 (Int mod) = <strong>+7 to hit</strong></li>
-  <li><strong>10th-level Cleric (Wis 20):</strong> 4 (proficiency) + 5 (Wis mod) = <strong>+9 to hit</strong></li>
-  <li><strong>3rd-level Warlock (Cha 16):</strong> 2 (proficiency) + 3 (Cha mod) = <strong>+5 to hit</strong></li>
+  <li><strong>5th-level <a href="/characters/classes/wizard-5e/">Wizard</a> (Int 18):</strong> 3 (proficiency) + 4 (Int mod) = <strong>+7 to hit</strong></li>
+  <li><strong>10th-level <a href="/characters/classes/cleric-5e/">Cleric</a> (Wis 20):</strong> 4 (proficiency) + 5 (Wis mod) = <strong>+9 to hit</strong></li>
+  <li><strong>3rd-level <a href="/characters/classes/warlock-5e/">Warlock</a> (Cha 16):</strong> 2 (proficiency) + 3 (Cha mod) = <strong>+5 to hit</strong></li>
 </ul>
 
 <p><strong>How It Works:</strong></p>
@@ -206,7 +206,7 @@ export const spellOverview: SpellOverviewPage = {
 <ul>
   <li>Bonus action: Healing Word → Action: Cure Wounds ✗</li>
   <li>Bonus action: Misty Step → Action: Fireball ✗</li>
-  <li>Quickened Spell (Sorcerer): Fireball → Action: Counterspell ✗</li>
+  <li>Quickened Spell (<a href="/characters/classes/sorcerer-5e/">Sorcerer</a>): Fireball → Action: Counterspell ✗</li>
 </ul>
 
 <p><strong>Common Mistakes:</strong></p>
@@ -223,7 +223,7 @@ export const spellOverview: SpellOverviewPage = {
       title: "Prepared Spells vs. Known Spells",
       content: `<p>Different spellcasting classes learn magic differently. Some prepare spells daily from a larger list, while others know a fixed set of spells.</p>
 
-<p><strong>Prepared Spellcasters (Clerics, Druids, Paladins, Wizards):</strong></p>
+<p><strong>Prepared Spellcasters (<a href="/characters/classes/cleric-5e/">Clerics</a>, <a href="/characters/classes/druid-5e/">Druids</a>, <a href="/characters/classes/paladin-5e/">Paladins</a>, <a href="/characters/classes/wizard-5e/">Wizards</a>):</strong></p>
 <ul>
   <li>Have access to their entire class spell list (wizards use their spellbook)</li>
   <li>Prepare a number of spells after each long rest: <strong>spellcasting modifier + class level</strong> (half class level for paladins)</li>
@@ -232,7 +232,7 @@ export const spellOverview: SpellOverviewPage = {
   <li>Subclass/domain spells are always prepared and don't count against the limit</li>
 </ul>
 
-<p><strong>Known Spellcasters (Bards, Rangers, Sorcerers, Warlocks):</strong></p>
+<p><strong>Known Spellcasters (<a href="/characters/classes/bard-5e/">Bards</a>, <a href="/characters/classes/ranger-5e/">Rangers</a>, <a href="/characters/classes/sorcerer-5e/">Sorcerers</a>, <a href="/characters/classes/warlock-5e/">Warlocks</a>):</strong></p>
 <ul>
   <li>Learn a specific number of spells based on their level (see class table)</li>
   <li>Can cast any known spell using available spell slots</li>
@@ -242,9 +242,9 @@ export const spellOverview: SpellOverviewPage = {
 
 <p><strong>Examples:</strong></p>
 <ul>
-  <li><strong>5th-level Cleric (Wis 16):</strong> Prepares 3 + 5 = 8 spells from entire cleric list, plus domain spells always prepared</li>
-  <li><strong>5th-level Sorcerer (Cha 18):</strong> Knows exactly 6 spells total from sorcerer list, can't change until next level</li>
-  <li><strong>5th-level Wizard (Int 18):</strong> Has 14 spells in spellbook (6 starting + 8 from levels), prepares 4 + 5 = 9 spells each day</li>
+  <li><strong>5th-level <a href="/characters/classes/cleric-5e/">Cleric</a> (Wis 16):</strong> Prepares 3 + 5 = 8 spells from entire cleric list, plus domain spells always prepared</li>
+  <li><strong>5th-level <a href="/characters/classes/sorcerer-5e/">Sorcerer</a> (Cha 18):</strong> Knows exactly 6 spells total from sorcerer list, can't change until next level</li>
+  <li><strong>5th-level <a href="/characters/classes/wizard-5e/">Wizard</a> (Int 18):</strong> Has 14 spells in spellbook (6 starting + 8 from levels), prepares 4 + 5 = 9 spells each day</li>
 </ul>
 
 <p><strong>Strategic Considerations:</strong></p>

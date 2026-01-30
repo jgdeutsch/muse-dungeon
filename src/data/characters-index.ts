@@ -9,6 +9,7 @@ import {
   creationPages,
   characterRedirects,
   monstersOverview,
+  classFeaturePages,
 } from "./characters-other";
 
 export type { ClassPage, ClassOverviewPage } from "./characters-classes";
@@ -19,6 +20,7 @@ export type {
   CombatManeuverPage,
   CreationToolPage,
   RedirectEntry,
+  ClassFeaturePage,
 } from "./characters-other";
 
 // All class pages
@@ -27,8 +29,8 @@ export { classPages, classOverview };
 // All race pages
 export { racePages, raceOverviews };
 
-// Feats, combat maneuvers, creation tools
-export { featOverview, featPages, combatPages, creationPages, characterRedirects, monstersOverview };
+// Feats, combat maneuvers, creation tools, class features
+export { featOverview, featPages, combatPages, creationPages, characterRedirects, monstersOverview, classFeaturePages };
 
 // Category metadata
 export const characterCategoryMeta: Record<
@@ -100,6 +102,10 @@ export function getCharacterPageBySlug(slug: string) {
   const creation = creationPages.find((c) => c.slug === slug);
   if (creation) return { type: "creation" as const, data: creation };
 
+  // Check class feature pages
+  const classFeature = classFeaturePages.find((c) => c.slug === slug);
+  if (classFeature) return { type: "classFeature" as const, data: classFeature };
+
   // Check redirects
   const redirect = characterRedirects.find((r) => r.slug === slug);
   if (redirect) return { type: "redirect" as const, data: redirect };
@@ -143,6 +149,10 @@ export function getAllCharacterSlugs(): { slug: string; category: string }[] {
   }
 
   slugs.push({ slug: monstersOverview.slug, category: "creation" });
+
+  for (const c of classFeaturePages) {
+    slugs.push({ slug: c.slug, category: "classes" });
+  }
 
   for (const r of characterRedirects) {
     slugs.push({ slug: r.slug, category: r.category });

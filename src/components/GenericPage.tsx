@@ -4,6 +4,7 @@ import { Warning, Tip } from "./Warning";
 import { Sources } from "./Sources";
 import { AssignToCharacter } from "./AssignToCharacter";
 import { FAQ, FAQItem } from "./FAQ";
+import { EntityContent, EntityContentContainer } from "./EntityContent";
 
 type GenericPageData = {
   name: string;
@@ -56,21 +57,23 @@ export function GenericPageComponent({
 
       <JumpTo sections={sections} />
 
-      {data.sections.map((s) => (
-        <section
-          key={s.id}
-          id={s.id}
-          className="py-8 border-t border-[var(--border)]"
-        >
-          <h2 className="font-['Cinzel'] text-xl font-semibold mb-4">
-            {s.title}
-          </h2>
-          <div
-            className="text-sm text-[var(--text-dim)] leading-relaxed [&_strong]:text-[var(--text)] [&_p]:mb-3 [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:mb-3 [&_li]:mb-1 [&_table]:ref-table [&_th]:text-left [&_th]:p-2 [&_td]:p-2"
-            dangerouslySetInnerHTML={{ __html: s.content }}
-          />
-        </section>
-      ))}
+      <EntityContentContainer>
+        {data.sections.map((s) => (
+          <section
+            key={s.id}
+            id={s.id}
+            className="py-8 border-t border-[var(--border)]"
+          >
+            <h2 className="font-['Cinzel'] text-xl font-semibold mb-4">
+              {s.title}
+            </h2>
+            <EntityContent
+              html={s.content}
+              className="text-sm text-[var(--text-dim)] leading-relaxed [&_strong]:text-[var(--text)] [&_p]:mb-3 [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:mb-3 [&_li]:mb-1 [&_table]:ref-table [&_th]:text-left [&_th]:p-2 [&_td]:p-2"
+            />
+          </section>
+        ))}
+      </EntityContentContainer>
 
       {data.commonMistakes && data.commonMistakes.length > 0 && (
         <section id="mistakes" className="py-8 border-t border-[var(--border)]">

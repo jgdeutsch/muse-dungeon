@@ -63,7 +63,7 @@ export const monsterPages: MonsterPage[] = [
     keyAbilities: [
       { name: "Mucous Cloud", description: "Creates a 5-foot cloud of slime when underwater. Creatures within must make DC 14 Con save or lose ability to breathe air for 3 hours." },
       { name: "Telepathy", description: "Can communicate telepathically with any creature within 120 feet and read surface thoughts." },
-      { name: "Enslave", description: "Targets one creature within 30 feet. DC 14 Wis save or be charmed for 24 hours. Aboleth can telepathically command." },
+      { name: "Enslave", description: "Targets one creature within 30 feet. DC 14 Wis save or be <a href=\"/rules/conditions/charmed-condition-5e/\">charmed</a> for 24 hours. Aboleth can telepathically command." },
       { name: "Psychic Drain", description: "Legendary action to deal 10 (3d6) psychic damage to one enslaved creature within 120 feet." }
     ],
     tactics: "Use enslave early to turn party members against each other. Stay underwater and use mucous cloud to drown melee fighters.",
@@ -84,7 +84,7 @@ export const monsterPages: MonsterPage[] = [
       },
       {
         question: "Can a Greater Restoration cure the mucous disease?",
-        answer: "Yes! Greater Restoration can end the disease that prevents air breathing. Lesser Restoration can also work since it removes diseases. Heal spell works too since it cures diseases."
+        answer: "Yes! <a href=\"/spells/support-healing/greater-restoration-5e/\">Greater Restoration</a> can end the disease that prevents air breathing. <a href=\"/spells/support-healing/lesser-restoration-5e/\">Lesser Restoration</a> can also work since it removes diseases. Heal spell works too since it cures diseases."
       },
       {
         question: "What happens if a charmed PC attacks other party members?",
@@ -115,8 +115,8 @@ export const monsterPages: MonsterPage[] = [
     speed: "20 ft., fly 40 ft.",
     abilities: { str: 6, dex: 12, con: 12, int: 2, wis: 13, cha: 5 },
     keyAbilities: [
-      { name: "Bite", description: "+3 to hit, deals 3 (1d4+1) piercing damage and target must make DC 11 Con save or be restrained and begin turning to stone." },
-      { name: "Petrification", description: "Restrained creature repeats save at end of next turn. On success, effect ends. On failure, creature is petrified for 24 hours." },
+      { name: "Bite", description: "+3 to hit, deals 3 (1d4+1) piercing damage and target must make DC 11 Con save or be <a href=\"/rules/conditions/restrained-condition-5e/\">restrained</a> and begin turning to stone." },
+      { name: "Petrification", description: "<a href=\"/rules/conditions/restrained-condition-5e/\">Restrained</a> creature repeats save at end of next turn. On success, effect ends. On failure, creature is <a href=\"/rules/conditions/petrified-condition-5e/\">petrified</a> for 24 hours." },
       { name: "Flyby", description: "Can fly out of enemy reach without provoking opportunity attacks." }
     ],
     tactics: "Fly in, bite, fly away. Target spellcasters and ranged attackers first.",
@@ -133,11 +133,11 @@ export const monsterPages: MonsterPage[] = [
     faq: [
       {
         question: "How does Cockatrice petrification work step by step?",
-        answer: "1) Cockatrice hits with bite. 2) Target makes DC 11 Con save or becomes restrained. 3) At end of their next turn, repeat save. 4) Success = effect ends. Failure = petrified for 24 hours. After 24 hours, they return to normal."
+        answer: "1) Cockatrice hits with bite. 2) Target makes DC 11 Con save or becomes <a href=\"/rules/conditions/restrained-condition-5e/\">restrained</a>. 3) At end of their next turn, repeat save. 4) Success = effect ends. Failure = <a href=\"/rules/conditions/petrified-condition-5e/\">petrified</a> for 24 hours. After 24 hours, they return to normal."
       },
       {
         question: "Can Greater Restoration cure Cockatrice petrification?",
-        answer: "Yes! Greater Restoration can end the petrified condition. Since cockatrice petrification only lasts 24 hours anyway, some parties just wait it out rather than spending a 5th-level slot."
+        answer: "Yes! <a href=\"/spells/support-healing/greater-restoration-5e/\">Greater Restoration</a> can end the <a href=\"/rules/conditions/petrified-condition-5e/\">petrified</a> condition. Since cockatrice petrification only lasts 24 hours anyway, some parties just wait it out rather than spending a 5th-level slot."
       },
       {
         question: "Is a Cockatrice intelligent enough to train?",
@@ -221,10 +221,10 @@ export const monsterPages: MonsterPage[] = [
     speed: "30 ft., climb 30 ft.",
     abilities: { str: 16, dex: 16, con: 18, int: 13, wis: 14, cha: 12 },
     keyAbilities: [
-      { name: "Fey Ancestry", description: "Advantage on saves against being charmed, and magic can't put it to sleep." },
+      { name: "Fey Ancestry", description: "Advantage on saves against being <a href=\"/rules/conditions/charmed-condition-5e/\">charmed</a>, and magic can't put it to sleep." },
       { name: "Spider Climb", description: "Can climb difficult surfaces, including upside down on ceilings, without ability checks." },
       { name: "Web Walker", description: "Ignores movement restrictions caused by webbing." },
-      { name: "Innate Spellcasting", description: "Cha DC 12. At will: dancing lights. 1/day each: darkness, faerie fire." }
+      { name: "Innate Spellcasting", description: "Cha DC 12. At will: <a href=\"/spells/cantrips/dancing-lights-5e/\">dancing lights</a>. 1/day each: darkness, <a href=\"/spells/utility-control/faerie-fire-5e/\">faerie fire</a>." }
     ],
     tactics: "Cast darkness and attack from ceiling. Use webs to separate party. Target vulnerable spellcasters.",
     encounterTips: "Use vertical cave systems. Webs everywhere. Drider controls battlefield with darkness and terrain.",
@@ -759,7 +759,7 @@ export const monsterPages: MonsterPage[] = [
     abilities: { str: 10, dex: 14, con: 18, int: 17, wis: 15, cha: 17 },
     keyAbilities: [
       { name: "Antimagic Cone", description: "The beholder's central eye creates a 150-foot cone of antimagic. Each creature and magical effect in the area is affected by Antimagic Field." },
-      { name: "Eye Rays", description: "The beholder shoots three random eye rays from among ten options, each targeting a creature within 120 ft. Rays include Charm, Paralyzing, Fear, Slowing, Enervation, Telekinetic, Sleep, Petrification, Disintegration, and Death rays." },
+      { name: "Eye Rays", description: "The beholder shoots three random eye rays from among ten options, each targeting a creature within 120 ft. Rays include <a href=\"/rules/conditions/charmed-condition-5e/\">Charm</a>, <a href=\"/rules/conditions/paralyzed-condition-5e/\">Paralyzing</a>, <a href=\"/rules/conditions/frightened-condition-5e/\">Fear</a>, Slowing, Enervation, Telekinetic, Sleep, <a href=\"/rules/conditions/petrified-condition-5e/\">Petrification</a>, <a href=\"/spells/offensive/disintegrate-5e/\">Disintegration</a>, and Death rays." },
       { name: "Legendary Actions", description: "The beholder can take 3 legendary actions: use one eye ray per action. It can also use its eye rays at the start of its turn." }
     ],
     tactics: "Beholders are paranoid geniuses. They position themselves to use Antimagic Cone strategically — shutting down casters while using eye rays on martial characters. They use terrain to their advantage, hovering over pits or lava. A smart beholder has prepared its lair with traps, minions, and escape routes.",
@@ -814,8 +814,8 @@ export const monsterPages: MonsterPage[] = [
     abilities: { str: 30, dex: 10, con: 29, int: 18, wis: 15, cha: 23 },
     keyAbilities: [
       { name: "Fire Breath (Recharge 5-6)", description: "90-foot cone, DC 24 Dexterity save, 26d6 fire damage on a failed save, half on success." },
-      { name: "Frightful Presence", description: "Each creature of the dragon's choice within 120 feet must succeed on a DC 21 Wisdom save or become frightened for 1 minute." },
-      { name: "Legendary Actions (3/round)", description: "Detect (Wisdom check), Tail Attack (reach 20 ft., 2d8+10), Wing Attack (DC 25 Dex save, 2d6+10, knocked prone, dragon flies half speed)." }
+      { name: "Frightful Presence", description: "Each creature of the dragon's choice within 120 feet must succeed on a DC 21 Wisdom save or become <a href=\"/rules/conditions/frightened-condition-5e/\">frightened</a> for 1 minute." },
+      { name: "Legendary Actions (3/round)", description: "Detect (Wisdom check), Tail Attack (reach 20 ft., 2d8+10), Wing Attack (DC 25 Dex save, 2d6+10, knocked <a href=\"/rules/conditions/prone-condition-5e/\">prone</a>, dragon flies half speed)." }
     ],
     tactics: "Ancient Red Dragons are arrogant but not stupid. They open with Frightful Presence to scatter the party, then use breath weapon on grouped enemies. They fly out of melee range and use legendary wing attacks to reposition. If seriously threatened, they retreat to their lair where they have legendary lair actions.",
     encounterTips: "This is a campaign-ending boss fight. The lair should be a volcanic cave or mountain peak. Use minions (kobolds, fire elementals) to distract while the dragon focuses on the biggest threat. Give the party environmental options — collapsing pillars, lava flows, or magic items that grant fire resistance.",
@@ -868,7 +868,7 @@ export const monsterPages: MonsterPage[] = [
     speed: "30 ft.",
     abilities: { str: 11, dex: 16, con: 16, int: 20, wis: 14, cha: 16 },
     keyAbilities: [
-      { name: "Spellcasting (18th level)", description: "The lich is an 18th-level spellcaster. Its spellcasting ability is Intelligence (spell save DC 20, +12 to hit). It has access to the full wizard spell list including 9th-level spells like Power Word Kill." },
+      { name: "Spellcasting (18th level)", description: "The lich is an 18th-level spellcaster. Its spellcasting ability is Intelligence (spell save DC 20, +12 to hit). It has access to the full <a href=\"/characters/classes/wizard-5e/\">wizard</a> spell list including 9th-level spells like <a href=\"/spells/offensive/power-word-kill-5e/\">Power Word Kill</a>." },
       { name: "Legendary Resistance (3/Day)", description: "If the lich fails a saving throw, it can choose to succeed instead." },
       { name: "Rejuvenation", description: "If destroyed, the lich gains a new body in 1d10 days if its phylactery is intact. The new body appears within 5 feet of the phylactery." },
       { name: "Paralyzing Touch", description: "Melee spell attack, +12 to hit. 3d6 cold damage, and the target must succeed on a DC 18 Constitution save or be paralyzed for 1 minute." }
@@ -925,7 +925,7 @@ export const monsterPages: MonsterPage[] = [
     abilities: { str: 18, dex: 18, con: 18, int: 17, wis: 15, cha: 18 },
     keyAbilities: [
       { name: "Bite", description: "Melee weapon attack, +9 to hit. 1d6+4 piercing plus 3d6 necrotic damage. Target's HP max is reduced by the necrotic damage taken, and the vampire regains HP equal to that amount." },
-      { name: "Charm", description: "One humanoid within 30 ft. must succeed on a DC 17 Wisdom save or be charmed. The charmed target regards the vampire as a trusted friend." },
+      { name: "Charm", description: "One humanoid within 30 ft. must succeed on a DC 17 Wisdom save or be <a href=\"/rules/conditions/charmed-condition-5e/\">charmed</a>. The charmed target regards the vampire as a trusted friend." },
       { name: "Shapechanger", description: "The vampire can use its action to polymorph into a Tiny bat, a Medium cloud of mist, or back into its true form." },
       { name: "Legendary Actions (3/round)", description: "Move without provoking opportunity attacks, Unarmed Strike, or Bite (costs 2 actions)." }
     ],
@@ -945,7 +945,7 @@ export const monsterPages: MonsterPage[] = [
     faq: [
       {
         question: "What are a Vampire's weaknesses?",
-        answer: "Sunlight (20 radiant damage/turn, disadvantage on attacks/checks), running water (20 acid damage/turn if ending turn in it), stake through heart while in resting place (paralyzed then destroyed if beheaded), can't enter residence without invitation, repelled by holy symbols (if presented with conviction)."
+        answer: "Sunlight (20 radiant damage/turn, disadvantage on attacks/checks), running water (20 acid damage/turn if ending turn in it), stake through heart while in resting place (<a href=\"/rules/conditions/paralyzed-condition-5e/\">paralyzed</a> then destroyed if beheaded), can't enter residence without invitation, repelled by holy symbols (if presented with conviction)."
       },
       {
         question: "How does Misty Escape work?",
@@ -957,7 +957,7 @@ export const monsterPages: MonsterPage[] = [
       },
       {
         question: "What's the Charm ability save DC?",
-        answer: "DC 17 Wisdom save. On failure, the target is charmed for 24 hours and regards the vampire as a trusted friend. The vampire can issue commands (no action required). The charm ends if the vampire or its companions damage the target. One target per Charm use."
+        answer: "DC 17 Wisdom save. On failure, the target is <a href=\"/rules/conditions/charmed-condition-5e/\">charmed</a> for 24 hours and regards the vampire as a trusted friend. The vampire can issue commands (no action required). The charm ends if the vampire or its companions damage the target. One target per Charm use."
       },
       {
         question: "Do Vampires need to drink blood?",
@@ -1004,7 +1004,7 @@ export const monsterPages: MonsterPage[] = [
       },
       {
         question: "How does Engulf work?",
-        answer: "When the cube moves into a creature's space, that creature must make a DC 12 Dex save. On failure, they're engulfed - inside the cube, taking 3d6 acid damage at the start of each of the cube's turns. Engulfed creatures are restrained and can't breathe. They can try to escape (DC 12 Strength) on their turn."
+        answer: "When the cube moves into a creature's space, that creature must make a DC 12 Dex save. On failure, they're engulfed - inside the cube, taking 3d6 acid damage at the start of each of the cube's turns. Engulfed creatures are <a href=\"/rules/conditions/restrained-condition-5e/\">restrained</a> and can't breathe. They can try to escape (DC 12 Strength) on their turn."
       },
       {
         question: "Can a Gelatinous Cube digest magic items?",
@@ -1092,8 +1092,8 @@ export const monsterPages: MonsterPage[] = [
     keyAbilities: [
       { name: "Acid Breath (Recharge 5-6)", description: "60-foot line, 5 feet wide. DC 18 Dexterity save, 12d8 acid damage on failure, half on success." },
       { name: "Amphibious", description: "The dragon can breathe air and water." },
-      { name: "Legendary Actions (3/round)", description: "Detect, Tail Attack (2d8+6 bludgeoning), Wing Attack (costs 2, DC 19 Dex save, 2d6+6, knocked prone)." },
-      { name: "Frightful Presence", description: "Each creature within 120 ft. must succeed on a DC 16 Wisdom save or become frightened for 1 minute." }
+      { name: "Legendary Actions (3/round)", description: "Detect, Tail Attack (2d8+6 bludgeoning), Wing Attack (costs 2, DC 19 Dex save, 2d6+6, knocked <a href=\"/rules/conditions/prone-condition-5e/\">prone</a>)." },
+      { name: "Frightful Presence", description: "Each creature within 120 ft. must succeed on a DC 16 Wisdom save or become <a href=\"/rules/conditions/frightened-condition-5e/\">frightened</a> for 1 minute." }
     ],
     tactics: "Black dragons are sadistic ambush predators. They lurk in swamps and murky water, using Amphibious to attack from below. They melt enemies with acid breath, then retreat underwater. They love to toy with prey, letting them think they've escaped before striking again.",
     encounterTips: "Set the encounter in a swamp or marsh with deep water, quicksand, and poor visibility. The dragon uses the terrain to hide and ambush. Boats and bridges become hazards when the dragon attacks from below. Use the dragon's cruelty — it may capture and torment victims rather than kill them outright.",
@@ -1201,7 +1201,7 @@ export const monsterPages: MonsterPage[] = [
     speed: "20 ft., swim 60 ft.",
     abilities: { str: 30, dex: 11, con: 25, int: 22, wis: 18, cha: 20 },
     keyAbilities: [
-      { name: "Tentacle", description: "Melee weapon attack, +17 to hit, reach 30 ft. 3d6+10 bludgeoning damage, and the target is grappled (escape DC 18). The kraken has ten tentacles, each of which can grapple one target." },
+      { name: "Tentacle", description: "Melee weapon attack, +17 to hit, reach 30 ft. 3d6+10 bludgeoning damage, and the target is <a href=\"/rules/conditions/grappled-condition-5e/\">grappled</a> (escape DC 18). The kraken has ten tentacles, each of which can grapple one target." },
       { name: "Lightning Storm", description: "The kraken magically creates three bolts of lightning, each targeting a creature within 120 ft. Each must make a DC 23 Dexterity save, taking 4d10 lightning damage on a failure." },
       { name: "Legendary Actions (3/round)", description: "Tentacle Attack or Fling (flings a grappled creature up to 60 ft.), Lightning Storm (costs 2), or Ink Cloud (costs 3, 60-foot radius cloud in water)." }
     ],
@@ -1366,7 +1366,7 @@ export const monsterPages: MonsterPage[] = [
     speed: "20 ft.",
     abilities: { str: 16, dex: 8, con: 15, int: 2, wis: 8, cha: 7 },
     keyAbilities: [
-      { name: "Petrifying Gaze", description: "If a creature starts its turn within 30 ft. and the two can see each other, the basilisk can force it to make a DC 12 Constitution save or begin turning to stone (restrained). On a subsequent failed save, the creature is petrified. Averting eyes gives disadvantage on attacks against the basilisk." },
+      { name: "Petrifying Gaze", description: "If a creature starts its turn within 30 ft. and the two can see each other, the basilisk can force it to make a DC 12 Constitution save or begin turning to stone (<a href=\"/rules/conditions/restrained-condition-5e/\">restrained</a>). On a subsequent failed save, the creature is <a href=\"/rules/conditions/petrified-condition-5e/\">petrified</a>. Averting eyes gives disadvantage on attacks against the basilisk." },
       { name: "Bite", description: "Melee weapon attack, +5 to hit, 2d6+3 piercing plus 2d6 poison damage." }
     ],
     tactics: "The basilisk is a simple predator that relies on its petrifying gaze. It moves toward prey and forces Constitution saves. Smart parties avert their eyes, but this gives them disadvantage on attacks. The basilisk doesn't strategize — it just advances and bites.",
@@ -1385,7 +1385,7 @@ export const monsterPages: MonsterPage[] = [
     faq: [
       {
         question: "How does Petrifying Gaze work?",
-        answer: "If you START your turn within 30 feet of a basilisk and you can see each other, it can force a DC 12 Con save. Failure = you begin turning to stone (restrained). Fail again = petrified. You can avert your eyes to avoid this, but then attacks against the basilisk have disadvantage."
+        answer: "If you START your turn within 30 feet of a basilisk and you can see each other, it can force a DC 12 Con save. Failure = you begin turning to stone (<a href=\"/rules/conditions/restrained-condition-5e/\">restrained</a>). Fail again = <a href=\"/rules/conditions/petrified-condition-5e/\">petrified</a>. You can avert your eyes to avoid this, but then attacks against the basilisk have disadvantage."
       },
       {
         question: "Can you fight a Basilisk with a mirror?",
@@ -1393,7 +1393,7 @@ export const monsterPages: MonsterPage[] = [
       },
       {
         question: "Is Basilisk petrification permanent?",
-        answer: "Yes, unless cured! Greater Restoration (5th level) removes petrification. Basilisk venom, if properly prepared (alchemist's supplies, DC 15), can also cure petrification within 1 hour of application. Otherwise, the victim remains a statue indefinitely - potentially for centuries."
+        answer: "Yes, unless cured! <a href=\"/spells/support-healing/greater-restoration-5e/\">Greater Restoration</a> (5th level) removes petrification. Basilisk venom, if properly prepared (alchemist's supplies, DC 15), can also cure <a href=\"/rules/conditions/petrified-condition-5e/\">petrification</a> within 1 hour of application. Otherwise, the victim remains a statue indefinitely - potentially for centuries."
       },
       {
         question: "What's the difference between a Basilisk and Cockatrice?",
@@ -1475,9 +1475,9 @@ export const monsterPages: MonsterPage[] = [
     speed: "30 ft., fly 60 ft.",
     abilities: { str: 26, dex: 14, con: 24, int: 22, wis: 18, cha: 24 },
     keyAbilities: [
-      { name: "Fear Aura", description: "Any creature hostile to the pit fiend that starts its turn within 20 ft. must succeed on a DC 21 Wisdom save or be frightened until the start of its next turn." },
-      { name: "Multiattack", description: "Four attacks: one bite (4d6+8 piercing plus 6d6 poison, DC 21 Con save or poisoned), one claw, one mace, one tail." },
-      { name: "Innate Spellcasting", description: "At will: detect magic, fireball (as 6th-level, DC 21). 3/day each: hold monster, wall of fire." },
+      { name: "Fear Aura", description: "Any creature hostile to the pit fiend that starts its turn within 20 ft. must succeed on a DC 21 Wisdom save or be <a href=\"/rules/conditions/frightened-condition-5e/\">frightened</a> until the start of its next turn." },
+      { name: "Multiattack", description: "Four attacks: one bite (4d6+8 piercing plus 6d6 poison, DC 21 Con save or <a href=\"/rules/conditions/poisoned-condition-5e/\">poisoned</a>), one claw, one mace, one tail." },
+      { name: "Innate Spellcasting", description: "At will: detect magic, <a href=\"/spells/offensive/fireball-5e/\">fireball</a> (as 6th-level, DC 21). 3/day each: <a href=\"/spells/utility-control/hold-monster-5e/\">hold monster</a>, <a href=\"/spells/offensive/wall-of-fire-5e/\">wall of fire</a>." },
       { name: "Magic Resistance", description: "Advantage on saving throws against spells and other magical effects." }
     ],
     tactics: "Pit fiends are generals of Hell's armies. They open with Wall of Fire to split the party, use Fireball on clusters, and wade into melee with devastating multiattacks. Their Fear Aura disrupts formations. They use Hold Monster on dangerous martial characters and focus fire on healers.",
@@ -1500,7 +1500,7 @@ export const monsterPages: MonsterPage[] = [
       },
       {
         question: "How does the Fear Aura work?",
-        answer: "Any hostile creature that STARTS its turn within 20 feet must make a DC 21 Wisdom save or be frightened until the start of its next turn. This triggers automatically every round! Even brave adventurers struggle against DC 21. Paladins' Aura of Courage (immune to fear within 10 ft.) is invaluable."
+        answer: "Any hostile creature that STARTS its turn within 20 feet must make a DC 21 Wisdom save or be <a href=\"/rules/conditions/frightened-condition-5e/\">frightened</a> until the start of its next turn. This triggers automatically every round! Even brave adventurers struggle against DC 21. <a href=\"/characters/classes/paladin-5e/\">Paladins'</a> Aura of Courage (immune to fear within 10 ft.) is invaluable."
       },
       {
         question: "Can Pit Fiends be summoned by Warlocks?",
@@ -1586,7 +1586,7 @@ export const monsterPages: MonsterPage[] = [
     speed: "30 ft.",
     abilities: { str: 7, dex: 15, con: 9, int: 8, wis: 7, cha: 8 },
     keyAbilities: [
-      { name: "Pack Tactics", description: "The kobold has advantage on attack rolls against a creature if at least one of the kobold's allies is within 5 ft. of the creature and the ally isn't incapacitated." },
+      { name: "Pack Tactics", description: "The kobold has advantage on attack rolls against a creature if at least one of the kobold's allies is within 5 ft. of the creature and the ally isn't <a href=\"/rules/conditions/incapacitated-condition-5e/\">incapacitated</a>." },
       { name: "Sunlight Sensitivity", description: "While in sunlight, the kobold has disadvantage on attack rolls and Wisdom (Perception) checks that rely on sight." },
       { name: "Dagger", description: "Melee weapon attack, +4 to hit, 1d4+2 piercing. Sling: Ranged, +4 to hit, range 30/120 ft., 1d4+2 bludgeoning." }
     ],
@@ -1606,7 +1606,7 @@ export const monsterPages: MonsterPage[] = [
     faq: [
       {
         question: "How does Pack Tactics work?",
-        answer: "A kobold has ADVANTAGE on attack rolls if at least one ally is within 5 feet of the target AND the ally isn't incapacitated. With multiple kobolds, they essentially always have advantage. This offsets Sunlight Sensitivity and makes kobold swarms much more dangerous than their CR suggests."
+        answer: "A kobold has ADVANTAGE on attack rolls if at least one ally is within 5 feet of the target AND the ally isn't <a href=\"/rules/conditions/incapacitated-condition-5e/\">incapacitated</a>. With multiple kobolds, they essentially always have advantage. This offsets Sunlight Sensitivity and makes kobold swarms much more dangerous than their CR suggests."
       },
       {
         question: "What is Sunlight Sensitivity?",
@@ -1864,7 +1864,7 @@ export const monsterPages: MonsterPage[] = [
     keyAbilities: [
       { name: "Gibbering", description: "Each creature that starts its turn within 20 ft. and can hear the mouther must succeed on a DC 10 Wisdom save or be unable to take reactions and use movement randomly." },
       { name: "Aberrant Ground", description: "The ground within 10 ft. is doughlike difficult terrain. Each creature that starts its turn there must succeed on a DC 10 Strength save or have its speed reduced to 0." },
-      { name: "Multiattack", description: "One bite attack. If it hits, the target takes 5d6 piercing and must succeed on a DC 10 Strength save or be knocked prone." }
+      { name: "Multiattack", description: "One bite attack. If it hits, the target takes 5d6 piercing and must succeed on a DC 10 Strength save or be knocked <a href=\"/rules/conditions/prone-condition-5e/\">prone</a>." }
     ],
     tactics: "The gibbering mouther is a slow horror that turns the ground to mush and drives enemies mad with its incessant babbling. It oozes toward prey, trapping them in difficult terrain while its gibbering prevents coherent thought. It absorbs prey into its mass of eyes and mouths.",
     encounterTips: "Use the mouther in tight dungeon corridors where its slow speed doesn't matter and creatures can't easily escape its auras. The horror factor is key — describe the mass of eyes, mouths, and gibbering voices. It should feel like encountering a thing that shouldn't exist. Works great in aberration-themed dungeons near the Underdark.",
@@ -1947,7 +1947,7 @@ export const lorePages: LorePage[] = [
       {
         id: "who-is-drizzt",
         title: "Who is Drizzt Do'Urden?",
-        content: "<p>Drizzt Do'Urden is a <strong>drow ranger</strong> and one of D&D's most iconic characters. Created by author R.A. Salvatore, Drizzt appears in over 30 novels starting with <em>The Crystal Shard</em> (1988).</p><p>Born in the dark elf city of Menzoberranzan, Drizzt rejected the evil ways of drow society and fled to the surface. He wields twin scimitars named <strong>Icingdeath</strong> and <strong>Twinkle</strong>, and is accompanied by his magical panther companion <strong>Guenhwyvar</strong>.</p>"
+        content: "<p>Drizzt Do'Urden is a <strong><a href=\"/characters/races/drow-dark-elf-5e/\">drow</a> <a href=\"/characters/classes/ranger-5e/\">ranger</a></strong> and one of D&D's most iconic characters. Created by author R.A. Salvatore, Drizzt appears in over 30 novels starting with <em>The Crystal Shard</em> (1988).</p><p>Born in the dark elf city of Menzoberranzan, Drizzt rejected the evil ways of drow society and fled to the surface. He wields twin scimitars named <strong>Icingdeath</strong> and <strong>Twinkle</strong>, and is accompanied by his magical panther companion <strong>Guenhwyvar</strong>.</p>"
       },
       {
         id: "companions-of-the-hall",
@@ -2015,7 +2015,7 @@ export const sourcebookPages: SourcebookPage[] = [
     keyContent: [
       { name: "Warforged Race", description: "Sentient constructs built for war, now seeking purpose in peacetime. Full player race with multiple subraces." },
       { name: "Dragonmarks", description: "Magical marks granting powers, controlled by powerful houses. New feat system for dragonmarked characters." },
-      { name: "Artificer Class", description: "Full artificer class with Alchemist, Armorer, Artillerist, and Battle Smith subclasses." },
+      { name: "Artificer Class", description: "Full <a href=\"/characters/classes/artificer-5e/\">artificer</a> class with Alchemist, Armorer, Artillerist, and Battle Smith subclasses." },
       { name: "Sharn City Guide", description: "Detailed guide to the City of Towers, a vertical metropolis perfect for urban campaigns." }
     ],
     bestFor: [

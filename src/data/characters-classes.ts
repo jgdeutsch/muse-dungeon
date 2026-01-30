@@ -167,7 +167,7 @@ export const classPages: ClassPage[] = [
       {
         name: "Danger Sense",
         level: "2nd",
-        description: "Advantage on DEX saves against effects you can see while not blinded, deafened, or incapacitated."
+        description: "Advantage on DEX saves against effects you can see while not <a href=\"/rules/conditions/blinded-condition-5e/\">blinded</a>, <a href=\"/rules/conditions/deafened-condition-5e/\">deafened</a>, or <a href=\"/rules/conditions/incapacitated-condition-5e/\">incapacitated</a>."
       },
       {
         name: "Extra Attack",
@@ -177,14 +177,14 @@ export const classPages: ClassPage[] = [
       {
         name: "Persistent Rage",
         level: "15th",
-        description: "Rage only ends early if you fall unconscious or choose to end it."
+        description: "Rage only ends early if you fall <a href=\"/rules/conditions/unconscious-condition-5e/\">unconscious</a> or choose to end it."
       }
     ],
     subclasses: [
       {
         name: "Path of the Berserker",
         source: "Player's Handbook",
-        focus: "Maximum damage output with Frenzy for bonus action attacks, risking exhaustion"
+        focus: "Maximum damage output with Frenzy for bonus action attacks, risking <a href=\"/rules/core-mechanics/exhaustion-5e/\">exhaustion</a>"
       },
       {
         name: "Path of the Totem Warrior",
@@ -229,7 +229,7 @@ export const classPages: ClassPage[] = [
     faq: [
       {
         question: "What are the best Barbarian subclasses in 5e?",
-        answer: "Totem Warrior (Bear) is the tankiest option with resistance to all damage except psychic while raging. Zealot deals excellent damage and is incredibly hard to keep dead. Ancestral Guardian is the best defender, protecting allies by debuffing enemies. Wild Magic is fun but unpredictable. Berserker is powerful but exhaustion penalties hurt."
+        answer: "Totem Warrior (Bear) is the tankiest option with resistance to all damage except psychic while raging. Zealot deals excellent damage and is incredibly hard to keep dead. Ancestral Guardian is the best defender, protecting allies by debuffing enemies. Wild Magic is fun but unpredictable. Berserker is powerful but <a href=\"/rules/core-mechanics/exhaustion-5e/\">exhaustion</a> penalties hurt."
       },
       {
         question: "How does Rage work in 5e?",
@@ -241,7 +241,7 @@ export const classPages: ClassPage[] = [
       },
       {
         question: "What's the difference between Barbarian 5e 2014 and 2024?",
-        answer: "The 2024 Barbarian received significant updates: Rage damage resistance now applies to all damage types (not just physical), weapon mastery features, improved Brutal Critical, and Primal Knowledge for extra skills. Path of the Berserker was buffed to reduce exhaustion problems. Overall, 2024 Barbarians are stronger."
+        answer: "The 2024 Barbarian received significant updates: Rage damage resistance now applies to all damage types (not just physical), weapon mastery features, improved Brutal Critical, and Primal Knowledge for extra skills. Path of the Berserker was buffed to reduce <a href=\"/rules/core-mechanics/exhaustion-5e/\">exhaustion</a> problems. Overall, 2024 Barbarians are stronger."
       },
       {
         question: "Is Barbarian good for beginners in 5e?",
@@ -541,7 +541,7 @@ export const classPages: ClassPage[] = [
       },
       {
         question: "How do Crimson Rites work?",
-        answer: "As a bonus action, take necrotic damage equal to your hit die (d10) to activate a rite on your weapon, adding extra elemental damage (fire, cold, lightning, etc.) to attacks. The damage reduces your HP maximum, not current HP. The rite lasts until you finish a short or long rest or become unconscious."
+        answer: "As a bonus action, take necrotic damage equal to your hit die (d10) to activate a rite on your weapon, adding extra elemental damage (fire, cold, lightning, etc.) to attacks. The damage reduces your HP maximum, not current HP. The rite lasts until you finish a short or long rest or become <a href=\"/rules/conditions/unconscious-condition-5e/\">unconscious</a>."
       }
     ]
   },
@@ -1309,7 +1309,7 @@ export const classPages: ClassPage[] = [
       },
       {
         question: "What are the best Hexblade spells?",
-        answer: "Essential spells: Hex (bonus damage), Shield (reaction defense), Armor of Agathys (temp HP + damage), Shadow of Moil (obscurement + damage), and Banishing Smite (high level burst). Also consider Eldritch Smite invocation for prone + damage on crits. Don't neglect Eldritch Blast for ranged option."
+        answer: "Essential spells: Hex (bonus damage), Shield (reaction defense), Armor of Agathys (temp HP + damage), Shadow of Moil (obscurement + damage), and Banishing Smite (high level burst). Also consider Eldritch Smite invocation for <a href=\"/rules/conditions/prone-condition-5e/\">prone</a> + damage on crits. Don't neglect Eldritch Blast for ranged option."
       }
     ]
   },
@@ -1361,7 +1361,7 @@ export const classPages: ClassPage[] = [
       {
         name: "Way of the Open Hand",
         source: "Player's Handbook",
-        focus: "Classic monk with enhanced Flurry effects (prone, push, no reactions)"
+        focus: "Classic monk with enhanced Flurry effects (<a href=\"/rules/conditions/prone-condition-5e/\">prone</a>, push, no reactions)"
       },
       {
         name: "Way of Shadow",
@@ -1431,7 +1431,7 @@ export const classPages: ClassPage[] = [
       },
       {
         question: "How does Stunning Strike work?",
-        answer: "When you hit a creature with a melee weapon attack, spend 1 ki to force a Constitution save. On failure, they're stunned until the end of your next turn (can't act, auto-fail STR/DEX saves, attacks against them have advantage). You can try multiple times per turn. It's incredibly powerful against single targets."
+        answer: "When you hit a creature with a melee weapon attack, spend 1 ki to force a Constitution save. On failure, they're <a href=\"/rules/conditions/stunned-condition-5e/\">stunned</a> until the end of your next turn (can't act, auto-fail STR/DEX saves, attacks against them have advantage). You can try multiple times per turn. It's incredibly powerful against single targets."
       }
     ]
   },

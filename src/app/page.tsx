@@ -79,7 +79,7 @@ export default function HomePage() {
         <div className="inline-block text-xs uppercase tracking-widest text-[var(--accent)] border border-[var(--accent)] rounded-full px-4 py-1 mb-6">
           D&amp;D 5e Quick Reference
         </div>
-        <h1 className="font-['Cinzel'] text-4xl sm:text-5xl font-bold leading-tight mb-5 max-w-2xl mx-auto">
+        <h1 className="font-['Cinzel'] text-3xl sm:text-5xl font-bold leading-tight mb-5 max-w-2xl mx-auto break-words">
           Look it up <span className="text-[var(--accent)]">in seconds</span>,
           not minutes.
         </h1>
@@ -90,7 +90,7 @@ export default function HomePage() {
       </section>
 
       {/* Stats */}
-      <div className="flex justify-center gap-10 py-8 mb-4 border-b border-[var(--border)]">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-8 py-8 mb-4 border-b border-[var(--border)]">
         {[
           { n: "208", l: "Reference Guides" },
           { n: "5", l: "Categories" },

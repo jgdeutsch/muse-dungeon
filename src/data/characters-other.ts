@@ -55,6 +55,19 @@ export type RedirectEntry = {
   searchVolume: number;
 };
 
+export type ClassFeaturePage = {
+  slug: string;
+  name: string;
+  category: "classes";
+  className: string;
+  featureLevel: string;
+  description: string;
+  sections: { id: string; title: string; content: string }[];
+  commonMistakes?: string[];
+  dmTips?: string[];
+  searchVolume: number;
+};
+
 // =============================================================================
 // FEAT OVERVIEW
 // =============================================================================
@@ -2632,6 +2645,1309 @@ Remember: The difference between optimized and unoptimized characters is usually
     ]
   }
 ];
+
+// =============================================================================
+// CLASS FEATURES (WIZARD)
+// =============================================================================
+
+export const classFeaturePages: ClassFeaturePage[] = [
+  {
+    slug: "arcane-recovery-5e",
+    name: "Arcane Recovery",
+    category: "classes",
+    className: "Wizard",
+    featureLevel: "1st",
+    description: "Arcane Recovery is a core Wizard feature that lets you regain expended spell slots during a short rest, giving Wizards an edge in resource management over other full casters.",
+    searchVolume: 2900,
+    sections: [
+      {
+        id: "how-it-works",
+        title: "How Arcane Recovery Works",
+        content: `<p><strong>Once per day</strong> when you finish a <strong>short rest</strong>, you can recover expended spell slots. The spell slots recovered must have a combined level equal to or less than <strong>half your wizard level (rounded up)</strong>.</p>
+
+<p><strong>Key Restrictions:</strong></p>
+<ul>
+  <li>You cannot recover 6th level or higher spell slots</li>
+  <li>You can only use this feature once per day (resets on long rest)</li>
+  <li>Must be during a short rest (not just any downtime)</li>
+</ul>
+
+<p><strong>Recovery by Wizard Level:</strong></p>
+<table class="ref-table">
+  <tr><th>Wizard Level</th><th>Max Slot Levels Recovered</th><th>Example Combinations</th></tr>
+  <tr><td>1st-2nd</td><td>1</td><td>One 1st-level slot</td></tr>
+  <tr><td>3rd-4th</td><td>2</td><td>Two 1st-level slots OR one 2nd-level</td></tr>
+  <tr><td>5th-6th</td><td>3</td><td>One 3rd-level OR one 2nd + one 1st</td></tr>
+  <tr><td>7th-8th</td><td>4</td><td>One 4th-level OR two 2nd-level slots</td></tr>
+  <tr><td>9th-10th</td><td>5</td><td>One 5th-level OR various combos</td></tr>
+</table>`
+      },
+      {
+        id: "optimal-use",
+        title: "Optimal Use Strategies",
+        content: `<p><strong>Early Levels (1-4):</strong> Recovery matters most here when spell slots are scarce. A 3rd level wizard recovering a 2nd level slot effectively gets 50% more Web or Misty Step casts per day.</p>
+
+<p><strong>Mid Levels (5-10):</strong> Use Arcane Recovery to refresh your workhorse spells like Fireball or Counterspell. Don't save it for the "perfect moment" - use it during your first short rest.</p>
+
+<p><strong>Higher Levels (11+):</strong> The 5th-level slot cap starts to feel limiting. Prioritize recovering multiple lower-level slots for utility spells like Shield and Absorb Elements.</p>
+
+<p><strong>Pro Tip:</strong> Coordinate with your party to take short rests. Arcane Recovery is only useful if your party actually rests - communicate your resource needs!</p>`
+      }
+    ],
+    commonMistakes: [
+      "Trying to recover 6th level or higher slots (maximum is 5th level slots)",
+      "Using Arcane Recovery multiple times per day (it's once per day only)",
+      "Forgetting it must be during a short rest, not just during downtime",
+      "Not tracking your wizard level correctly when calculating recovery amount"
+    ],
+    dmTips: [
+      "Arcane Recovery is a significant resource advantage - plan encounter days with 2-3 short rests to let wizards shine",
+      "The feature encourages multiple encounters per adventuring day over single big fights",
+      "Wizards without short rest opportunities lose a major class feature"
+    ]
+  },
+  {
+    slug: "arcane-tradition-5e",
+    name: "Arcane Tradition",
+    category: "classes",
+    className: "Wizard",
+    featureLevel: "2nd",
+    description: "Arcane Tradition is the Wizard's subclass feature, representing specialization in one of the eight schools of magic or other magical disciplines. Your choice shapes your playstyle and grants unique abilities.",
+    searchVolume: 1800,
+    sections: [
+      {
+        id: "overview",
+        title: "What is an Arcane Tradition?",
+        content: `<p>At 2nd level, Wizards choose an <strong>Arcane Tradition</strong> - their school of magical specialization. This choice grants:</p>
+<ul>
+  <li><strong>Savant:</strong> Copy spells from your chosen school at half time and gold cost</li>
+  <li><strong>Unique Features:</strong> Special abilities at levels 2, 6, 10, and 14</li>
+  <li><strong>Playstyle Definition:</strong> Each school fundamentally changes how you approach problems</li>
+</ul>
+
+<p><strong>Important:</strong> Your Arcane Tradition doesn't limit what spells you can learn - you can still learn any wizard spell. It just makes your specialty school spells cheaper to copy and gives you bonus features.</p>`
+      },
+      {
+        id: "schools",
+        title: "The Eight Schools of Magic",
+        content: `<p><strong>Player's Handbook Schools:</strong></p>
+<ul>
+  <li><strong>Abjuration:</strong> Protective magic, Arcane Ward absorbs damage - great for survivability</li>
+  <li><strong>Conjuration:</strong> Summoning and teleportation - excellent utility and action economy</li>
+  <li><strong>Divination:</strong> Portent dice replace any d20 roll - arguably the most powerful subclass</li>
+  <li><strong>Enchantment:</strong> Mind control and charms - powerful in social situations</li>
+  <li><strong>Evocation:</strong> Damage spells with Sculpt Spells to protect allies from your Fireballs</li>
+  <li><strong>Illusion:</strong> Creative problem-solving, illusions become semi-real at higher levels</li>
+  <li><strong>Necromancy:</strong> Undead minions and life drain - build your own army</li>
+  <li><strong>Transmutation:</strong> Change matter, Transmuter's Stone provides flexible buffs</li>
+</ul>
+
+<p><strong>Other Sourcebook Traditions:</strong></p>
+<ul>
+  <li><strong>War Magic</strong> (XGtE): Defensive boosts, good for survivability-focused wizards</li>
+  <li><strong>Chronurgy</strong> (EGtW): Time manipulation, force rerolls, extremely powerful</li>
+  <li><strong>Graviturgy</strong> (EGtW): Gravity control for battlefield manipulation</li>
+  <li><strong>Order of Scribes</strong> (TCoE): Spellbook utility, change damage types</li>
+  <li><strong>Bladesinging</strong> (TCoE): Melee wizard combat, high AC and mobility</li>
+</ul>`
+      },
+      {
+        id: "choosing",
+        title: "Choosing Your Tradition",
+        content: `<p><strong>For Optimization:</strong></p>
+<ul>
+  <li><strong>Divination</strong> - Portent is the best subclass feature in the game</li>
+  <li><strong>Chronurgy</strong> - Time manipulation is incredibly powerful</li>
+  <li><strong>Abjuration</strong> - Arcane Ward makes you surprisingly tanky</li>
+</ul>
+
+<p><strong>For Flavor/Fun:</strong></p>
+<ul>
+  <li><strong>Necromancy</strong> - If you want a skeleton army</li>
+  <li><strong>Illusion</strong> - For creative, out-of-the-box solutions</li>
+  <li><strong>Bladesinging</strong> - For the sword-wielding wizard fantasy</li>
+</ul>
+
+<p><strong>For New Players:</strong></p>
+<ul>
+  <li><strong>Evocation</strong> - Simple and effective, Sculpt Spells solves "friendly fire"</li>
+  <li><strong>Abjuration</strong> - Harder to kill, more forgiving of positioning mistakes</li>
+</ul>`
+      }
+    ],
+    commonMistakes: [
+      "Thinking your Arcane Tradition limits what spells you can learn (it doesn't)",
+      "Forgetting the Savant feature that halves copying costs for your school",
+      "Not considering how your tradition affects your spell selection priorities"
+    ],
+    dmTips: [
+      "Include spell scrolls from the wizard's chosen school as treasure",
+      "Create encounters that let specialty features shine (illusions for illusionists, etc.)",
+      "Remember that each school has specific identity - NPCs might recognize a wizard's specialty"
+    ]
+  },
+  {
+    slug: "spell-mastery-5e",
+    name: "Spell Mastery",
+    category: "classes",
+    className: "Wizard",
+    featureLevel: "18th",
+    description: "Spell Mastery allows high-level Wizards to cast one 1st-level and one 2nd-level spell at will, without expending spell slots - representing true mastery over basic arcana.",
+    searchVolume: 1200,
+    sections: [
+      {
+        id: "how-it-works",
+        title: "How Spell Mastery Works",
+        content: `<p>At 18th level, you choose <strong>one 1st-level spell</strong> and <strong>one 2nd-level spell</strong> from your spellbook. You can cast these spells at their lowest level <strong>without expending a spell slot</strong> and without having them prepared.</p>
+
+<p><strong>Key Points:</strong></p>
+<ul>
+  <li>You can still cast these spells using higher-level slots for increased effect</li>
+  <li>You can change your chosen spells by spending 8 hours studying your spellbook</li>
+  <li>The spells must be wizard spells in your spellbook</li>
+  <li>This essentially gives you two at-will spells</li>
+</ul>`
+      },
+      {
+        id: "best-choices",
+        title: "Best Spell Choices",
+        content: `<p><strong>Top 1st-Level Choices:</strong></p>
+<ul>
+  <li><strong>Shield:</strong> +5 AC as a reaction, at will - you become nearly untouchable</li>
+  <li><strong>Detect Magic:</strong> Constant magical awareness without using ritual time</li>
+  <li><strong>Magic Missile:</strong> Guaranteed damage, breaks concentration</li>
+  <li><strong>Disguise Self:</strong> Infinite disguises for infiltration</li>
+</ul>
+
+<p><strong>Top 2nd-Level Choices:</strong></p>
+<ul>
+  <li><strong>Invisibility:</strong> At-will invisibility is incredibly powerful for scouting</li>
+  <li><strong>Misty Step:</strong> Bonus action teleport at will - unmatched mobility</li>
+  <li><strong>Detect Thoughts:</strong> Read minds infinitely for social encounters</li>
+  <li><strong>Mirror Image:</strong> Free defensive buff every combat</li>
+</ul>
+
+<p><strong>Recommended Combo:</strong> Shield + Invisibility or Shield + Misty Step covers both defense and mobility at will.</p>`
+      }
+    ],
+    commonMistakes: [
+      "Forgetting you can still upcast these spells with higher slots",
+      "Not realizing you can change your chosen spells (it just takes 8 hours)",
+      "Choosing spells you rarely cast instead of high-use utility spells"
+    ],
+    dmTips: [
+      "At-will Shield fundamentally changes encounter math - plan accordingly",
+      "This feature makes 18th level wizards extremely hard to pin down",
+      "Consider what infinite uses of specific spells mean for your narrative"
+    ]
+  },
+  {
+    slug: "signature-spells-5e",
+    name: "Signature Spells",
+    category: "classes",
+    className: "Wizard",
+    featureLevel: "20th",
+    description: "Signature Spells is the Wizard's capstone feature at 20th level, granting two 3rd-level spells that are always prepared and can each be cast once without slots per short rest.",
+    searchVolume: 880,
+    sections: [
+      {
+        id: "how-it-works",
+        title: "How Signature Spells Works",
+        content: `<p>At 20th level, you choose <strong>two 3rd-level wizard spells</strong> from your spellbook as your Signature Spells.</p>
+
+<p><strong>Benefits:</strong></p>
+<ul>
+  <li>These spells are <strong>always prepared</strong> and don't count against your prepared spell limit</li>
+  <li>You can cast each of them <strong>once at 3rd level without expending a spell slot</strong></li>
+  <li>These free casts recharge on a <strong>short or long rest</strong></li>
+  <li>You can still cast them using regular spell slots as normal</li>
+</ul>
+
+<p>Combined with Spell Mastery, a 20th level wizard has: 2 at-will spells + 2 always-prepared spells with free daily casts = incredible resource efficiency.</p>`
+      },
+      {
+        id: "best-choices",
+        title: "Best Signature Spell Choices",
+        content: `<p><strong>Top Picks:</strong></p>
+<ul>
+  <li><strong>Counterspell:</strong> Free counterspell every short rest is invaluable against casters</li>
+  <li><strong>Fireball:</strong> Free AoE damage every short rest - always useful</li>
+  <li><strong>Dispel Magic:</strong> Always-prepared utility for dealing with magical effects</li>
+  <li><strong>Fly:</strong> Free flight is excellent mobility</li>
+  <li><strong>Haste:</strong> Buff your martial ally at no cost</li>
+</ul>
+
+<p><strong>Recommended Combo:</strong> Counterspell + Fireball covers both offensive and defensive needs, and both scale reasonably when upcast.</p>`
+      }
+    ],
+    commonMistakes: [
+      "Thinking the free casts are once per long rest (they're per short rest)",
+      "Forgetting these spells are always prepared - frees up preparation slots",
+      "Choosing niche spells instead of broadly useful 3rd-level options"
+    ],
+    dmTips: [
+      "20th level wizards have tremendous staying power with these features",
+      "Free Counterspell per short rest significantly impacts caster encounters",
+      "This is the wizard capstone - let players feel the mastery it represents"
+    ]
+  },
+  {
+    slug: "arcane-ward-5e",
+    name: "Arcane Ward",
+    category: "classes",
+    className: "Wizard",
+    featureLevel: "2nd (School of Abjuration)",
+    description: "Arcane Ward is the signature feature of the School of Abjuration, creating a magical barrier that absorbs damage and makes the typically fragile wizard surprisingly durable.",
+    searchVolume: 2400,
+    sections: [
+      {
+        id: "how-it-works",
+        title: "How Arcane Ward Works",
+        content: `<p>When you cast an <strong>abjuration spell of 1st level or higher</strong>, you create a magical ward around yourself with hit points equal to <strong>twice your wizard level + your Intelligence modifier</strong>.</p>
+
+<p><strong>Ward Mechanics:</strong></p>
+<ul>
+  <li>The ward has its own hit points separate from yours</li>
+  <li>When you take damage, the ward takes the damage first</li>
+  <li>If the damage exceeds the ward's remaining HP, you take the overflow</li>
+  <li>The ward regains HP equal to <strong>twice the spell level</strong> each time you cast an abjuration spell</li>
+  <li>The ward's maximum HP is twice your wizard level + INT modifier</li>
+</ul>
+
+<p><strong>Ward HP by Level (assuming +4 INT at low levels, +5 at higher):</strong></p>
+<table class="ref-table">
+  <tr><th>Wizard Level</th><th>Max Ward HP</th></tr>
+  <tr><td>2nd</td><td>8 HP</td></tr>
+  <tr><td>5th</td><td>14 HP</td></tr>
+  <tr><td>10th</td><td>25 HP</td></tr>
+  <tr><td>15th</td><td>35 HP</td></tr>
+  <tr><td>20th</td><td>45 HP</td></tr>
+</table>`
+      },
+      {
+        id: "optimal-use",
+        title: "Building and Maintaining Your Ward",
+        content: `<p><strong>Abjuration Spells to Charge Your Ward:</strong></p>
+<ul>
+  <li><strong>Shield (1st):</strong> Restores 2 HP - good value for a reaction spell</li>
+  <li><strong>Alarm (1st, Ritual):</strong> Cast as ritual before combat to pre-charge ward for free</li>
+  <li><strong>Counterspell (3rd):</strong> Restores 6 HP while stopping enemy spells</li>
+  <li><strong>Dispel Magic (3rd):</strong> Restores 6 HP with strong utility</li>
+  <li><strong>Banishment (4th):</strong> Restores 8 HP, removes a threat</li>
+</ul>
+
+<p><strong>Pro Tips:</strong></p>
+<ul>
+  <li>Ritual cast Alarm during short rests to fully recharge your ward</li>
+  <li>The ward is essentially extra HP that regenerates - you're tankier than you look</li>
+  <li>At higher levels, Projected Ward lets you protect allies too</li>
+</ul>`
+      }
+    ],
+    commonMistakes: [
+      "Forgetting to charge the ward before combat (ritual cast Alarm!)",
+      "Not tracking ward HP separately from character HP",
+      "Thinking the ward blocks all damage (it's absorbed, not prevented)",
+      "Forgetting that casting any abjuration spell restores the ward"
+    ],
+    dmTips: [
+      "Abjuration wizards are significantly tankier than other wizards - adjust targeting",
+      "The ward regenerates - sustained damage is better than spike damage",
+      "At 6th level, Projected Ward lets them protect squishy allies"
+    ]
+  },
+  {
+    slug: "portent-dice-5e",
+    name: "Portent Dice",
+    category: "classes",
+    className: "Wizard",
+    featureLevel: "2nd (School of Divination)",
+    description: "Portent dice are the signature feature of the School of Divination and is widely considered one of the most powerful subclass abilities in D&D 5e. They let you replace any d20 roll with pre-rolled dice.",
+    searchVolume: 3600,
+    sections: [
+      {
+        id: "how-it-works",
+        title: "How Portent Works",
+        content: `<p>When you finish a <strong>long rest</strong>, roll <strong>two d20s</strong> and record the numbers. You can replace <strong>any attack roll, saving throw, or ability check</strong> made by you or a creature you can see with one of these rolls.</p>
+
+<p><strong>Key Rules:</strong></p>
+<ul>
+  <li>You must declare using Portent <strong>before the roll is made</strong></li>
+  <li>Works on ANY creature you can see - allies or enemies</li>
+  <li>The creature uses your die instead of rolling - no modifiers change</li>
+  <li>At 14th level (Greater Portent), you roll <strong>three d20s</strong></li>
+</ul>
+
+<p><strong>Strategic Value:</strong></p>
+<ul>
+  <li><strong>High rolls (15-20):</strong> Save for critical moments - important saves, key attacks</li>
+  <li><strong>Low rolls (1-5):</strong> Force enemy failures on saves against your best spells</li>
+  <li><strong>Mid rolls (6-14):</strong> Use situationally - sometimes a 10 guarantees success</li>
+</ul>`
+      },
+      {
+        id: "best-uses",
+        title: "Best Uses for Portent",
+        content: `<p><strong>High Portent Dice:</strong></p>
+<ul>
+  <li>Guarantee a saving throw against a deadly effect (dragon breath, Dominate Person)</li>
+  <li>Ensure the rogue's Sneak Attack hits</li>
+  <li>Auto-succeed on crucial ability checks (Counterspell check, grapple)</li>
+</ul>
+
+<p><strong>Low Portent Dice:</strong></p>
+<ul>
+  <li>Force failed saves on Hold Person, Polymorph, or Banishment</li>
+  <li>Make the BBEG fail a concentration check</li>
+  <li>Ensure enemy attacks miss (before they roll)</li>
+</ul>
+
+<p><strong>Combat Combo Example:</strong> Roll a 3 on Portent. Cast Hold Monster on the boss. Before they roll their save, declare you're using Portent. They get a 3 on the save and are paralyzed. Your entire party gets advantage and auto-crits in melee.</p>`
+      }
+    ],
+    commonMistakes: [
+      "Using Portent after a die is rolled (must be declared before the roll)",
+      "Forgetting you can use it on enemy rolls, not just allies",
+      "Hoarding Portent dice - use them or lose them at your next long rest",
+      "Not communicating with your party about when to use your dice"
+    ],
+    dmTips: [
+      "Portent can trivialize single saving throw effects - use legendary resistance or multiple saves",
+      "The diviner knows the future - give them prophetic visions and hints",
+      "This ability is strongest against bosses with single big effects"
+    ]
+  },
+  {
+    slug: "sculpt-spells-5e",
+    name: "Sculpt Spells",
+    category: "classes",
+    className: "Wizard",
+    featureLevel: "2nd (School of Evocation)",
+    description: "Sculpt Spells is the signature feature of the School of Evocation, allowing you to protect allies from your area-of-effect damage spells like Fireball.",
+    searchVolume: 2100,
+    sections: [
+      {
+        id: "how-it-works",
+        title: "How Sculpt Spells Works",
+        content: `<p>When you cast an <strong>evocation spell that affects other creatures you can see</strong>, you can choose a number of them equal to <strong>1 + the spell's level</strong>. These creatures <strong>automatically succeed</strong> on their saving throws and take <strong>no damage</strong> if they would normally take half on a success.</p>
+
+<p><strong>Key Points:</strong></p>
+<ul>
+  <li>Works only on evocation spells (check the spell school)</li>
+  <li>Protected creatures must be ones you can see</li>
+  <li>Number protected = 1 + spell level (so 4 creatures for Fireball)</li>
+  <li>They take ZERO damage, not half - even if the spell normally deals half on success</li>
+</ul>
+
+<p><strong>Creatures Protected by Spell Level:</strong></p>
+<table class="ref-table">
+  <tr><th>Spell Level</th><th>Creatures Protected</th><th>Example Spell</th></tr>
+  <tr><td>1st</td><td>2</td><td>Burning Hands</td></tr>
+  <tr><td>2nd</td><td>3</td><td>Shatter</td></tr>
+  <tr><td>3rd</td><td>4</td><td>Fireball</td></tr>
+  <tr><td>4th</td><td>5</td><td>Ice Storm</td></tr>
+  <tr><td>5th</td><td>6</td><td>Cone of Cold</td></tr>
+</table>`
+      },
+      {
+        id: "tactics",
+        title: "Tactical Applications",
+        content: `<p><strong>The Classic Combo:</strong> Drop Fireball centered on the melee fighter surrounded by enemies. Your fighter takes 0 damage while everything else takes 8d6. This is why Evocation wizards are beloved by frontline fighters.</p>
+
+<p><strong>Best Spells for Sculpt Spells:</strong></p>
+<ul>
+  <li><strong>Fireball:</strong> The classic - huge AoE, protect 4 allies</li>
+  <li><strong>Cone of Cold:</strong> Even bigger area, protect 6 allies</li>
+  <li><strong>Shatter:</strong> Good early option, protect 3 allies</li>
+  <li><strong>Synaptic Static:</strong> Psychic damage + INT save debuff</li>
+</ul>
+
+<p><strong>Important:</strong> This doesn't protect creatures from secondary effects - if a spell has conditions beyond damage (like Sickening Radiance's exhaustion), protected creatures still auto-succeed but might have other consequences from being in the area.</p>`
+      }
+    ],
+    commonMistakes: [
+      "Trying to use Sculpt Spells on non-evocation spells (check the school!)",
+      "Forgetting to count the number of protected creatures correctly",
+      "Thinking it works on yourself (it protects 'other creatures')",
+      "Not realizing protected creatures take ZERO damage, not half"
+    ],
+    dmTips: [
+      "Sculpt Spells dramatically changes AoE encounter dynamics",
+      "The evocation wizard's party will cluster together - area denial is less effective",
+      "This makes the wizard more aggressive with positioning"
+    ]
+  },
+  // =========================================================================
+  // WIZARD SUBCLASSES (Schools of Magic)
+  // =========================================================================
+  {
+    slug: "school-of-abjuration-5e",
+    name: "School of Abjuration",
+    category: "classes",
+    className: "Wizard",
+    featureLevel: "Subclass (2nd level)",
+    description: "The School of Abjuration focuses on protective magic, creating wards and barriers. Abjuration wizards are surprisingly durable thanks to their Arcane Ward feature, making them excellent support casters who can survive frontline threats.",
+    searchVolume: 4200,
+    sections: [
+      {
+        id: "overview",
+        title: "School of Abjuration Overview",
+        content: `<p>Abjuration wizards specialize in protective and defensive magic. While wizards are typically fragile, the Abjuration school's <strong>Arcane Ward</strong> feature creates a regenerating magical shield that absorbs damage, making you surprisingly tanky for a d6 hit die class.</p>
+
+<p><strong>Key Features:</strong></p>
+<ul>
+  <li><strong>Abjuration Savant (2nd):</strong> Copy abjuration spells in half the time and gold</li>
+  <li><strong>Arcane Ward (2nd):</strong> Create a damage-absorbing ward when casting abjuration spells</li>
+  <li><strong>Projected Ward (6th):</strong> Use your ward to protect allies within 30 feet</li>
+  <li><strong>Improved Abjuration (10th):</strong> Add proficiency to Counterspell and Dispel Magic checks</li>
+  <li><strong>Spell Resistance (14th):</strong> Advantage on saves vs spells, resistance to spell damage</li>
+</ul>`
+      },
+      {
+        id: "best-spells",
+        title: "Best Abjuration Spells",
+        content: `<p><strong>Ward-Building Spells:</strong></p>
+<ul>
+  <li><strong>Shield (1st):</strong> Reaction +5 AC AND restores 2 ward HP</li>
+  <li><strong>Alarm (1st, Ritual):</strong> Free ward charges before combat</li>
+  <li><strong>Absorb Elements (1st):</strong> Halve incoming elemental damage + 2 ward HP</li>
+  <li><strong>Counterspell (3rd):</strong> Stop enemy spells + restore 6 ward HP</li>
+  <li><strong>Dispel Magic (3rd):</strong> Remove magical effects + 6 ward HP</li>
+  <li><strong>Banishment (4th):</strong> Remove a threat + restore 8 ward HP</li>
+</ul>
+
+<p><strong>Pro Tip:</strong> Ritual cast Alarm during short rests to fully recharge your ward before the next encounter. It costs nothing!</p>`
+      },
+      {
+        id: "playstyle",
+        title: "Playstyle and Tactics",
+        content: `<p><strong>Combat Role:</strong> You're a tanky support wizard who can take hits that would drop other casters. Position yourself where you can protect allies with Projected Ward while maintaining concentration on important spells.</p>
+
+<p><strong>Key Tactics:</strong></p>
+<ul>
+  <li>Pre-charge your ward with ritual Alarm before dangerous encounters</li>
+  <li>Use Shield liberally - it's both defense AND ward restoration</li>
+  <li>At 6th level, protect your party's squishy members with Projected Ward</li>
+  <li>Your Improved Abjuration makes you the best Counterspeller in the game</li>
+  <li>At 14th level, Spell Resistance makes you nearly immune to enemy casters</li>
+</ul>`
+      }
+    ],
+    commonMistakes: [
+      "Forgetting to pre-charge Arcane Ward with ritual Alarm before combat",
+      "Not tracking ward HP separately from character HP",
+      "Forgetting that Projected Ward uses YOUR ward HP to protect allies",
+      "Not taking advantage of Improved Abjuration's bonus to Counterspell checks"
+    ],
+    dmTips: [
+      "Abjuration wizards can absorb significant damage - don't underestimate their tankiness",
+      "They excel at protecting allies - spread damage across the party",
+      "Their Improved Abjuration makes Counterspell very reliable - consider multiple enemy casters",
+      "Spell Resistance at 14th makes them nearly immune to magic - use non-spell threats"
+    ]
+  },
+  {
+    slug: "school-of-conjuration-5e",
+    name: "School of Conjuration",
+    category: "classes",
+    className: "Wizard",
+    featureLevel: "Subclass (2nd level)",
+    description: "The School of Conjuration focuses on summoning creatures and objects, as well as teleportation magic. Conjurers excel at creating distractions, summoning allies, and battlefield mobility through teleportation.",
+    searchVolume: 3100,
+    sections: [
+      {
+        id: "overview",
+        title: "School of Conjuration Overview",
+        content: `<p>Conjuration wizards specialize in summoning and teleportation. While not as flashy as Evocation or as powerful as Divination, Conjuration offers excellent utility and action economy through summoned creatures and objects.</p>
+
+<p><strong>Key Features:</strong></p>
+<ul>
+  <li><strong>Conjuration Savant (2nd):</strong> Copy conjuration spells at half cost/time</li>
+  <li><strong>Minor Conjuration (2nd):</strong> Create small objects out of nothing (action)</li>
+  <li><strong>Benign Transposition (6th):</strong> Teleport 30 ft or swap with willing ally</li>
+  <li><strong>Focused Conjuration (10th):</strong> Concentration on conjuration spells can't be broken by damage</li>
+  <li><strong>Durable Summons (14th):</strong> Summoned creatures gain 30 temporary HP</li>
+</ul>`
+      },
+      {
+        id: "best-spells",
+        title: "Best Conjuration Spells",
+        content: `<p><strong>Essential Conjuration Spells:</strong></p>
+<ul>
+  <li><strong>Find Familiar (1st, Ritual):</strong> Scouting, Help action, spell delivery</li>
+  <li><strong>Misty Step (2nd):</strong> Bonus action teleport for escapes</li>
+  <li><strong>Web (2nd):</strong> Excellent battlefield control</li>
+  <li><strong>Conjure Animals (3rd):</strong> 8 wolves = 8 attacks with pack tactics</li>
+  <li><strong>Dimension Door (4th):</strong> 500 ft teleport, bring an ally</li>
+  <li><strong>Conjure Elemental (5th):</strong> Powerful elemental ally</li>
+  <li><strong>Teleport (7th):</strong> Long-distance travel</li>
+</ul>
+
+<p><strong>Note:</strong> Focused Conjuration at 10th level means your summoned creatures can't accidentally disappear when you take damage!</p>`
+      },
+      {
+        id: "minor-conjuration",
+        title: "Creative Minor Conjuration Uses",
+        content: `<p>Minor Conjuration creates a non-magical object up to 3 feet on a side and 10 lbs. It glows faintly and lasts 1 hour or until it takes damage.</p>
+
+<p><strong>Creative Uses:</strong></p>
+<ul>
+  <li>Create a key you've seen before (duplicate keys)</li>
+  <li>Conjure a ladder, rope, or simple tool</li>
+  <li>Make a distraction or decoy object</li>
+  <li>Create exact replicas of documents or maps</li>
+  <li>Produce light sources in a pinch</li>
+</ul>
+
+<p><strong>Limitations:</strong> Objects are visibly magical (faint glow), can't create valuable materials, and disappear if damaged or after 1 hour.</p>`
+      }
+    ],
+    commonMistakes: [
+      "Forgetting Minor Conjuration objects glow and are obviously magical",
+      "Not utilizing Benign Transposition to save allies or reposition",
+      "Overlooking that Focused Conjuration makes summon concentration unbreakable by damage",
+      "Not pre-summoning creatures before combat when possible"
+    ],
+    dmTips: [
+      "Conjure Animals with 8 wolves can slow combat significantly - consider theater-of-mind",
+      "Minor Conjuration rewards creativity - allow reasonable uses",
+      "Focused Conjuration makes summons very reliable - plan accordingly",
+      "Benign Transposition enables clever positioning - watch for teleport cheese"
+    ]
+  },
+  {
+    slug: "school-of-divination-5e",
+    name: "School of Divination",
+    category: "classes",
+    className: "Wizard",
+    featureLevel: "Subclass (2nd level)",
+    description: "The School of Divination grants the iconic Portent feature - widely considered one of the most powerful subclass abilities in all of D&D 5e. Divination wizards can literally see the future and manipulate fate.",
+    searchVolume: 5800,
+    sections: [
+      {
+        id: "overview",
+        title: "School of Divination Overview",
+        content: `<p>Divination is often considered the <strong>strongest wizard subclass</strong> because of Portent. The ability to replace any d20 roll with a pre-determined result is incredibly powerful, especially with low rolls that force enemy save failures.</p>
+
+<p><strong>Key Features:</strong></p>
+<ul>
+  <li><strong>Divination Savant (2nd):</strong> Copy divination spells at half cost/time</li>
+  <li><strong>Portent (2nd):</strong> Roll 2d20 after long rest; replace any d20 roll you can see</li>
+  <li><strong>Expert Divination (6th):</strong> Recover spell slots when casting divination spells</li>
+  <li><strong>The Third Eye (10th):</strong> See invisible, ethereal, read any language, or 60ft darkvision</li>
+  <li><strong>Greater Portent (14th):</strong> Roll 3d20 for Portent instead of 2</li>
+</ul>`
+      },
+      {
+        id: "portent-strategy",
+        title: "Mastering Portent",
+        content: `<p><strong>Using High Rolls (15+):</strong></p>
+<ul>
+  <li>Guarantee a crucial saving throw against dragon breath or Dominate Person</li>
+  <li>Ensure an ally's important attack hits</li>
+  <li>Pass a critical ability check (Counterspell, grapple, persuasion)</li>
+</ul>
+
+<p><strong>Using Low Rolls (1-5):</strong></p>
+<ul>
+  <li>Force enemy to fail a save against Hold Person, Polymorph, or Banishment</li>
+  <li>Make the boss fail a concentration check</li>
+  <li>Ensure an enemy attack misses a vulnerable ally</li>
+</ul>
+
+<p><strong>The Power Play:</strong> Cast Hold Monster on the boss. Before they roll, declare you're using your Portent 3. They're paralyzed. Your party gets advantage and auto-crits in melee. Encounter trivialized.</p>`
+      },
+      {
+        id: "best-spells",
+        title: "Best Divination Spells",
+        content: `<p><strong>Essential Divination Spells:</strong></p>
+<ul>
+  <li><strong>Detect Magic (1st, Ritual):</strong> Essential utility, triggers Expert Divination</li>
+  <li><strong>Identify (1st, Ritual):</strong> Learn item properties</li>
+  <li><strong>See Invisibility (2nd):</strong> Counter invisible enemies</li>
+  <li><strong>Clairvoyance (3rd):</strong> Remote sensing</li>
+  <li><strong>Arcane Eye (4th):</strong> Invisible scouting sensor</li>
+  <li><strong>Scrying (5th):</strong> Spy on anyone anywhere</li>
+</ul>
+
+<p><strong>Expert Divination Combo:</strong> Cast a divination spell, recover a lower-level slot. Cast Detect Magic (1st), recover nothing. Cast Clairvoyance (3rd), recover a 2nd level slot. Efficient slot management!</p>`
+      }
+    ],
+    commonMistakes: [
+      "Using Portent AFTER a die is rolled (must be declared before)",
+      "Hoarding Portent dice - use them or lose them at your next long rest",
+      "Forgetting you can use Portent on enemy rolls, not just allies",
+      "Not communicating with your party about when to use your Portent dice"
+    ],
+    dmTips: [
+      "Portent can trivialize single saving throw effects - use legendary resistance",
+      "Give diviners prophetic dreams and visions for roleplay flavor",
+      "The feature is strongest against bosses with big save-or-suck effects",
+      "Consider encounters with multiple threats rather than single big enemies"
+    ]
+  },
+  {
+    slug: "school-of-enchantment-5e",
+    name: "School of Enchantment",
+    category: "classes",
+    className: "Wizard",
+    featureLevel: "Subclass (2nd level)",
+    description: "The School of Enchantment focuses on mind-affecting magic, charming creatures and manipulating their actions. Enchanters excel in social situations and can turn enemies into allies with their magical influence.",
+    searchVolume: 2400,
+    sections: [
+      {
+        id: "overview",
+        title: "School of Enchantment Overview",
+        content: `<p>Enchantment wizards specialize in charm and mind control magic. While less effective against creatures immune to charm, enchanters can dramatically change social encounters and turn combat on its head by converting enemies to their side.</p>
+
+<p><strong>Key Features:</strong></p>
+<ul>
+  <li><strong>Enchantment Savant (2nd):</strong> Copy enchantment spells at half cost/time</li>
+  <li><strong>Hypnotic Gaze (2nd):</strong> Action to charm a creature within 5 ft, incapacitating them</li>
+  <li><strong>Instinctive Charm (6th):</strong> Reaction to redirect an attack targeting you</li>
+  <li><strong>Split Enchantment (10th):</strong> Single-target enchantments can target two creatures</li>
+  <li><strong>Alter Memories (14th):</strong> Make charmed creatures forget being charmed</li>
+</ul>`
+      },
+      {
+        id: "best-spells",
+        title: "Best Enchantment Spells",
+        content: `<p><strong>Essential Enchantment Spells:</strong></p>
+<ul>
+  <li><strong>Charm Person (1st):</strong> Social manipulation, twin with Split Enchantment</li>
+  <li><strong>Sleep (1st):</strong> Powerful at low levels against groups</li>
+  <li><strong>Hold Person (2nd):</strong> Paralyze humanoids, devastating with Split</li>
+  <li><strong>Suggestion (2nd):</strong> Reasonable commands, incredibly versatile</li>
+  <li><strong>Enemies Abound (3rd):</strong> Turn enemies against each other</li>
+  <li><strong>Dominate Person (5th):</strong> Full control of a humanoid</li>
+  <li><strong>Mass Suggestion (6th):</strong> Affect 12 creatures at once</li>
+  <li><strong>Dominate Monster (8th):</strong> Control any creature type</li>
+</ul>
+
+<p><strong>Split Enchantment Synergy:</strong> Hold Person on two targets at once. Your melee allies auto-crit both. Dominate Person on two enemies means two new allies fighting for you.</p>`
+      },
+      {
+        id: "playstyle",
+        title: "Playstyle and Limitations",
+        content: `<p><strong>When Enchantment Shines:</strong></p>
+<ul>
+  <li>Social encounters - charming guards, nobles, merchants</li>
+  <li>Humanoid-heavy campaigns (Hold Person, Dominate Person)</li>
+  <li>Roleplay-focused games with intrigue and manipulation</li>
+  <li>Splitting powerful single-target spells</li>
+</ul>
+
+<p><strong>Limitations to Consider:</strong></p>
+<ul>
+  <li>Many creatures are immune to charm (undead, constructs, some fiends)</li>
+  <li>Elves and half-elves have advantage on charm saves</li>
+  <li>Hypnotic Gaze requires you to be within 5 feet (dangerous for a wizard)</li>
+  <li>Less effective in dungeon-crawl campaigns fighting monsters</li>
+</ul>`
+      }
+    ],
+    commonMistakes: [
+      "Trying to enchant creatures immune to charm (undead, constructs)",
+      "Using Hypnotic Gaze at 5ft range when enemies could attack you",
+      "Forgetting that Split Enchantment works on any single-target enchantment",
+      "Not using Alter Memories to hide your magical manipulation"
+    ],
+    dmTips: [
+      "Enchantment wizards can trivialize social encounters - have backup plans",
+      "Include charm-immune enemies to challenge them sometimes",
+      "Alter Memories at 14th is incredibly powerful - NPCs won't remember manipulation",
+      "Split Enchantment makes single-target spells very efficient"
+    ]
+  },
+  {
+    slug: "school-of-evocation-5e",
+    name: "School of Evocation",
+    category: "classes",
+    className: "Wizard",
+    featureLevel: "Subclass (2nd level)",
+    description: "The School of Evocation focuses on destructive elemental magic. Evocation wizards are the classic 'blaster' casters, and their Sculpt Spells feature lets them drop Fireballs on their allies without dealing damage to them.",
+    searchVolume: 4800,
+    sections: [
+      {
+        id: "overview",
+        title: "School of Evocation Overview",
+        content: `<p>Evocation is the quintessential blaster wizard subclass. While wizards have many powerful options beyond damage, Evocation excels at one thing: safely dealing massive AoE damage with <strong>Sculpt Spells</strong> protecting your allies.</p>
+
+<p><strong>Key Features:</strong></p>
+<ul>
+  <li><strong>Evocation Savant (2nd):</strong> Copy evocation spells at half cost/time</li>
+  <li><strong>Sculpt Spells (2nd):</strong> Protect allies from your AoE evocation spells</li>
+  <li><strong>Potent Cantrip (6th):</strong> Cantrips deal half damage on successful saves</li>
+  <li><strong>Empowered Evocation (10th):</strong> Add INT mod to evocation spell damage</li>
+  <li><strong>Overchannel (14th):</strong> Maximize damage of 5th level or lower spell (with risk)</li>
+</ul>`
+      },
+      {
+        id: "sculpt-spells",
+        title: "Mastering Sculpt Spells",
+        content: `<p><strong>How It Works:</strong> When you cast an evocation spell affecting creatures you can see, choose (1 + spell level) creatures. They automatically succeed on their saves and take <strong>zero damage</strong>.</p>
+
+<p><strong>Protected Creatures by Spell Level:</strong></p>
+<table class="ref-table">
+  <tr><th>Spell Level</th><th>Protected</th><th>Example</th></tr>
+  <tr><td>1st</td><td>2</td><td>Burning Hands</td></tr>
+  <tr><td>2nd</td><td>3</td><td>Shatter</td></tr>
+  <tr><td>3rd</td><td>4</td><td>Fireball</td></tr>
+  <tr><td>4th</td><td>5</td><td>Ice Storm</td></tr>
+  <tr><td>5th</td><td>6</td><td>Cone of Cold</td></tr>
+</table>
+
+<p><strong>The Classic Move:</strong> Your Fighter is surrounded by 6 orcs. Drop Fireball centered on them. Fighter takes 0 damage. Orcs take 8d6 fire damage. Fighter loves you forever.</p>`
+      },
+      {
+        id: "best-spells",
+        title: "Best Evocation Spells",
+        content: `<p><strong>Essential Evocation Spells:</strong></p>
+<ul>
+  <li><strong>Fire Bolt (Cantrip):</strong> Reliable damage, benefits from Potent Cantrip</li>
+  <li><strong>Magic Missile (1st):</strong> Auto-hit, great for concentration checks</li>
+  <li><strong>Shatter (2nd):</strong> Thunder AoE, good against constructs/objects</li>
+  <li><strong>Fireball (3rd):</strong> The iconic wizard spell, huge AoE</li>
+  <li><strong>Lightning Bolt (3rd):</strong> Line damage, different geometry than Fireball</li>
+  <li><strong>Ice Storm (4th):</strong> AoE damage plus difficult terrain</li>
+  <li><strong>Cone of Cold (5th):</strong> Massive cone of cold damage</li>
+  <li><strong>Chain Lightning (6th):</strong> Bouncing damage to multiple targets</li>
+</ul>
+
+<p><strong>Empowered Evocation:</strong> At 10th level with +5 INT, your Fireballs deal 8d6+5 damage. Magic Missile becomes 3d4+3+15 (each dart adds INT). Significant boost!</p>`
+      }
+    ],
+    commonMistakes: [
+      "Trying to use Sculpt Spells on non-evocation spells (check the spell school!)",
+      "Thinking Sculpt Spells protects yourself (it's 'other creatures')",
+      "Forgetting protected creatures take ZERO damage, not half",
+      "Overusing Overchannel and taking too much necrotic damage"
+    ],
+    dmTips: [
+      "Sculpt Spells fundamentally changes party positioning - they'll cluster together",
+      "Evocation wizards are aggressive with AoE - spread enemies out",
+      "Empowered Evocation at 10th boosts damage significantly",
+      "Overchannel at 14th can one-shot many threats but is risky to spam"
+    ]
+  },
+  {
+    slug: "school-of-illusion-5e",
+    name: "School of Illusion",
+    category: "classes",
+    className: "Wizard",
+    featureLevel: "Subclass (2nd level)",
+    description: "The School of Illusion specializes in deceiving the senses. Illusion wizards are highly creative casters whose effectiveness depends heavily on player ingenuity and DM interpretation of illusion spells.",
+    searchVolume: 3200,
+    sections: [
+      {
+        id: "overview",
+        title: "School of Illusion Overview",
+        content: `<p>Illusion is a subclass that rewards creative thinking. Your features make illusions more convincing and eventually semi-real. Success depends on how you describe your illusions and how your DM adjudicates them.</p>
+
+<p><strong>Key Features:</strong></p>
+<ul>
+  <li><strong>Illusion Savant (2nd):</strong> Copy illusion spells at half cost/time</li>
+  <li><strong>Improved Minor Illusion (2nd):</strong> Create both sound AND image simultaneously</li>
+  <li><strong>Malleable Illusions (6th):</strong> Change the nature of illusions as an action</li>
+  <li><strong>Illusory Self (10th):</strong> Reaction to create duplicate that causes attack to miss</li>
+  <li><strong>Illusory Reality (14th):</strong> Make one object in your illusion REAL for 1 minute</li>
+</ul>`
+      },
+      {
+        id: "illusory-reality",
+        title: "The Power of Illusory Reality",
+        content: `<p>At 14th level, Illusory Reality lets you make one non-animate, non-damaging object in your illusion <strong>real</strong> for 1 minute. This is incredibly powerful:</p>
+
+<p><strong>Examples:</strong></p>
+<ul>
+  <li>Create a real bridge over a chasm</li>
+  <li>Make a real cage trapping enemies</li>
+  <li>Conjure a real wall blocking pursuit</li>
+  <li>Create a real platform for tactical advantage</li>
+  <li>Make a real door or window in a wall</li>
+</ul>
+
+<p><strong>Limitations:</strong> Can't create animate objects (no living creatures) or directly damaging objects (no spike traps). But a cage that someone walks into? That's just a cage.</p>`
+      },
+      {
+        id: "best-spells",
+        title: "Best Illusion Spells",
+        content: `<p><strong>Essential Illusion Spells:</strong></p>
+<ul>
+  <li><strong>Minor Illusion (Cantrip):</strong> Improved version creates sound + image</li>
+  <li><strong>Silent Image (1st):</strong> Visual illusion you can move</li>
+  <li><strong>Disguise Self (1st):</strong> Change your appearance</li>
+  <li><strong>Invisibility (2nd):</strong> Classic stealth option</li>
+  <li><strong>Mirror Image (2nd):</strong> Great defensive option</li>
+  <li><strong>Major Image (3rd):</strong> Full sensory illusion</li>
+  <li><strong>Phantasmal Force (2nd):</strong> Illusion that deals psychic damage</li>
+  <li><strong>Mirage Arcane (7th):</strong> Terrain-scale illusions</li>
+  <li><strong>Simulacrum (7th):</strong> Create a duplicate of a creature</li>
+</ul>
+
+<p><strong>Tip:</strong> Malleable Illusions lets you change any illusion with duration 1+ minutes. Cast Major Image once, then reshape it endlessly as needed.</p>`
+      }
+    ],
+    commonMistakes: [
+      "Not describing illusions in detail (vague illusions are less believable)",
+      "Forgetting Malleable Illusions lets you reshape existing illusions",
+      "Trying to make Illusory Reality create damaging or animate objects",
+      "Not discussing illusion expectations with your DM before playing"
+    ],
+    dmTips: [
+      "Illusion effectiveness varies heavily by DM - set expectations early",
+      "Reward creative illusion uses - the subclass is about player ingenuity",
+      "Illusory Reality is very powerful at 14th - it can bypass many obstacles",
+      "Consider requiring Investigation checks to disbelieve clever illusions"
+    ]
+  },
+  {
+    slug: "school-of-necromancy-5e",
+    name: "School of Necromancy",
+    category: "classes",
+    className: "Wizard",
+    featureLevel: "Subclass (2nd level)",
+    description: "The School of Necromancy focuses on magic dealing with life, death, and undeath. Necromancers can raise armies of undead minions and drain life force from their enemies to sustain themselves.",
+    searchVolume: 4500,
+    sections: [
+      {
+        id: "overview",
+        title: "School of Necromancy Overview",
+        content: `<p>Necromancy wizards command the forces of death itself. Your signature ability is raising and commanding undead minions, giving you excellent action economy. You also gain survivability through life-draining abilities.</p>
+
+<p><strong>Key Features:</strong></p>
+<ul>
+  <li><strong>Necromancy Savant (2nd):</strong> Copy necromancy spells at half cost/time</li>
+  <li><strong>Grim Harvest (2nd):</strong> Regain HP when you kill with spells</li>
+  <li><strong>Undead Thralls (6th):</strong> Animate Dead creates stronger, more durable minions</li>
+  <li><strong>Inured to Undeath (10th):</strong> Resistance to necrotic damage, HP max can't be reduced</li>
+  <li><strong>Command Undead (14th):</strong> Permanently control an undead creature</li>
+</ul>`
+      },
+      {
+        id: "undead-army",
+        title: "Building Your Undead Army",
+        content: `<p><strong>Animate Dead (3rd level):</strong> Creates 1 skeleton or zombie. Lasts 24 hours but requires daily recasting to maintain control.</p>
+
+<p><strong>Army Building Math:</strong></p>
+<ul>
+  <li>Each casting animates 1 undead or reasserts control over up to 4</li>
+  <li>Upcasting adds 2 additional undead per slot level above 3rd</li>
+  <li>At 5th level spell slot: animate 1 + 4 = 5 undead, or control up to 12</li>
+</ul>
+
+<p><strong>Undead Thralls Bonuses (6th level):</strong></p>
+<ul>
+  <li>Add your proficiency bonus to damage rolls</li>
+  <li>Add your wizard level to their maximum HP</li>
+  <li>A 10th level necromancer's zombies have 32 HP instead of 22</li>
+</ul>
+
+<p><strong>Pro Tip:</strong> Skeletons have ranged attacks (shortbows) and are better for most situations. Zombies have Undead Fortitude but are melee-only.</p>`
+      },
+      {
+        id: "best-spells",
+        title: "Best Necromancy Spells",
+        content: `<p><strong>Essential Necromancy Spells:</strong></p>
+<ul>
+  <li><strong>Chill Touch (Cantrip):</strong> Prevents healing, good vs undead enemies</li>
+  <li><strong>False Life (1st):</strong> Temporary HP buffer</li>
+  <li><strong>Ray of Sickness (1st):</strong> Damage + poisoned condition</li>
+  <li><strong>Animate Dead (3rd):</strong> Your core army-building spell</li>
+  <li><strong>Vampiric Touch (3rd):</strong> Drain HP, synergizes with melee situations</li>
+  <li><strong>Blight (4th):</strong> Solid single-target damage</li>
+  <li><strong>Danse Macabre (5th):</strong> Quickly raise 5 undead from nearby corpses</li>
+  <li><strong>Create Undead (6th):</strong> Upgrade to ghouls, ghasts, wights, mummies</li>
+  <li><strong>Finger of Death (7th):</strong> Massive damage, killed humanoids rise as zombies</li>
+</ul>`
+      }
+    ],
+    commonMistakes: [
+      "Forgetting to recast Animate Dead daily to maintain control",
+      "Not tracking each undead's HP separately",
+      "Creating so many undead that combat takes forever",
+      "Forgetting Grim Harvest only works on spells YOU cast that kill"
+    ],
+    dmTips: [
+      "Undead armies can bog down combat - consider group initiative for minions",
+      "Social consequences of leading undead around (towns don't like necromancers)",
+      "Command Undead at 14th can permanently steal powerful undead enemies",
+      "Finger of Death creates permanent zombie followers - this can snowball"
+    ]
+  },
+  {
+    slug: "school-of-transmutation-5e",
+    name: "School of Transmutation",
+    category: "classes",
+    className: "Wizard",
+    featureLevel: "Subclass (2nd level)",
+    description: "The School of Transmutation focuses on changing the properties of creatures and objects. Transmuters are versatile support casters with the unique Transmuter's Stone that provides flexible buffs.",
+    searchVolume: 2200,
+    sections: [
+      {
+        id: "overview",
+        title: "School of Transmutation Overview",
+        content: `<p>Transmutation is a versatile support subclass focused on transformation magic. Your Transmuter's Stone provides a flexible buff that can be changed with each long rest, adapting to your party's needs.</p>
+
+<p><strong>Key Features:</strong></p>
+<ul>
+  <li><strong>Transmutation Savant (2nd):</strong> Copy transmutation spells at half cost/time</li>
+  <li><strong>Minor Alchemy (2nd):</strong> Transform materials (wood, stone, iron, copper, silver)</li>
+  <li><strong>Transmuter's Stone (6th):</strong> Create a stone that grants one of four benefits</li>
+  <li><strong>Shapechanger (10th):</strong> Cast Polymorph on yourself without a spell slot</li>
+  <li><strong>Master Transmuter (14th):</strong> Consume stone for major effects (transmute, heal, raise dead, youth)</li>
+</ul>`
+      },
+      {
+        id: "transmuters-stone",
+        title: "Transmuter's Stone Options",
+        content: `<p>At 6th level, you can create a stone (8 hours) that grants one of these benefits to whoever carries it:</p>
+
+<ul>
+  <li><strong>Darkvision 60 ft:</strong> Give to party members who lack it</li>
+  <li><strong>Speed +10 ft:</strong> Excellent for melee characters or escapes</li>
+  <li><strong>Constitution save proficiency:</strong> Helps concentration checks</li>
+  <li><strong>Resistance to acid/cold/fire/lightning/thunder:</strong> Match upcoming threats</li>
+</ul>
+
+<p><strong>Tactical Use:</strong> Change the stone's benefit each long rest based on expected challenges. Fighting a dragon? Give fire resistance. Dungeon crawling? Darkvision. Need concentration? Con save proficiency.</p>
+
+<p><strong>Note:</strong> You can give the stone to an ally - the benefit transfers to whoever holds it.</p>`
+      },
+      {
+        id: "best-spells",
+        title: "Best Transmutation Spells",
+        content: `<p><strong>Essential Transmutation Spells:</strong></p>
+<ul>
+  <li><strong>Expeditious Retreat (1st):</strong> Bonus action Dash every turn</li>
+  <li><strong>Feather Fall (1st):</strong> Save the party from falls</li>
+  <li><strong>Longstrider (1st):</strong> +10 speed for an hour</li>
+  <li><strong>Alter Self (2nd):</strong> Change appearance, natural weapons, or breathe water</li>
+  <li><strong>Enlarge/Reduce (2nd):</strong> Size manipulation with combat applications</li>
+  <li><strong>Fly (3rd):</strong> Essential mobility spell</li>
+  <li><strong>Haste (3rd):</strong> Incredibly powerful buff</li>
+  <li><strong>Polymorph (4th):</strong> Transform creatures, free with Shapechanger at 10th</li>
+  <li><strong>True Polymorph (9th):</strong> Permanent transformation</li>
+</ul>
+
+<p><strong>Shapechanger (10th):</strong> Once per short rest, Polymorph yourself without a slot. Turn into a Giant Ape (157 HP, +9 attacks) for emergencies!</p>`
+      }
+    ],
+    commonMistakes: [
+      "Forgetting to change Transmuter's Stone benefits based on upcoming challenges",
+      "Not giving the stone to allies who benefit most from its current buff",
+      "Overlooking free Polymorph from Shapechanger (once per short rest)",
+      "Using Master Transmuter too early - the stone takes 8 hours to recreate"
+    ],
+    dmTips: [
+      "Transmuter's Stone is flexible - reward players who change it strategically",
+      "Shapechanger at 10th gives emergency Giant Ape form - it's like a second HP pool",
+      "Master Transmuter at 14th can Raise Dead without diamonds - significant utility",
+      "Minor Alchemy has creative uses - turning stone to wood, wood to iron, etc."
+    ]
+  },
+  {
+    slug: "war-magic-5e",
+    name: "War Magic",
+    category: "classes",
+    className: "Wizard",
+    featureLevel: "Subclass (2nd level)",
+    description: "War Magic wizards blend magical offense with defensive techniques. This subclass from Xanathar's Guide offers excellent survivability through AC and save bonuses, making it ideal for wizards who find themselves in dangerous situations.",
+    searchVolume: 3800,
+    sections: [
+      {
+        id: "overview",
+        title: "War Magic Overview",
+        content: `<p>War Magic is a defensive subclass that makes wizards harder to kill. You sacrifice some offensive power for consistent survivability through AC boosts and saving throw bonuses.</p>
+
+<p><strong>Key Features:</strong></p>
+<ul>
+  <li><strong>Arcane Deflection (2nd):</strong> Reaction for +2 AC or +4 to a save (limits next turn to cantrips)</li>
+  <li><strong>Tactical Wit (2nd):</strong> Add INT to initiative rolls</li>
+  <li><strong>Power Surge (6th):</strong> Deal extra force damage once per turn</li>
+  <li><strong>Durable Magic (10th):</strong> +2 AC and saves while concentrating</li>
+  <li><strong>Deflecting Shroud (14th):</strong> Arcane Deflection deals damage to nearby enemies</li>
+</ul>`
+      },
+      {
+        id: "arcane-deflection",
+        title: "Mastering Arcane Deflection",
+        content: `<p><strong>How It Works:</strong> When hit by an attack or fail a save, use your reaction for +2 AC (potentially turning a hit into a miss) or +4 to the save (potentially turning failure to success).</p>
+
+<p><strong>The Limitation:</strong> After using Arcane Deflection, you can only cast cantrips until the end of your next turn. No leveled spells!</p>
+
+<p><strong>When to Use It:</strong></p>
+<ul>
+  <li>Against attacks that barely hit (within 1-2 of your AC)</li>
+  <li>Against saves you failed by 4 or less</li>
+  <li>When you were planning to cast cantrips anyway</li>
+  <li>When survival is more important than your next spell</li>
+</ul>
+
+<p><strong>Synergy:</strong> At 14th level, Deflecting Shroud deals (wizard level / 2) force damage to enemies within 10 ft when you use Arcane Deflection. Defense becomes offense!</p>`
+      },
+      {
+        id: "tactical-advantages",
+        title: "Combat Advantages",
+        content: `<p><strong>Tactical Wit (+INT to Initiative):</strong></p>
+<ul>
+  <li>With +5 INT and +2 DEX, you have +7 initiative</li>
+  <li>Going first means landing control spells before enemies act</li>
+  <li>First-turn Hypnotic Pattern or Web can trivialize encounters</li>
+</ul>
+
+<p><strong>Durable Magic (+2 AC and saves while concentrating):</strong></p>
+<ul>
+  <li>Maintain concentration on Haste, Polymorph, or Wall of Force more reliably</li>
+  <li>Stacks with Shield and other bonuses</li>
+  <li>Essentially permanent while you have concentration spells running</li>
+</ul>
+
+<p><strong>Playstyle:</strong> War Magic wizards control the battlefield from turn one, then maintain concentration spells while being very hard to kill. You trade explosive damage for consistent defensive value.</p>`
+      }
+    ],
+    commonMistakes: [
+      "Using Arcane Deflection when you need to cast a leveled spell next turn",
+      "Forgetting you still have full cantrip access after Arcane Deflection",
+      "Not maintaining concentration spells to benefit from Durable Magic",
+      "Overlooking Power Surge's bonus damage (small but adds up)"
+    ],
+    dmTips: [
+      "War Magic wizards are very hard to kill - they have layered defenses",
+      "Their high initiative means they often act first - plan for this",
+      "Arcane Deflection's cantrip limitation rarely matters after 10th level",
+      "Target them with effects that don't trigger AC or saves (auto-damage, conditions)"
+    ]
+  },
+  {
+    slug: "chronurgy-magic-5e",
+    name: "Chronurgy Magic",
+    category: "classes",
+    className: "Wizard",
+    featureLevel: "Subclass (2nd level)",
+    description: "Chronurgy Magic from Explorer's Guide to Wildemount focuses on time manipulation. Often considered one of the most powerful wizard subclasses, Chronurgy lets you force rerolls, freeze creatures in time, and store spells for later.",
+    searchVolume: 6200,
+    sections: [
+      {
+        id: "overview",
+        title: "Chronurgy Magic Overview",
+        content: `<p>Chronurgy is widely considered one of the <strong>strongest wizard subclasses</strong> alongside Divination. Time manipulation gives you powerful control over combat outcomes and the ability to store spells for later use.</p>
+
+<p><strong>Key Features:</strong></p>
+<ul>
+  <li><strong>Chronal Shift (2nd):</strong> Force a reroll on any d20 within 30 ft (2/long rest)</li>
+  <li><strong>Temporal Awareness (2nd):</strong> Add INT to initiative</li>
+  <li><strong>Momentary Stasis (6th):</strong> Freeze a creature in time (incapacitated, speed 0)</li>
+  <li><strong>Arcane Abeyance (10th):</strong> Store a spell in a bead for anyone to use later</li>
+  <li><strong>Convergent Future (14th):</strong> Decide if an attack/save/check succeeds or fails</li>
+</ul>`
+      },
+      {
+        id: "chronal-shift",
+        title: "Mastering Chronal Shift",
+        content: `<p><strong>How It Works:</strong> When a creature you can see within 30 ft makes an attack, ability check, or saving throw, you can use your reaction to force them to reroll and use the new result.</p>
+
+<p><strong>Key Advantages over Portent:</strong></p>
+<ul>
+  <li>You see the original roll before deciding to use it</li>
+  <li>Works on ANY d20 roll, not limited to pre-rolled results</li>
+  <li>Twice per long rest is often enough for clutch moments</li>
+</ul>
+
+<p><strong>Best Uses:</strong></p>
+<ul>
+  <li>Enemy rolled high on a save against your Hold Person? Reroll.</li>
+  <li>Enemy crit your ally? Force a reroll.</li>
+  <li>Ally just barely failed a crucial save? Reroll for another chance.</li>
+</ul>`
+      },
+      {
+        id: "arcane-abeyance",
+        title: "Arcane Abeyance: Storing Spells",
+        content: `<p>At 10th level, when you cast a spell of 4th level or lower, you can store it in a tiny bead instead of having it take effect. The bead lasts 1 hour or until used.</p>
+
+<p><strong>Anyone can use the bead</strong> as an action to release the spell, using YOUR spellcasting ability and concentration.</p>
+
+<p><strong>Powerful Applications:</strong></p>
+<ul>
+  <li>Give the Fighter a bead with Haste - they cast it on themselves as an action</li>
+  <li>Store Counterspell for an ally to use when you're out of reactions</li>
+  <li>Pre-cast Web or Hypnotic Pattern before combat, release as an action</li>
+  <li>Give healing spells to martial allies for emergencies</li>
+</ul>
+
+<p><strong>Combo:</strong> Store a concentration spell in a bead. Give it to an ally. You maintain concentration on one spell, they maintain another using your stored spell. Two concentration spells active!</p>`
+      }
+    ],
+    commonMistakes: [
+      "Using Chronal Shift on unimportant rolls (save it for clutch moments)",
+      "Forgetting Arcane Abeyance spells use YOUR concentration when released",
+      "Not pre-storing spells in beads before anticipated combat",
+      "Underestimating Momentary Stasis's tactical value for setup"
+    ],
+    dmTips: [
+      "Chronurgy is extremely powerful - consider it tier 1 alongside Divination",
+      "Chronal Shift can swing combat dramatically - expect clutch saves",
+      "Arcane Abeyance enables double concentration through allies",
+      "Convergent Future at 14th is essentially a guaranteed success/failure"
+    ]
+  },
+  {
+    slug: "graviturgy-magic-5e",
+    name: "Graviturgy Magic",
+    category: "classes",
+    className: "Wizard",
+    featureLevel: "Subclass (2nd level)",
+    description: "Graviturgy Magic from Explorer's Guide to Wildemount manipulates gravity to control the battlefield. Graviturgists excel at movement control, giving allies advantage and imposing disadvantage on enemies through gravitational manipulation.",
+    searchVolume: 3400,
+    sections: [
+      {
+        id: "overview",
+        title: "Graviturgy Magic Overview",
+        content: `<p>Graviturgy focuses on controlling gravity to manipulate movement and combat. While less flashy than Chronurgy, Graviturgy provides consistent battlefield control and support through gravitational manipulation.</p>
+
+<p><strong>Key Features:</strong></p>
+<ul>
+  <li><strong>Adjust Density (2nd):</strong> Halve or double a creature's weight for 1 minute</li>
+  <li><strong>Gravity Well (6th):</strong> Move creatures 5 ft when you hit them with spells</li>
+  <li><strong>Violent Attraction (10th):</strong> Boost or pull attacks/falling damage</li>
+  <li><strong>Event Horizon (14th):</strong> Create 30 ft radius of difficult terrain and damage</li>
+</ul>`
+      },
+      {
+        id: "adjust-density",
+        title: "Adjust Density Tactics",
+        content: `<p><strong>Halve Weight (Advantage on Strength checks/saves):</strong></p>
+<ul>
+  <li>Help your Grappler grapple more reliably</li>
+  <li>Make allies harder to shove or knock prone</li>
+  <li>Reduce falling damage (at DM discretion)</li>
+</ul>
+
+<p><strong>Double Weight (Disadvantage on Strength checks/saves, -10 ft speed):</strong></p>
+<ul>
+  <li>Slow down charging enemies</li>
+  <li>Make enemies easier to grapple/shove</li>
+  <li>Increase falling damage (DM discretion)</li>
+</ul>
+
+<p><strong>Note:</strong> This affects weight, not mass. Some DMs interpret this to affect falling damage, others don't. Clarify before play.</p>`
+      },
+      {
+        id: "violent-attraction",
+        title: "Violent Attraction Applications",
+        content: `<p>At 10th level, when a creature within 60 ft hits with a weapon attack, you can use your reaction to increase damage by 1d10. Or, when a creature falls within 60 ft, increase falling damage by 2d10.</p>
+
+<p><strong>Weapon Damage Boost:</strong></p>
+<ul>
+  <li>Boost your Fighter's critical hit</li>
+  <li>Add damage to your Rogue's Sneak Attack</li>
+  <li>Support any martial ally's attacks</li>
+  <li>Uses: INT mod per long rest</li>
+</ul>
+
+<p><strong>Falling Damage Combo:</strong></p>
+<ul>
+  <li>Cast Reverse Gravity - enemies fall up, then fall down</li>
+  <li>Use Telekinesis to drop enemies</li>
+  <li>Graviturgy-exclusive spell Gravity Sinkhole can cause falls</li>
+  <li>Extra 2d10 falling damage adds up!</li>
+</ul>`
+      }
+    ],
+    commonMistakes: [
+      "Forgetting Adjust Density's concentration requirement limits other spells",
+      "Not using Gravity Well to pull enemies into hazards or AoE effects",
+      "Undervaluing the support potential of Violent Attraction's damage boost",
+      "Not discussing Adjust Density's effect on falling damage with your DM"
+    ],
+    dmTips: [
+      "Graviturgy is strong support but less individually powerful than Chronurgy",
+      "Gravity Well's forced movement can combo with ally abilities",
+      "Adjust Density interpretations vary - set expectations early",
+      "Event Horizon at 14th creates a powerful damage/control zone"
+    ]
+  },
+  {
+    slug: "order-of-scribes-5e",
+    name: "Order of Scribes",
+    category: "classes",
+    className: "Wizard",
+    featureLevel: "Subclass (2nd level)",
+    description: "The Order of Scribes from Tasha's Cauldron of Everything features an awakened spellbook as a sentient companion. Scribes wizards can swap damage types, cast rituals faster, and manifest their spellbook as a creature.",
+    searchVolume: 4100,
+    sections: [
+      {
+        id: "overview",
+        title: "Order of Scribes Overview",
+        content: `<p>Order of Scribes is a unique subclass centered on your spellbook becoming a sentient magical item. You gain excellent utility through damage type swapping and faster ritual casting.</p>
+
+<p><strong>Key Features:</strong></p>
+<ul>
+  <li><strong>Wizardly Quill (2nd):</strong> Magical quill for fast, costless spell copying</li>
+  <li><strong>Awakened Spellbook (2nd):</strong> Swap spell damage types, cast rituals in normal time</li>
+  <li><strong>Manifest Mind (6th):</strong> Project spellbook as a spectral mind, cast through it</li>
+  <li><strong>Master Scrivener (10th):</strong> Create spell scrolls more efficiently</li>
+  <li><strong>One with the Word (14th):</strong> Spellbook can negate damage/turn by erasing spells</li>
+</ul>`
+      },
+      {
+        id: "awakened-spellbook",
+        title: "Awakened Spellbook Powers",
+        content: `<p><strong>Damage Type Swapping:</strong> When you cast a wizard spell that deals damage, you can swap the damage type to match another spell of the same level in your spellbook.</p>
+
+<p><strong>Practical Applications:</strong></p>
+<ul>
+  <li>Turn Fireball into Cold-ball, Lightning-ball, or Thunder-ball</li>
+  <li>Bypass fire immunity by swapping to a different type</li>
+  <li>Optimize damage against specific enemy resistances/vulnerabilities</li>
+  <li>Coordinate with allies who can impose vulnerabilities</li>
+</ul>
+
+<p><strong>Example:</strong> Fighting a fire-immune demon? Your spellbook has Lightning Bolt (3rd). Cast Fireball but swap to lightning damage. Full damage against the demon!</p>
+
+<p><strong>Ritual Casting Speed:</strong> Rituals normally take 10 extra minutes. With Awakened Spellbook, you cast them at normal casting time. Detect Magic as an action!</p>`
+      },
+      {
+        id: "manifest-mind",
+        title: "Manifest Mind Tactics",
+        content: `<p>At 6th level, you can conjure your spellbook's mind as a spectral form. It hovers, has 60 ft darkvision, and you can cast spells as though you were in its space.</p>
+
+<p><strong>Tactical Uses:</strong></p>
+<ul>
+  <li>Scout around corners without risking yourself</li>
+  <li>Cast spells from behind full cover</li>
+  <li>Deliver touch spells from 300+ feet away</li>
+  <li>See invisible creatures (if you have See Invisibility)</li>
+</ul>
+
+<p><strong>Limitations:</strong></p>
+<ul>
+  <li>Uses = proficiency bonus per long rest</li>
+  <li>Must stay within 300 ft of you</li>
+  <li>Costs a spell slot when you cast through it</li>
+</ul>
+
+<p><strong>Combo:</strong> Position Manifest Mind, then cast Fireball centered on it. Full damage AoE from safety, with swapped damage type if needed.</p>`
+      }
+    ],
+    commonMistakes: [
+      "Forgetting you need a spell of the same level to swap damage types",
+      "Not preparing a variety of damage type spells for swapping options",
+      "Underusing ritual casting speed - it's incredibly useful",
+      "Forgetting Manifest Mind costs a spell slot when casting through it"
+    ],
+    dmTips: [
+      "Damage swapping makes Scribes wizards very versatile against resistances",
+      "Fast rituals mean more utility without combat cost",
+      "Manifest Mind enables safe spellcasting - position matters less",
+      "One with the Word at 14th can negate massive damage by sacrificing spells"
+    ]
+  }
+];
+
+// NOTE: Spellbook, Ritual Casting, Spell Slots, Short Rest, and Long Rest
+// have been moved to rules.ts under "core-mechanics" category
 
 // =============================================================================
 // CLASS REDIRECTS

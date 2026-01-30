@@ -61,7 +61,7 @@ export const supportHealingSpells: {
         answer: "When Aid ends, your hit point maximum returns to normal. If your current HP exceeds your new maximum, it drops to match. But if you've taken damage and your current HP is below your normal max, nothing happens."
       },
       {
-        question: "Can Aid bring back an unconscious ally?",
+        question: "Can Aid bring back an <a href=\"/rules/conditions/unconscious-condition-5e/\">unconscious</a> ally?",
         answer: "Yes! If an ally is at 0 HP, casting Aid on them increases both their max AND current HP by 5+, bringing them back to consciousness. It's like a healing spell in this case."
       },
       {
@@ -163,8 +163,8 @@ export const supportHealingSpells: {
         answer: "Yes! The spell says 'a creature you touch' and you can touch yourself. It's a common use for clerics and other healers who need emergency self-healing."
       },
       {
-        question: "Does Cure Wounds work on unconscious allies?",
-        answer: "Absolutely! In fact, that's one of its most common uses. Healing an unconscious ally at 0 HP brings them back to consciousness with however much HP the spell restores."
+        question: "Does Cure Wounds work on <a href=\"/rules/conditions/unconscious-condition-5e/\">unconscious</a> allies?",
+        answer: "Absolutely! In fact, that's one of its most common uses. Healing an <a href=\"/rules/conditions/unconscious-condition-5e/\">unconscious</a> ally at 0 HP brings them back to consciousness with however much HP the spell restores."
       },
       {
         question: "Why would I use Cure Wounds over Healing Word?",
@@ -300,19 +300,19 @@ export const supportHealingSpells: {
     concentration: true,
     ritual: false,
     classes: ["Bard", "Paladin"],
-    description: "A willing creature you touch is imbued with bravery. Until the spell ends, the creature is immune to being frightened and gains temporary hit points equal to your spellcasting ability modifier at the start of each of its turns. When the spell ends, the target loses any remaining temporary hit points from this spell.",
+    description: "A willing creature you touch is imbued with bravery. Until the spell ends, the creature is immune to being <a href=\"/rules/conditions/frightened-condition-5e/\">frightened</a> and gains temporary hit points equal to your spellcasting ability modifier at the start of each of its turns. When the spell ends, the target loses any remaining temporary hit points from this spell.",
     damage: null,
     savingThrow: null,
     higherLevels: "When you cast this spell using a spell slot of 2nd level or higher, you can target one additional creature for each slot level above 1st.",
     commonMistakes: [
       "Forgetting the temporary HP refreshes at the start of each of the target's turns",
       "Not tracking that temporary HP doesn't stack - new temp HP replaces old",
-      "Forgetting the immunity to frightened condition, which can be very powerful",
+      "Forgetting the immunity to <a href=\"/rules/conditions/frightened-condition-5e/\">frightened</a> condition, which can be very powerful",
       "Thinking the temp HP is permanent - it disappears when the spell ends"
     ],
     dmTips: [
       "Great for frontline fighters who will take consistent damage",
-      "The frightened immunity is clutch against dragons and other fear-inducing enemies",
+      "The <a href=\"/rules/conditions/frightened-condition-5e/\">frightened</a> immunity is clutch against dragons and other fear-inducing enemies",
       "Total temp HP over the full minute can be significant (10+ turns × modifier)",
       "Consider having paladin NPCs cast this before charging into battle"
     ],
@@ -326,16 +326,16 @@ export const supportHealingSpells: {
         answer: "Temp HP effectively adds to your current HP pool but doesn't actually increase your maximum. You can have temp HP even when at full health - it's like an extra buffer that gets used first."
       },
       {
-        question: "Does the frightened immunity remove an existing frightened condition?",
-        answer: "Yes! Being immune to a condition means you can't have that condition. If you're frightened and then become immune via Heroism, the frightened condition immediately ends."
+        question: "Does the <a href=\"/rules/conditions/frightened-condition-5e/\">frightened</a> immunity remove an existing <a href=\"/rules/conditions/frightened-condition-5e/\">frightened</a> condition?",
+        answer: "Yes! Being immune to a condition means you can't have that condition. If you're <a href=\"/rules/conditions/frightened-condition-5e/\">frightened</a> and then become immune via Heroism, the <a href=\"/rules/conditions/frightened-condition-5e/\">frightened</a> condition immediately ends."
       },
       {
         question: "Is Heroism or Aid better for pre-combat buffing?",
-        answer: "They serve different purposes! Aid lasts 8 hours (no concentration) and gives a one-time HP boost. Heroism requires concentration but gives ongoing temp HP and frightened immunity. Use Aid for exploration, Heroism for specific dangerous fights."
+        answer: "They serve different purposes! Aid lasts 8 hours (no concentration) and gives a one-time HP boost. Heroism requires concentration but gives ongoing temp HP and <a href=\"/rules/conditions/frightened-condition-5e/\">frightened</a> immunity. Use Aid for exploration, Heroism for specific dangerous fights."
       },
       {
         question: "Can I cast Heroism on multiple targets?",
-        answer: "At base level, it's touch range and one target. But at higher levels, you can target one additional creature per slot level above 1st. At 3rd level, you could buff 3 allies with frightened immunity and temp HP."
+        answer: "At base level, it's touch range and one target. But at higher levels, you can target one additional creature per slot level above 1st. At 3rd level, you could buff 3 allies with <a href=\"/rules/conditions/frightened-condition-5e/\">frightened</a> immunity and temp HP."
       }
     ],
     category: "support-healing",
@@ -671,12 +671,12 @@ export const supportHealingSpells: {
     concentration: false,
     ritual: false,
     classes: ["Bard", "Cleric", "Druid", "Paladin", "Ranger"],
-    description: "You touch a creature and can end either one disease or one condition afflicting it. The condition can be blinded, deafened, paralyzed, or poisoned.",
+    description: "You touch a creature and can end either one disease or one condition afflicting it. The condition can be <a href=\"/rules/conditions/blinded-condition-5e/\">blinded</a>, <a href=\"/rules/conditions/deafened-condition-5e/\">deafened</a>, <a href=\"/rules/conditions/paralyzed-condition-5e/\">paralyzed</a>, or <a href=\"/rules/conditions/poisoned-condition-5e/\">poisoned</a>.",
     damage: null,
     savingThrow: null,
     higherLevels: null,
     commonMistakes: [
-      "Forgetting it doesn't cure exhaustion or petrification",
+      "Forgetting it doesn't cure <a href=\"/rules/core-mechanics/exhaustion-5e/\">exhaustion</a> or <a href=\"/rules/conditions/petrified-condition-5e/\">petrification</a>",
       "Not using it to remove paralysis or blindness in combat",
       "Thinking it restores hit points - it only removes conditions",
       "Forgetting you can choose disease OR condition"
@@ -689,12 +689,12 @@ export const supportHealingSpells: {
     ],
     faq: [
       {
-        question: "Can Lesser Restoration cure exhaustion?",
-        answer: "No! Lesser Restoration only removes blinded, deafened, paralyzed, or poisoned conditions, plus diseases. Exhaustion requires Greater Restoration (and even that only removes one level per casting)."
+        question: "Can Lesser Restoration cure <a href=\"/rules/core-mechanics/exhaustion-5e/\">exhaustion</a>?",
+        answer: "No! Lesser Restoration only removes <a href=\"/rules/conditions/blinded-condition-5e/\">blinded</a>, <a href=\"/rules/conditions/deafened-condition-5e/\">deafened</a>, <a href=\"/rules/conditions/paralyzed-condition-5e/\">paralyzed</a>, or <a href=\"/rules/conditions/poisoned-condition-5e/\">poisoned</a> conditions, plus diseases. <a href=\"/rules/core-mechanics/exhaustion-5e/\">Exhaustion</a> requires Greater Restoration (and even that only removes one level per casting)."
       },
       {
         question: "Does Lesser Restoration end ongoing poison damage?",
-        answer: "It ends the poisoned CONDITION (disadvantage on attacks and ability checks), but doesn't necessarily stop ongoing poison damage. Some effects deal damage separately from the condition - check the specific poison's description."
+        answer: "It ends the <a href=\"/rules/conditions/poisoned-condition-5e/\">poisoned</a> CONDITION (disadvantage on attacks and ability checks), but doesn't necessarily stop ongoing poison damage. Some effects deal damage separately from the condition - check the specific poison's description."
       },
       {
         question: "Can Lesser Restoration cure magical diseases?",
@@ -702,11 +702,11 @@ export const supportHealingSpells: {
       },
       {
         question: "What's the difference between Lesser and Greater Restoration?",
-        answer: "Lesser Restoration (2nd level) handles: blinded, deafened, paralyzed, poisoned, and diseases. Greater Restoration (5th level) handles: exhaustion, charmed, petrified, curses, ability score reduction, and HP maximum reduction."
+        answer: "Lesser Restoration (2nd level) handles: <a href=\"/rules/conditions/blinded-condition-5e/\">blinded</a>, <a href=\"/rules/conditions/deafened-condition-5e/\">deafened</a>, <a href=\"/rules/conditions/paralyzed-condition-5e/\">paralyzed</a>, <a href=\"/rules/conditions/poisoned-condition-5e/\">poisoned</a>, and diseases. Greater Restoration (5th level) handles: <a href=\"/rules/core-mechanics/exhaustion-5e/\">exhaustion</a>, <a href=\"/rules/conditions/charmed-condition-5e/\">charmed</a>, <a href=\"/rules/conditions/petrified-condition-5e/\">petrified</a>, curses, ability score reduction, and HP maximum reduction."
       },
       {
-        question: "Can I cast Lesser Restoration on myself while paralyzed?",
-        answer: "No. Paralysis incapacitates you and prevents you from speaking or moving. Since Lesser Restoration requires verbal and somatic components, you can't cast it while paralyzed - an ally must help you."
+        question: "Can I cast Lesser Restoration on myself while <a href=\"/rules/conditions/paralyzed-condition-5e/\">paralyzed</a>?",
+        answer: "No. <a href=\"/rules/conditions/paralyzed-condition-5e/\">Paralysis</a> <a href=\"/rules/conditions/incapacitated-condition-5e/\">incapacitates</a> you and prevents you from speaking or moving. Since Lesser Restoration requires verbal and somatic components, you can't cast it while <a href=\"/rules/conditions/paralyzed-condition-5e/\">paralyzed</a> - an ally must help you."
       }
     ],
     category: "support-healing",
@@ -724,26 +724,26 @@ export const supportHealingSpells: {
     concentration: false,
     ritual: false,
     classes: ["Bard", "Cleric", "Druid"],
-    description: "You imbue a creature you touch with positive energy to undo a debilitating effect. You can reduce the target's exhaustion level by one, or end one of the following effects on the target: One effect that charmed or petrified the target, one curse, including the target's attunement to a cursed magic item, any reduction to one of the target's ability scores, or one effect reducing the target's hit point maximum.",
+    description: "You imbue a creature you touch with positive energy to undo a debilitating effect. You can reduce the target's <a href=\"/rules/core-mechanics/exhaustion-5e/\">exhaustion</a> level by one, or end one of the following effects on the target: One effect that <a href=\"/rules/conditions/charmed-condition-5e/\">charmed</a> or <a href=\"/rules/conditions/petrified-condition-5e/\">petrified</a> the target, one curse, including the target's attunement to a cursed magic item, any reduction to one of the target's ability scores, or one effect reducing the target's hit point maximum.",
     damage: null,
     savingThrow: null,
     higherLevels: null,
     commonMistakes: [
       "Forgetting the 100 gp material component that is consumed",
-      "Thinking it removes all exhaustion levels - only one level per casting",
+      "Thinking it removes all <a href=\"/rules/core-mechanics/exhaustion-5e/\">exhaustion</a> levels - only one level per casting",
       "Not using it to remove cursed item attunement",
       "Forgetting it can restore ability score reductions"
     ],
     dmTips: [
       "The go-to spell for removing serious conditions and curses",
       "The material cost makes it significant but not prohibitive",
-      "Can remove petrification, making basilisk encounters less deadly",
+      "Can remove <a href=\"/rules/conditions/petrified-condition-5e/\">petrification</a>, making basilisk encounters less deadly",
       "Consider whether curses are narrative-important before allowing easy removal"
     ],
     faq: [
       {
-        question: "Can Greater Restoration cure all levels of exhaustion at once?",
-        answer: "No! Greater Restoration only reduces exhaustion by ONE level per casting. A character with 5 levels of exhaustion would need 5 separate castings (and 500 gp in diamond dust) to fully recover."
+        question: "Can Greater Restoration cure all levels of <a href=\"/rules/core-mechanics/exhaustion-5e/\">exhaustion</a> at once?",
+        answer: "No! Greater Restoration only reduces <a href=\"/rules/core-mechanics/exhaustion-5e/\">exhaustion</a> by ONE level per casting. A character with 5 levels of <a href=\"/rules/core-mechanics/exhaustion-5e/\">exhaustion</a> would need 5 separate castings (and 500 gp in diamond dust) to fully recover."
       },
       {
         question: "Does Greater Restoration end attunement to a cursed item?",
@@ -853,7 +853,7 @@ export const supportHealingSpells: {
       },
       {
         question: "Does Heal's condition removal happen before or after the HP restoration?",
-        answer: "They happen simultaneously as part of the same effect. This means a blinded creature is cured and healed in one action - you don't have to choose between healing and condition removal."
+        answer: "They happen simultaneously as part of the same effect. This means a <a href=\"/rules/conditions/blinded-condition-5e/\">blinded</a> creature is cured and healed in one action - you don't have to choose between healing and condition removal."
       },
       {
         question: "Can Heal remove blindness/deafness caused by the Blindness/Deafness spell?",
@@ -971,7 +971,7 @@ export const supportHealingSpells: {
       },
       {
         question: "What happens if I lose concentration on Shield of Faith?",
-        answer: "The shimmering field disappears and the +2 AC bonus immediately ends. Your target's AC returns to normal. This can happen from taking damage and failing a CON save, casting another concentration spell, or being incapacitated."
+        answer: "The shimmering field disappears and the +2 AC bonus immediately ends. Your target's AC returns to normal. This can happen from taking damage and failing a CON save, casting another concentration spell, or being <a href=\"/rules/conditions/incapacitated-condition-5e/\">incapacitated</a>."
       }
     ],
     category: "support-healing",
@@ -1148,7 +1148,7 @@ export const supportHealingSpells: {
     concentration: false,
     ritual: false,
     classes: ["Cleric", "Druid"],
-    description: "You bring forth a great feast, including magnificent food and drink. The feast takes 1 hour to consume and disappears at the end of that time, and the beneficial effects don't set in until this hour is over. Up to twelve creatures can partake of the feast. A creature that partakes of the feast gains several benefits. The creature is cured of all diseases and poison, becomes immune to poison and being frightened, and makes all Wisdom saving throws with advantage. Its hit point maximum also increases by 2d10, and it gains the same number of hit points. These benefits last for 24 hours.",
+    description: "You bring forth a great feast, including magnificent food and drink. The feast takes 1 hour to consume and disappears at the end of that time, and the beneficial effects don't set in until this hour is over. Up to twelve creatures can partake of the feast. A creature that partakes of the feast gains several benefits. The creature is cured of all diseases and poison, becomes immune to <a href=\"/rules/conditions/poisoned-condition-5e/\">poison</a> and being <a href=\"/rules/conditions/frightened-condition-5e/\">frightened</a>, and makes all Wisdom saving throws with advantage. Its hit point maximum also increases by 2d10, and it gains the same number of hit points. These benefits last for 24 hours.",
     damage: null,
     savingThrow: null,
     higherLevels: null,
@@ -1160,7 +1160,7 @@ export const supportHealingSpells: {
     ],
     dmTips: [
       "Perfect pre-boss fight preparation spell",
-      "The immunity to frightened is valuable against dragons and other fear effects",
+      "The immunity to <a href=\"/rules/conditions/frightened-condition-5e/\">frightened</a> is valuable against dragons and other fear effects",
       "The HP boost and advantages make the whole party more effective",
       "The 1,000 gp cost makes this feel special and important"
     ],

@@ -714,7 +714,7 @@ export const offensiveSpells: {
       },
       {
         question: "Does immunity to the charmed condition protect against Power Word Kill?",
-        answer: "No. Despite being an Enchantment spell, Power Word Kill is not a charm effect. Immunity to being charmed, frightened, or even death effects (like undead immunity to certain spells) doesn't protect against this spell."
+        answer: "No. Despite being an Enchantment spell, Power Word Kill is not a charm effect. Immunity to being <a href=\"/rules/conditions/charmed-condition-5e/\">charmed</a>, <a href=\"/rules/conditions/frightened-condition-5e/\">frightened</a>, or even death effects (like undead immunity to certain spells) doesn't protect against this spell."
       },
       {
         question: "How can you tell if an enemy has 100 HP or less?",
@@ -1278,7 +1278,7 @@ export const offensiveSpells: {
       },
       {
         question: "Is Inflict Wounds good for clerics?",
-        answer: "Situationally excellent. Domain clerics with heavy armor and good AC (War, Life, Forge) can safely enter melee. For squishy clerics, the touch range is risky. Best used when you have advantage or the enemy is restrained."
+        answer: "Situationally excellent. Domain clerics with heavy armor and good AC (War, Life, Forge) can safely enter melee. For squishy clerics, the touch range is risky. Best used when you have advantage or the enemy is <a href=\"/rules/conditions/restrained-condition-5e/\">restrained</a>."
       }
     ],
     category: "offensive",
@@ -1308,7 +1308,7 @@ export const offensiveSpells: {
     ],
     dmTips: [
       "Generally considered weak because it consumes concentration and action economy",
-      "Best used against stationary or restrained enemies",
+      "Best used against stationary or <a href=\"/rules/conditions/restrained-condition-5e/\">restrained</a> enemies",
       "The automatic damage never misses, which can be useful against high AC foes",
       "Enemies can break the spell by moving away or getting behind cover"
     ],
@@ -1327,7 +1327,7 @@ export const offensiveSpells: {
       },
       {
         question: "When is Witch Bolt actually useful?",
-        answer: "Against restrained, paralyzed, or otherwise immobilized enemies who can't break the connection. Also decent against high-AC foes since the sustained damage is automatic after the initial hit."
+        answer: "Against <a href=\"/rules/conditions/restrained-condition-5e/\">restrained</a>, <a href=\"/rules/conditions/paralyzed-condition-5e/\">paralyzed</a>, or otherwise immobilized enemies who can't break the connection. Also decent against high-AC foes since the sustained damage is automatic after the initial hit."
       },
       {
         question: "Does the sustained Witch Bolt damage require an attack roll?",
@@ -1614,7 +1614,7 @@ export const offensiveSpells: {
     concentration: true,
     ritual: false,
     classes: ["Bard", "Sorcerer", "Warlock", "Wizard"],
-    description: "One humanoid of your choice that you can see within range must succeed on a Wisdom saving throw or become charmed by you for the duration. While the target is charmed in this way, a twisted crown of jagged iron appears on its head, and a madness glows in its eyes. The charmed target must use its action before moving on each of its turns to make a melee attack against a creature other than itself that you mentally choose. The target can act normally on its turn if you choose no creature or if none are within its reach. On your subsequent turns, you must use your action to maintain control over the target, or the spell ends. Also, the target can make a Wisdom saving throw at the end of each of its turns. On a success, the spell ends.",
+    description: "One humanoid of your choice that you can see within range must succeed on a Wisdom saving throw or become <a href=\"/rules/conditions/charmed-condition-5e/\">charmed</a> by you for the duration. While the target is charmed in this way, a twisted crown of jagged iron appears on its head, and a madness glows in its eyes. The charmed target must use its action before moving on each of its turns to make a melee attack against a creature other than itself that you mentally choose. The target can act normally on its turn if you choose no creature or if none are within its reach. On your subsequent turns, you must use your action to maintain control over the target, or the spell ends. Also, the target can make a Wisdom saving throw at the end of each of its turns. On a success, the spell ends.",
     damage: "Target's weapon damage",
     savingThrow: "Wisdom",
     higherLevels: null,
@@ -1637,7 +1637,7 @@ export const offensiveSpells: {
       },
       {
         question: "How does the 'attack before moving' restriction work?",
-        answer: "On its turn, the charmed target must use its action to make a melee attack before it can move. You choose the attack target (must be within reach). After attacking, the creature can move and use bonus actions normally."
+        answer: "On its turn, the <a href=\"/rules/conditions/charmed-condition-5e/\">charmed</a> target must use its action to make a melee attack before it can move. You choose the attack target (must be within reach). After attacking, the creature can move and use bonus actions normally."
       },
       {
         question: "Can Crown of Madness force a creature to attack its ally?",
@@ -1649,7 +1649,7 @@ export const offensiveSpells: {
       },
       {
         question: "Why must you use your action to maintain Crown of Madness?",
-        answer: "This is the spell's biggest weakness. You must spend your action each turn to maintain control. Miss one action (Counterspelled, incapacitated, choose to do something else), and the spell ends immediately."
+        answer: "This is the spell's biggest weakness. You must spend your action each turn to maintain control. Miss one action (Counterspelled, <a href=\"/rules/conditions/incapacitated-condition-5e/\">incapacitated</a>, choose to do something else), and the spell ends immediately."
       }
     ],
     category: "offensive",

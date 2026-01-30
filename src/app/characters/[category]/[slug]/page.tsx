@@ -114,11 +114,17 @@ export default async function CharacterSlugPage({
     ];
   }
 
+  // For class features, link back to the specific class page
+  const classFeature = result.type === "classFeature" ? result.data as { className: string } : null;
+  const classSlug = classFeature?.className?.toLowerCase();
+
   const categoryLabel =
     result.type === "creation"
       ? "Character Creation Tools"
       : result.type === "featOverview" || result.type === "feat" || result.type === "combat"
       ? "Combat Maneuvers & Feats"
+      : result.type === "classFeature" && classFeature?.className
+      ? classFeature.className
       : "Characters";
 
   const categoryHref =
@@ -126,6 +132,8 @@ export default async function CharacterSlugPage({
       ? "/characters/creation/"
       : result.type === "featOverview" || result.type === "feat" || result.type === "combat"
       ? "/characters/feats/"
+      : result.type === "classFeature" && classSlug
+      ? `/characters/classes/${classSlug}-5e/`
       : "/characters/";
 
   return (

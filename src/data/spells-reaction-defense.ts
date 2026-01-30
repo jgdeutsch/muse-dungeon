@@ -143,26 +143,26 @@ export const reactionDefenseSpells: {
     concentration: true,
     ritual: false,
     classes: ["Bard", "Druid"],
-    description: "Each object in a 20-foot cube within range is outlined in blue, green, or violet light (your choice). Any creature in the area when the spell is cast is also outlined in light if it fails a Dexterity saving throw. For the duration, objects and affected creatures shed dim light in a 10-foot radius. Any attack roll against an affected creature or object has advantage if the attacker can see it, and the affected creature or object can't benefit from being invisible.",
+    description: "Each object in a 20-foot cube within range is outlined in blue, green, or violet light (your choice). Any creature in the area when the spell is cast is also outlined in light if it fails a Dexterity saving throw. For the duration, objects and affected creatures shed dim light in a 10-foot radius. Any attack roll against an affected creature or object has advantage if the attacker can see it, and the affected creature or object can't benefit from being <a href=\"/rules/conditions/invisible-condition-5e/\">invisible</a>.",
     damage: null,
     savingThrow: "Dexterity",
     higherLevels: null,
     commonMistakes: [
       "Forgetting that creatures that save are not outlined and gain no penalty",
-      "Not tracking that the light makes invisible creatures visible (and targetable)",
+      "Not tracking that the light makes <a href=\"/rules/conditions/invisible-condition-5e/\">invisible</a> creatures visible (and targetable)",
       "Thinking the advantage only applies to certain types of attacks - it's all attack rolls",
       "Forgetting the spell requires concentration"
     ],
     dmTips: [
-      "Excellent for revealing invisible enemies or negating heavy obscurement",
+      "Excellent for revealing <a href=\"/rules/conditions/invisible-condition-5e/\">invisible</a> enemies or negating heavy obscurement",
       "The advantage on attack rolls for all party members makes this very powerful at low levels",
       "Great against enemies with high AC or those relying on invisibility",
       "The 20-foot cube can hit multiple enemies if positioned well"
     ],
     faq: [
       {
-        question: "Does Faerie Fire reveal invisible creatures?",
-        answer: "Yes! Affected creatures 'can't benefit from being invisible' for the duration. They still have the invisible condition, but attacks against them don't have disadvantage and they're targetable - the glow makes them visible."
+        question: "Does Faerie Fire reveal <a href=\"/rules/conditions/invisible-condition-5e/\">invisible</a> creatures?",
+        answer: "Yes! Affected creatures 'can't benefit from being <a href=\"/rules/conditions/invisible-condition-5e/\">invisible</a>' for the duration. They still have the <a href=\"/rules/conditions/invisible-condition-5e/\">invisible</a> condition, but attacks against them don't have disadvantage and they're targetable - the glow makes them visible."
       },
       {
         question: "Can Faerie Fire be seen through fog or darkness?",
@@ -326,8 +326,8 @@ export const reactionDefenseSpells: {
         answer: "Yes! The trigger is 'being damaged by a creature' - it doesn't specify weapon attacks. Fireball from an enemy wizard, a dragon's breath weapon, or even fall damage pushed by an enemy can all trigger Hellish Rebuke."
       },
       {
-        question: "Does Hellish Rebuke work if I'm knocked unconscious by the damage?",
-        answer: "Debated! Some argue you can still use your reaction before falling unconscious. Others say being at 0 HP means you're incapacitated and can't take reactions. Check with your DM - many allow it as a 'last gasp' revenge."
+        question: "Does Hellish Rebuke work if I'm knocked <a href=\"/rules/conditions/unconscious-condition-5e/\">unconscious</a> by the damage?",
+        answer: "Debated! Some argue you can still use your reaction before falling <a href=\"/rules/conditions/unconscious-condition-5e/\">unconscious</a>. Others say being at 0 HP means you're <a href=\"/rules/conditions/incapacitated-condition-5e/\">incapacitated</a> and can't take reactions. Check with your DM - many allow it as a 'last gasp' revenge."
       },
       {
         question: "Can Hellish Rebuke target the creature even if they're now behind cover?",
@@ -357,7 +357,7 @@ export const reactionDefenseSpells: {
     concentration: true,
     ritual: false,
     classes: ["Cleric", "Paladin", "Warlock", "Wizard"],
-    description: "Until the spell ends, one willing creature you touch is protected against certain types of creatures: aberrations, celestials, elementals, fey, fiends, and undead. The protection grants several benefits. Creatures of those types have disadvantage on attack rolls against the target. The target also can't be charmed, frightened, or possessed by them. If the target is already charmed, frightened, or possessed by such a creature, the target has advantage on any new saving throw against the relevant effect.",
+    description: "Until the spell ends, one willing creature you touch is protected against certain types of creatures: aberrations, celestials, elementals, fey, fiends, and undead. The protection grants several benefits. Creatures of those types have disadvantage on attack rolls against the target. The target also can't be <a href=\"/rules/conditions/charmed-condition-5e/\">charmed</a>, <a href=\"/rules/conditions/frightened-condition-5e/\">frightened</a>, or possessed by them. If the target is already <a href=\"/rules/conditions/charmed-condition-5e/\">charmed</a>, <a href=\"/rules/conditions/frightened-condition-5e/\">frightened</a>, or possessed by such a creature, the target has advantage on any new saving throw against the relevant effect.",
     damage: null,
     savingThrow: null,
     higherLevels: null,
@@ -380,7 +380,7 @@ export const reactionDefenseSpells: {
       },
       {
         question: "Does this spell end possession that's already in effect?",
-        answer: "Not automatically. If already possessed/charmed/frightened by a valid creature type, you get 'advantage on any new saving throw against the relevant effect.' You'll need to make saves to break free, but with advantage."
+        answer: "Not automatically. If already possessed/<a href=\"/rules/conditions/charmed-condition-5e/\">charmed</a>/<a href=\"/rules/conditions/frightened-condition-5e/\">frightened</a> by a valid creature type, you get 'advantage on any new saving throw against the relevant effect.' You'll need to make saves to break free, but with advantage."
       },
       {
         question: "Can ghosts and similar undead still possess a protected creature?",

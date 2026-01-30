@@ -263,7 +263,7 @@ export const classesOverview: ClassesOverviewPage = {
 <ul>
   <li>Limited out-of-combat utility (except Rogue)</li>
   <li>Less versatility — if your weapon doesn't solve it, you're stuck</li>
-  <li>Difficulty with flying, invisible, or heavily armored enemies</li>
+  <li>Difficulty with flying, <a href="/rules/conditions/invisible-condition-5e/">invisible</a>, or heavily armored enemies</li>
   <li>Can feel repetitive ("I attack again") compared to spell variety</li>
 </ul>
 

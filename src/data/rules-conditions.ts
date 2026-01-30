@@ -16,12 +16,12 @@ export const conditionPages: RulePage[] = [
       {
         id: "common-sources",
         title: "Common Sources",
-        content: `<p>Blindness can be caused by spells like <strong>Blindness/Deafness</strong>, <strong>Color Spray</strong>, and <strong>Darkness</strong> (if the creature can't see through magical darkness). Environmental effects such as fog, smoke, or being in a completely dark area without darkvision also cause this condition.</p>`,
+        content: `<p>Blindness can be caused by spells like <a href="/spells/utility-control/blindness-deafness-5e/"><strong>Blindness/Deafness</strong></a>, <a href="/spells/utility-control/color-spray-5e/"><strong>Color Spray</strong></a>, and <a href="/spells/utility-control/darkness-5e/"><strong>Darkness</strong></a> (if the creature can't see through magical darkness). Environmental effects such as fog, smoke, or being in a completely dark area without darkvision also cause this condition.</p>`,
       },
       {
         id: "interactions",
         title: "Key Interactions",
-        content: `<ul><li>Blinded creatures can still hear, so abilities that rely on hearing still work.</li><li>Blinded effectively cancels out the Invisible condition — both get advantage and disadvantage on attacks against each other, which cancel out.</li><li>A blinded spellcaster can still cast spells that don't require them to see the target.</li></ul>`,
+        content: `<ul><li>Blinded creatures can still hear, so abilities that rely on hearing still work.</li><li>Blinded effectively cancels out the <a href="/rules/conditions/invisible-condition-5e/">Invisible</a> condition — both get advantage and disadvantage on attacks against each other, which cancel out.</li><li>A blinded spellcaster can still cast spells that don't require them to see the target.</li></ul>`,
       },
     ],
     commonMistakes: [
@@ -40,7 +40,7 @@ export const conditionPages: RulePage[] = [
       },
       {
         question: "Does blinding an invisible creature cancel out the advantages?",
-        answer: "Yes, essentially. A blinded attacker has disadvantage (can't see target), and an invisible defender gives attackers disadvantage. When both are blind/invisible to each other, the advantage and disadvantage cancel out - both attack normally."
+        answer: "Yes, essentially. A blinded attacker has disadvantage (can't see target), and an <a href=\"/rules/conditions/invisible-condition-5e/\">invisible</a> defender gives attackers disadvantage. When both are blind/invisible to each other, the advantage and disadvantage cancel out - both attack normally."
       },
       {
         question: "Can a blinded spellcaster still cast spells?",
@@ -48,7 +48,7 @@ export const conditionPages: RulePage[] = [
       },
       {
         question: "Does the Darkness spell blind creatures inside it?",
-        answer: "Creatures without special senses (darkvision doesn't help in magical darkness) effectively have the blinded condition while in the Darkness spell's area. They can't see, auto-fail sight-based checks, have disadvantage on attacks, and attacks against them have advantage."
+        answer: "Creatures without special senses (darkvision doesn't help in magical darkness) effectively have the blinded condition while in the <a href=\"/spells/utility-control/darkness-5e/\">Darkness</a> spell's area. They can't see, auto-fail sight-based checks, have disadvantage on attacks, and attacks against them have advantage."
       },
       {
         question: "How does blindsight or tremorsense interact with the blinded condition?",
@@ -71,7 +71,7 @@ export const conditionPages: RulePage[] = [
       {
         id: "common-sources",
         title: "Common Sources",
-        content: `<p>Spells like <strong>Charm Person</strong>, <strong>Charm Monster</strong>, <strong>Hypnotic Pattern</strong>, and <strong>Suggestion</strong>. Some creatures like Vampires and Succubi have innate charm abilities.</p>`,
+        content: `<p>Spells like <a href="/spells/utility-control/charm-person-5e/"><strong>Charm Person</strong></a>, <a href="/spells/utility-control/charm-monster-5e/"><strong>Charm Monster</strong></a>, <a href="/spells/utility-control/hypnotic-pattern-5e/"><strong>Hypnotic Pattern</strong></a>, and <a href="/spells/utility-control/suggestion-5e/"><strong>Suggestion</strong></a>. Some creatures like <a href="/monsters/vampire-5e/">Vampires</a> and <a href="/monsters/succubus-5e/">Succubi</a> have innate charm abilities.</p>`,
       },
       {
         id: "interactions",
@@ -95,7 +95,7 @@ export const conditionPages: RulePage[] = [
       },
       {
         question: "Does the target know they were charmed after it ends?",
-        answer: "For Charm Person specifically, yes - the spell states the target knows it was charmed when the effect ends. Other charm effects vary - check the specific spell or ability. This is why charming someone and then being hostile can backfire socially."
+        answer: "For <a href=\"/spells/utility-control/charm-person-5e/\">Charm Person</a> specifically, yes - the spell states the target knows it was charmed when the effect ends. Other charm effects vary - check the specific spell or ability. This is why charming someone and then being hostile can backfire socially."
       },
       {
         question: "What does 'treats the charmer as a friendly acquaintance' actually mean?",
@@ -103,7 +103,7 @@ export const conditionPages: RulePage[] = [
       },
       {
         question: "Does Fey Ancestry (elves/half-elves) make them immune to charm?",
-        answer: "No, Fey Ancestry gives advantage on saving throws against being charmed, not immunity. Elves and half-elves can still be charmed - they're just more resistant. Full immunity to charmed is rarer and found on creatures like Devotion Paladins (via aura) or certain monsters."
+        answer: "No, Fey Ancestry gives advantage on saving throws against being charmed, not immunity. Elves and half-elves can still be charmed - they're just more resistant. Full immunity to charmed is rarer and found on creatures like <a href=\"/characters/classes/paladin-5e/\">Devotion Paladins</a> (via aura) or certain monsters."
       },
       {
         question: "Can you charm a creature that's already charmed by someone else?",
@@ -126,7 +126,7 @@ export const conditionPages: RulePage[] = [
       {
         id: "common-sources",
         title: "Common Sources",
-        content: `<p>The <strong>Blindness/Deafness</strong> spell can cause deafness. Thunderwave and similar loud effects might temporarily deafen at DM discretion. Some monster abilities also cause deafness.</p>`,
+        content: `<p>The <a href="/spells/utility-control/blindness-deafness-5e/"><strong>Blindness/Deafness</strong></a> spell can cause deafness. <a href="/spells/offensive/thunderwave-5e/">Thunderwave</a> and similar loud effects might temporarily deafen at DM discretion. Some monster abilities also cause deafness.</p>`,
       },
       {
         id: "interactions",
@@ -180,12 +180,12 @@ export const conditionPages: RulePage[] = [
       {
         id: "common-sources",
         title: "Common Sources",
-        content: `<p>Spells like <strong>Fear</strong>, <strong>Cause Fear</strong>, and <strong>Phantasmal Killer</strong>. Dragon's <strong>Frightful Presence</strong>, the Conquest Paladin's <strong>Conquering Presence</strong>, and the Berserker Barbarian's <strong>Intimidating Presence</strong>.</p>`,
+        content: `<p>Spells like <a href="/spells/utility-control/fear-5e/"><strong>Fear</strong></a>, <a href="/spells/utility-control/cause-fear-5e/"><strong>Cause Fear</strong></a>, and <a href="/spells/offensive/phantasmal-killer-5e/"><strong>Phantasmal Killer</strong></a>. Dragon's <strong>Frightful Presence</strong>, the <a href="/characters/classes/paladin-5e/">Conquest Paladin's</a> <strong>Conquering Presence</strong>, and the <a href="/characters/classes/barbarian-5e/">Berserker Barbarian's</a> <strong>Intimidating Presence</strong>.</p>`,
       },
       {
         id: "interactions",
         title: "Key Interactions",
-        content: `<ul><li>The disadvantage only applies while the source is in line of sight — break line of sight to fight normally.</li><li>The creature CAN move away from or laterally to the source, just not closer.</li><li>Immunity to the frightened condition (like Berserker's Mindless Rage) prevents all effects.</li><li>Devotion Paladin's Aura of Courage makes nearby allies immune.</li></ul>`,
+        content: `<ul><li>The disadvantage only applies while the source is in line of sight — break line of sight to fight normally.</li><li>The creature CAN move away from or laterally to the source, just not closer.</li><li>Immunity to the frightened condition (like <a href="/characters/classes/barbarian-5e/">Berserker's</a> Mindless Rage) prevents all effects.</li><li><a href="/characters/classes/paladin-5e/">Devotion Paladin's</a> Aura of Courage makes nearby allies immune.</li></ul>`,
       },
     ],
     commonMistakes: [
@@ -208,15 +208,15 @@ export const conditionPages: RulePage[] = [
       },
       {
         question: "What's the difference between frightened and the Fear spell?",
-        answer: "Frightened is the condition with disadvantage and can't-move-closer effects. The Fear spell causes the frightened condition PLUS forces you to Dash away. Other sources of frightened (like Frightful Presence) only apply the base condition without the forced fleeing."
+        answer: "Frightened is the condition with disadvantage and can't-move-closer effects. The <a href=\"/spells/utility-control/fear-5e/\">Fear</a> spell causes the frightened condition PLUS forces you to Dash away. Other sources of frightened (like Frightful Presence) only apply the base condition without the forced fleeing."
       },
       {
         question: "How does Aura of Courage interact with frightened?",
-        answer: "A Paladin's Aura of Courage (10th level) makes the paladin and allies within 10 feet immune to the frightened condition. This is immunity - they can't be frightened while in the aura, and existing frightened conditions are suppressed while in range."
+        answer: "A <a href=\"/characters/classes/paladin-5e/\">Paladin's</a> Aura of Courage (10th level) makes the paladin and allies within 10 feet immune to the frightened condition. This is immunity - they can't be frightened while in the aura, and existing frightened conditions are suppressed while in range."
       },
       {
         question: "Does Mindless Rage make Barbarians immune to frightened?",
-        answer: "Yes, while raging, a Berserker Barbarian with Mindless Rage (6th level) can't be charmed or frightened. If they were already frightened before raging, the effect is suspended during the rage. It returns when rage ends if the duration hasn't expired."
+        answer: "Yes, while raging, a <a href=\"/characters/classes/barbarian-5e/\">Berserker Barbarian</a> with Mindless Rage (6th level) can't be <a href=\"/rules/conditions/charmed-condition-5e/\">charmed</a> or frightened. If they were already frightened before raging, the effect is suspended during the rage. It returns when rage ends if the duration hasn't expired."
       }
     ]
   },
@@ -230,7 +230,7 @@ export const conditionPages: RulePage[] = [
       {
         id: "effect",
         title: "Effect",
-        content: `<ul><li>A grappled creature's speed becomes <strong>0</strong>, and it can't benefit from any bonus to its speed.</li><li>The condition ends if the grappler is incapacitated.</li><li>The condition also ends if an effect removes the grappled creature from the reach of the grappler (e.g., Thunderwave).</li></ul>`,
+        content: `<ul><li>A grappled creature's speed becomes <strong>0</strong>, and it can't benefit from any bonus to its speed.</li><li>The condition ends if the grappler is <a href="/rules/conditions/incapacitated-condition-5e/">incapacitated</a>.</li><li>The condition also ends if an effect removes the grappled creature from the reach of the grappler (e.g., <a href="/spells/offensive/thunderwave-5e/">Thunderwave</a>).</li></ul>`,
       },
       {
         id: "grappling-rules",
@@ -240,7 +240,7 @@ export const conditionPages: RulePage[] = [
       {
         id: "interactions",
         title: "Key Interactions",
-        content: `<ul><li>Grappled does NOT give advantage or disadvantage on attacks — combine with the <strong>Shove</strong> action (prone) for advantage.</li><li>A grappled+prone creature has speed 0 (from grapple) and can't stand up (standing requires speed) — a powerful combo.</li><li>Grappling requires a free hand.</li><li>You can grapple creatures up to one size larger than you.</li></ul>`,
+        content: `<ul><li>Grappled does NOT give advantage or disadvantage on attacks — combine with the <strong>Shove</strong> action (<a href="/rules/conditions/prone-condition-5e/">prone</a>) for advantage.</li><li>A grappled+<a href="/rules/conditions/prone-condition-5e/">prone</a> creature has speed 0 (from grapple) and can't stand up (standing requires speed) — a powerful combo.</li><li>Grappling requires a free hand.</li><li>You can grapple creatures up to one size larger than you.</li></ul>`,
       },
     ],
     commonMistakes: [
@@ -255,7 +255,7 @@ export const conditionPages: RulePage[] = [
     faq: [
       {
         question: "Does grappling give advantage on attack rolls?",
-        answer: "No! Grappled only reduces speed to 0. To get advantage on attacks, combine grappling with the Shove action to knock the target prone. A grappled+prone creature can't stand up (needs speed) and attackers within 5 feet have advantage against prone targets."
+        answer: "No! Grappled only reduces speed to 0. To get advantage on attacks, combine grappling with the Shove action to knock the target <a href=\"/rules/conditions/prone-condition-5e/\">prone</a>. A grappled+prone creature can't stand up (needs speed) and attackers within 5 feet have advantage against prone targets."
       },
       {
         question: "Can I grapple with two hands full (weapon and shield)?",
@@ -285,12 +285,12 @@ export const conditionPages: RulePage[] = [
       {
         id: "effect",
         title: "Effect",
-        content: `<ul><li>An incapacitated creature <strong>can't take actions or reactions</strong>.</li></ul><p>This is the base condition that several other conditions include (stunned, paralyzed, unconscious, petrified).</p>`,
+        content: `<ul><li>An incapacitated creature <strong>can't take actions or reactions</strong>.</li></ul><p>This is the base condition that several other conditions include (<a href="/rules/conditions/stunned-condition-5e/">stunned</a>, <a href="/rules/conditions/paralyzed-condition-5e/">paralyzed</a>, <a href="/rules/conditions/unconscious-condition-5e/">unconscious</a>, <a href="/rules/conditions/petrified-condition-5e/">petrified</a>).</p>`,
       },
       {
         id: "common-sources",
         title: "Common Sources",
-        content: `<p>Rarely applied on its own — it's typically part of other conditions. Some effects like <strong>Hypnotic Pattern</strong> (incapacitated while charmed by it) and certain monster abilities apply it directly.</p>`,
+        content: `<p>Rarely applied on its own — it's typically part of other conditions. Some effects like <a href="/spells/utility-control/hypnotic-pattern-5e/"><strong>Hypnotic Pattern</strong></a> (incapacitated while <a href="/rules/conditions/charmed-condition-5e/">charmed</a> by it) and certain monster abilities apply it directly.</p>`,
       },
       {
         id: "interactions",
@@ -325,7 +325,7 @@ export const conditionPages: RulePage[] = [
       },
       {
         question: "What's the difference between incapacitated and stunned?",
-        answer: "Incapacitated only prevents actions and reactions. Stunned includes incapacitated PLUS: can't move, can speak only falteringly, auto-fail Str/Dex saves, and attacks against you have advantage. Stunned is significantly worse than pure incapacitated."
+        answer: "Incapacitated only prevents actions and reactions. <a href=\"/rules/conditions/stunned-condition-5e/\">Stunned</a> includes incapacitated PLUS: can't move, can speak only falteringly, auto-fail Str/Dex saves, and attacks against you have advantage. Stunned is significantly worse than pure incapacitated."
       }
     ]
   },
@@ -344,12 +344,12 @@ export const conditionPages: RulePage[] = [
       {
         id: "common-sources",
         title: "Common Sources",
-        content: `<p><strong>Invisibility</strong> and <strong>Greater Invisibility</strong> spells. <strong>Potion of Invisibility</strong>. Some creatures have innate invisibility. The <strong>Hide</strong> action doesn't make you invisible — it makes you hidden (different thing).</p>`,
+        content: `<p><a href="/spells/utility-control/invisibility-5e/"><strong>Invisibility</strong></a> and <a href="/spells/utility-control/greater-invisibility-5e/"><strong>Greater Invisibility</strong></a> spells. <a href="/items/potion-of-invisibility-5e/"><strong>Potion of Invisibility</strong></a>. Some creatures have innate invisibility. The <strong>Hide</strong> action doesn't make you invisible — it makes you hidden (different thing).</p>`,
       },
       {
         id: "interactions",
         title: "Key Interactions",
-        content: `<ul><li>Regular Invisibility ends when you attack or cast a spell. Greater Invisibility does not.</li><li>Invisible does NOT mean undetectable — creatures can still hear, smell, or feel you.</li><li>Attacking an invisible creature you can't see: you must guess the square. If wrong, you miss automatically (DM may not reveal this).</li><li>See Invisibility, Truesight, Blindsight, and Tremorsense can all detect invisible creatures.</li><li>Faerie Fire outlines invisible creatures, negating the invisibility's combat benefits.</li></ul>`,
+        content: `<ul><li>Regular <a href="/spells/utility-control/invisibility-5e/">Invisibility</a> ends when you attack or cast a spell. <a href="/spells/utility-control/greater-invisibility-5e/">Greater Invisibility</a> does not.</li><li>Invisible does NOT mean undetectable — creatures can still hear, smell, or feel you.</li><li>Attacking an invisible creature you can't see: you must guess the square. If wrong, you miss automatically (DM may not reveal this).</li><li><a href="/spells/utility-control/see-invisibility-5e/">See Invisibility</a>, Truesight, Blindsight, and Tremorsense can all detect invisible creatures.</li><li><a href="/spells/utility-control/faerie-fire-5e/">Faerie Fire</a> outlines invisible creatures, negating the invisibility's combat benefits.</li></ul>`,
       },
     ],
     commonMistakes: [
@@ -368,7 +368,7 @@ export const conditionPages: RulePage[] = [
       },
       {
         question: "What's the difference between Invisibility and Greater Invisibility?",
-        answer: "Regular Invisibility ends when you attack or cast a spell (concentration, up to 1 hour). Greater Invisibility does NOT end when you attack or cast - you stay invisible the whole time (concentration, up to 1 minute). Greater Invisibility is much more powerful in combat."
+        answer: "Regular <a href=\"/spells/utility-control/invisibility-5e/\">Invisibility</a> ends when you attack or cast a spell (concentration, up to 1 hour). <a href=\"/spells/utility-control/greater-invisibility-5e/\">Greater Invisibility</a> does NOT end when you attack or cast - you stay invisible the whole time (concentration, up to 1 minute). Greater Invisibility is much more powerful in combat."
       },
       {
         question: "Does attacking while invisible give advantage?",
@@ -376,7 +376,7 @@ export const conditionPages: RulePage[] = [
       },
       {
         question: "How do I find an invisible creature?",
-        answer: "Use Perception (hearing, smell) to detect their location. Area effects don't require seeing the target. Spells like Faerie Fire, See Invisibility, or True Seeing reveal them. Blindsight and Tremorsense detect them. Flour, paint, or water can reveal their position."
+        answer: "Use Perception (hearing, smell) to detect their location. Area effects don't require seeing the target. Spells like <a href=\"/spells/utility-control/faerie-fire-5e/\">Faerie Fire</a>, <a href=\"/spells/utility-control/see-invisibility-5e/\">See Invisibility</a>, or <a href=\"/spells/utility-control/true-seeing-5e/\">True Seeing</a> reveal them. Blindsight and Tremorsense detect them. Flour, paint, or water can reveal their position."
       },
       {
         question: "Can invisible creatures be targeted by spells?",
@@ -394,17 +394,17 @@ export const conditionPages: RulePage[] = [
       {
         id: "effect",
         title: "Effect",
-        content: `<ul><li>A paralyzed creature is <strong>incapacitated</strong> (can't take actions or reactions) and can't move or speak.</li><li>The creature automatically <strong>fails Strength and Dexterity saving throws</strong>.</li><li>Attack rolls against the creature have <strong>advantage</strong>.</li><li>Any attack that hits the creature from within 5 feet is a <strong>critical hit</strong>.</li></ul>`,
+        content: `<ul><li>A paralyzed creature is <a href="/rules/conditions/incapacitated-condition-5e/"><strong>incapacitated</strong></a> (can't take actions or reactions) and can't move or speak.</li><li>The creature automatically <strong>fails Strength and Dexterity saving throws</strong>.</li><li>Attack rolls against the creature have <strong>advantage</strong>.</li><li>Any attack that hits the creature from within 5 feet is a <strong>critical hit</strong>.</li></ul>`,
       },
       {
         id: "common-sources",
         title: "Common Sources",
-        content: `<p><strong>Hold Person</strong> (humanoids only), <strong>Hold Monster</strong> (any creature), <strong>Ghoul's Claws</strong> (paralysis on failed Con save), and some poisons.</p>`,
+        content: `<p><a href="/spells/utility-control/hold-person-5e/"><strong>Hold Person</strong></a> (humanoids only), <a href="/spells/utility-control/hold-monster-5e/"><strong>Hold Monster</strong></a> (any creature), <a href="/monsters/ghoul-5e/"><strong>Ghoul's</strong></a> Claws (paralysis on failed Con save), and some poisons.</p>`,
       },
       {
         id: "interactions",
         title: "Key Interactions",
-        content: `<ul><li>Paralyzed is one of the most devastating conditions — auto-crits from melee make it extremely dangerous.</li><li>Hold Person allows a new save at the end of each turn.</li><li>Elves are immune to the Ghoul's paralysis (but not Hold Person).</li><li>Paralyzed ends concentration spells since it includes incapacitated.</li></ul>`,
+        content: `<ul><li>Paralyzed is one of the most devastating conditions — auto-crits from melee make it extremely dangerous.</li><li><a href="/spells/utility-control/hold-person-5e/">Hold Person</a> allows a new save at the end of each turn.</li><li>Elves are immune to the <a href="/monsters/ghoul-5e/">Ghoul's</a> paralysis (but not Hold Person).</li><li>Paralyzed ends concentration spells since it includes <a href="/rules/conditions/incapacitated-condition-5e/">incapacitated</a>.</li></ul>`,
       },
     ],
     commonMistakes: [
@@ -422,16 +422,16 @@ export const conditionPages: RulePage[] = [
         answer: "Yes! Any attack that hits a paralyzed creature from within 5 feet is automatically a critical hit. Combined with advantage on the attack, this makes paralysis devastatingly dangerous. A melee attacker almost certainly hits and deals double damage dice."
       },
       {
-        question: "What's the difference between paralyzed and stunned?",
-        answer: "Both prevent actions/movement and give attackers advantage. The key difference: paralyzed gives AUTO-CRITS on melee hits, stunned does not. Paralyzed also prevents all speech, while stunned allows faltering speech. Paralyzed is significantly more dangerous."
+        question: "What's the difference between paralyzed and <a href=\"/rules/conditions/stunned-condition-5e/\">stunned</a>?",
+        answer: "Both prevent actions/movement and give attackers advantage. The key difference: paralyzed gives AUTO-CRITS on melee hits, <a href=\"/rules/conditions/stunned-condition-5e/\">stunned</a> does not. Paralyzed also prevents all speech, while stunned allows faltering speech. Paralyzed is significantly more dangerous."
       },
       {
         question: "Can elves be paralyzed by Hold Person?",
-        answer: "Yes! Elves are immune to the Ghoul's paralysis specifically (which calls out that elves are immune), but they are NOT immune to Hold Person or other paralysis effects. Fey Ancestry doesn't protect against paralysis - only sleep and charm."
+        answer: "Yes! Elves are immune to the <a href=\"/monsters/ghoul-5e/\">Ghoul's</a> paralysis specifically (which calls out that elves are immune), but they are NOT immune to <a href=\"/spells/utility-control/hold-person-5e/\">Hold Person</a> or other paralysis effects. Fey Ancestry doesn't protect against paralysis - only sleep and <a href=\"/rules/conditions/charmed-condition-5e/\">charm</a>."
       },
       {
         question: "How do you end paralysis from Hold Person?",
-        answer: "Hold Person allows a new Wisdom saving throw at the end of each of the target's turns. Success ends the paralysis. Alternatively, the caster losing concentration ends it. There's no other escape - you can't use an action to break free like with grappling."
+        answer: "<a href=\"/spells/utility-control/hold-person-5e/\">Hold Person</a> allows a new Wisdom saving throw at the end of each of the target's turns. Success ends the paralysis. Alternatively, the caster losing concentration ends it. There's no other escape - you can't use an action to break free like with <a href=\"/rules/conditions/grappled-condition-5e/\">grappling</a>."
       },
       {
         question: "Does paralysis affect my death saves?",
@@ -449,17 +449,17 @@ export const conditionPages: RulePage[] = [
       {
         id: "effect",
         title: "Effect",
-        content: `<ul><li>A petrified creature is transformed, along with any nonmagical objects it's wearing or carrying, into a solid inanimate substance (usually stone). Its weight increases by a factor of ten, and it ceases aging.</li><li>The creature is <strong>incapacitated</strong>, can't move or speak, and is unaware of its surroundings.</li><li>Attack rolls against the creature have <strong>advantage</strong>.</li><li>The creature automatically <strong>fails Strength and Dexterity saving throws</strong>.</li><li>The creature has <strong>resistance to all damage</strong>.</li><li>The creature is immune to <strong>poison and disease</strong> (existing poison/disease is suspended).</li></ul>`,
+        content: `<ul><li>A petrified creature is transformed, along with any nonmagical objects it's wearing or carrying, into a solid inanimate substance (usually stone). Its weight increases by a factor of ten, and it ceases aging.</li><li>The creature is <a href="/rules/conditions/incapacitated-condition-5e/"><strong>incapacitated</strong></a>, can't move or speak, and is unaware of its surroundings.</li><li>Attack rolls against the creature have <strong>advantage</strong>.</li><li>The creature automatically <strong>fails Strength and Dexterity saving throws</strong>.</li><li>The creature has <strong>resistance to all damage</strong>.</li><li>The creature is immune to <strong>poison and disease</strong> (existing poison/disease is suspended).</li></ul>`,
       },
       {
         id: "common-sources",
         title: "Common Sources",
-        content: `<p><strong>Flesh to Stone</strong> spell (gradual petrification over multiple saves), <strong>Basilisk's</strong> petrifying gaze, <strong>Medusa's</strong> petrifying gaze, <strong>Cockatrice's</strong> bite, and <strong>Beholder's</strong> petrification ray.</p>`,
+        content: `<p><a href="/spells/utility-control/flesh-to-stone-5e/"><strong>Flesh to Stone</strong></a> spell (gradual petrification over multiple saves), <a href="/monsters/basilisk-5e/"><strong>Basilisk's</strong></a> petrifying gaze, <a href="/monsters/medusa-5e/"><strong>Medusa's</strong></a> petrifying gaze, <a href="/monsters/cockatrice-5e/"><strong>Cockatrice's</strong></a> bite, and <a href="/monsters/beholder-5e/"><strong>Beholder's</strong></a> petrification ray.</p>`,
       },
       {
         id: "interactions",
         title: "Key Interactions",
-        content: `<ul><li><strong>Greater Restoration</strong> can end petrification.</li><li>The resistance to all damage means a petrified creature is actually somewhat protected.</li><li>Time doesn't pass for the petrified creature — useful for story hooks.</li></ul>`,
+        content: `<ul><li><a href="/spells/support-healing/greater-restoration-5e/"><strong>Greater Restoration</strong></a> can end petrification.</li><li>The resistance to all damage means a petrified creature is actually somewhat protected.</li><li>Time doesn't pass for the petrified creature — useful for story hooks.</li></ul>`,
       },
     ],
     commonMistakes: [
@@ -473,7 +473,7 @@ export const conditionPages: RulePage[] = [
     faq: [
       {
         question: "How do you cure petrification?",
-        answer: "Greater Restoration (5th-level spell) ends petrification. Some monster stat blocks mention specific cures (basilisk blood for basilisk petrification). The Wish spell can also cure it. Without magic, petrification is permanent - the creature becomes a statue forever."
+        answer: "<a href=\"/spells/support-healing/greater-restoration-5e/\">Greater Restoration</a> (5th-level spell) ends petrification. Some monster stat blocks mention specific cures (<a href=\"/monsters/basilisk-5e/\">basilisk</a> blood for basilisk petrification). The <a href=\"/spells/utility-control/wish-5e/\">Wish</a> spell can also cure it. Without magic, petrification is permanent - the creature becomes a statue forever."
       },
       {
         question: "What happens to a petrified creature's equipment?",
@@ -489,7 +489,7 @@ export const conditionPages: RulePage[] = [
       },
       {
         question: "How does Flesh to Stone's gradual petrification work?",
-        answer: "The creature is restrained on a failed save. It must make Constitution saves at the end of each turn: 3 failures = petrified permanently, 3 successes = spell ends. This takes multiple rounds, giving allies time to break the caster's concentration."
+        answer: "The creature is <a href=\"/rules/conditions/restrained-condition-5e/\">restrained</a> on a failed save. It must make Constitution saves at the end of each turn: 3 failures = petrified permanently, 3 successes = spell ends. This takes multiple rounds, giving allies time to break the caster's concentration."
       }
     ]
   },
@@ -508,12 +508,12 @@ export const conditionPages: RulePage[] = [
       {
         id: "common-sources",
         title: "Common Sources",
-        content: `<p>Many monster attacks (Giant Spiders, Poisonous Snakes, Wyverns), <strong>poisons</strong> applied to weapons, <strong>Ray of Sickness</strong> spell, <strong>Cloudkill</strong>, Assassin's poison, and poisoned food/drink.</p>`,
+        content: `<p>Many monster attacks (<a href="/monsters/giant-spider-5e/">Giant Spiders</a>, <a href="/monsters/poisonous-snake-5e/">Poisonous Snakes</a>, <a href="/monsters/wyvern-5e/">Wyverns</a>), <strong>poisons</strong> applied to weapons, <a href="/spells/offensive/ray-of-sickness-5e/"><strong>Ray of Sickness</strong></a> spell, <a href="/spells/offensive/cloudkill-5e/"><strong>Cloudkill</strong></a>, Assassin's poison, and poisoned food/drink.</p>`,
       },
       {
         id: "interactions",
         title: "Key Interactions",
-        content: `<ul><li><strong>Dwarves</strong> have advantage on saves against poison and resistance to poison damage (Dwarven Resilience).</li><li><strong>Protection from Poison</strong> spell suppresses the condition and gives advantage on saves.</li><li><strong>Lesser Restoration</strong> cures the poisoned condition.</li><li>Many creatures (undead, constructs, fiends) are <strong>immune</strong> to the poisoned condition.</li></ul>`,
+        content: `<ul><li><a href="/characters/races/dwarf-5e/"><strong>Dwarves</strong></a> have advantage on saves against poison and resistance to poison damage (Dwarven Resilience).</li><li><a href="/spells/support-healing/protection-from-poison-5e/"><strong>Protection from Poison</strong></a> spell suppresses the condition and gives advantage on saves.</li><li><a href="/spells/support-healing/lesser-restoration-5e/"><strong>Lesser Restoration</strong></a> cures the poisoned condition.</li><li>Many creatures (undead, constructs, fiends) are <strong>immune</strong> to the poisoned condition.</li></ul>`,
       },
     ],
     commonMistakes: [
@@ -536,7 +536,7 @@ export const conditionPages: RulePage[] = [
       },
       {
         question: "How do you cure the poisoned condition?",
-        answer: "Lesser Restoration removes poisoned instantly. Protection from Poison suppresses it and gives advantage on future poison saves. Some poisons end after a specific duration. Antidotes (if available) typically end specific poisons. Long rests usually end poison effects."
+        answer: "<a href=\"/spells/support-healing/lesser-restoration-5e/\">Lesser Restoration</a> removes poisoned instantly. <a href=\"/spells/support-healing/protection-from-poison-5e/\">Protection from Poison</a> suppresses it and gives advantage on future poison saves. Some poisons end after a specific duration. Antidotes (if available) typically end specific poisons. Long rests usually end poison effects."
       },
       {
         question: "Does poisoned affect saving throws?",
@@ -568,7 +568,7 @@ export const conditionPages: RulePage[] = [
       {
         id: "interactions",
         title: "Key Interactions",
-        content: `<ul><li><strong>Grapple + Prone</strong> is the classic combo: the creature can't stand because standing requires speed, and grappled sets speed to 0.</li><li>Prone is a <strong>disadvantage for ranged attackers</strong> — dropping prone against archers is a valid tactic.</li><li>Flying creatures that are knocked prone <strong>fall</strong> (unless they can hover).</li><li>The <strong>Shove</strong> action can knock a creature prone (Athletics vs. Athletics/Acrobatics).</li></ul>`,
+        content: `<ul><li><a href="/rules/conditions/grappled-condition-5e/"><strong>Grapple</strong></a> + Prone is the classic combo: the creature can't stand because standing requires speed, and grappled sets speed to 0.</li><li>Prone is a <strong>disadvantage for ranged attackers</strong> — dropping prone against archers is a valid tactic.</li><li>Flying creatures that are knocked prone <strong>fall</strong> (unless they can hover).</li><li>The <strong>Shove</strong> action can knock a creature prone (Athletics vs. Athletics/Acrobatics).</li></ul>`,
       },
     ],
     commonMistakes: [
@@ -599,7 +599,7 @@ export const conditionPages: RulePage[] = [
       },
       {
         question: "Why is grapple + prone so powerful?",
-        answer: "A grappled creature has speed 0. Standing from prone requires spending movement. With no speed, they can't spend movement to stand. The creature is stuck prone (advantage for melee attackers) and can't escape without first breaking the grapple."
+        answer: "A <a href=\"/rules/conditions/grappled-condition-5e/\">grappled</a> creature has speed 0. Standing from prone requires spending movement. With no speed, they can't spend movement to stand. The creature is stuck prone (advantage for melee attackers) and can't escape without first breaking the grapple."
       }
     ]
   },
@@ -618,12 +618,12 @@ export const conditionPages: RulePage[] = [
       {
         id: "common-sources",
         title: "Common Sources",
-        content: `<p><strong>Entangle</strong> spell, <strong>Web</strong> spell, <strong>Ensnaring Strike</strong>, <strong>Net</strong> weapon, grappling vines, and many monster abilities (Roper's tendrils, Giant Spider's web).</p>`,
+        content: `<p><a href="/spells/utility-control/entangle-5e/"><strong>Entangle</strong></a> spell, <a href="/spells/utility-control/web-5e/"><strong>Web</strong></a> spell, <a href="/spells/offensive/ensnaring-strike-5e/"><strong>Ensnaring Strike</strong></a>, <strong>Net</strong> weapon, grappling vines, and many monster abilities (<a href="/monsters/roper-5e/">Roper's</a> tendrils, <a href="/monsters/giant-spider-5e/">Giant Spider's</a> web).</p>`,
       },
       {
         id: "interactions",
         title: "Key Interactions",
-        content: `<ul><li>Restrained is stronger than grappled — it adds advantage on attacks against the creature and disadvantage on their attacks and Dex saves.</li><li>The Entangle spell is a 1st-level spell that can restrain multiple creatures — very efficient.</li><li>Freedom of Movement makes you immune to being restrained.</li></ul>`,
+        content: `<ul><li>Restrained is stronger than <a href="/rules/conditions/grappled-condition-5e/">grappled</a> — it adds advantage on attacks against the creature and disadvantage on their attacks and Dex saves.</li><li>The <a href="/spells/utility-control/entangle-5e/">Entangle</a> spell is a 1st-level spell that can restrain multiple creatures — very efficient.</li><li><a href="/spells/utility-control/freedom-of-movement-5e/">Freedom of Movement</a> makes you immune to being restrained.</li></ul>`,
       },
     ],
     commonMistakes: [
@@ -637,7 +637,7 @@ export const conditionPages: RulePage[] = [
     faq: [
       {
         question: "What's the difference between restrained and grappled?",
-        answer: "Grappled only sets speed to 0. Restrained sets speed to 0 AND gives attackers advantage, the creature's attacks have disadvantage, and the creature has disadvantage on Dex saves. Restrained is significantly more punishing than grappled."
+        answer: "<a href=\"/rules/conditions/grappled-condition-5e/\">Grappled</a> only sets speed to 0. Restrained sets speed to 0 AND gives attackers advantage, the creature's attacks have disadvantage, and the creature has disadvantage on Dex saves. Restrained is significantly more punishing than grappled."
       },
       {
         question: "Can I still cast spells while restrained?",
@@ -645,11 +645,11 @@ export const conditionPages: RulePage[] = [
       },
       {
         question: "How do you escape being restrained?",
-        answer: "It depends on the source. Entangle and Web require a Strength check as an action to escape. A Net requires using an action to make a DC 10 Strength check or dealing 5 slashing damage to the net. Check the specific effect for escape rules."
+        answer: "It depends on the source. <a href=\"/spells/utility-control/entangle-5e/\">Entangle</a> and <a href=\"/spells/utility-control/web-5e/\">Web</a> require a Strength check as an action to escape. A Net requires using an action to make a DC 10 Strength check or dealing 5 slashing damage to the net. Check the specific effect for escape rules."
       },
       {
         question: "Does Freedom of Movement prevent restrained?",
-        answer: "Yes! Freedom of Movement makes you immune to the restrained condition and prevents your movement from being reduced. It's an excellent counter to Web, Entangle, and grapple-heavy enemies. The spell lasts 1 hour with no concentration."
+        answer: "Yes! <a href=\"/spells/utility-control/freedom-of-movement-5e/\">Freedom of Movement</a> makes you immune to the restrained condition and prevents your movement from being reduced. It's an excellent counter to <a href=\"/spells/utility-control/web-5e/\">Web</a>, <a href=\"/spells/utility-control/entangle-5e/\">Entangle</a>, and grapple-heavy enemies. The spell lasts 1 hour with no concentration."
       },
       {
         question: "Why is restrained so dangerous for spellcasters?",
@@ -667,17 +667,17 @@ export const conditionPages: RulePage[] = [
       {
         id: "effect",
         title: "Effect",
-        content: `<ul><li>A stunned creature is <strong>incapacitated</strong> (can't take actions or reactions), can't move, and can speak only falteringly.</li><li>The creature automatically <strong>fails Strength and Dexterity saving throws</strong>.</li><li>Attack rolls against the creature have <strong>advantage</strong>.</li></ul>`,
+        content: `<ul><li>A stunned creature is <a href="/rules/conditions/incapacitated-condition-5e/"><strong>incapacitated</strong></a> (can't take actions or reactions), can't move, and can speak only falteringly.</li><li>The creature automatically <strong>fails Strength and Dexterity saving throws</strong>.</li><li>Attack rolls against the creature have <strong>advantage</strong>.</li></ul>`,
       },
       {
         id: "common-sources",
         title: "Common Sources",
-        content: `<p><strong>Stunning Strike</strong> (Monk), <strong>Power Word Stun</strong>, <strong>Contagion</strong> (Flesh Rot), <strong>Divine Word</strong>, <strong>Symbol</strong> (Stunning), Mind Flayer's <strong>Mind Blast</strong>, and various monster abilities.</p>`,
+        content: `<p><strong>Stunning Strike</strong> (<a href="/characters/classes/monk-5e/">Monk</a>), <a href="/spells/utility-control/power-word-stun-5e/"><strong>Power Word Stun</strong></a>, <a href="/spells/offensive/contagion-5e/"><strong>Contagion</strong></a> (Flesh Rot), <a href="/spells/utility-control/divine-word-5e/"><strong>Divine Word</strong></a>, <a href="/spells/utility-control/symbol-5e/"><strong>Symbol</strong></a> (Stunning), <a href="/monsters/mind-flayer-5e/">Mind Flayer's</a> <strong>Mind Blast</strong>, and various monster abilities.</p>`,
       },
       {
         id: "interactions",
         title: "Key Interactions",
-        content: `<ul><li>Stunned is nearly as devastating as paralyzed — the main difference is no auto-crits.</li><li>Monk's Stunning Strike is one of the most powerful features in the game — it costs 1 ki point and can shut down any creature.</li><li>Concentration spells end when a caster is stunned (since it includes incapacitated).</li><li>Stunned creatures can't maintain grapples.</li></ul>`,
+        content: `<ul><li>Stunned is nearly as devastating as <a href="/rules/conditions/paralyzed-condition-5e/">paralyzed</a> — the main difference is no auto-crits.</li><li><a href="/characters/classes/monk-5e/">Monk's</a> Stunning Strike is one of the most powerful features in the game — it costs 1 ki point and can shut down any creature.</li><li>Concentration spells end when a caster is stunned (since it includes <a href="/rules/conditions/incapacitated-condition-5e/">incapacitated</a>).</li><li>Stunned creatures can't maintain grapples.</li></ul>`,
       },
     ],
     commonMistakes: [
@@ -692,15 +692,15 @@ export const conditionPages: RulePage[] = [
     faq: [
       {
         question: "What's the difference between stunned and paralyzed?",
-        answer: "Both are devastating, but paralyzed is worse. Both: incapacitated, can't move, auto-fail Str/Dex saves, attackers have advantage. Paralyzed adds: can't speak at all, and melee attacks within 5 feet AUTO-CRIT. Stunned allows faltering speech and no auto-crits."
+        answer: "Both are devastating, but <a href=\"/rules/conditions/paralyzed-condition-5e/\">paralyzed</a> is worse. Both: <a href=\"/rules/conditions/incapacitated-condition-5e/\">incapacitated</a>, can't move, auto-fail Str/Dex saves, attackers have advantage. Paralyzed adds: can't speak at all, and melee attacks within 5 feet AUTO-CRIT. Stunned allows faltering speech and no auto-crits."
       },
       {
         question: "Can a creature save against Stunning Strike multiple times per round?",
-        answer: "A Monk can attempt Stunning Strike on each hit. Each requires 1 ki point and a Constitution save by the target. A high-level Monk can potentially force 4+ saves in one turn. The target saves against each one separately."
+        answer: "A <a href=\"/characters/classes/monk-5e/\">Monk</a> can attempt Stunning Strike on each hit. Each requires 1 ki point and a Constitution save by the target. A high-level Monk can potentially force 4+ saves in one turn. The target saves against each one separately."
       },
       {
         question: "Does stunned end concentration?",
-        answer: "Yes, automatically. Stunned includes the incapacitated condition, and becoming incapacitated ends concentration instantly. There's no save - the spell just ends. This makes stunning enemy casters extremely effective."
+        answer: "Yes, automatically. Stunned includes the <a href=\"/rules/conditions/incapacitated-condition-5e/\">incapacitated</a> condition, and becoming incapacitated ends concentration instantly. There's no save - the spell just ends. This makes stunning enemy casters extremely effective."
       },
       {
         question: "Why is Stunning Strike considered so powerful?",
@@ -708,7 +708,7 @@ export const conditionPages: RulePage[] = [
       },
       {
         question: "How do monsters typically cause stunned?",
-        answer: "Mind Flayer's Mind Blast (Intelligence save, stuns everyone in a cone), Divine Word spell, Power Word Stun, and various legendary monster abilities. Monster-inflicted stuns often affect multiple targets or have no save on low-HP creatures."
+        answer: "<a href=\"/monsters/mind-flayer-5e/\">Mind Flayer's</a> Mind Blast (Intelligence save, stuns everyone in a cone), <a href=\"/spells/utility-control/divine-word-5e/\">Divine Word</a> spell, <a href=\"/spells/utility-control/power-word-stun-5e/\">Power Word Stun</a>, and various legendary monster abilities. Monster-inflicted stuns often affect multiple targets or have no save on low-HP creatures."
       }
     ]
   },
@@ -722,32 +722,32 @@ export const conditionPages: RulePage[] = [
       {
         id: "effect",
         title: "Effect",
-        content: `<ul><li>An unconscious creature is <strong>incapacitated</strong>, can't move or speak, and is <strong>unaware of its surroundings</strong>.</li><li>The creature <strong>drops whatever it's holding</strong> and <strong>falls prone</strong>.</li><li>The creature automatically <strong>fails Strength and Dexterity saving throws</strong>.</li><li>Attack rolls against the creature have <strong>advantage</strong>.</li><li>Any attack that hits the creature from within 5 feet is a <strong>critical hit</strong>.</li></ul>`,
+        content: `<ul><li>An unconscious creature is <a href="/rules/conditions/incapacitated-condition-5e/"><strong>incapacitated</strong></a>, can't move or speak, and is <strong>unaware of its surroundings</strong>.</li><li>The creature <strong>drops whatever it's holding</strong> and <strong>falls <a href="/rules/conditions/prone-condition-5e/">prone</a></strong>.</li><li>The creature automatically <strong>fails Strength and Dexterity saving throws</strong>.</li><li>Attack rolls against the creature have <strong>advantage</strong>.</li><li>Any attack that hits the creature from within 5 feet is a <strong>critical hit</strong>.</li></ul>`,
       },
       {
         id: "common-sources",
         title: "Common Sources",
-        content: `<p>Dropping to <strong>0 hit points</strong> (non-lethal or death saves), <strong>Sleep</strong> spell, being knocked out, and some poisons or monster abilities.</p>`,
+        content: `<p>Dropping to <strong>0 hit points</strong> (non-lethal or death saves), <a href="/spells/utility-control/sleep-5e/"><strong>Sleep</strong></a> spell, being knocked out, and some poisons or monster abilities.</p>`,
       },
       {
         id: "interactions",
         title: "Key Interactions",
-        content: `<ul><li>Unconscious from 0 HP → death saving throws. Unconscious from Sleep → waking up takes an action from an ally or taking damage.</li><li>The auto-crit from melee (within 5 ft) means two failed death saves from a single melee hit on an unconscious PC at 0 HP.</li><li>An unconscious creature is also prone — ranged attacks from far away still have disadvantage.</li><li>Healing an unconscious creature at 0 HP restores consciousness immediately.</li></ul>`,
+        content: `<ul><li>Unconscious from 0 HP → death saving throws. Unconscious from <a href="/spells/utility-control/sleep-5e/">Sleep</a> → waking up takes an action from an ally or taking damage.</li><li>The auto-crit from melee (within 5 ft) means two failed death saves from a single melee hit on an unconscious PC at 0 HP.</li><li>An unconscious creature is also <a href="/rules/conditions/prone-condition-5e/">prone</a> — ranged attacks from far away still have disadvantage.</li><li>Healing an unconscious creature at 0 HP restores consciousness immediately.</li></ul>`,
       },
     ],
     commonMistakes: [
       "Forgetting that melee hits on unconscious creatures are auto-crits — this means 2 death save failures",
-      "Not dropping the creature prone when they fall unconscious",
-      "Attacking unconscious creatures at range without noting the prone disadvantage",
+      "Not dropping the creature <a href=\"/rules/conditions/prone-condition-5e/\">prone</a> when they fall unconscious",
+      "Attacking unconscious creatures at range without noting the <a href=\"/rules/conditions/prone-condition-5e/\">prone</a> disadvantage",
     ],
     dmTips: [
       "Intelligent enemies may attack downed PCs to finish them off — use this sparingly for tension",
-      "The Sleep spell bypasses hit points entirely — terrifying at low levels, less so at high levels",
+      "The <a href=\"/spells/utility-control/sleep-5e/\">Sleep</a> spell bypasses hit points entirely — terrifying at low levels, less so at high levels",
     ],
     faq: [
       {
         question: "What's the difference between unconscious from 0 HP and unconscious from Sleep?",
-        answer: "From 0 HP: you make death saving throws, and damage causes failed saves. From Sleep: you're stable, taking damage wakes you up (no death saves), and an ally can use their action to wake you. Sleep is much less dangerous than dropping to 0 HP."
+        answer: "From 0 HP: you make death saving throws, and damage causes failed saves. From <a href=\"/spells/utility-control/sleep-5e/\">Sleep</a>: you're stable, taking damage wakes you up (no death saves), and an ally can use their action to wake you. Sleep is much less dangerous than dropping to 0 HP."
       },
       {
         question: "Do melee attacks on unconscious creatures automatically crit?",
@@ -755,7 +755,7 @@ export const conditionPages: RulePage[] = [
       },
       {
         question: "Does an unconscious creature automatically fall prone?",
-        answer: "Yes, an unconscious creature drops what they're holding and falls prone. This means ranged attacks actually have disadvantage (prone), partially offsetting the advantage (unconscious). The auto-crit only applies within 5 feet anyway."
+        answer: "Yes, an unconscious creature drops what they're holding and falls <a href=\"/rules/conditions/prone-condition-5e/\">prone</a>. This means ranged attacks actually have disadvantage (prone), partially offsetting the advantage (unconscious). The auto-crit only applies within 5 feet anyway."
       },
       {
         question: "How do you wake someone who is unconscious?",

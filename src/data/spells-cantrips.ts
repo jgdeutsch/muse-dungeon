@@ -146,7 +146,7 @@ export const cantrips: {
     ],
     dmTips: [
       "Allow creative uses like pulling levers, checking for traps, or delivering small items",
-      "Remember Arcane Trickster rogues get an enhanced version with invisible hand and bonus action control"
+      "Remember Arcane Trickster Rogues get an enhanced version with invisible hand and bonus action control"
     ],
     faq: [
       {
@@ -159,7 +159,7 @@ export const cantrips: {
       },
       {
         question: "How does Arcane Trickster's Mage Hand Legerdemain work?",
-        answer: "Arcane Tricksters get an upgraded Mage Hand that's invisible, controllable as a bonus action, can pick locks and disarm traps (with thieves' tools), and can plant/retrieve objects from creatures. Much more powerful than the base spell."
+        answer: "Arcane Tricksters get an upgraded Mage Hand that's <a href=\"/rules/conditions/invisible-condition-5e/\">invisible</a>, controllable as a bonus action, can pick locks and disarm traps (with thieves' tools), and can plant/retrieve objects from creatures. Much more powerful than the base spell."
       },
       {
         question: "Can Mage Hand hold a torch or light source?",
@@ -290,7 +290,7 @@ export const cantrips: {
     savingThrow: null,
     higherLevels: null,
     commonMistakes: [
-      "Trying to use the tremors to knock creatures prone - effects must be harmless",
+      "Trying to use the tremors to knock creatures <a href=\"/rules/conditions/prone-condition-5e/\">prone</a> - effects must be harmless",
       "Slamming doors on creatures to deal damage or restrict movement",
       "Forgetting it requires concentration-like management of three simultaneous effects"
     ],
@@ -305,7 +305,7 @@ export const cantrips: {
       },
       {
         question: "Can Thaumaturgy deal damage or knock creatures prone?",
-        answer: "No. The ground tremors are explicitly harmless - they can't knock creatures prone, trigger traps, or cause any mechanical effect. Similarly, slamming doors can't damage creatures or trap them."
+        answer: "No. The ground tremors are explicitly harmless - they can't knock creatures <a href=\"/rules/conditions/prone-condition-5e/\">prone</a>, trigger traps, or cause any mechanical effect. Similarly, slamming doors can't damage creatures or trap them."
       },
       {
         question: "Does Thaumaturgy give advantage on Intimidation checks?",
@@ -356,7 +356,7 @@ export const cantrips: {
       },
       {
         question: "Can Thorn Whip pull flying creatures to the ground?",
-        answer: "Yes! If the creature is within 10 feet of the ground, you can pull it down. This causes falling damage and knocks it prone. One of the best uses of Thorn Whip against flying enemies."
+        answer: "Yes! If the creature is within 10 feet of the ground, you can pull it down. This causes falling damage and knocks it <a href=\"/rules/conditions/prone-condition-5e/\">prone</a>. One of the best uses of Thorn Whip against flying enemies."
       },
       {
         question: "Does the pull from Thorn Whip trigger opportunity attacks?",
@@ -391,7 +391,7 @@ export const cantrips: {
     savingThrow: "Wisdom",
     higherLevels: "The spell's damage increases by 1d4 when you reach 5th level (2d4), 11th level (3d4), and 17th level (4d4).",
     commonMistakes: [
-      "Target must be able to hear you - doesn't work on deafened creatures",
+      "Target must be able to hear you - doesn't work on <a href=\"/rules/conditions/deafened-condition-5e/\">deafened</a> creatures",
       "The disadvantage only applies to the next attack roll, not all attacks that turn",
       "Disadvantage applies even if the save succeeds - no, it must fail the save for any effect"
     ],
@@ -402,7 +402,7 @@ export const cantrips: {
     faq: [
       {
         question: "Does Vicious Mockery work on creatures that don't understand you?",
-        answer: "Yes! The spell only requires that the target can hear you, not understand you. The magical enchantment carries the insult's sting regardless of language barriers. However, deafened creatures are immune."
+        answer: "Yes! The spell only requires that the target can hear you, not understand you. The magical enchantment carries the insult's sting regardless of language barriers. However, <a href=\"/rules/conditions/deafened-condition-5e/\">deafened</a> creatures are immune."
       },
       {
         question: "Is Vicious Mockery a good cantrip?",
@@ -462,7 +462,7 @@ export const cantrips: {
       },
       {
         question: "Does Toll the Dead require sight?",
-        answer: "Yes. You must 'point at one creature you can see.' This means it doesn't work against invisible creatures or through total cover, unlike some spells that only require knowing a creature's location."
+        answer: "Yes. You must 'point at one creature you can see.' This means it doesn't work against <a href=\"/rules/conditions/invisible-condition-5e/\">invisible</a> creatures or through total cover, unlike some spells that only require knowing a creature's location."
       },
       {
         question: "Can allies 'wound' enemies to trigger the d12?",
@@ -564,7 +564,7 @@ export const cantrips: {
       },
       {
         question: "Can you cast Light on an enemy?",
-        answer: "You can try to cast it on an object they're holding or wearing. They get a Dexterity saving throw to avoid it. If they fail, their armor, weapon, or pack glows, making them easy to track even if invisible or hiding."
+        answer: "You can try to cast it on an object they're holding or wearing. They get a Dexterity saving throw to avoid it. If they fail, their armor, weapon, or pack glows, making them easy to track even if <a href=\"/rules/conditions/invisible-condition-5e/\">invisible</a> or hiding."
       },
       {
         question: "Does Light require concentration?",
@@ -670,7 +670,7 @@ export const cantrips: {
       },
       {
         question: "Does Spare the Dying restore any hit points?",
-        answer: "No. It only stabilizes the creature at 0 HP. The creature remains unconscious and doesn't regain consciousness until they receive actual healing. It just stops death saving throws."
+        answer: "No. It only stabilizes the creature at 0 HP. The creature remains <a href=\"/rules/conditions/unconscious-condition-5e/\">unconscious</a> and doesn't regain consciousness until they receive actual healing. It just stops death saving throws."
       },
       {
         question: "Can Spare the Dying be used on undead or constructs?",

@@ -6,6 +6,7 @@ import { Sources } from "./Sources";
 import { SpellChecker } from "./SpellChecker";
 import { AssignToCharacter } from "./AssignToCharacter";
 import { FAQ, FAQItem } from "./FAQ";
+import { EntityLink } from "./EntityLink";
 
 type Spell = {
   slug: string;
@@ -148,7 +149,7 @@ export function SpellPage({ spell }: { spell: Spell }) {
                 key={c}
                 className="bg-[var(--bg-card)] border border-[var(--border)] rounded-full px-3 py-1 text-xs text-[var(--text-dim)]"
               >
-                {c}
+                <EntityLink name={c}>{c}</EntityLink>
               </span>
             ))}
           </div>

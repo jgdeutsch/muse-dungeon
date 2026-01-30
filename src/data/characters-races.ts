@@ -70,7 +70,7 @@ export const racePages: RacePage[] = [
       },
       {
         name: "Fallen Aasimar",
-        bonus: "+1 Strength. Necrotic Shroud: Starting at 3rd level, you can use your action to sprout skeletal wings. For 1 minute, creatures within 10 feet must succeed on a Charisma saving throw or become frightened. Once per turn, you can deal extra necrotic damage equal to your level."
+        bonus: "+1 Strength. Necrotic Shroud: Starting at 3rd level, you can use your action to sprout skeletal wings. For 1 minute, creatures within 10 feet must succeed on a Charisma saving throw or become <a href=\"/rules/conditions/frightened-condition-5e/\">frightened</a>. Once per turn, you can deal extra necrotic damage equal to your level."
       }
     ],
     commonMistakes: [
@@ -376,7 +376,7 @@ export const racePages: RacePage[] = [
       },
       {
         name: "Fey Ancestry",
-        description: "You have advantage on saving throws against being charmed, and magic can't put you to sleep."
+        description: "You have advantage on saving throws against being <a href=\"/rules/conditions/charmed-condition-5e/\">charmed</a>, and magic can't put you to sleep."
       },
       {
         name: "Keen Senses",
@@ -602,7 +602,7 @@ export const racePages: RacePage[] = [
       },
       {
         name: "Fey Ancestry",
-        description: "You have advantage on saving throws against being charmed, and magic can't put you to sleep."
+        description: "You have advantage on saving throws against being <a href=\"/rules/conditions/charmed-condition-5e/\">charmed</a>, and magic can't put you to sleep."
       },
       {
         name: "Fey Step",
@@ -628,11 +628,11 @@ export const racePages: RacePage[] = [
       },
       {
         name: "Autumn Eladrin",
-        bonus: "After using Fey Step, up to two creatures of your choice within 10 feet must succeed on a Wisdom saving throw (DC 8 + proficiency + Intelligence modifier) or be charmed by you for 1 minute or until you or your companions damage them."
+        bonus: "After using Fey Step, up to two creatures of your choice within 10 feet must succeed on a Wisdom saving throw (DC 8 + proficiency + Intelligence modifier) or be <a href=\"/rules/conditions/charmed-condition-5e/\">charmed</a> by you for 1 minute or until you or your companions damage them."
       },
       {
         name: "Winter Eladrin",
-        bonus: "After using Fey Step, one creature of your choice within 5 feet must succeed on a Wisdom saving throw (DC 8 + proficiency + Intelligence modifier) or be frightened of you until the end of your next turn."
+        bonus: "After using Fey Step, one creature of your choice within 5 feet must succeed on a Wisdom saving throw (DC 8 + proficiency + Intelligence modifier) or be <a href=\"/rules/conditions/frightened-condition-5e/\">frightened</a> of you until the end of your next turn."
       }
     ],
     commonMistakes: [
@@ -691,7 +691,7 @@ export const racePages: RacePage[] = [
       },
       {
         name: "Hidden Step",
-        description: "As a bonus action, you can magically turn invisible until the start of your next turn or until you attack, make a damage roll, or force someone to make a saving throw. Once you use this trait, you can't use it again until you finish a short or long rest."
+        description: "As a bonus action, you can magically turn <a href=\"/rules/conditions/invisible-condition-5e/\">invisible</a> until the start of your next turn or until you attack, make a damage roll, or force someone to make a saving throw. Once you use this trait, you can't use it again until you finish a short or long rest."
       },
       {
         name: "Powerful Build",
@@ -725,7 +725,7 @@ export const racePages: RacePage[] = [
       },
       {
         question: "How does Firbolg Hidden Step work?",
-        answer: "As a bonus action, turn invisible until the start of your next turn, or until you attack, deal damage, or force a saving throw. Recharges on short or long rest. Great for escaping danger, repositioning, or setting up ambushes."
+        answer: "As a bonus action, turn <a href=\"/rules/conditions/invisible-condition-5e/\">invisible</a> until the start of your next turn, or until you attack, deal damage, or force a saving throw. Recharges on short or long rest. Great for escaping danger, repositioning, or setting up ambushes."
       },
       {
         question: "How tall are Firbolgs?",
@@ -760,7 +760,7 @@ export const racePages: RacePage[] = [
       },
       {
         name: "Githyanki Psionics",
-        description: "You know the Mage Hand cantrip (the hand is invisible). Starting at 3rd level, you can cast Jump once with this trait, and you regain the ability to do so when you finish a long rest. Starting at 5th level, you can cast Misty Step once with this trait, and you regain the ability to do so when you finish a long rest. Intelligence is your spellcasting ability for these spells."
+        description: "You know the Mage Hand cantrip (the hand is <a href=\"/rules/conditions/invisible-condition-5e/\">invisible</a>). Starting at 3rd level, you can cast Jump once with this trait, and you regain the ability to do so when you finish a long rest. Starting at 5th level, you can cast Misty Step once with this trait, and you regain the ability to do so when you finish a long rest. Intelligence is your spellcasting ability for these spells."
       },
       {
         name: "Psychic Resilience",
@@ -775,7 +775,7 @@ export const racePages: RacePage[] = [
     commonMistakes: [
       "Forgetting to choose new proficiencies after each long rest with Astral Knowledge",
       "Not tracking the level requirements for Jump (3rd) and Misty Step (5th)",
-      "Forgetting the Mage Hand is invisible (great for stealth and sleight of hand)",
+      "Forgetting the Mage Hand is <a href=\"/rules/conditions/invisible-condition-5e/\">invisible</a> (great for stealth and sleight of hand)",
       "Not utilizing Misty Step for tactical positioning once available",
       "Overlooking psychic resistance against mind flayers and other psionic threats"
     ],
@@ -802,7 +802,7 @@ export const racePages: RacePage[] = [
       },
       {
         question: "What psionic abilities do Githyanki have?",
-        answer: "Githyanki Psionics grants: Mage Hand cantrip (invisible hand) at 1st level, Jump once per long rest at 3rd level, and Misty Step once per long rest at 5th level. Intelligence is the spellcasting ability. These don't require material components."
+        answer: "Githyanki Psionics grants: Mage Hand cantrip (<a href=\"/rules/conditions/invisible-condition-5e/\">invisible</a> hand) at 1st level, Jump once per long rest at 3rd level, and Misty Step once per long rest at 5th level. Intelligence is the spellcasting ability. These don't require material components."
       },
       {
         question: "Do Githyanki get free armor proficiency?",
@@ -977,7 +977,7 @@ export const racePages: RacePage[] = [
       },
       {
         name: "Glide",
-        description: "If you are not incapacitated or wearing heavy armor, you can extend your skin membranes to glide. When you do so, you can perform the following aerial movements: you can move 5 feet horizontally for every 1 foot you descend in the air, at no movement cost to you; and when you would take damage from a fall, you can use your reaction to reduce the fall damage you take by an amount equal to your proficiency bonus times 10."
+        description: "If you are not <a href=\"/rules/conditions/incapacitated-condition-5e/\">incapacitated</a> or wearing heavy armor, you can extend your skin membranes to glide. When you do so, you can perform the following aerial movements: you can move 5 feet horizontally for every 1 foot you descend in the air, at no movement cost to you; and when you would take damage from a fall, you can use your reaction to reduce the fall damage you take by an amount equal to your proficiency bonus times 10."
       },
       {
         name: "Hadozee Resilience",
@@ -1042,7 +1042,7 @@ export const racePages: RacePage[] = [
       },
       {
         name: "Brave",
-        description: "You have advantage on saving throws against being frightened."
+        description: "You have advantage on saving throws against being <a href=\"/rules/conditions/frightened-condition-5e/\">frightened</a>."
       },
       {
         name: "Halfling Nimbleness",
@@ -1120,7 +1120,7 @@ export const racePages: RacePage[] = [
       },
       {
         name: "Fey Ancestry",
-        description: "You have advantage on saving throws you make to avoid or end the charmed condition on yourself."
+        description: "You have advantage on saving throws you make to avoid or end the <a href=\"/rules/conditions/charmed-condition-5e/\">charmed</a> condition on yourself."
       },
       {
         name: "Fey Gift",
@@ -1476,7 +1476,7 @@ export const racePages: RacePage[] = [
       },
       {
         name: "Loxodon Serenity",
-        description: "You have advantage on saving throws against being charmed or frightened."
+        description: "You have advantage on saving throws against being <a href=\"/rules/conditions/charmed-condition-5e/\">charmed</a> or <a href=\"/rules/conditions/frightened-condition-5e/\">frightened</a>."
       },
       {
         name: "Natural Armor",
@@ -1550,7 +1550,7 @@ export const racePages: RacePage[] = [
       },
       {
         name: "Fey Ancestry",
-        description: "You have advantage on saving throws against being charmed, and magic can't put you to sleep."
+        description: "You have advantage on saving throws against being <a href=\"/rules/conditions/charmed-condition-5e/\">charmed</a>, and magic can't put you to sleep."
       },
       {
         name: "Keen Senses",
@@ -1799,11 +1799,11 @@ export const racePages: RacePage[] = [
     traits: [
       {
         name: "Constructed Resilience",
-        description: "You were created to have remarkable fortitude. You have advantage on saving throws against being poisoned, and you have resistance to poison damage. You don't need to eat, drink, or breathe. You are immune to disease. You don't need to sleep, and magic can't put you to sleep."
+        description: "You were created to have remarkable fortitude. You have advantage on saving throws against being <a href=\"/rules/conditions/poisoned-condition-5e/\">poisoned</a>, and you have resistance to poison damage. You don't need to eat, drink, or breathe. You are immune to disease. You don't need to sleep, and magic can't put you to sleep."
       },
       {
         name: "Sentry's Rest",
-        description: "When you take a long rest, you must spend at least six hours in an inactive, motionless state, rather than sleeping. In this state, you appear inert, but it doesn't render you unconscious, and you can see and hear as normal."
+        description: "When you take a long rest, you must spend at least six hours in an inactive, motionless state, rather than sleeping. In this state, you appear inert, but it doesn't render you <a href=\"/rules/conditions/unconscious-condition-5e/\">unconscious</a>, and you can see and hear as normal."
       },
       {
         name: "Integrated Protection",
@@ -1827,7 +1827,7 @@ export const racePages: RacePage[] = [
       "Warforged work best in Eberron but can be adapted to any setting with magical constructs",
       "Their quest for identity and purpose provides excellent character development",
       "Constructed Resilience makes them excellent for harsh environments",
-      "Sentry's Rest means they can keep watch without exhaustion",
+      "Sentry's Rest means they can keep watch without <a href=\"/rules/core-mechanics/exhaustion-5e/\">exhaustion</a>",
       "Consider exploring themes of sentience, free will, and what it means to be alive",
       "They don't need food/water - useful for survival situations",
       "The armor integration mechanic prevents easy disarming",
@@ -1852,7 +1852,7 @@ export const racePages: RacePage[] = [
       },
       {
         question: "Are Warforged immune to poison?",
-        answer: "No, but they're highly resistant. They have resistance to poison damage (half damage) and advantage on saves against being poisoned. They can still be poisoned - they're just very hard to poison effectively."
+        answer: "No, but they're highly resistant. They have resistance to poison damage (half damage) and advantage on saves against being <a href=\"/rules/conditions/poisoned-condition-5e/\">poisoned</a>. They can still be poisoned - they're just very hard to poison effectively."
       }
     ],
     searchVolume: 16350,
@@ -1951,7 +1951,7 @@ export const racePages: RacePage[] = [
       },
       {
         name: "Fey Ancestry",
-        description: "You have advantage on saving throws against being charmed, and magic can't put you to sleep."
+        description: "You have advantage on saving throws against being <a href=\"/rules/conditions/charmed-condition-5e/\">charmed</a>, and magic can't put you to sleep."
       },
       {
         name: "Trance",
@@ -2027,7 +2027,7 @@ export const racePages: RacePage[] = [
       },
       {
         name: "Fey Ancestry",
-        description: "You have advantage on saving throws against being charmed, and magic can't put you to sleep."
+        description: "You have advantage on saving throws against being <a href=\"/rules/conditions/charmed-condition-5e/\">charmed</a>, and magic can't put you to sleep."
       },
       {
         name: "Skill Versatility",
@@ -2126,7 +2126,7 @@ export const racePages: RacePage[] = [
       },
       {
         question: "How does Relentless Endurance work?",
-        answer: "When reduced to 0 HP but not killed outright, drop to 1 HP instead. Once per long rest. This triggers automatically when you would fall unconscious. It doesn't work against instant-death effects or massive damage kills."
+        answer: "When reduced to 0 HP but not killed outright, drop to 1 HP instead. Once per long rest. This triggers automatically when you would fall <a href=\"/rules/conditions/unconscious-condition-5e/\">unconscious</a>. It doesn't work against instant-death effects or massive damage kills."
       },
       {
         question: "Can Half-Orcs be good-aligned?",
@@ -2238,14 +2238,14 @@ export const racePages: RacePage[] = [
       },
       {
         name: "Shell Defense",
-        description: "You can withdraw into your shell as an action. Until you emerge, you gain a +4 bonus to AC, and you have advantage on Strength and Constitution saving throws. While in your shell, you are prone, your speed is 0 and can't increase, you have disadvantage on Dexterity saving throws, you can't take reactions, and the only action you can take is a bonus action to emerge from your shell."
+        description: "You can withdraw into your shell as an action. Until you emerge, you gain a +4 bonus to AC, and you have advantage on Strength and Constitution saving throws. While in your shell, you are <a href=\"/rules/conditions/prone-condition-5e/\">prone</a>, your speed is 0 and can't increase, you have disadvantage on Dexterity saving throws, you can't take reactions, and the only action you can take is a bonus action to emerge from your shell."
       }
     ],
     subraces: null,
     commonMistakes: [
       "Thinking Natural Armor can stack with worn armor (it cannot)",
       "Not using Shell Defense as an emergency survival tool",
-      "Forgetting you're prone while in your shell",
+      "Forgetting you're <a href=\"/rules/conditions/prone-condition-5e/\">prone</a> while in your shell",
       "Not choosing a skill proficiency for Nature's Intuition"
     ],
     dmTips: [
@@ -2270,7 +2270,7 @@ export const racePages: RacePage[] = [
       },
       {
         question: "How does Shell Defense work?",
-        answer: "As an action, withdraw into your shell for +4 AC (21 or 23 with shield!), advantage on Str/Con saves. You're prone, can't move, have disadvantage on Dex saves, can't take reactions. Bonus action to emerge. Emergency survival option."
+        answer: "As an action, withdraw into your shell for +4 AC (21 or 23 with shield!), advantage on Str/Con saves. You're <a href=\"/rules/conditions/prone-condition-5e/\">prone</a>, can't move, have disadvantage on Dex saves, can't take reactions. Bonus action to emerge. Emergency survival option."
       },
       {
         question: "How long can Tortles hold their breath?",
@@ -2302,7 +2302,7 @@ export const racePages: RacePage[] = [
       },
       {
         name: "Poison Immunity",
-        description: "You are immune to poison damage and the poisoned condition."
+        description: "You are immune to poison damage and the <a href=\"/rules/conditions/poisoned-condition-5e/\">poisoned</a> condition."
       },
       {
         name: "Innate Spellcasting",
@@ -2440,7 +2440,7 @@ export const racePages: RacePage[] = [
       },
       {
         name: "Lucky Footwork",
-        description: "When you fail a Dexterity saving throw, you can use your reaction to roll a d4 and add it to the save, potentially turning the failure into a success. You can't use this reaction if you're prone or your speed is 0."
+        description: "When you fail a Dexterity saving throw, you can use your reaction to roll a d4 and add it to the save, potentially turning the failure into a success. You can't use this reaction if you're <a href=\"/rules/conditions/prone-condition-5e/\">prone</a> or your speed is 0."
       },
       {
         name: "Rabbit Hop",
@@ -2477,7 +2477,7 @@ export const racePages: RacePage[] = [
       },
       {
         question: "How does Lucky Footwork work?",
-        answer: "When you fail a Dexterity save, use your reaction to add 1d4 to the roll. Can turn failures into successes. Doesn't work while prone or at 0 speed. Excellent against Fireballs and similar effects."
+        answer: "When you fail a Dexterity save, use your reaction to add 1d4 to the roll. Can turn failures into successes. Doesn't work while <a href=\"/rules/conditions/prone-condition-5e/\">prone</a> or at 0 speed. Excellent against Fireballs and similar effects."
       },
       {
         question: "Are Harengon Fey?",
@@ -2806,7 +2806,7 @@ export const racePages: RacePage[] = [
       },
       {
         name: "Wildhunt Shifter",
-        bonus: "+1 Wisdom. While shifting, you have advantage on Wisdom checks and no creature within 30 feet can make an attack roll with advantage against you unless you're incapacitated."
+        bonus: "+1 Wisdom. While shifting, you have advantage on Wisdom checks and no creature within 30 feet can make an attack roll with advantage against you unless you're <a href=\"/rules/conditions/incapacitated-condition-5e/\">incapacitated</a>."
       }
     ],
     commonMistakes: [
@@ -2843,7 +2843,7 @@ export const racePages: RacePage[] = [
       },
       {
         question: "How does Wildhunt Shifter's ability work?",
-        answer: "While shifted, no creature within 30 feet can have advantage on attack rolls against you (unless you're incapacitated). This negates Pack Tactics, flanking, attacking from invisibility, and many monster abilities."
+        answer: "While shifted, no creature within 30 feet can have advantage on attack rolls against you (unless you're <a href=\"/rules/conditions/incapacitated-condition-5e/\">incapacitated</a>). This negates Pack Tactics, flanking, attacking from <a href=\"/rules/conditions/invisible-condition-5e/\">invisibility</a>, and many monster abilities."
       }
     ],
     searchVolume: 8900,
@@ -2871,11 +2871,11 @@ export const racePages: RacePage[] = [
       },
       {
         name: "Water Dependency",
-        description: "If you fail to immerse yourself in water for at least 1 hour during a day, you suffer one level of exhaustion at the end of that day. You can recover from this exhaustion only through magic or by immersing yourself in water for at least 1 hour."
+        description: "If you fail to immerse yourself in water for at least 1 hour during a day, you suffer one level of <a href=\"/rules/core-mechanics/exhaustion-5e/\">exhaustion</a> at the end of that day. You can recover from this exhaustion only through magic or by immersing yourself in water for at least 1 hour."
       },
       {
         name: "Poisonous Skin",
-        description: "Any creature that grapples you or otherwise comes into direct contact with your skin must succeed on a DC 12 Constitution saving throw or become poisoned for 1 minute. A poisoned creature no longer in direct contact with you can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. You can also apply this poison to any piercing weapon as part of an attack with that weapon, though when you hit, the poison replicates the effects of a successful application of the weapon's original poison."
+        description: "Any creature that grapples you or otherwise comes into direct contact with your skin must succeed on a DC 12 Constitution saving throw or become <a href=\"/rules/conditions/poisoned-condition-5e/\">poisoned</a> for 1 minute. A poisoned creature no longer in direct contact with you can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. You can also apply this poison to any piercing weapon as part of an attack with that weapon, though when you hit, the poison replicates the effects of a successful application of the weapon's original poison."
       }
     ],
     subraces: null,

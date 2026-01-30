@@ -6,6 +6,7 @@ import { Sources } from "./Sources";
 import { AssignToCharacter } from "./AssignToCharacter";
 import { AddMonsterToGame } from "./AddMonsterToGame";
 import { FAQ, FAQItem } from "./FAQ";
+import { TextWithEntityLinks } from "./TextWithEntityLinks";
 
 type MonsterPageData = {
   slug: string;
@@ -128,7 +129,9 @@ export function MonsterPageComponent({ data }: { data: MonsterPageData }) {
             {data.keyAbilities.map((ab, i) => (
               <tr key={i}>
                 <td className="font-medium text-[var(--text)]">{ab.name}</td>
-                <td>{ab.description}</td>
+                <td>
+                  <TextWithEntityLinks text={ab.description} />
+                </td>
               </tr>
             ))}
           </tbody>
@@ -140,9 +143,11 @@ export function MonsterPageComponent({ data }: { data: MonsterPageData }) {
         <h2 className="font-['Cinzel'] text-xl font-semibold mb-4">
           How to Run This Monster
         </h2>
-        <p className="text-sm text-[var(--text-dim)] leading-relaxed">
-          {data.tactics}
-        </p>
+        <TextWithEntityLinks
+          text={data.tactics}
+          as="p"
+          className="text-sm text-[var(--text-dim)] leading-relaxed"
+        />
       </section>
 
       {/* Encounter Tips */}
@@ -150,15 +155,21 @@ export function MonsterPageComponent({ data }: { data: MonsterPageData }) {
         <h2 className="font-['Cinzel'] text-xl font-semibold mb-4">
           Encounter Ideas
         </h2>
-        <p className="text-sm text-[var(--text-dim)] leading-relaxed">
-          {data.encounterTips}
-        </p>
+        <TextWithEntityLinks
+          text={data.encounterTips}
+          as="p"
+          className="text-sm text-[var(--text-dim)] leading-relaxed"
+        />
         {data.loot && (
           <div className="bg-[var(--accent-light)] border border-[var(--accent)] border-opacity-25 rounded-lg px-4 py-3 mt-4 text-sm">
             <div className="font-bold text-[var(--accent)] text-xs uppercase tracking-wider mb-1">
               Loot
             </div>
-            <div className="text-[var(--text)]">{data.loot}</div>
+            <TextWithEntityLinks
+              text={data.loot}
+              as="div"
+              className="text-[var(--text)]"
+            />
           </div>
         )}
       </section>
