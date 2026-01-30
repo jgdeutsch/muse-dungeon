@@ -72,11 +72,9 @@ body {
   color: var(--text);
 }
 
-/* Entity link styling */
-.entity-link {
-  color: inherit;
+/* Content links - underlined for visibility */
+main a:not(.btn):not([class*="bg-"]) {
   text-decoration: underline;
-  text-decoration-style: solid;
   text-underline-offset: 2px;
 }
 
