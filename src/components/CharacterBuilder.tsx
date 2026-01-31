@@ -3,6 +3,7 @@
 import { useState } from "react";
 
 const GEMINI_API_KEY = "AIzaSyBxvpCeInudM1bs80tApSQ0XrqnKlaOXgk";
+const GEMINI_MODEL = "gemini-2.0-flash";
 
 type BuilderStep =
   | "level"
@@ -221,7 +222,7 @@ export function CharacterBuilder() {
     setApiError("");
     try {
       const response = await fetch(
-        `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`,
+        `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -258,7 +259,7 @@ export function CharacterBuilder() {
       const prompt = buildPrompt(choices as CharacterChoices);
 
       const response = await fetch(
-        `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`,
+        `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
