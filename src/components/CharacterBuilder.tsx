@@ -1075,6 +1075,7 @@ async function exportCharacterToPDF(character: GeneratedCharacter) {
     setTextField("WIS", String(character.abilityScores.wisdom));
     setTextField("WISmod", getModifier(character.abilityScores.wisdom));
     setTextField("CHA", String(character.abilityScores.charisma));
+    setTextField("CHamod", getModifier(character.abilityScores.charisma));
 
     // Combat Stats
     setTextField("AC", String(character.armorClass));
@@ -1128,7 +1129,7 @@ async function exportCharacterToPDF(character: GeneratedCharacter) {
       "Performance": { field: "Performance", ability: "charisma" },
       "Persuasion": { field: "Persuasion", ability: "charisma" },
       "Religion": { field: "Religion", ability: "intelligence" },
-      "Sleight of Hand": { field: "SssassasssssMath of Hand", ability: "dexterity" }, // Note: may not exist
+      "Sleight of Hand": { field: "SleightofHand", ability: "dexterity" },
       "Stealth": { field: "Stealth ", ability: "dexterity" },
       "Survival": { field: "Survival", ability: "wisdom" },
     };
@@ -1153,7 +1154,7 @@ async function exportCharacterToPDF(character: GeneratedCharacter) {
       "Armor: Light, Medium, Heavy, Shields",
       "Weapons: Simple, Martial",
     ].join("\n");
-    setTextField("ProfsAndLangs", proficienciesText);
+    setTextField("ProficienciesLang", proficienciesText);
 
     // Equipment & Weapons - with damage dice
     const weaponData: Record<string, { damage: string; type: string; properties?: string }> = {
@@ -1248,11 +1249,11 @@ async function exportCharacterToPDF(character: GeneratedCharacter) {
       const dexMod = Math.floor((character.abilityScores.dexterity - 10) / 2);
       const atkMod = isRanged ? dexMod : (isFinesse ? Math.max(strMod, dexMod) : strMod);
       const atkBonus = atkMod + character.proficiencyBonus;
-      setTextField("Wpn2 AtkBonus", atkBonus >= 0 ? `+${atkBonus}` : String(atkBonus));
+      setTextField("Wpn2 AtkBonus ", atkBonus >= 0 ? `+${atkBonus}` : String(atkBonus));
       const stats = getWeaponStats(weapons[1]);
       const damageBonus = isRanged ? dexMod : (isFinesse ? Math.max(strMod, dexMod) : strMod);
       const damageStr = damageBonus >= 0 ? `${stats.damage}+${damageBonus} ${stats.type}` : `${stats.damage}${damageBonus} ${stats.type}`;
-      setTextField("Wpn2 Damage", damageStr);
+      setTextField("Wpn2 Damage ", damageStr);
     }
     if (weapons[2]) {
       setTextField("Wpn Name 3", weapons[2]);
@@ -1262,11 +1263,11 @@ async function exportCharacterToPDF(character: GeneratedCharacter) {
       const dexMod = Math.floor((character.abilityScores.dexterity - 10) / 2);
       const atkMod = isRanged ? dexMod : (isFinesse ? Math.max(strMod, dexMod) : strMod);
       const atkBonus = atkMod + character.proficiencyBonus;
-      setTextField("Wpn3 AtkBonus", atkBonus >= 0 ? `+${atkBonus}` : String(atkBonus));
+      setTextField("Wpn3 AtkBonus  ", atkBonus >= 0 ? `+${atkBonus}` : String(atkBonus));
       const stats = getWeaponStats(weapons[2]);
       const damageBonus = isRanged ? dexMod : (isFinesse ? Math.max(strMod, dexMod) : strMod);
       const damageStr = damageBonus >= 0 ? `${stats.damage}+${damageBonus} ${stats.type}` : `${stats.damage}${damageBonus} ${stats.type}`;
-      setTextField("Wpn3 Damage", damageStr);
+      setTextField("Wpn3 Damage ", damageStr);
     }
 
     // Personality
