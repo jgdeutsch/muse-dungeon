@@ -187,6 +187,22 @@ export function CharacterBuilder() {
     setChoices((prev) => ({ ...prev, [key]: value }));
   };
 
+  // Select and auto-advance to next step
+  const selectAndAdvance = <K extends keyof CharacterChoices>(key: K, value: CharacterChoices[K]) => {
+    setChoices((prev) => ({ ...prev, [key]: value }));
+    // Small delay so user sees the selection highlight
+    setTimeout(() => {
+      // Handle special cases
+      if (key === "usesMagic" && value === false) {
+        setStepIndex((i) => i + 2); // Skip magicStyle
+      } else if (stepIndex < STEPS.length - 1) {
+        setStepIndex((i) => i + 1);
+      } else {
+        generateCharacter();
+      }
+    }, 150);
+  };
+
   const nextStep = () => {
     // Skip magicStyle if they don't use magic
     if (currentStep === "magic" && !choices.usesMagic) {
@@ -391,7 +407,7 @@ export function CharacterBuilder() {
                 {[1, 3, 5, 10, 15, 20].map((l) => (
                   <button
                     key={l}
-                    onClick={() => updateChoice("level", l)}
+                    onClick={() => selectAndAdvance("level", l)}
                     className={`px-4 py-2 rounded-lg border transition-colors cursor-pointer ${
                       choices.level === l
                         ? "bg-[var(--accent)] border-[var(--accent)] text-white"
@@ -449,11 +465,13 @@ export function CharacterBuilder() {
                 type="text"
                 value={choices.name || ""}
                 onChange={(e) => updateChoice("name", e.target.value)}
-                placeholder="Enter a name or skip..."
+                onKeyDown={(e) => e.key === "Enter" && nextStep()}
+                placeholder="Enter a name or press Enter to skip..."
                 className="w-full p-4 rounded-lg bg-[var(--surface)] border border-[var(--border)] focus:border-[var(--accent)] outline-none text-lg"
+                autoFocus
               />
               <p className="text-sm text-[var(--text-dim)] mt-3">
-                Tip: The AI will generate a fitting name if you skip this
+                Press Enter to continue (AI will generate a name if left blank)
               </p>
             </QuestionCard>
           )}
@@ -462,19 +480,21 @@ export function CharacterBuilder() {
           {currentStep === "concept" && (
             <QuestionCard
               title="Describe your character in a few words"
-              subtitle="What's their vibe?"
+              subtitle="What's their vibe? (Press Enter to continue)"
             >
               <textarea
                 value={choices.concept || ""}
                 onChange={(e) => updateChoice("concept", e.target.value)}
+                onKeyDown={(e) => e.key === "Enter" && !e.shiftKey && (e.preventDefault(), nextStep())}
                 placeholder="e.g., A grizzled veteran seeking redemption..."
                 className="w-full h-24 p-4 rounded-lg bg-[var(--surface)] border border-[var(--border)] focus:border-[var(--accent)] outline-none resize-none"
+                autoFocus
               />
               <div className="flex flex-wrap gap-2 mt-3">
                 {["A mysterious wanderer", "A cheerful adventurer", "A reluctant hero", "A cunning scoundrel"].map((ex) => (
                   <button
                     key={ex}
-                    onClick={() => updateChoice("concept", ex)}
+                    onClick={() => selectAndAdvance("concept", ex)}
                     className="px-3 py-1 text-sm rounded-full bg-[var(--surface)] border border-[var(--border)] hover:border-[var(--accent)] transition-colors cursor-pointer"
                   >
                     {ex}
@@ -494,7 +514,7 @@ export function CharacterBuilder() {
                 {RACES.map((race) => (
                   <button
                     key={race.name}
-                    onClick={() => updateChoice("race", race.name)}
+                    onClick={() => selectAndAdvance("race", race.name)}
                     className={`p-3 rounded-lg border text-left transition-colors cursor-pointer ${
                       choices.race === race.name
                         ? "bg-[var(--accent)] border-[var(--accent)] text-white"
@@ -521,7 +541,7 @@ export function CharacterBuilder() {
                 {COMBAT_STYLES.map((style) => (
                   <button
                     key={style.key}
-                    onClick={() => updateChoice("combatStyle", style.key as CharacterChoices["combatStyle"])}
+                    onClick={() => selectAndAdvance("combatStyle", style.key as CharacterChoices["combatStyle"])}
                     className={`w-full p-4 rounded-lg border text-left transition-colors cursor-pointer flex items-center gap-4 ${
                       choices.combatStyle === style.key
                         ? "bg-[var(--accent)] border-[var(--accent)] text-white"
@@ -549,7 +569,7 @@ export function CharacterBuilder() {
             >
               <div className="flex gap-4">
                 <button
-                  onClick={() => updateChoice("usesMagic", true)}
+                  onClick={() => selectAndAdvance("usesMagic", true)}
                   className={`flex-1 p-6 rounded-lg border text-center transition-colors cursor-pointer ${
                     choices.usesMagic === true
                       ? "bg-[var(--accent)] border-[var(--accent)] text-white"
@@ -563,7 +583,7 @@ export function CharacterBuilder() {
                   </div>
                 </button>
                 <button
-                  onClick={() => updateChoice("usesMagic", false)}
+                  onClick={() => selectAndAdvance("usesMagic", false)}
                   className={`flex-1 p-6 rounded-lg border text-center transition-colors cursor-pointer ${
                     choices.usesMagic === false
                       ? "bg-[var(--accent)] border-[var(--accent)] text-white"
@@ -590,7 +610,7 @@ export function CharacterBuilder() {
                 {MAGIC_STYLES.map((style) => (
                   <button
                     key={style.key}
-                    onClick={() => updateChoice("magicStyle", style.key as CharacterChoices["magicStyle"])}
+                    onClick={() => selectAndAdvance("magicStyle", style.key as CharacterChoices["magicStyle"])}
                     className={`w-full p-4 rounded-lg border text-left transition-colors cursor-pointer flex items-center gap-4 ${
                       choices.magicStyle === style.key
                         ? "bg-[var(--accent)] border-[var(--accent)] text-white"
@@ -620,7 +640,7 @@ export function CharacterBuilder() {
                 {getSuggestedClasses().map((cls) => (
                   <button
                     key={cls.name}
-                    onClick={() => updateChoice("classHint", cls.name)}
+                    onClick={() => selectAndAdvance("classHint", cls.name)}
                     className={`p-3 rounded-lg border text-left transition-colors cursor-pointer ${
                       choices.classHint === cls.name
                         ? "bg-[var(--accent)] border-[var(--accent)] text-white"
@@ -635,7 +655,7 @@ export function CharacterBuilder() {
                 ))}
               </div>
               <button
-                onClick={() => updateChoice("classHint", "")}
+                onClick={() => selectAndAdvance("classHint", "")}
                 className={`w-full p-3 rounded-lg border transition-colors cursor-pointer ${
                   choices.classHint === ""
                     ? "bg-[var(--accent)] border-[var(--accent)] text-white"
@@ -657,7 +677,7 @@ export function CharacterBuilder() {
                 {PERSONALITIES.map((p) => (
                   <button
                     key={p}
-                    onClick={() => updateChoice("personality", p)}
+                    onClick={() => selectAndAdvance("personality", p)}
                     className={`p-3 rounded-lg border text-center transition-colors cursor-pointer ${
                       choices.personality === p
                         ? "bg-[var(--accent)] border-[var(--accent)] text-white"
@@ -681,7 +701,7 @@ export function CharacterBuilder() {
                 {BACKGROUNDS.map((bg) => (
                   <button
                     key={bg}
-                    onClick={() => updateChoice("background", bg)}
+                    onClick={() => selectAndAdvance("background", bg)}
                     className={`p-3 rounded-lg border text-center transition-colors cursor-pointer ${
                       choices.background === bg
                         ? "bg-[var(--accent)] border-[var(--accent)] text-white"
@@ -705,7 +725,7 @@ export function CharacterBuilder() {
                 {MOTIVATIONS.map((m) => (
                   <button
                     key={m}
-                    onClick={() => updateChoice("motivation", m)}
+                    onClick={() => selectAndAdvance("motivation", m)}
                     className={`p-3 rounded-lg border text-center transition-colors cursor-pointer ${
                       choices.motivation === m
                         ? "bg-[var(--accent)] border-[var(--accent)] text-white"
@@ -729,7 +749,7 @@ export function CharacterBuilder() {
                 {STRENGTHS.map((s) => (
                   <button
                     key={s}
-                    onClick={() => updateChoice("strength", s)}
+                    onClick={() => selectAndAdvance("strength", s)}
                     className={`w-full p-3 rounded-lg border text-left transition-colors cursor-pointer ${
                       choices.strength === s
                         ? "bg-[var(--accent)] border-[var(--accent)] text-white"
@@ -753,7 +773,7 @@ export function CharacterBuilder() {
                 {WEAKNESSES.map((w) => (
                   <button
                     key={w}
-                    onClick={() => updateChoice("weakness", w)}
+                    onClick={() => selectAndAdvance("weakness", w)}
                     className={`w-full p-3 rounded-lg border text-left transition-colors cursor-pointer ${
                       choices.weakness === w
                         ? "bg-[var(--accent)] border-[var(--accent)] text-white"
@@ -777,13 +797,16 @@ export function CharacterBuilder() {
                 ← Back
               </button>
             )}
-            <button
-              onClick={nextStep}
-              disabled={!isStepComplete(currentStep, choices)}
-              className="flex-1 py-3 rounded-lg bg-[var(--accent)] text-white font-semibold hover:brightness-110 transition-all cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              {stepIndex === STEPS.length - 1 ? "Generate Character!" : "Next →"}
-            </button>
+            {/* Only show Next button for text entry steps */}
+            {(currentStep === "name" || currentStep === "concept") && (
+              <button
+                onClick={nextStep}
+                disabled={!isStepComplete(currentStep, choices)}
+                className="flex-1 py-3 rounded-lg bg-[var(--accent)] text-white font-semibold hover:brightness-110 transition-all cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                Next →
+              </button>
+            )}
           </div>
         </div>
 
