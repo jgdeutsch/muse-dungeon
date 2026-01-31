@@ -1043,11 +1043,14 @@ async function exportCharacterToPDF(character: GeneratedCharacter) {
     const classDisplay = character.classes.map((c) => `${c.name} ${c.level}`).join(" / ");
     const totalLevel = character.classes.reduce((sum, c) => sum + c.level, 0);
 
-    // Helper to safely set text field
-    const setTextField = (fieldName: string, value: string) => {
+    // Helper to safely set text field with optional font size
+    const setTextField = (fieldName: string, value: string, fontSize?: number) => {
       try {
         const field = form.getTextField(fieldName);
         field.setText(value);
+        if (fontSize) {
+          field.setFontSize(fontSize);
+        }
       } catch {
         console.log(`Field not found: ${fieldName}`);
       }
@@ -1154,7 +1157,7 @@ async function exportCharacterToPDF(character: GeneratedCharacter) {
       "Armor: Light, Medium, Heavy, Shields",
       "Weapons: Simple, Martial",
     ].join("\n");
-    setTextField("ProficienciesLang", proficienciesText);
+    setTextField("ProficienciesLang", proficienciesText, 8);
 
     // Equipment & Weapons - with damage dice
     const weaponData: Record<string, { damage: string; type: string; properties?: string }> = {
@@ -1271,18 +1274,18 @@ async function exportCharacterToPDF(character: GeneratedCharacter) {
     }
 
     // Personality
-    setTextField("PersonalityTraits ", character.personality.traits.join(" "));
-    setTextField("Ideals", character.personality.ideals.join(" "));
-    setTextField("Bonds", character.personality.bonds.join(" "));
-    setTextField("Flaws", character.personality.flaws.join(" "));
+    setTextField("PersonalityTraits ", character.personality.traits.join(" "), 8);
+    setTextField("Ideals", character.personality.ideals.join(" "), 8);
+    setTextField("Bonds", character.personality.bonds.join(" "), 8);
+    setTextField("Flaws", character.personality.flaws.join(" "), 8);
 
     // Features & Traits (combine features with equipment list)
     const featuresText = character.features.map(f => `${f.name}: ${f.description}`).join("\n\n");
-    setTextField("Feat+Traits", featuresText);
+    setTextField("Feat+Traits", featuresText, 8);
 
     // Equipment list in the equipment section
     const nonWeaponEquipment = character.equipment.filter(item => !weapons.includes(item));
-    setTextField("Equipment", nonWeaponEquipment.join("\n"));
+    setTextField("Equipment", nonWeaponEquipment.join("\n"), 8);
 
     // === PAGE 2: Character Details ===
     setTextField("CharacterName 2", character.name);
@@ -1294,13 +1297,14 @@ async function exportCharacterToPDF(character: GeneratedCharacter) {
     setTextField("Weight", "");
 
     // Character Appearance (this is the large text box on the left of page 2)
-    setTextField("Appearance", character.appearance || "");
+    setTextField("Appearance", character.appearance || "", 9);
 
     // Backstory
-    setTextField("Backstory", character.backstory);
+    setTextField("Backstory", character.backstory, 9);
 
-    // Allies/Organizations - leave empty or add organization info if available
-    setTextField("Allies", "");
+    // Allies/Organizations - put the features here (Additional Features & Traits on page 2)
+    const alliesText = character.features.map(f => `${f.name}: ${f.description}`).join("\n\n");
+    setTextField("Allies", alliesText, 8);
 
     // === PAGE 3: Spellcasting (if applicable) ===
     if (character.spells) {
