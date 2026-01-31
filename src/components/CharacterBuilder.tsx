@@ -1035,9 +1035,6 @@ async function exportCharacterToPDF(character: GeneratedCharacter) {
     const pdfDoc = await PDFDocument.load(templateBytes);
     const form = pdfDoc.getForm();
 
-    // Embed a standard font to use for field appearances
-    const helvetica = await pdfDoc.embedFont(StandardFonts.Helvetica);
-
     const getModifier = (score: number) => {
       const mod = Math.floor((score - 10) / 2);
       return mod >= 0 ? `+${mod}` : `${mod}`;
@@ -1059,11 +1056,10 @@ async function exportCharacterToPDF(character: GeneratedCharacter) {
       }
     };
 
-    // Helper for multiline text fields - enables multiline mode, no font size manipulation
+    // Helper for multiline text fields - just set text, let PDF defaults handle formatting
     const setMultilineField = (fieldName: string, value: string) => {
       try {
         const field = form.getTextField(fieldName);
-        field.enableMultiline();
         field.setText(value);
       } catch {
         console.log(`Field not found: ${fieldName}`);
@@ -1347,9 +1343,6 @@ async function exportCharacterToPDF(character: GeneratedCharacter) {
         });
       }
     }
-
-    // Update field appearances with the embedded font to ensure font sizes are applied
-    form.updateFieldAppearances(helvetica);
 
     // Flatten the form so fields are visible in all PDF viewers
     form.flatten();
