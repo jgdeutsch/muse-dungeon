@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-const GEMINI_API_KEY = "AIzaSyBxvpCeInudM1bs80tApSQ0XrqnKlaOXgk";
+const GEMINI_API_KEY = "AIzaSyBlYNgNuypnwwxTb4JsbU5GvZzP0f3KcJo";
 const GEMINI_MODEL = "gemini-2.0-flash";
 
 type BuilderStep =
