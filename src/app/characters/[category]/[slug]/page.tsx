@@ -5,6 +5,7 @@ import { SubclassPageComponent } from "@/components/SubclassPage";
 import { FeaturePageComponent } from "@/components/FeaturePage";
 import { GenericPageComponent } from "@/components/GenericPage";
 import { CreationToolPageComponent } from "@/components/CreationToolPage";
+import { FeatPageComponent, CombatManeuverPageComponent } from "@/components/FeatPage";
 import {
   getAllCharacterSlugs,
   getCharacterPageBySlug,
@@ -75,6 +76,45 @@ export default async function CharacterSlugPage({
     return <FeaturePageComponent data={result.data as Parameters<typeof FeaturePageComponent>[0]["data"]} relatedAnswers={relatedAnswers} />;
   }
 
+  // Feat pages with FeatChecker tool
+  if (result.type === "feat") {
+    return <FeatPageComponent data={result.data as Parameters<typeof FeatPageComponent>[0]["data"]} relatedAnswers={relatedAnswers} />;
+  }
+
+  // Combat maneuver pages with FeatChecker tool
+  if (result.type === "combat") {
+    return <CombatManeuverPageComponent data={result.data as Parameters<typeof CombatManeuverPageComponent>[0]["data"]} relatedAnswers={relatedAnswers} />;
+  }
+
+  // Class feature pages should use FeaturePageComponent
+  if (result.type === "classFeature") {
+    const cfData = result.data as {
+      slug: string;
+      name: string;
+      description: string;
+      className: string;
+      featureLevel: string;
+      sections: { id: string; title: string; content: string }[];
+      commonMistakes?: string[];
+      dmTips?: string[];
+    };
+    const classSlugFromName = cfData.className.toLowerCase().replace(/\s+/g, "-") + "-5e";
+    return (
+      <FeaturePageComponent
+        data={{
+          slug: cfData.slug,
+          name: cfData.name,
+          parentClass: cfData.className,
+          parentClassSlug: classSlugFromName,
+          level: cfData.featureLevel,
+          description: cfData.description,
+          mechanics: cfData.sections.map(s => s.content).join(" "),
+        }}
+        relatedAnswers={relatedAnswers}
+      />
+    );
+  }
+
   // Creation tool pages with interactive calculators
   if (result.type === "creation") {
     const creationData = result.data as {
@@ -103,86 +143,30 @@ export default async function CharacterSlugPage({
     }
   }
 
-  // All other types use GenericPageComponent
+  // All other types use GenericPageComponent (creation, featOverview, raceOverview, classOverview)
   const d = result.data as {
     name: string;
     description: string;
     sections?: { id: string; title: string; content: string }[];
     commonMistakes?: string[];
     dmTips?: string[];
-    rules?: { step: string; detail: string }[];
     slug: string;
-    category?: string;
   };
 
-  // For combat maneuvers, convert rules to sections
-  let sections = d.sections || [];
-  if (result.type === "combat" && d.rules) {
-    sections = [
-      {
-        id: "rules",
-        title: "Step-by-Step Rules",
-        content: d.rules
-          .map(
-            (r) =>
-              `<p><strong>${r.step}</strong></p><p>${r.detail}</p>`
-          )
-          .join(""),
-      },
-    ];
-  }
-
-  // For feat pages, convert to sections
-  if (result.type === "feat") {
-    const feat = d as unknown as {
-      name: string;
-      description: string;
-      prerequisite: string | null;
-      benefit: string;
-      mechanics: string;
-      synergies: string[];
-      commonMistakes: string[];
-      dmTips: string[];
-    };
-    sections = [
-      {
-        id: "benefit",
-        title: "Benefit",
-        content: `<p>${feat.benefit}</p>`,
-      },
-      {
-        id: "mechanics",
-        title: "Mechanics",
-        content: `<p>${feat.mechanics}</p>`,
-      },
-      {
-        id: "synergies",
-        title: "Synergies",
-        content: `<ul>${feat.synergies.map((s) => `<li>${s}</li>`).join("")}</ul>`,
-      },
-    ];
-  }
-
-  // For class features, link back to the specific class page
-  const classFeature = result.type === "classFeature" ? result.data as { className: string } : null;
-  const classSlug = classFeature?.className?.toLowerCase();
+  const sections = d.sections || [];
 
   const categoryLabel =
     result.type === "creation"
       ? "Character Creation Tools"
-      : result.type === "featOverview" || result.type === "feat" || result.type === "combat"
+      : result.type === "featOverview"
       ? "Combat Maneuvers & Feats"
-      : result.type === "classFeature" && classFeature?.className
-      ? classFeature.className
       : "Characters";
 
   const categoryHref =
     result.type === "creation"
       ? "/characters/creation/"
-      : result.type === "featOverview" || result.type === "feat" || result.type === "combat"
+      : result.type === "featOverview"
       ? "/characters/feats/"
-      : result.type === "classFeature" && classSlug
-      ? `/characters/classes/${classSlug}-5e/`
       : "/characters/";
 
   return (
