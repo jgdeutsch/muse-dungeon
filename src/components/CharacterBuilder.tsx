@@ -797,8 +797,8 @@ export function CharacterBuilder() {
                 ← Back
               </button>
             )}
-            {/* Only show Next button for text entry steps */}
-            {(currentStep === "name" || currentStep === "concept") && (
+            {/* Only show Next button for steps that need manual advancement */}
+            {(currentStep === "level" || currentStep === "name" || currentStep === "concept") && (
               <button
                 onClick={nextStep}
                 disabled={!isStepComplete(currentStep, choices)}
