@@ -188,7 +188,7 @@ export function SpellChecker({ spell }: { spell: SpellInfo }) {
         onClick={() => { setOpen(true); reset(); }}
         className="w-full mt-4 py-3 px-4 rounded-lg font-semibold text-sm bg-[var(--accent)] text-white hover:brightness-110 transition-all cursor-pointer"
       >
-        Will the spell work?
+        DM check: can the player cast it?
       </button>
     );
   }

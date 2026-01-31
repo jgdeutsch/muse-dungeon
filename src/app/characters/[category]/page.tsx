@@ -3,20 +3,24 @@ import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import {
   classPages,
+  subclassPages,
   racePages,
   featOverview,
   featPages,
   combatPages,
   creationPages,
+  featurePages,
   characterCategoryMeta,
 } from "@/data/characters-index";
 
 export function generateStaticParams() {
   return [
     { category: "classes" },
+    { category: "subclasses" },
     { category: "races" },
     { category: "feats" },
     { category: "creation" },
+    { category: "features" },
   ];
 }
 
@@ -49,6 +53,14 @@ export default async function CharacterCategoryPage({
         slug: c.slug,
         name: c.name,
         subtitle: `${c.hitDie} · ${c.primaryAbility}`,
+      }));
+  } else if (category === "subclasses") {
+    items = subclassPages
+      .sort((a, b) => b.searchVolume - a.searchVolume)
+      .map((s) => ({
+        slug: s.slug,
+        name: s.name,
+        subtitle: `${s.parentClass} · ${s.source}`,
       }));
   } else if (category === "races") {
     items = racePages
@@ -89,6 +101,14 @@ export default async function CharacterCategoryPage({
         slug: c.slug,
         name: c.name,
         subtitle: "Creation Tool",
+      }));
+  } else if (category === "features") {
+    items = featurePages
+      .sort((a, b) => b.searchVolume - a.searchVolume)
+      .map((f) => ({
+        slug: f.slug,
+        name: f.name,
+        subtitle: `${f.parentClass} · Level ${f.level}`,
       }));
   }
 

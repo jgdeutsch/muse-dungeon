@@ -44,7 +44,11 @@ export type CreationToolPage = {
   name: string;
   category: "creation";
   description: string;
+  tool?: "pointBuy" | "statRoller" | "standardArray";
   sections: { id: string; title: string; content: string }[];
+  commonMistakes?: string[];
+  dmTips?: string[];
+  faq?: { question: string; answer: string }[];
   searchVolume: number;
 };
 
@@ -1778,6 +1782,26 @@ For new players, use Standard Array or Point Buy to avoid confusion and ensure b
 - Don't worry about perfect optimization - adaptability is more valuable
 - Your character will change based on the campaign events anyway`
       }
+    ],
+    commonMistakes: [
+      "Creating a 'lone wolf' character who has no reason to work with the party — D&D is collaborative, make sure your character wants to adventure with others",
+      "Choosing options without understanding them — read your racial traits, class features, and spells before finalizing your character",
+      "Neglecting Constitution — every character needs HP, don't dump CON even if it's not your primary stat",
+      "Writing a massive backstory the DM can't use — keep it to 2-3 paragraphs with hooks the DM can incorporate",
+      "Picking a race/class combo that doesn't synergize — while any combo can work, fighting against your racial bonuses makes the game harder"
+    ],
+    dmTips: [
+      "Hold a Session Zero to align expectations — discuss character concepts, party composition, and campaign tone before anyone finalizes characters",
+      "Offer guidance on stat generation — Point Buy is best for balanced parties, rolling works for groups okay with power differences",
+      "Review character sheets before the first session — catch mistakes early and ensure everyone understands their abilities",
+      "Connect character backstories to your world — ask players for loose hooks you can weave into the campaign"
+    ],
+    faq: [
+      { question: "What's the best class for beginners?", answer: "Fighter and Barbarian are great for martial simplicity. Champion Fighter is especially beginner-friendly with straightforward features. For spellcasters, try Light Cleric or Circle of the Moon Druid — both are forgiving and effective." },
+      { question: "Should I roll for stats or use Point Buy?", answer: "Point Buy gives consistent, balanced characters. Rolling is more exciting but can result in very powerful or very weak characters. For your first character, Point Buy or Standard Array is recommended." },
+      { question: "How do I choose a background?", answer: "Pick one that fits your character's story and gives useful skill proficiencies. Soldier, Acolyte, Criminal, and Sage are versatile choices that work with many concepts." },
+      { question: "Can I change my character after we start playing?", answer: "Most DMs allow changes in the first few sessions while you're learning. After that, major changes usually require story justification. Always ask your DM — they want you to have fun." },
+      { question: "Do I need to buy the Player's Handbook?", answer: "The Basic Rules are free at D&D Beyond and cover core options. The PHB adds more races, classes, backgrounds, and spells. Many groups share books, and digital versions are available." }
     ]
   },
   {
@@ -2045,6 +2069,23 @@ For loot-heavy campaigns:
 - Ask DM or other players if unsure about calculations
 - Use online calculators to verify complex math`
       }
+    ],
+    commonMistakes: [
+      "Calculating modifiers wrong — the formula is (Ability Score - 10) ÷ 2, rounded down. A 15 gives +2, not +5",
+      "Forgetting proficiency bonus — proficient saves and skills add your proficiency bonus (+2 at level 1) on top of the ability modifier",
+      "Not updating HP when leveling — maximum HP increases each level by your Hit Die roll (or average) plus CON modifier",
+      "Leaving AC blank or wrong — AC = 10 + DEX modifier (unarmored), or armor's base AC + DEX modifier (up to armor limit) + shield"
+    ],
+    dmTips: [
+      "Require players to bring updated character sheets to each session — review new characters before play begins",
+      "Keep copies of character sheets in case players forget theirs — a quick phone photo works in a pinch",
+      "For new players, sit with them during character creation to explain each section as they fill it out"
+    ],
+    faq: [
+      { question: "Where do I get a character sheet?", answer: "Download official sheets free from D&D Beyond or Wizards of the Coast. D&D Beyond also offers free digital character sheets with auto-calculations." },
+      { question: "What's the difference between ability score and modifier?", answer: "The ability score is the raw number (like 14 Strength). The modifier is what you add to rolls, calculated as (score - 10) ÷ 2 rounded down. A 14 gives a +2 modifier." },
+      { question: "Do I need to fill out the whole sheet?", answer: "Fill out everything relevant to your current level. Leave sections like 'Death Saves' empty until needed. The personality section is optional but helps roleplay." },
+      { question: "How do I calculate my attack bonus?", answer: "Attack bonus = ability modifier (STR for melee, DEX for ranged or finesse) + proficiency bonus (if proficient with the weapon). Most characters are proficient with their weapons." }
     ]
   },
   {
@@ -2348,9 +2389,10 @@ Don't feel locked into one role. Many characters can cover multiple areas, and p
   },
   {
     slug: "dnd-point-buy",
-    name: "D&D Point Buy",
+    name: "D&D Point Buy Calculator",
     category: "creation",
-    description: "Complete guide to the Point Buy system in D&D 5e. Learn how to spend your 27 points, find point buy calculators, and optimize your ability scores.",
+    tool: "pointBuy",
+    description: "Interactive Point Buy calculator for D&D 5e. Spend your 27 points, apply racial bonuses, and optimize your ability scores with our free tool.",
     searchVolume: 8790,
     sections: [
       {
@@ -2642,6 +2684,439 @@ If your race gives +2 to your main stat, you start with 17 (15+2). This means:
 
 Remember: The difference between optimized and unoptimized characters is usually small. D&D 5e is fairly forgiving. Play what sounds fun!`
       }
+    ],
+    commonMistakes: [
+      "Spending points before deciding on a race — always check racial bonuses first since a +2 bonus can push your 15 to 17",
+      "Ignoring odd scores — a 15 becomes useful when paired with a +1 racial bonus (making 16) or a half-feat later",
+      "Dumping Constitution — every class needs HP, don't go below 12 CON even as a caster",
+      "Maxing too many stats — you only need 1-2 high stats, spread the rest based on saving throws and skills you'll actually use"
+    ],
+    dmTips: [
+      "Point Buy ensures party balance — recommend it for new groups or campaigns where power disparity would be problematic",
+      "Consider allowing 30 points instead of 27 for heroic campaigns where you want characters to feel powerful from the start",
+      "If a player wants to roll but gets bad stats, offer Point Buy as a safety net rather than endless rerolls"
+    ],
+    faq: [
+      { question: "Can I start with a 16 or higher using Point Buy?", answer: "Not with base points alone — the maximum base score is 15. However, after applying racial bonuses (+1 or +2), you can reach 16 or 17 at 1st level." },
+      { question: "What's the best Point Buy array?", answer: "15, 14, 14, 12, 8, 8 is popular for focused builds. For SAD classes needing one main stat, this maximizes your primary while keeping two decent secondaries." },
+      { question: "Is Point Buy better than rolling?", answer: "It's different, not better. Point Buy guarantees balanced, predictable stats. Rolling can give higher highs (or lower lows) and adds excitement. Most organized play uses Point Buy for fairness." },
+      { question: "How do I calculate Point Buy manually?", answer: "Start all six abilities at 8. Then spend points: 9 costs 1 point, 10 costs 2, 11 costs 3, 12 costs 4, 13 costs 5, 14 costs 7, and 15 costs 9. Your total spent must equal 27." }
+    ]
+  },
+  {
+    slug: "dnd-stat-roller",
+    name: "D&D Stat Roller (4d6 Drop Lowest)",
+    category: "creation",
+    tool: "statRoller",
+    description: "Roll ability scores using the classic 4d6 drop lowest method. Our interactive stat roller generates all six scores with full transparency on each die rolled.",
+    searchVolume: 6100,
+    sections: [
+      {
+        id: "4d6-rules",
+        title: "How 4d6 Drop Lowest Works",
+        content: `The 4d6 drop lowest method is the most popular way to roll ability scores in D&D 5e.
+
+**The Process:**
+1. Roll four six-sided dice (4d6)
+2. Remove the lowest die result
+3. Sum the remaining three dice
+4. This gives you one ability score (range: 3-18)
+5. Repeat this process six times for all six ability scores
+
+**Example Roll:**
+- You roll: 4, 6, 2, 5
+- Drop the lowest (2)
+- Sum the rest: 4 + 6 + 5 = **15**
+
+**After Rolling:**
+- Assign each of your six results to your six ability scores however you want
+- Apply racial bonuses to the final assigned scores
+- There's no rule requiring you to assign them in order`
+      },
+      {
+        id: "probability",
+        title: "Probability and Statistics",
+        content: `**Expected Results:**
+The average result for 4d6 drop lowest is approximately **12.24** per ability score, with a total array average around **73.5**.
+
+**Score Probabilities:**
+- **18**: ~1.6% (rare but exciting)
+- **17**: ~4.2%
+- **16**: ~7.3%
+- **15**: ~10.1%
+- **14**: ~12.3%
+- **13**: ~13.3%
+- **12**: ~13.0%
+- **11**: ~11.4%
+- **10**: ~9.4%
+- **9 or lower**: ~17.4%
+
+**What This Means:**
+- Most results fall between 10-15
+- Getting an 18 is exciting but not expected
+- Getting multiple scores below 10 is uncommon
+- The "drop lowest" mechanic skews results higher than straight 3d6
+
+**Comparing to Other Methods:**
+- **Standard Array (72 total)**: 4d6 drop lowest averages slightly higher
+- **Point Buy (72-75 equivalent)**: Rolling can exceed point buy's 15 maximum
+- **3d6 straight (average 10.5 per stat)**: 4d6 drop lowest is significantly better`
+      },
+      {
+        id: "variant-rules",
+        title: "Variant Rolling Methods",
+        content: `Many groups modify the standard rolling method. Here are common variants:
+
+**Roll 4d6 Drop Lowest (Standard):**
+- As described above
+- Most common method
+- PHB official method
+
+**3d6 Straight:**
+- Roll 3d6 and take the total
+- More random, lower average
+- "Old school" D&D feel
+- Can result in very weak characters
+
+**4d6 Drop Lowest, Reroll 1s:**
+- Any 1s are rerolled before dropping
+- Higher average scores
+- Minimum score is 6 instead of 3
+
+**Roll 4d6 Seven Times, Drop Lowest Array:**
+- Roll seven sets of 4d6 drop lowest
+- Discard your worst result
+- Gives one "free" bad roll
+
+**Group Array:**
+- One player rolls six stats
+- Everyone uses the same array
+- Ensures party balance while keeping randomness
+
+**Roll Two Arrays, Pick One:**
+- Roll two complete sets of stats
+- Choose which array to use
+- Safety net for bad rolls
+
+**Minimum Total Rule:**
+- If your total (sum of all six) is below a threshold (often 70 or 72), reroll everything
+- Prevents extremely weak characters
+
+**DM Considerations:**
+Before rolling, discuss with your DM which method they prefer and what safety nets exist for poor rolls.`
+      },
+      {
+        id: "assigning-stats",
+        title: "Assigning Your Rolls",
+        content: `**Priority by Class:**
+
+After rolling, you need to assign each number to an ability. Here's general guidance:
+
+**Primary Stat First:**
+- **Barbarian, Fighter (melee)**: Strength
+- **Ranger, Rogue, Fighter (ranged)**: Dexterity
+- **Wizard, Artificer**: Intelligence
+- **Cleric, Druid, Monk**: Wisdom
+- **Bard, Paladin, Sorcerer, Warlock**: Charisma
+
+**Constitution is Always Second:**
+Every character needs hit points. Put your second-best roll in Constitution.
+
+**Dump Stats:**
+Your lowest rolls typically go to stats your class doesn't use:
+- Casters can usually dump Strength
+- Barbarians can dump Intelligence
+- Dexterity is hard to dump (AC, initiative, common saves)
+- Wisdom is risky to dump (many dangerous effects target WIS saves)
+
+**Example Assignment (Fighter):**
+Rolls: 16, 14, 13, 12, 10, 8
+- STR: 16 (primary attack stat)
+- CON: 14 (HP and concentration)
+- DEX: 13 (AC in medium armor, initiative)
+- WIS: 12 (saving throws)
+- CHA: 10 (social situations)
+- INT: 8 (dump stat)
+
+**Consider Racial Bonuses:**
+If your race gives +2 DEX and you rolled 16, 15, 14, 13, 10, 8:
+- You might put 14 in DEX (becomes 16 with racial)
+- Put 16 in your secondary stat
+- This spreads your power more evenly`
+      },
+      {
+        id: "rolling-etiquette",
+        title: "Rolling Etiquette",
+        content: `**Table Rules:**
+
+**Roll in Front of the Group:**
+Most DMs require stats be rolled where everyone can see. This prevents "miraculously good" home rolls.
+
+**Use Designated Dice:**
+Some tables require specific dice or a dice roller app to prevent loaded dice (even unintentional manufacturing defects).
+
+**Accept What You Roll:**
+Part of the fun of rolling is embracing randomness. A character with 8 Charisma is an opportunity for roleplay, not a failure.
+
+**Discuss Rerolls Beforehand:**
+Before anyone rolls, the group should agree on:
+- What happens if someone rolls terribly?
+- Is there a minimum total allowed?
+- Can you use Standard Array as a backup?
+
+**Don't Cheat:**
+Seriously. It's a game with friends. Nobody cares if your Wizard has 18 INT instead of 16. Rolling high doesn't make you a better player.
+
+**Celebrate and Commiserate:**
+Rolling stats is a shared experience. Cheer for good rolls, sympathize with bad ones. It builds party camaraderie before the game even starts.
+
+**Record Everything:**
+Write down your stats immediately. Take a photo if using physical dice. You don't want disputes later about what you rolled.`
+      }
+    ],
+    commonMistakes: [
+      "Rolling stats at home alone — most DMs require witnessed rolls to prevent 'suspiciously good' stats",
+      "Assigning stats before considering racial bonuses — a +2 racial can change which ability gets your highest roll",
+      "Thinking low stats ruin a character — a 6 Intelligence Fighter can be hilarious and memorable",
+      "Rerolling without DM permission — the rules for handling bad stat totals vary by table"
+    ],
+    dmTips: [
+      "Set clear expectations before rolling: minimum totals, reroll policies, and whether Standard Array is a backup option",
+      "Consider having everyone roll in the same session to make it a shared experience and prevent outlier 'home rolls'",
+      "If one player rolls significantly better/worse than others, consider letting them adjust one stat by 2 points to balance the party"
+    ],
+    faq: [
+      { question: "What's the minimum and maximum possible with 4d6 drop lowest?", answer: "Minimum is 3 (four 1s, drop one, sum three 1s). Maximum is 18 (four 6s, drop one, sum three 6s). The realistic range is typically 6-17." },
+      { question: "Should I reroll if my stats are bad?", answer: "That depends on your DM's rules. Common policies include: reroll if total is below 70, use Standard Array as backup, or just play what you rolled. Ask before rolling." },
+      { question: "Can I rearrange my rolls after assigning them?", answer: "Yes, until you finalize your character. You assign rolls to abilities in any order you choose, and can change your mind during character creation." },
+      { question: "Is rolling better than Point Buy?", answer: "Rolling has higher variance — you might get better stats (or worse). Point Buy guarantees consistent, balanced stats. Neither is 'better,' just different experiences." }
+    ]
+  },
+  {
+    slug: "dnd-standard-array",
+    name: "D&D Standard Array Assigner",
+    category: "creation",
+    tool: "standardArray",
+    description: "Assign the D&D 5e Standard Array (15, 14, 13, 12, 10, 8) to your abilities with our interactive tool. Includes class-specific recommendations and racial bonus calculations.",
+    searchVolume: 4400,
+    sections: [
+      {
+        id: "standard-array-basics",
+        title: "What is the Standard Array?",
+        content: `The Standard Array is a pre-determined set of six ability scores you can use instead of rolling or using Point Buy.
+
+**The Standard Array:**
+**15, 14, 13, 12, 10, 8**
+
+**How to Use It:**
+1. Assign each of these six numbers to one of your six ability scores (Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma)
+2. Each number can only be used once
+3. Apply your racial bonuses after assignment
+
+**Why Use Standard Array?**
+- **Fast**: No decisions about point allocation
+- **Balanced**: Every Standard Array character has the same power level
+- **Simple**: Great for new players
+- **Fair**: No lucky or unlucky rolls
+
+**Official Source:**
+Standard Array is found in the Player's Handbook, Chapter 1, under "Determine Ability Scores."`
+      },
+      {
+        id: "class-recommendations",
+        title: "Recommended Assignments by Class",
+        content: `**Melee Martial Classes:**
+
+**Barbarian**: STR 15, CON 14, DEX 13, WIS 12, CHA 10, INT 8
+- Strength for attacks and Reckless Attack
+- Constitution for HP and Unarmored Defense
+- Dexterity for AC and initiative
+
+**Fighter (Strength)**: STR 15, CON 14, DEX 13, WIS 12, CHA 10, INT 8
+- Similar to Barbarian
+- WIS helps with Perception and saves
+
+**Paladin**: STR 15, CHA 14, CON 13, WIS 12, DEX 10, INT 8
+- Strength and Charisma are both essential
+- Smites key off Charisma for spell slots
+
+**Dexterity Martial Classes:**
+
+**Fighter (Dexterity)**: DEX 15, CON 14, WIS 13, STR 12, CHA 10, INT 8
+- Archery or finesse weapons
+- WIS for saves and Perception
+
+**Ranger**: DEX 15, WIS 14, CON 13, INT 12, STR 10, CHA 8
+- Wisdom powers spellcasting
+- INT helps with Nature/Survival
+
+**Rogue**: DEX 15, CON 14, WIS 13, INT 12, CHA 10, STR 8
+- All about Dexterity
+- INT for Investigation, WIS for Perception
+
+**Monk**: DEX 15, WIS 14, CON 13, STR 12, INT 10, CHA 8
+- DEX and WIS are both crucial
+- CON third for ki-powered survival
+
+**Spellcasters:**
+
+**Wizard**: INT 15, DEX 14, CON 13, WIS 12, CHA 10, STR 8
+- Intelligence is everything
+- DEX for AC (no armor)
+
+**Sorcerer**: CHA 15, CON 14, DEX 13, WIS 12, INT 10, STR 8
+- Charisma drives all abilities
+- CON for concentration
+
+**Warlock**: CHA 15, CON 14, DEX 13, WIS 12, INT 10, STR 8
+- Same as Sorcerer
+- Very consistent
+
+**Bard**: CHA 15, DEX 14, CON 13, WIS 12, INT 10, STR 8
+- Charisma for spells and skills
+- DEX for light armor AC
+
+**Cleric**: WIS 15, CON 14, STR 13, DEX 12, CHA 10, INT 8
+- Wisdom powers everything
+- STR for heavy armor clerics
+
+**Druid**: WIS 15, CON 14, DEX 13, INT 12, CHA 10, STR 8
+- Wisdom for spells and Wild Shape DCs
+- CON for concentration`
+      },
+      {
+        id: "standard-array-vs-other",
+        title: "Standard Array vs Other Methods",
+        content: `**Standard Array vs Point Buy:**
+
+Standard Array IS Point Buy, frozen at one specific allocation.
+
+**Point Buy Equivalent:**
+The Standard Array (15, 14, 13, 12, 10, 8) costs exactly 27 points:
+- 15 = 9 points
+- 14 = 7 points
+- 13 = 5 points
+- 12 = 4 points
+- 10 = 2 points
+- 8 = 0 points
+- **Total: 27 points**
+
+**When Point Buy is Better:**
+- You want 15, 15 in two stats (costs 18 points, leaving 9 for others)
+- You want to avoid dump stats entirely
+- Your build needs a specific unusual array
+
+**When Standard Array is Better:**
+- You're new to the system
+- You want fast character creation
+- The DM requires it for simplicity
+
+**Standard Array vs Rolling:**
+
+**Standard Array Guarantees:**
+- No score above 15 (before racials)
+- No score below 8
+- Total of 72 points (15+14+13+12+10+8)
+
+**Rolling Offers:**
+- Potential for 16, 17, or even 18
+- Risk of multiple low scores
+- Excitement and randomness
+- Average total around 73-74 (slightly higher)
+
+**The Trade-off:**
+Rolling might give you an 18, but it might also give you multiple scores under 10. Standard Array is safe and predictable.`
+      },
+      {
+        id: "racial-synergy",
+        title: "Racial Bonus Synergy",
+        content: `**Maximizing Racial Bonuses:**
+
+Your racial bonus determines where to put your 15.
+
+**+2 to Primary Stat Races:**
+Put your 15 in the stat that gets +2 racial. This gives you 17 at level 1.
+
+**Examples:**
+- **Mountain Dwarf** (+2 STR, +2 CON): 15→17 STR, 14→16 CON. Amazing for martials.
+- **High Elf** (+2 DEX, +1 INT): 15→17 DEX, 13→14 INT. Great for Eldritch Knight or Bladesinger.
+- **Half-Elf** (+2 CHA, +1/+1 choice): 15→17 CHA, then +1 to two other stats. Incredibly versatile.
+- **Variant Human** (+1/+1 choice + feat): Put +1 where it rounds up a score. The feat is the real prize.
+
+**Tasha's Custom Lineage:**
++2 anywhere, one feat. Put the +2 on your 15 for a clean 17 in any stat, then take a powerful feat.
+
+**Common Race/Class Combos:**
+
+| Class | Recommended Race | Result |
+|-------|------------------|--------|
+| Barbarian | Half-Orc | 17 STR, 15 CON |
+| Fighter | Custom Lineage | 17 in main stat + feat |
+| Paladin | Half-Elf | 17 CHA, +1 to STR and CON |
+| Ranger | Wood Elf | 17 DEX, 14 WIS |
+| Rogue | Lightfoot Halfling | 17 DEX |
+| Wizard | High Elf | 16 INT, 17 DEX |
+| Cleric | Hill Dwarf | 16 WIS, 16 CON |
+| Warlock | Tiefling | 17 CHA, 14 INT |`
+      },
+      {
+        id: "level-progression",
+        title: "Ability Score Progression",
+        content: `**Planning Ahead with Standard Array:**
+
+Starting with Standard Array, here's how your abilities progress:
+
+**ASI Schedule:**
+Most classes get Ability Score Improvements at levels 4, 8, 12, 16, and 19.
+
+**Getting to 20:**
+Starting with 15 + 2 racial = 17
+- Level 4: +2 = 19
+- Level 8: +1 (or +2 and take feat) = 20
+
+You can max your primary stat by level 8, leaving later ASIs for feats.
+
+**The Odd Score Strategy:**
+Standard Array includes 15 and 13 — both odd numbers.
+
+**Why This Matters:**
+- Odd scores "waste" a point (15 gives same +2 modifier as 14)
+- BUT odd scores pair perfectly with half-feats
+
+**Half-Feats to Consider:**
+- **Resilient** (+1 to chosen ability, proficiency in that save)
+- **Fey Touched** (+1 CHA/INT/WIS, free spells)
+- **Shadow Touched** (+1 CHA/INT/WIS, free spells)
+- **Skill Expert** (+1 to any ability, expertise)
+- **Chef** (+1 CON or WIS, healing treats)
+
+**Example Progression (Fighter with 15 STR):**
+- Level 1: 15 STR (17 with +2 racial)
+- Level 4: Take Great Weapon Master (feat, STR stays 17)
+- Level 6: Fighter Extra ASI → STR 19
+- Level 8: STR 20 or take Sentinel
+- Level 12+: Pick up feats freely
+
+**Variant Human Exception:**
+V. Human gets +1/+1 and a feat at level 1. Consider putting +1 on your 15 for 16, then using your level 4 ASI for +2 to reach 18. Slower to 20, but you get a feat earlier.`
+      }
+    ],
+    commonMistakes: [
+      "Putting 15 in a stat without a racial bonus — always align your highest score with your +2 racial to reach 17",
+      "Ignoring Constitution — never assign 8 to CON unless you have a very specific build reason",
+      "Assigning randomly — Standard Array has exactly enough power for a strong character, so assignment strategy matters",
+      "Forgetting that 13 and 15 are odd — plan to round them up with half-feats or racial bonuses"
+    ],
+    dmTips: [
+      "Standard Array is excellent for new players — it removes decision paralysis while still creating competent characters",
+      "For one-shots or drop-in games, require Standard Array for fast, balanced character creation",
+      "Consider offering Standard Array as a 'safety net' when players roll poorly"
+    ],
+    faq: [
+      { question: "Is Standard Array weaker than rolling?", answer: "On average, slightly. 4d6 drop lowest averages about 73.5 total vs Standard Array's 72. But rolling can give you worse results — Standard Array guarantees a decent character." },
+      { question: "Can I use Standard Array for every ability score method?", answer: "The DM chooses which methods are available. Most DMs allow Standard Array as an option alongside rolling or Point Buy." },
+      { question: "What if I want two 15s?", answer: "Standard Array only has one 15. If you need two high stats, use Point Buy instead (15, 15, 13, 10, 8, 8 is possible with 27 points)." },
+      { question: "Do I apply racial bonuses before or after assigning?", answer: "After. First assign the six Standard Array numbers to your six abilities, then add your racial bonuses on top." }
     ]
   }
 ];

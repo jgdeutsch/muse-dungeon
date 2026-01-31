@@ -2,11 +2,13 @@
 
 import { useState, useRef, useEffect, useMemo } from "react";
 import { useRouter } from "next/navigation";
-import { allSpells } from "@/data/spells-index";
+import { allSpells, classSpellLists } from "@/data/spells-index";
 import { classPages } from "@/data/characters-classes";
 import { racePages } from "@/data/characters-races";
-import { featPages } from "@/data/characters-other";
-import { monsterPages } from "@/data/monsters-index";
+import { featPages, creationPages, combatPages } from "@/data/characters-other";
+import { subclassPages } from "@/data/characters-subclasses";
+import { featurePages } from "@/data/characters-features";
+import { monsterPages, lorePages, sourcebookPages } from "@/data/monsters-index";
 import { equipmentPages, magicItemPages } from "@/data/items-index";
 import { rulePages } from "@/data/rules-index";
 
@@ -15,20 +17,61 @@ type SearchEntry = { name: string; href: string; type: string };
 function buildIndex(): SearchEntry[] {
   const entries: SearchEntry[] = [];
 
+  // Spells
   for (const s of allSpells)
     entries.push({ name: s.name, href: `/spells/${s.category}/${s.slug}/`, type: "Spell" });
+
+  // Class spell lists
+  for (const sl of classSpellLists)
+    entries.push({ name: sl.name, href: `/spells/class-spell-lists/${sl.slug}/`, type: "Spell List" });
+
+  // Classes
   for (const c of classPages)
     entries.push({ name: c.name, href: `/characters/classes/${c.slug}/`, type: "Class" });
+
+  // Subclasses
+  for (const sc of subclassPages)
+    entries.push({ name: sc.name, href: `/characters/subclasses/${sc.slug}/`, type: "Subclass" });
+
+  // Features
+  for (const f of featurePages)
+    entries.push({ name: f.name, href: `/characters/features/${f.slug}/`, type: "Feature" });
+
+  // Races
   for (const r of racePages)
     entries.push({ name: r.name, href: `/characters/races/${r.slug}/`, type: "Race" });
+
+  // Feats
   for (const f of featPages)
     entries.push({ name: f.name, href: `/characters/feats/${f.slug}/`, type: "Feat" });
+
+  // Combat maneuvers (grapple, etc.)
+  for (const cm of combatPages)
+    entries.push({ name: cm.name, href: `/characters/feats/${cm.slug}/`, type: "Combat" });
+
+  // Creation tools
+  for (const ct of creationPages)
+    entries.push({ name: ct.name, href: `/characters/creation/${ct.slug}/`, type: "Tool" });
+
+  // Monsters
   for (const m of monsterPages)
     entries.push({ name: m.name, href: `/monsters/creatures/${m.slug}/`, type: "Monster" });
+
+  // Lore
+  for (const l of lorePages)
+    entries.push({ name: l.name, href: `/monsters/lore/${l.slug}/`, type: "Lore" });
+
+  // Sourcebooks
+  for (const sb of sourcebookPages)
+    entries.push({ name: sb.name, href: `/monsters/sourcebooks/${sb.slug}/`, type: "Sourcebook" });
+
+  // Items
   for (const e of equipmentPages)
     entries.push({ name: e.name, href: `/items/equipment/${e.slug}/`, type: "Item" });
   for (const mi of magicItemPages)
     entries.push({ name: mi.name, href: `/items/magic-items/${mi.slug}/`, type: "Magic Item" });
+
+  // Rules
   for (const r of rulePages)
     entries.push({ name: r.name, href: `/rules/${r.category}/${r.slug}/`, type: r.category === "conditions" ? "Condition" : "Rule" });
 
@@ -92,10 +135,17 @@ export function SearchBar() {
 
   const typeColors: Record<string, string> = {
     Spell: "var(--accent)",
+    "Spell List": "var(--accent)",
     Class: "#e6a020",
+    Subclass: "#d09010",
+    Feature: "#c08020",
     Race: "#20b880",
     Feat: "#c070e0",
+    Combat: "#b060d0",
+    Tool: "#8090a0",
     Monster: "#e05050",
+    Lore: "#d06060",
+    Sourcebook: "#c07070",
     Item: "#60a0e0",
     "Magic Item": "#a060e0",
     Rule: "#90908a",

@@ -2,7 +2,7 @@
 // Returns tooltip-friendly data for spells, classes, races, monsters, items, conditions, feats, etc.
 
 import { allSpells, type Spell } from "@/data/spells-index";
-import { classPages, racePages, featPages, classFeaturePages } from "@/data/characters-index";
+import { classPages, racePages, featPages, classFeaturePages, featurePages } from "@/data/characters-index";
 import { monsterPages } from "@/data/monsters-index";
 import { equipmentPages, magicItemPages } from "@/data/items-index";
 import { rulePages } from "@/data/rules-index";
@@ -11,6 +11,7 @@ export type EntityType =
   | "spell"
   | "class"
   | "class-feature"
+  | "feature"
   | "race"
   | "monster"
   | "equipment"
@@ -201,7 +202,7 @@ function initializeLookup() {
     }, feat.aliases);
   }
 
-  // Class Features (Wizard features, etc.)
+  // Class Features (Wizard features, etc. - legacy)
   for (const feature of classFeaturePages) {
     addEntity({
       type: "class-feature",
@@ -214,6 +215,28 @@ function initializeLookup() {
       },
       fullDescription: feature.description,
     });
+  }
+
+  // Features (all class features - new comprehensive)
+  for (const feature of featurePages) {
+    addEntity({
+      type: "feature",
+      name: feature.name,
+      slug: feature.slug,
+      url: `/characters/features/${feature.slug}/`,
+      shortDescription: truncate(stripHtml(feature.description || ""), 150),
+      details: {
+        level: feature.level,
+        category: `${feature.parentClass} feature`,
+      },
+      fullDescription: feature.mechanics,
+    });
+
+    // Also index without "5e" suffix for easier linking
+    const nameWithout5e = feature.name.replace(/ 5e$/i, "").trim();
+    if (nameWithout5e !== feature.name) {
+      entityByName.set(nameWithout5e.toLowerCase(), entityBySlug.get(feature.slug)!);
+    }
   }
 }
 

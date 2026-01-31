@@ -1,17 +1,22 @@
-import Link from "next/link";
+"use client";
+
 import { Breadcrumb } from "./Breadcrumb";
 import { JumpTo } from "./JumpTo";
 import { Warning, Tip } from "./Warning";
 import { Sources } from "./Sources";
-import { AssignToCharacter } from "./AssignToCharacter";
 import { FAQ, FAQItem } from "./FAQ";
 import { EntityContent, EntityContentContainer } from "./EntityContent";
-import { ConditionQuickRef } from "./ConditionQuickRef";
-import { SavingThrowCalculator } from "./SavingThrowCalculator";
+import { PointBuyCalculator } from "./PointBuyCalculator";
+import { StatRoller } from "./StatRoller";
+import { StandardArrayAssigner } from "./StandardArrayAssigner";
+import { RelatedAnswers, RelatedAnswer } from "./RelatedAnswers";
 
-type GenericPageData = {
+type ToolType = "pointBuy" | "statRoller" | "standardArray" | null;
+
+type CreationToolPageData = {
   name: string;
   description: string;
+  tool?: ToolType;
   sections: { id: string; title: string; content: string }[];
   commonMistakes?: string[];
   dmTips?: string[];
@@ -20,33 +25,19 @@ type GenericPageData = {
 
 type BreadcrumbItem = { label: string; href?: string };
 
-type RelatedAnswer = {
-  slug: string;
-  title: string;
-  category: string;
-  description: string;
-};
-
-export function GenericPageComponent({
+export function CreationToolPageComponent({
   data,
   breadcrumbs,
   sources,
-  assignField,
-  assignSlug,
   relatedAnswers,
-  showConditionRef,
-  showSavingThrowCalc,
 }: {
-  data: GenericPageData;
+  data: CreationToolPageData;
   breadcrumbs: BreadcrumbItem[];
   sources?: { name: string; url: string; note?: string }[];
-  assignField?: "conditions" | "activeEffects" | "spellsKnown" | "items";
-  assignSlug?: string;
   relatedAnswers?: RelatedAnswer[];
-  showConditionRef?: boolean;
-  showSavingThrowCalc?: boolean;
 }) {
   const sections = [
+    ...(data.tool ? [{ id: "tool", label: "Calculator" }] : []),
     ...data.sections.map((s) => ({ id: s.id, label: s.title })),
     ...(data.commonMistakes?.length ? [{ id: "mistakes", label: "Common Mistakes" }] : []),
     ...(data.dmTips?.length ? [{ id: "tips", label: "DM Tips" }] : []),
@@ -68,15 +59,16 @@ export function GenericPageComponent({
         </p>
       </div>
 
-      {assignField && (
-        <AssignToCharacter entryName={data.name} entrySlug={assignSlug} field={assignField} />
-      )}
-
-      {/* DM Tools */}
-      {showConditionRef && <ConditionQuickRef />}
-      {showSavingThrowCalc && <SavingThrowCalculator />}
-
       <JumpTo sections={sections} />
+
+      {/* Interactive Tool */}
+      {data.tool && (
+        <section id="tool" className="py-4">
+          {data.tool === "pointBuy" && <PointBuyCalculator />}
+          {data.tool === "statRoller" && <StatRoller />}
+          {data.tool === "standardArray" && <StandardArrayAssigner />}
+        </section>
+      )}
 
       <EntityContentContainer>
         {data.sections.map((s) => (
@@ -120,30 +112,7 @@ export function GenericPageComponent({
 
       {data.faq && data.faq.length > 0 && <FAQ items={data.faq} />}
 
-      {relatedAnswers && relatedAnswers.length > 0 && (
-        <section id="related-answers" className="py-8 border-t border-[var(--border)]">
-          <h2 className="font-['Cinzel'] text-xl font-semibold mb-4">
-            Related Questions & Answers
-          </h2>
-          <p className="text-sm text-[var(--text-dim)] mb-4">
-            Community questions related to this topic:
-          </p>
-          <div className="space-y-3">
-            {relatedAnswers.map((answer) => (
-              <Link
-                key={answer.slug}
-                href={`/answers/${answer.category}/${answer.slug}/`}
-                className="block p-4 rounded-lg border border-[var(--border)] hover:border-[var(--accent)] transition-colors"
-              >
-                <h3 className="font-semibold text-sm mb-1">{answer.title}</h3>
-                <p className="text-xs text-[var(--text-dim)] line-clamp-2">
-                  {answer.description}
-                </p>
-              </Link>
-            ))}
-          </div>
-        </section>
-      )}
+      {relatedAnswers && <RelatedAnswers answers={relatedAnswers} />}
 
       {sources && sources.length > 0 && <Sources sources={sources} />}
     </>

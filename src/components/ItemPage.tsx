@@ -5,6 +5,7 @@ import { Warning, Tip } from "./Warning";
 import { Sources } from "./Sources";
 import { AssignToCharacter } from "./AssignToCharacter";
 import { FAQ, FAQItem } from "./FAQ";
+import { ItemPricingGuide } from "./ItemPricingGuide";
 
 type EquipmentData = {
   slug: string;
@@ -171,6 +172,7 @@ export function MagicItemPageComponent({ data }: { data: MagicItemData }) {
       </div>
 
       <AtAGlance stats={stats} />
+      <ItemPricingGuide itemName={data.name} rarity={data.rarity} />
       <AssignToCharacter entryName={data.name} entrySlug={data.slug} field="items" />
       <JumpTo sections={sections} />
 

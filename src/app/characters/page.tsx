@@ -10,9 +10,15 @@ export const metadata = {
 const categories = [
   {
     key: "classes",
-    title: "Classes & Subclasses",
-    description: "Quick reference for every class and subclass in D&D 5e.",
-    count: 24,
+    title: "Classes",
+    description: "Quick reference for every class in D&D 5e.",
+    count: 14,
+  },
+  {
+    key: "subclasses",
+    title: "Subclasses",
+    description: "All 108 subclasses — features, abilities, and build guides.",
+    count: 108,
   },
   {
     key: "races",
@@ -32,6 +38,12 @@ const categories = [
     description: "Point buy, character sheets, and creation guides.",
     count: 4,
   },
+  {
+    key: "features",
+    title: "Class Features",
+    description: "All class features — Rage, Sneak Attack, Divine Smite, and more.",
+    count: 137,
+  },
 ];
 
 export default function CharactersIndex() {
@@ -46,7 +58,7 @@ export default function CharactersIndex() {
           Character Options
         </h1>
         <p className="text-[var(--text-dim)]">
-          71 quick-reference guides for classes, races, feats, and character
+          300+ quick-reference guides for classes, subclasses, races, features, feats, and character
           creation.
         </p>
       </div>

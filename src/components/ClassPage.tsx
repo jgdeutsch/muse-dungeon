@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Breadcrumb } from "./Breadcrumb";
 import { AtAGlance } from "./AtAGlance";
 import { JumpTo } from "./JumpTo";
@@ -6,6 +7,9 @@ import { Sources } from "./Sources";
 import { AddToGameButton } from "./AddToGameButton";
 import { FAQ, FAQItem } from "./FAQ";
 import { TextWithEntityLinks } from "./TextWithEntityLinks";
+import { RelatedAnswers, RelatedAnswer } from "./RelatedAnswers";
+import { featurePages } from "@/data/characters-features";
+import { SpellSlotCalculator } from "./SpellSlotCalculator";
 
 type ClassPageData = {
   slug: string;
@@ -25,7 +29,7 @@ type ClassPageData = {
   faq?: FAQItem[];
 };
 
-export function ClassPageComponent({ data }: { data: ClassPageData }) {
+export function ClassPageComponent({ data, relatedAnswers }: { data: ClassPageData; relatedAnswers?: RelatedAnswer[] }) {
   const stats = [
     { label: "Hit Die", value: data.hitDie },
     { label: "Primary Ability", value: data.primaryAbility },
@@ -43,6 +47,7 @@ export function ClassPageComponent({ data }: { data: ClassPageData }) {
     { id: "mistakes", label: "Common Mistakes" },
     { id: "tips", label: "DM Tips" },
     ...(data.faq && data.faq.length > 0 ? [{ id: "faq", label: "FAQ" }] : []),
+    ...(relatedAnswers && relatedAnswers.length > 0 ? [{ id: "related-answers", label: "Related Q&A" }] : []),
     { id: "sources", label: "Sources" },
   ];
 
@@ -72,6 +77,9 @@ export function ClassPageComponent({ data }: { data: ClassPageData }) {
 
       <AddToGameButton className={data.className} classSlug={data.slug} />
 
+      {/* Spell Slot Calculator for spellcasting classes */}
+      {data.spellcasting && <SpellSlotCalculator className={data.className} />}
+
       <AtAGlance stats={stats} />
       <JumpTo sections={sections} />
 
@@ -89,15 +97,32 @@ export function ClassPageComponent({ data }: { data: ClassPageData }) {
             </tr>
           </thead>
           <tbody>
-            {data.keyFeatures.map((f, i) => (
-              <tr key={i}>
-                <td className="font-medium text-[var(--text)]">{f.name}</td>
-                <td>{f.level}</td>
-                <td>
-                  <TextWithEntityLinks text={f.description} />
-                </td>
-              </tr>
-            ))}
+            {data.keyFeatures.map((f, i) => {
+              // Try to find matching feature page for this class
+              const featureSlug = f.name.toLowerCase().replace(/\s+/g, "-").replace(/'/g, "") + "-5e";
+              const featurePage = featurePages.find(
+                (fp) => fp.slug === featureSlug ||
+                fp.name.toLowerCase().replace(/ 5e$/, "") === f.name.toLowerCase()
+              );
+
+              return (
+                <tr key={i}>
+                  <td className="font-medium text-[var(--text)]">
+                    {featurePage ? (
+                      <Link href={`/characters/features/${featurePage.slug}/`} className="underline">
+                        {f.name}
+                      </Link>
+                    ) : (
+                      f.name
+                    )}
+                  </td>
+                  <td>{f.level}</td>
+                  <td>
+                    <TextWithEntityLinks text={f.description} />
+                  </td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </section>
@@ -116,15 +141,22 @@ export function ClassPageComponent({ data }: { data: ClassPageData }) {
             </tr>
           </thead>
           <tbody>
-            {data.subclasses.map((s, i) => (
-              <tr key={i}>
-                <td className="font-medium text-[var(--text)]">{s.name}</td>
-                <td>{s.source}</td>
-                <td>
-                  <TextWithEntityLinks text={s.focus} />
-                </td>
-              </tr>
-            ))}
+            {data.subclasses.map((s, i) => {
+              const subclassSlug = s.name.toLowerCase().replace(/\s+/g, "-") + "-5e";
+              return (
+                <tr key={i}>
+                  <td className="font-medium text-[var(--text)]">
+                    <Link href={`/characters/subclasses/${subclassSlug}/`} className="underline">
+                      {s.name}
+                    </Link>
+                  </td>
+                  <td>{s.source}</td>
+                  <td>
+                    <TextWithEntityLinks text={s.focus} />
+                  </td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </section>
@@ -149,6 +181,9 @@ export function ClassPageComponent({ data }: { data: ClassPageData }) {
 
       {/* FAQ */}
       {data.faq && data.faq.length > 0 && <FAQ items={data.faq} />}
+
+      {/* Related Answers */}
+      {relatedAnswers && <RelatedAnswers answers={relatedAnswers} />}
 
       <Sources
         sources={[

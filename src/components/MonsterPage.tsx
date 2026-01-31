@@ -7,6 +7,8 @@ import { AssignToCharacter } from "./AssignToCharacter";
 import { AddMonsterToGame } from "./AddMonsterToGame";
 import { FAQ, FAQItem } from "./FAQ";
 import { TextWithEntityLinks } from "./TextWithEntityLinks";
+import { EncounterCalculator } from "./EncounterCalculator";
+import { DamageRoller } from "./DamageRoller";
 
 type MonsterPageData = {
   slug: string;
@@ -86,6 +88,17 @@ export function MonsterPageComponent({ data }: { data: MonsterPageData }) {
         ac={data.armorClass.split(" ")[0]}
       />
       <AssignToCharacter entryName={`Encounter: ${data.monsterName}`} entrySlug={data.slug} field="conditions" />
+
+      {/* DM Tools */}
+      <EncounterCalculator
+        monster={{
+          name: data.name,
+          challengeRating: data.challengeRating,
+          hitPoints: data.hitPoints,
+          armorClass: data.armorClass,
+        }}
+      />
+      <DamageRoller abilities={data.keyAbilities} monsterName={data.monsterName} />
 
       {/* Speed */}
       <div className="bg-[var(--bg-card)] border border-[var(--border)] rounded-lg px-4 py-3 mb-4 text-sm">

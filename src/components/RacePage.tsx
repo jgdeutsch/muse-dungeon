@@ -7,6 +7,8 @@ import { AddRaceToGame } from "./AddRaceToGame";
 import { AssignToCharacter } from "./AssignToCharacter";
 import { FAQ, FAQItem } from "./FAQ";
 import { TextWithEntityLinks } from "./TextWithEntityLinks";
+import { RelatedAnswers, RelatedAnswer } from "./RelatedAnswers";
+import { AbilityScoreHelper } from "./AbilityScoreHelper";
 
 type RacePageData = {
   slug: string;
@@ -25,7 +27,7 @@ type RacePageData = {
   faq?: FAQItem[];
 };
 
-export function RacePageComponent({ data }: { data: RacePageData }) {
+export function RacePageComponent({ data, relatedAnswers }: { data: RacePageData; relatedAnswers?: RelatedAnswer[] }) {
   const stats = [
     { label: "Ability Scores", value: data.abilityScores },
     { label: "Size", value: data.size },
@@ -40,6 +42,7 @@ export function RacePageComponent({ data }: { data: RacePageData }) {
     { id: "mistakes", label: "Common Mistakes" },
     { id: "tips", label: "DM Tips" },
     ...(data.faq && data.faq.length > 0 ? [{ id: "faq", label: "FAQ" }] : []),
+    ...(relatedAnswers && relatedAnswers.length > 0 ? [{ id: "related-answers", label: "Related Q&A" }] : []),
     { id: "sources", label: "Sources" },
   ];
 
@@ -68,6 +71,7 @@ export function RacePageComponent({ data }: { data: RacePageData }) {
       </div>
 
       <AtAGlance stats={stats} />
+      <AbilityScoreHelper raceName={data.raceName} />
       <AddRaceToGame raceName={data.raceName} raceSlug={data.slug} />
       <AssignToCharacter entryName={data.raceName} entrySlug={data.slug} field="conditions" />
       <JumpTo sections={sections} />
@@ -144,6 +148,9 @@ export function RacePageComponent({ data }: { data: RacePageData }) {
 
       {/* FAQ */}
       {data.faq && data.faq.length > 0 && <FAQ items={data.faq} />}
+
+      {/* Related Answers */}
+      {relatedAnswers && <RelatedAnswers answers={relatedAnswers} />}
 
       <Sources
         sources={[

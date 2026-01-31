@@ -49,6 +49,10 @@ export default async function RuleSlugPage({
     description: a.description,
   }));
 
+  // Determine which DM tools to show based on rule type
+  const isConditionRule = slug.includes("-condition-");
+  const isSaveRelated = slug.includes("save") || slug.includes("ability") || slug.includes("stat");
+
   return (
     <GenericPageComponent
       data={{
@@ -71,6 +75,8 @@ export default async function RuleSlugPage({
       assignField="conditions"
       assignSlug={rule.slug}
       relatedAnswers={relatedAnswers}
+      showConditionRef={isConditionRule}
+      showSavingThrowCalc={isSaveRelated || isConditionRule}
     />
   );
 }
