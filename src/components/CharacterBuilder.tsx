@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { PDFDocument } from "pdf-lib";
+import { PDFDocument, StandardFonts } from "pdf-lib";
 
 const GEMINI_API_KEY = "AIzaSyBxvpCeInudM1bs80tApSQ0XrqnKlaOXgk";
 const GEMINI_MODEL = "gemini-2.0-flash";
@@ -1035,6 +1035,9 @@ async function exportCharacterToPDF(character: GeneratedCharacter) {
     const pdfDoc = await PDFDocument.load(templateBytes);
     const form = pdfDoc.getForm();
 
+    // Embed a standard font to use for field appearances
+    const helvetica = await pdfDoc.embedFont(StandardFonts.Helvetica);
+
     const getModifier = (score: number) => {
       const mod = Math.floor((score - 10) / 2);
       return mod >= 0 ? `+${mod}` : `${mod}`;
@@ -1047,10 +1050,10 @@ async function exportCharacterToPDF(character: GeneratedCharacter) {
     const setTextField = (fieldName: string, value: string, fontSize?: number) => {
       try {
         const field = form.getTextField(fieldName);
-        field.setText(value);
         if (fontSize) {
           field.setFontSize(fontSize);
         }
+        field.setText(value);
       } catch {
         console.log(`Field not found: ${fieldName}`);
       }
@@ -1157,7 +1160,7 @@ async function exportCharacterToPDF(character: GeneratedCharacter) {
       "Armor: Light, Medium, Heavy, Shields",
       "Weapons: Simple, Martial",
     ].join("\n");
-    setTextField("ProficienciesLang", proficienciesText, 8);
+    setTextField("ProficienciesLang", proficienciesText, 10);
 
     // Equipment & Weapons - with damage dice
     const weaponData: Record<string, { damage: string; type: string; properties?: string }> = {
@@ -1274,18 +1277,18 @@ async function exportCharacterToPDF(character: GeneratedCharacter) {
     }
 
     // Personality
-    setTextField("PersonalityTraits ", character.personality.traits.join(" "), 8);
-    setTextField("Ideals", character.personality.ideals.join(" "), 8);
-    setTextField("Bonds", character.personality.bonds.join(" "), 8);
-    setTextField("Flaws", character.personality.flaws.join(" "), 8);
+    setTextField("PersonalityTraits ", character.personality.traits.join(" "), 10);
+    setTextField("Ideals", character.personality.ideals.join(" "), 10);
+    setTextField("Bonds", character.personality.bonds.join(" "), 10);
+    setTextField("Flaws", character.personality.flaws.join(" "), 10);
 
     // Features & Traits (combine features with equipment list)
     const featuresText = character.features.map(f => `${f.name}: ${f.description}`).join("\n\n");
-    setTextField("Feat+Traits", featuresText, 8);
+    setTextField("Feat+Traits", featuresText, 10);
 
     // Equipment list in the equipment section
     const nonWeaponEquipment = character.equipment.filter(item => !weapons.includes(item));
-    setTextField("Equipment", nonWeaponEquipment.join("\n"), 8);
+    setTextField("Equipment", nonWeaponEquipment.join("\n"), 10);
 
     // === PAGE 2: Character Details ===
     setTextField("CharacterName 2", character.name);
@@ -1297,14 +1300,14 @@ async function exportCharacterToPDF(character: GeneratedCharacter) {
     setTextField("Weight", "");
 
     // Character Appearance (this is the large text box on the left of page 2)
-    setTextField("Appearance", character.appearance || "", 9);
+    setTextField("Appearance", character.appearance || "", 10);
 
     // Backstory
-    setTextField("Backstory", character.backstory, 9);
+    setTextField("Backstory", character.backstory, 10);
 
     // Allies/Organizations - put the features here (Additional Features & Traits on page 2)
     const alliesText = character.features.map(f => `${f.name}: ${f.description}`).join("\n\n");
-    setTextField("Allies", alliesText, 8);
+    setTextField("Allies", alliesText, 10);
 
     // === PAGE 3: Spellcasting (if applicable) ===
     if (character.spells) {
@@ -1333,6 +1336,9 @@ async function exportCharacterToPDF(character: GeneratedCharacter) {
         });
       }
     }
+
+    // Update field appearances with the embedded font to ensure font sizes are applied
+    form.updateFieldAppearances(helvetica);
 
     // Flatten the form so fields are visible in all PDF viewers
     form.flatten();
