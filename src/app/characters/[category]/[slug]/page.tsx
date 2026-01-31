@@ -1,11 +1,15 @@
 import { notFound, redirect } from "next/navigation";
 import { ClassPageComponent } from "@/components/ClassPage";
 import { RacePageComponent } from "@/components/RacePage";
+import { SubclassPageComponent } from "@/components/SubclassPage";
+import { FeaturePageComponent } from "@/components/FeaturePage";
 import { GenericPageComponent } from "@/components/GenericPage";
+import { CreationToolPageComponent } from "@/components/CreationToolPage";
 import {
   getAllCharacterSlugs,
   getCharacterPageBySlug,
 } from "@/data/characters-index";
+import { getAnswersRelatedTo } from "@/data/answers";
 
 export function generateStaticParams() {
   return getAllCharacterSlugs().map((s) => ({
@@ -37,7 +41,7 @@ export default async function CharacterSlugPage({
 }: {
   params: Promise<{ category: string; slug: string }>;
 }) {
-  const { slug } = await params;
+  const { slug, category } = await params;
   const result = getCharacterPageBySlug(slug);
   if (!result) return notFound();
 
@@ -46,12 +50,57 @@ export default async function CharacterSlugPage({
     return redirect(`/characters/${r.category}/${r.redirectTo}/`);
   }
 
+  // Get related answers for this page
+  const pageUrl = `/characters/${category}/${slug}/`;
+  const relatedAnswers = getAnswersRelatedTo(pageUrl).map((a) => ({
+    slug: a.slug,
+    title: a.title,
+    category: a.category,
+    description: a.description,
+  }));
+
   if (result.type === "class") {
-    return <ClassPageComponent data={result.data as Parameters<typeof ClassPageComponent>[0]["data"]} />;
+    return <ClassPageComponent data={result.data as Parameters<typeof ClassPageComponent>[0]["data"]} relatedAnswers={relatedAnswers} />;
+  }
+
+  if (result.type === "subclass") {
+    return <SubclassPageComponent data={result.data as Parameters<typeof SubclassPageComponent>[0]["data"]} relatedAnswers={relatedAnswers} />;
   }
 
   if (result.type === "race") {
-    return <RacePageComponent data={result.data as Parameters<typeof RacePageComponent>[0]["data"]} />;
+    return <RacePageComponent data={result.data as Parameters<typeof RacePageComponent>[0]["data"]} relatedAnswers={relatedAnswers} />;
+  }
+
+  if (result.type === "feature") {
+    return <FeaturePageComponent data={result.data as Parameters<typeof FeaturePageComponent>[0]["data"]} relatedAnswers={relatedAnswers} />;
+  }
+
+  // Creation tool pages with interactive calculators
+  if (result.type === "creation") {
+    const creationData = result.data as {
+      name: string;
+      description: string;
+      tool?: "pointBuy" | "statRoller" | "standardArray";
+      sections: { id: string; title: string; content: string }[];
+      commonMistakes?: string[];
+      dmTips?: string[];
+      faq?: { question: string; answer: string }[];
+    };
+
+    if (creationData.tool) {
+      return (
+        <CreationToolPageComponent
+          data={creationData}
+          breadcrumbs={[
+            { label: "Home", href: "/" },
+            { label: "Characters", href: "/characters/" },
+            { label: "Character Creation Tools", href: "/characters/creation/" },
+            { label: creationData.name },
+          ]}
+          relatedAnswers={relatedAnswers}
+        />
+      );
+    }
   }
 
   // All other types use GenericPageComponent
@@ -151,6 +200,7 @@ export default async function CharacterSlugPage({
         { label: categoryLabel, href: categoryHref },
         { label: d.name },
       ]}
+      relatedAnswers={relatedAnswers}
     />
   );
 }

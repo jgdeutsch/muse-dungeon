@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { GenericPageComponent } from "@/components/GenericPage";
 import { getAllRuleSlugs, getRulePageBySlug } from "@/data/rules-index";
+import { getAnswersRelatedTo } from "@/data/answers";
 
 export function generateStaticParams() {
   return getAllRuleSlugs().map((s) => ({
@@ -28,7 +29,7 @@ export default async function RuleSlugPage({
 }: {
   params: Promise<{ category: string; slug: string }>;
 }) {
-  const { slug } = await params;
+  const { category, slug } = await params;
   const rule = getRulePageBySlug(slug);
   if (!rule) return notFound();
 
@@ -38,6 +39,15 @@ export default async function RuleSlugPage({
     "tools-resources": "External Tools & Resources",
     general: "General",
   };
+
+  // Find related answers that link to this rule page
+  const pageUrl = `/rules/${category}/${slug}/`;
+  const relatedAnswers = getAnswersRelatedTo(pageUrl).map((a) => ({
+    slug: a.slug,
+    title: a.title,
+    category: a.category,
+    description: a.description,
+  }));
 
   return (
     <GenericPageComponent
@@ -60,6 +70,7 @@ export default async function RuleSlugPage({
       ]}
       assignField="conditions"
       assignSlug={rule.slug}
+      relatedAnswers={relatedAnswers}
     />
   );
 }
