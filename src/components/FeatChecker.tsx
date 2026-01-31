@@ -10,27 +10,326 @@ type FeatData = {
   rules?: { step: string; detail: string }[];
 };
 
+type CheckStep = {
+  id: string;
+  question: string;
+  detail?: string;
+  yesNext: string | "pass";
+  noResult: string;
+};
+
+// Generate decision tree steps from feat/combat data
+function generateDecisionTree(feat: FeatData): CheckStep[] {
+  const name = feat.name;
+
+  // Custom decision trees for specific combat maneuvers/feats
+  if (name === "Sneak Attack") {
+    return [
+      {
+        id: "rogue",
+        question: "Is the character a Rogue?",
+        detail: "Sneak Attack is a Rogue class feature.",
+        yesNext: "weapon",
+        noResult: "No - only Rogues get Sneak Attack.",
+      },
+      {
+        id: "weapon",
+        question: "Are they using a finesse or ranged weapon?",
+        detail: "Daggers, rapiers, shortswords, bows, crossbows, etc.",
+        yesNext: "used-this-turn",
+        noResult: "No - Sneak Attack requires a finesse or ranged weapon.",
+      },
+      {
+        id: "used-this-turn",
+        question: "Have they already used Sneak Attack this turn?",
+        detail: "Once per turn limit (not per round - opportunity attacks count as a new turn).",
+        yesNext: "no-sneak",
+        noResult: "condition",
+      },
+      {
+        id: "no-sneak",
+        question: "",
+        detail: "",
+        yesNext: "pass",
+        noResult: "No - they already used Sneak Attack this turn.",
+      },
+      {
+        id: "condition",
+        question: "Do they have advantage on the attack?",
+        detail: "From hiding, Faerie Fire, enemy prone, flanking (optional rule), etc.",
+        yesNext: "disadvantage-check",
+        noResult: "ally-adjacent",
+      },
+      {
+        id: "ally-adjacent",
+        question: "Is an ally within 5 feet of the target?",
+        detail: "The ally must not be incapacitated.",
+        yesNext: "disadvantage-check",
+        noResult: "No - need advantage OR an adjacent ally.",
+      },
+      {
+        id: "disadvantage-check",
+        question: "Do they have disadvantage on the attack?",
+        detail: "From darkness, prone while using ranged, etc. Disadvantage cancels advantage and blocks the ally-adjacent option.",
+        yesNext: "no-disadvantage",
+        noResult: "pass",
+      },
+      {
+        id: "no-disadvantage",
+        question: "",
+        detail: "",
+        yesNext: "pass",
+        noResult: "No - disadvantage blocks Sneak Attack (unless they had advantage to cancel it).",
+      },
+    ];
+  }
+
+  if (name === "Two-Weapon Fighting") {
+    return [
+      {
+        id: "two-weapons",
+        question: "Are they wielding two weapons?",
+        detail: "One in each hand.",
+        yesNext: "light",
+        noResult: "No - need two weapons for two-weapon fighting.",
+      },
+      {
+        id: "light",
+        question: "Are both weapons light?",
+        detail: "Unless they have the Dual Wielder feat, both weapons must have the 'light' property.",
+        yesNext: "attack-action",
+        noResult: "No - both weapons must be light (or have Dual Wielder feat).",
+      },
+      {
+        id: "attack-action",
+        question: "Did they take the Attack action this turn?",
+        detail: "Can't use bonus action attack without first taking Attack action.",
+        yesNext: "bonus-action",
+        noResult: "No - must take Attack action first.",
+      },
+      {
+        id: "bonus-action",
+        question: "Do they have their bonus action available?",
+        detail: "The off-hand attack uses a bonus action.",
+        yesNext: "pass",
+        noResult: "No - off-hand attack requires a bonus action.",
+      },
+    ];
+  }
+
+  if (name === "Grapple" || name === "Grappling") {
+    return [
+      {
+        id: "free-hand",
+        question: "Do they have a free hand?",
+        detail: "Grappling requires at least one free hand.",
+        yesNext: "attack-action",
+        noResult: "No - grappling requires a free hand.",
+      },
+      {
+        id: "attack-action",
+        question: "Are they using the Attack action?",
+        detail: "Grapple replaces one attack within the Attack action.",
+        yesNext: "size",
+        noResult: "No - grapple must replace an attack.",
+      },
+      {
+        id: "size",
+        question: "Is the target no more than one size larger?",
+        detail: "Can't grapple creatures more than one size category larger.",
+        yesNext: "pass",
+        noResult: "No - target is too large to grapple.",
+      },
+    ];
+  }
+
+  if (name === "Shove" || name === "Shoving") {
+    return [
+      {
+        id: "attack-action",
+        question: "Are they using the Attack action?",
+        detail: "Shove replaces one attack within the Attack action.",
+        yesNext: "size",
+        noResult: "No - shove must replace an attack.",
+      },
+      {
+        id: "size",
+        question: "Is the target no more than one size larger?",
+        detail: "Can't shove creatures more than one size category larger.",
+        yesNext: "pass",
+        noResult: "No - target is too large to shove.",
+      },
+    ];
+  }
+
+  if (name === "Opportunity Attack" || name === "Opportunity Attacks") {
+    return [
+      {
+        id: "reaction",
+        question: "Do they have their reaction available?",
+        detail: "Opportunity attacks use your reaction.",
+        yesNext: "leaving-reach",
+        noResult: "No - already used reaction this round.",
+      },
+      {
+        id: "leaving-reach",
+        question: "Is the enemy leaving their reach?",
+        detail: "Must be leaving reach with movement, not teleportation or forced movement.",
+        yesNext: "can-see",
+        noResult: "No - opportunity attacks trigger when leaving reach.",
+      },
+      {
+        id: "can-see",
+        question: "Can they see the enemy?",
+        detail: "Can't make opportunity attacks against creatures you can't see.",
+        yesNext: "pass",
+        noResult: "No - can't opportunity attack what you can't see.",
+      },
+    ];
+  }
+
+  // Generic decision tree based on rules array
+  if (feat.rules && feat.rules.length > 0) {
+    const steps: CheckStep[] = [];
+
+    feat.rules.forEach((rule, i) => {
+      // Skip non-requirement steps (damage tables, etc.)
+      const stepLower = rule.step.toLowerCase();
+      if (stepLower.includes("damage") || stepLower.includes("level") || stepLower.includes("critical")) {
+        return;
+      }
+
+      const nextId = i < feat.rules!.length - 1 ? `step-${i + 1}` : "pass";
+      steps.push({
+        id: `step-${i}`,
+        question: `${rule.step}?`,
+        detail: rule.detail.substring(0, 200) + (rule.detail.length > 200 ? "..." : ""),
+        yesNext: nextId,
+        noResult: `No - failed at: ${rule.step}`,
+      });
+    });
+
+    // If we filtered out all steps, add a generic one
+    if (steps.length === 0) {
+      steps.push({
+        id: "generic",
+        question: `Does the situation allow ${feat.name}?`,
+        detail: feat.rules[0]?.detail || "Check the requirements above.",
+        yesNext: "pass",
+        noResult: "No - requirements not met.",
+      });
+    }
+
+    return steps;
+  }
+
+  // Fallback for feats with mechanics text
+  if (feat.prerequisite) {
+    return [
+      {
+        id: "prereq",
+        question: "Does the character meet the prerequisite?",
+        detail: feat.prerequisite,
+        yesNext: "situation",
+        noResult: `No - prerequisite not met: ${feat.prerequisite}`,
+      },
+      {
+        id: "situation",
+        question: `Can they use ${feat.name} in this situation?`,
+        detail: feat.mechanics || feat.benefit || "Check the mechanics above.",
+        yesNext: "pass",
+        noResult: "No - situation doesn't allow it.",
+      },
+    ];
+  }
+
+  // Ultimate fallback
+  return [
+    {
+      id: "has-ability",
+      question: `Does the character have ${feat.name}?`,
+      yesNext: "situation",
+      noResult: `No - they don't have ${feat.name}.`,
+    },
+    {
+      id: "situation",
+      question: "Does the situation allow it?",
+      detail: feat.mechanics || feat.benefit || "Check the requirements.",
+      yesNext: "pass",
+      noResult: "No - situation doesn't allow it.",
+    },
+  ];
+}
+
 export function FeatChecker({ feat }: { feat: FeatData }) {
   const [open, setOpen] = useState(false);
-  const [checks, setChecks] = useState<Record<string, boolean>>({});
+  const [currentStep, setCurrentStep] = useState<string>("start");
+  const [result, setResult] = useState<"pass" | "fail" | null>(null);
+  const [failReason, setFailReason] = useState<string>("");
 
-  // Generate checklist items based on feat data
-  const checklistItems = generateChecklist(feat);
+  const steps = generateDecisionTree(feat);
+  const firstStepId = steps[0]?.id || "start";
 
-  const allChecked = checklistItems.every((item) => checks[item.id]);
-  const checkedCount = checklistItems.filter((item) => checks[item.id]).length;
-
-  const toggle = (id: string) => {
-    setChecks((prev) => ({ ...prev, [id]: !prev[id] }));
+  const reset = () => {
+    setCurrentStep(firstStepId);
+    setResult(null);
+    setFailReason("");
   };
+
+  const handleAnswer = (answer: "yes" | "no") => {
+    const step = steps.find((s) => s.id === currentStep);
+    if (!step) return;
+
+    if (answer === "yes") {
+      if (step.yesNext === "pass") {
+        setResult("pass");
+      } else {
+        // Check if it's a "skip" step (empty question means auto-resolve)
+        const nextStep = steps.find((s) => s.id === step.yesNext);
+        if (nextStep && nextStep.question === "") {
+          // Auto-resolve this step
+          if (nextStep.yesNext === "pass") {
+            setResult("pass");
+          } else {
+            setFailReason(nextStep.noResult);
+            setResult("fail");
+          }
+        } else {
+          setCurrentStep(step.yesNext);
+        }
+      }
+    } else {
+      // No answer
+      if (step.noResult.startsWith("No -")) {
+        setFailReason(step.noResult);
+        setResult("fail");
+      } else {
+        // noResult is actually the next step ID
+        const nextStep = steps.find((s) => s.id === step.noResult);
+        if (nextStep) {
+          setCurrentStep(step.noResult);
+        } else {
+          setFailReason(step.noResult);
+          setResult("fail");
+        }
+      }
+    }
+  };
+
+  const currentStepData = steps.find((s) => s.id === currentStep);
+  const stepIndex = steps.findIndex((s) => s.id === currentStep);
+  const totalSteps = steps.filter((s) => s.question !== "").length;
 
   if (!open) {
     return (
       <button
-        onClick={() => setOpen(true)}
+        onClick={() => {
+          setOpen(true);
+          reset();
+        }}
         className="w-full mt-4 py-3 px-4 rounded-lg font-semibold text-sm bg-[var(--accent)] text-white hover:brightness-110 transition-all cursor-pointer"
       >
-        DM Check: Can They Use {feat.name}?
+        DM Quick Check: Can They Use {feat.name}?
       </button>
     );
   }
@@ -42,7 +341,7 @@ export function FeatChecker({ feat }: { feat: FeatData }) {
     >
       <div className="absolute inset-0 bg-black/40" />
       <div
-        className="relative bg-[var(--bg-card)] border border-[var(--border)] rounded-xl max-w-md w-full p-6 shadow-2xl max-h-[90vh] overflow-y-auto"
+        className="relative bg-[var(--bg-card)] border border-[var(--border)] rounded-xl max-w-md w-full p-6 shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
@@ -58,178 +357,106 @@ export function FeatChecker({ feat }: { feat: FeatData }) {
           </button>
         </div>
 
-        {/* Progress */}
-        <div className="mb-4">
-          <div className="flex justify-between text-xs text-[var(--text-dim)] mb-1">
-            <span>Requirements</span>
-            <span>{checkedCount}/{checklistItems.length}</span>
-          </div>
-          <div className="h-2 bg-[var(--bg)] rounded-full overflow-hidden">
-            <div
-              className={`h-full transition-all ${
-                allChecked ? "bg-[var(--green)]" : "bg-[var(--accent)]"
-              }`}
-              style={{ width: `${(checkedCount / checklistItems.length) * 100}%` }}
-            />
-          </div>
-        </div>
-
-        {/* Checklist */}
-        <div className="space-y-3 mb-5">
-          {checklistItems.map((item) => (
-            <label
-              key={item.id}
-              className={`flex items-start gap-3 p-3 rounded-lg border cursor-pointer transition-colors ${
-                checks[item.id]
-                  ? "bg-[var(--green-bg)] border-[var(--green-border)]"
-                  : "bg-[var(--bg)] border-[var(--border)] hover:border-[var(--accent)]"
-              }`}
+        {/* Result State */}
+        {result === "pass" && (
+          <div className="text-center py-8">
+            <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[var(--green-bg)] border-2 border-[var(--green)] flex items-center justify-center">
+              <svg className="w-8 h-8 text-[var(--green)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <div className="text-2xl font-bold text-[var(--green)] font-['Cinzel'] mb-2">
+              Yes!
+            </div>
+            <p className="text-[var(--text-dim)] mb-6">
+              They can use {feat.name}.
+            </p>
+            <button
+              onClick={reset}
+              className="px-6 py-2 rounded-lg bg-[var(--surface)] border border-[var(--border)] hover:border-[var(--accent)] transition-colors cursor-pointer"
             >
-              <input
-                type="checkbox"
-                checked={checks[item.id] || false}
-                onChange={() => toggle(item.id)}
-                className="mt-0.5 w-4 h-4 accent-[var(--accent)]"
-              />
-              <div>
-                <div className={`text-sm font-medium ${checks[item.id] ? "text-[var(--green)]" : ""}`}>
-                  {item.label}
-                </div>
-                {item.detail && (
-                  <div className="text-xs text-[var(--text-dim)] mt-1">
-                    {item.detail}
-                  </div>
-                )}
-              </div>
-            </label>
-          ))}
-        </div>
+              Check Again
+            </button>
+          </div>
+        )}
 
-        {/* Result */}
-        <div
-          className={`p-4 rounded-lg border ${
-            allChecked
-              ? "bg-[var(--green-bg)] border-[var(--green-border)]"
-              : "bg-[var(--bg)] border-[var(--border)]"
-          }`}
-        >
-          {allChecked ? (
-            <div className="text-center">
-              <div className="text-xl font-bold text-[var(--green)] font-['Cinzel']">
-                Yes, They Can!
-              </div>
-              <p className="text-sm text-[var(--text-dim)] mt-1">
-                All requirements met for {feat.name}
-              </p>
+        {result === "fail" && (
+          <div className="text-center py-8">
+            <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-red-500/10 border-2 border-red-500 flex items-center justify-center">
+              <svg className="w-8 h-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M6 18L18 6M6 6l12 12" />
+              </svg>
             </div>
-          ) : (
-            <div className="text-center">
-              <div className="text-lg font-bold text-[var(--text-dim)]">
-                Check Requirements
-              </div>
-              <p className="text-sm text-[var(--text-dim)] mt-1">
-                {checklistItems.length - checkedCount} requirement{checklistItems.length - checkedCount !== 1 ? "s" : ""} remaining
-              </p>
+            <div className="text-2xl font-bold text-red-500 font-['Cinzel'] mb-2">
+              No
             </div>
-          )}
-        </div>
+            <p className="text-[var(--text-dim)] mb-6">
+              {failReason.replace("No - ", "")}
+            </p>
+            <button
+              onClick={reset}
+              className="px-6 py-2 rounded-lg bg-[var(--surface)] border border-[var(--border)] hover:border-[var(--accent)] transition-colors cursor-pointer"
+            >
+              Check Again
+            </button>
+          </div>
+        )}
 
-        {/* Reset */}
-        <button
-          onClick={() => setChecks({})}
-          className="w-full mt-4 py-2 text-sm text-[var(--text-dim)] hover:text-[var(--text)] transition-colors cursor-pointer"
-        >
-          Reset Checklist
-        </button>
+        {/* Question State */}
+        {result === null && currentStepData && (
+          <>
+            {/* Progress indicator */}
+            <div className="flex gap-1 mb-6">
+              {steps.filter(s => s.question !== "").map((_, i) => (
+                <div
+                  key={i}
+                  className={`h-1 flex-1 rounded-full ${
+                    i < stepIndex ? "bg-[var(--green)]" : i === stepIndex ? "bg-[var(--accent)]" : "bg-[var(--border)]"
+                  }`}
+                />
+              ))}
+            </div>
+
+            {/* Question */}
+            <div className="mb-6">
+              <p className="text-lg font-semibold mb-2">
+                {currentStepData.question}
+              </p>
+              {currentStepData.detail && (
+                <p className="text-sm text-[var(--text-dim)]">
+                  {currentStepData.detail}
+                </p>
+              )}
+            </div>
+
+            {/* Yes/No Buttons */}
+            <div className="flex gap-3">
+              <button
+                onClick={() => handleAnswer("yes")}
+                className="flex-1 py-3 px-4 rounded-lg font-semibold bg-[var(--green-bg)] border-2 border-[var(--green)] text-[var(--green)] hover:bg-[var(--green)] hover:text-white transition-all cursor-pointer"
+              >
+                Yes
+              </button>
+              <button
+                onClick={() => handleAnswer("no")}
+                className="flex-1 py-3 px-4 rounded-lg font-semibold bg-red-500/10 border-2 border-red-500 text-red-500 hover:bg-red-500 hover:text-white transition-all cursor-pointer"
+              >
+                No
+              </button>
+            </div>
+
+            {/* Back button */}
+            {stepIndex > 0 && (
+              <button
+                onClick={reset}
+                className="w-full mt-3 py-2 text-sm text-[var(--text-dim)] hover:text-[var(--text)] transition-colors cursor-pointer"
+              >
+                Start Over
+              </button>
+            )}
+          </>
+        )}
       </div>
     </div>
   );
-}
-
-function generateChecklist(feat: FeatData): { id: string; label: string; detail?: string }[] {
-  const items: { id: string; label: string; detail?: string }[] = [];
-
-  // Add prerequisite check if exists
-  if (feat.prerequisite) {
-    items.push({
-      id: "prerequisite",
-      label: "Meets Prerequisite",
-      detail: feat.prerequisite,
-    });
-  }
-
-  // If it's a combat maneuver with rules, create checklist from rules
-  if (feat.rules && feat.rules.length > 0) {
-    feat.rules.forEach((rule, i) => {
-      items.push({
-        id: `rule-${i}`,
-        label: rule.step,
-        detail: rule.detail.substring(0, 150) + (rule.detail.length > 150 ? "..." : ""),
-      });
-    });
-  } else if (feat.mechanics) {
-    // Extract key requirements from mechanics text
-    const mechanics = feat.mechanics;
-
-    // Look for common patterns in feat mechanics
-    if (mechanics.toLowerCase().includes("attack action")) {
-      items.push({
-        id: "attack-action",
-        label: "Taking the Attack action",
-        detail: "Required to trigger this feat's effect",
-      });
-    }
-
-    if (mechanics.toLowerCase().includes("bonus action")) {
-      items.push({
-        id: "bonus-action",
-        label: "Has bonus action available",
-        detail: "This feat uses your bonus action",
-      });
-    }
-
-    if (mechanics.toLowerCase().includes("reaction")) {
-      items.push({
-        id: "reaction",
-        label: "Has reaction available",
-        detail: "This feat uses your reaction",
-      });
-    }
-
-    if (mechanics.toLowerCase().includes("once per turn") || mechanics.toLowerCase().includes("once per round")) {
-      items.push({
-        id: "once-per-turn",
-        label: "Haven't used this turn",
-        detail: "Can only be used once per turn/round",
-      });
-    }
-
-    // If we didn't find specific patterns, add generic checks
-    if (items.length === 0 || (items.length === 1 && feat.prerequisite)) {
-      items.push({
-        id: "has-feat",
-        label: `Has ${feat.name} feat`,
-        detail: "Character must have selected this feat",
-      });
-      items.push({
-        id: "situation-applies",
-        label: "Situation allows use",
-        detail: "The current combat/roleplay situation allows this feat",
-      });
-    }
-  } else {
-    // Fallback generic checklist
-    items.push({
-      id: "has-feat",
-      label: `Has ${feat.name}`,
-      detail: "Character has this feat or ability",
-    });
-    items.push({
-      id: "situation-applies",
-      label: "Situation allows use",
-      detail: "Current situation meets requirements",
-    });
-  }
-
-  return items;
 }
