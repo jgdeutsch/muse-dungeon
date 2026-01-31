@@ -1059,6 +1059,17 @@ async function exportCharacterToPDF(character: GeneratedCharacter) {
       }
     };
 
+    // Helper for multiline text fields - enables multiline mode, no font size manipulation
+    const setMultilineField = (fieldName: string, value: string) => {
+      try {
+        const field = form.getTextField(fieldName);
+        field.enableMultiline();
+        field.setText(value);
+      } catch {
+        console.log(`Field not found: ${fieldName}`);
+      }
+    };
+
     // === PAGE 1: Main Character Sheet ===
 
     // Basic Info
@@ -1160,7 +1171,7 @@ async function exportCharacterToPDF(character: GeneratedCharacter) {
       "Armor: Light, Medium, Heavy, Shields",
       "Weapons: Simple, Martial",
     ].join("\n");
-    setTextField("ProficienciesLang", proficienciesText);
+    setMultilineField("ProficienciesLang", proficienciesText);
 
     // Equipment & Weapons - with damage dice
     const weaponData: Record<string, { damage: string; type: string; properties?: string }> = {
@@ -1277,18 +1288,18 @@ async function exportCharacterToPDF(character: GeneratedCharacter) {
     }
 
     // Personality
-    setTextField("PersonalityTraits ", character.personality.traits.join(" "));
-    setTextField("Ideals", character.personality.ideals.join(" "));
-    setTextField("Bonds", character.personality.bonds.join(" "));
-    setTextField("Flaws", character.personality.flaws.join(" "));
+    setMultilineField("PersonalityTraits ", character.personality.traits.join(" "));
+    setMultilineField("Ideals", character.personality.ideals.join(" "));
+    setMultilineField("Bonds", character.personality.bonds.join(" "));
+    setMultilineField("Flaws", character.personality.flaws.join(" "));
 
     // Features & Traits (combine features with equipment list)
     const featuresText = character.features.map(f => `${f.name}: ${f.description}`).join("\n\n");
-    setTextField("Feat+Traits", featuresText);
+    setMultilineField("Feat+Traits", featuresText);
 
     // Equipment list in the equipment section
     const nonWeaponEquipment = character.equipment.filter(item => !weapons.includes(item));
-    setTextField("Equipment", nonWeaponEquipment.join("\n"));
+    setMultilineField("Equipment", nonWeaponEquipment.join("\n"));
 
     // === PAGE 2: Character Details ===
     setTextField("CharacterName 2", character.name);
@@ -1300,14 +1311,14 @@ async function exportCharacterToPDF(character: GeneratedCharacter) {
     setTextField("Weight", "");
 
     // Character Appearance (this is the large text box on the left of page 2)
-    setTextField("Appearance", character.appearance || "");
+    setMultilineField("Appearance", character.appearance || "");
 
     // Backstory
-    setTextField("Backstory", character.backstory);
+    setMultilineField("Backstory", character.backstory);
 
     // Allies/Organizations - put the features here (Additional Features & Traits on page 2)
     const alliesText = character.features.map(f => `${f.name}: ${f.description}`).join("\n\n");
-    setTextField("Allies", alliesText);
+    setMultilineField("Allies", alliesText);
 
     // === PAGE 3: Spellcasting (if applicable) ===
     if (character.spells) {
