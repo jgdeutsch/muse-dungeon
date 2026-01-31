@@ -19,8 +19,7 @@ export type AnswerBacklink = {
   linkedFrom: { name: string; url: string; type: string }[];
 };
 
-export const answerPages: AnswerPage[] = [
-  // Placeholder answer to enable static generation - will be replaced by real answers
+export const answerPages: AnswerPage[] = [// Placeholder answer to enable static generation - will be replaced by real answers
   {
     slug: "getting-started-with-dnd-5e",
     title: "Getting Started with D&D 5e",
@@ -50,6 +49,59 @@ export const answerPages: AnswerPage[] = [
       { name: "Stat Roller", url: "/characters/creation/dnd-stat-roller/", type: "Tool" },
     ],
     createdAt: "2025-01-31T00:00:00.000Z",
+  },
+  {
+    "slug": "tiefling-innate-thaumaturgy-question",
+    "title": "Tiefling innate thaumaturgy question",
+    "question": "Tiefling innate thaumaturgy question",
+    "category": "character-building",
+    "description": "My take on a common D&D 5e question: Tiefling innate thaumaturgy question",
+    "sections": [
+      {
+        "id": "introduction",
+        "title": "Quick Answer",
+        "content": "I see this question come up a lot in my games and online communities. It touches on rogue, tiefling, thaumaturgy. Let me break down how I handle this at my table."
+      },
+      {
+        "id": "original-question",
+        "title": "The Question",
+        "content": "Here's the full context of what was asked:\n\n> I tried to look this up but didn't find anything. My apologies if it's been covered. I'm playing a tiefling rogue. If I want to try to cast thaumaturgy without giving away that I'm casting it (say to close a door on an opponent in the middle of a fight), is there a feat that would allow me to do so?"
+      },
+      {
+        "id": "class-mechanics",
+        "title": "Class Mechanics",
+        "content": "When it comes to the **Rogue**, I always refer players to my [Rogue guide](https://musedungeon.comhttps://musedungeon.com/characters/classes/rogue-5e/). I've put together everything you need to know about the class features, subclass options, and how to build an effective character."
+      },
+      {
+        "id": "spells",
+        "title": "Spells Involved",
+        "content": "**[Thaumaturgy](https://musedungeon.comhttps://musedungeon.com/spells/cantrips/thaumaturgy-5e/)** — I've written up a full breakdown including casting time, range, components, and my rulings on common questions players ask about this spell."
+      },
+      {
+        "id": "racial-considerations",
+        "title": "Racial Considerations",
+        "content": "The **[Tiefling](https://musedungeon.comhttps://musedungeon.com/characters/races/tiefling-5e/)** has some unique traits that come into play here. I cover all the racial features, ability score bonuses, and lore in my race guide — it's one of the more popular picks I see at my tables."
+      }
+    ],
+    "relatedPages": [
+      {
+        "name": "Rogue",
+        "url": "https://musedungeon.com/characters/classes/rogue-5e/",
+        "type": "Class"
+      },
+      {
+        "name": "Tiefling",
+        "url": "https://musedungeon.com/characters/races/tiefling-5e/",
+        "type": "Race"
+      },
+      {
+        "name": "Thaumaturgy",
+        "url": "https://musedungeon.com/spells/cantrips/thaumaturgy-5e/",
+        "type": "Spell"
+      }
+    ],
+    "sourceUrl": "https://reddit.com/r/DnD/comments/1qruw8m/tiefling_innate_thaumaturgy_question/",
+    "createdAt": "2026-01-31T08:12:58.372Z"
   },
 ];
 
