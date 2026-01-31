@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { PDFDocument, StandardFonts } from "pdf-lib";
+import jsPDF from "jspdf";
 
 const GEMINI_API_KEY = "AIzaSyBxvpCeInudM1bs80tApSQ0XrqnKlaOXgk";
 const GEMINI_MODEL = "gemini-2.0-flash";
@@ -1027,14 +1027,15 @@ function isStepComplete(step: BuilderStep, choices: Partial<CharacterChoices>): 
   }
 }
 
-async function exportCharacterToPDF(character: GeneratedCharacter) {
+function exportCharacterToPDF(character: GeneratedCharacter) {
   try {
-    // Fetch the official D&D 5e character sheet template
-    const templateUrl = "/dnd_5e_character_sheet.pdf";
-    const templateBytes = await fetch(templateUrl).then((res) => res.arrayBuffer());
-    const pdfDoc = await PDFDocument.load(templateBytes);
-    const form = pdfDoc.getForm();
+    const pdf = new jsPDF({ orientation: "portrait", unit: "pt", format: "letter" });
+    const pageWidth = 612;
+    const pageHeight = 792;
+    const margin = 40;
+    const contentWidth = pageWidth - margin * 2;
 
+    // Helper functions
     const getModifier = (score: number) => {
       const mod = Math.floor((score - 10) / 2);
       return mod >= 0 ? `+${mod}` : `${mod}`;
@@ -1043,323 +1044,280 @@ async function exportCharacterToPDF(character: GeneratedCharacter) {
     const classDisplay = character.classes.map((c) => `${c.name} ${c.level}`).join(" / ");
     const totalLevel = character.classes.reduce((sum, c) => sum + c.level, 0);
 
-    // Helper to safely set text field with optional font size
-    const setTextField = (fieldName: string, value: string, fontSize?: number) => {
-      try {
-        const field = form.getTextField(fieldName);
-        if (fontSize) {
-          field.setFontSize(fontSize);
+    // Text wrapping helper
+    const wrapText = (text: string, maxWidth: number, fontSize: number): string[] => {
+      pdf.setFontSize(fontSize);
+      const words = text.split(" ");
+      const lines: string[] = [];
+      let currentLine = "";
+
+      for (const word of words) {
+        const testLine = currentLine ? `${currentLine} ${word}` : word;
+        const testWidth = pdf.getTextWidth(testLine);
+        if (testWidth > maxWidth && currentLine) {
+          lines.push(currentLine);
+          currentLine = word;
+        } else {
+          currentLine = testLine;
         }
-        field.setText(value);
-      } catch {
-        console.log(`Field not found: ${fieldName}`);
+      }
+      if (currentLine) lines.push(currentLine);
+      return lines;
+    };
+
+    // Draw section header
+    const drawSectionHeader = (y: number, title: string): number => {
+      pdf.setFillColor(139, 69, 19);
+      pdf.rect(margin, y, contentWidth, 18, "F");
+      pdf.setFont("helvetica", "bold");
+      pdf.setFontSize(11);
+      pdf.setTextColor(255, 255, 255);
+      pdf.text(title.toUpperCase(), margin + 6, y + 13);
+      pdf.setTextColor(0, 0, 0);
+      return y + 22;
+    };
+
+    // Draw stat box
+    const drawStatBox = (x: number, y: number, w: number, h: number, label: string, value: string, modifier?: string) => {
+      pdf.setDrawColor(139, 69, 19);
+      pdf.setLineWidth(1.5);
+      pdf.rect(x, y, w, h);
+      pdf.setFont("helvetica", "bold");
+      pdf.setFontSize(8);
+      pdf.setTextColor(139, 69, 19);
+      pdf.text(label, x + w / 2, y + 10, { align: "center" });
+      pdf.setFontSize(18);
+      pdf.setTextColor(0, 0, 0);
+      pdf.text(value, x + w / 2, y + 30, { align: "center" });
+      if (modifier) {
+        pdf.setFontSize(10);
+        pdf.setTextColor(100, 100, 100);
+        pdf.text(`(${modifier})`, x + w / 2, y + 42, { align: "center" });
       }
     };
 
-    // Helper for multiline text fields - just set text, let PDF defaults handle formatting
-    const setMultilineField = (fieldName: string, value: string) => {
-      try {
-        const field = form.getTextField(fieldName);
-        field.setText(value);
-      } catch {
-        console.log(`Field not found: ${fieldName}`);
-      }
-    };
+    // === PAGE 1: Main Stats ===
 
-    // === PAGE 1: Main Character Sheet ===
+    // Title
+    pdf.setFont("helvetica", "bold");
+    pdf.setFontSize(24);
+    pdf.setTextColor(139, 69, 19);
+    pdf.text(character.name, pageWidth / 2, 50, { align: "center" });
 
-    // Basic Info
-    setTextField("CharacterName", character.name);
-    setTextField("ClassLevel", classDisplay);
-    setTextField("Background", character.background);
-    setTextField("Race ", character.race);
-    setTextField("Alignment", character.alignment);
-    setTextField("XP", "0");
+    // Subtitle
+    pdf.setFontSize(12);
+    pdf.setTextColor(80, 80, 80);
+    pdf.text(`Level ${totalLevel} ${character.race} ${classDisplay}`, pageWidth / 2, 68, { align: "center" });
+    pdf.setFontSize(10);
+    pdf.text(`${character.background} | ${character.alignment}`, pageWidth / 2, 82, { align: "center" });
+
+    let currentY = 100;
+
+    // Combat Stats Row
+    currentY = drawSectionHeader(currentY, "Combat Stats");
+    const combatBoxWidth = contentWidth / 5;
+    drawStatBox(margin, currentY, combatBoxWidth, 50, "ARMOR CLASS", String(character.armorClass));
+    drawStatBox(margin + combatBoxWidth, currentY, combatBoxWidth, 50, "INITIATIVE", getModifier(character.abilityScores.dexterity));
+    drawStatBox(margin + combatBoxWidth * 2, currentY, combatBoxWidth, 50, "SPEED", `${character.speed} ft`);
+    drawStatBox(margin + combatBoxWidth * 3, currentY, combatBoxWidth, 50, "HIT POINTS", String(character.hitPoints));
+    drawStatBox(margin + combatBoxWidth * 4, currentY, combatBoxWidth, 50, "PROF BONUS", `+${character.proficiencyBonus}`);
+    currentY += 58;
 
     // Ability Scores
-    setTextField("STR", String(character.abilityScores.strength));
-    setTextField("STRmod", getModifier(character.abilityScores.strength));
-    setTextField("DEX", String(character.abilityScores.dexterity));
-    setTextField("DEXmod ", getModifier(character.abilityScores.dexterity));
-    setTextField("CON", String(character.abilityScores.constitution));
-    setTextField("CONmod", getModifier(character.abilityScores.constitution));
-    setTextField("INT", String(character.abilityScores.intelligence));
-    setTextField("INTmod", getModifier(character.abilityScores.intelligence));
-    setTextField("WIS", String(character.abilityScores.wisdom));
-    setTextField("WISmod", getModifier(character.abilityScores.wisdom));
-    setTextField("CHA", String(character.abilityScores.charisma));
-    setTextField("CHamod", getModifier(character.abilityScores.charisma));
+    currentY = drawSectionHeader(currentY, "Ability Scores");
+    const abilityBoxWidth = contentWidth / 6;
+    const abilities: [string, keyof typeof character.abilityScores][] = [
+      ["STR", "strength"], ["DEX", "dexterity"], ["CON", "constitution"],
+      ["INT", "intelligence"], ["WIS", "wisdom"], ["CHA", "charisma"]
+    ];
+    abilities.forEach(([label, key], i) => {
+      const score = character.abilityScores[key];
+      drawStatBox(margin + i * abilityBoxWidth, currentY, abilityBoxWidth, 55, label, String(score), getModifier(score));
+    });
+    currentY += 65;
 
-    // Combat Stats
-    setTextField("AC", String(character.armorClass));
-    setTextField("Initiative", getModifier(character.abilityScores.dexterity));
-    setTextField("Speed", String(character.speed));
-    setTextField("HPMax", String(character.hitPoints));
-    setTextField("HPCurrent", String(character.hitPoints));
-    setTextField("ProfBonus", `+${character.proficiencyBonus}`);
-    setTextField("HDTotal", String(totalLevel));
+    // Skills & Saves (two columns)
+    currentY = drawSectionHeader(currentY, "Skills & Saving Throws");
+    const colWidth = contentWidth / 2 - 10;
 
-    // Hit Dice - use the primary class's hit die
-    const classHitDice: Record<string, string> = {
-      "Barbarian": "d12", "Fighter": "d10", "Paladin": "d10", "Ranger": "d10",
-      "Bard": "d8", "Cleric": "d8", "Druid": "d8", "Monk": "d8", "Rogue": "d8", "Warlock": "d8",
-      "Sorcerer": "d6", "Wizard": "d6"
-    };
-    const primaryClass = character.classes[0]?.name || "Fighter";
-    setTextField("HD", classHitDice[primaryClass] || "d8");
-
-    // Saving Throws - calculate bonuses
-    const savingThrowFields: Record<string, { field: string; ability: keyof typeof character.abilityScores }> = {
-      "Strength": { field: "ST Strength", ability: "strength" },
-      "Dexterity": { field: "ST Dexterity", ability: "dexterity" },
-      "Constitution": { field: "ST Constitution", ability: "constitution" },
-      "Intelligence": { field: "ST Intelligence", ability: "intelligence" },
-      "Wisdom": { field: "ST Wisdom", ability: "wisdom" },
-      "Charisma": { field: "ST Charisma", ability: "charisma" },
-    };
-
-    Object.entries(savingThrowFields).forEach(([saveName, { field, ability }]) => {
-      const abilityMod = Math.floor((character.abilityScores[ability] - 10) / 2);
-      const isProficient = character.savingThrows.includes(saveName);
-      const bonus = isProficient ? abilityMod + character.proficiencyBonus : abilityMod;
-      setTextField(field, bonus >= 0 ? `+${bonus}` : String(bonus));
+    // Skills column
+    pdf.setFont("helvetica", "bold");
+    pdf.setFontSize(9);
+    pdf.text("Proficient Skills:", margin, currentY + 12);
+    pdf.setFont("helvetica", "normal");
+    const skillLines = wrapText(character.skills.join(", "), colWidth - 10, 9);
+    skillLines.forEach((line, i) => {
+      pdf.text(line, margin, currentY + 24 + i * 11);
     });
 
-    // Skills - map skill names to form fields
-    const skillFields: Record<string, { field: string; ability: keyof typeof character.abilityScores }> = {
-      "Acrobatics": { field: "Acrobatics", ability: "dexterity" },
-      "Animal Handling": { field: "Animal", ability: "wisdom" },
-      "Arcana": { field: "Arcana", ability: "intelligence" },
-      "Athletics": { field: "Athletics", ability: "strength" },
-      "Deception": { field: "Deception ", ability: "charisma" },
-      "History": { field: "History ", ability: "intelligence" },
-      "Insight": { field: "Insight", ability: "wisdom" },
-      "Intimidation": { field: "Intimidation", ability: "charisma" },
-      "Investigation": { field: "Investigation ", ability: "intelligence" },
-      "Medicine": { field: "Medicine", ability: "wisdom" },
-      "Nature": { field: "Nature", ability: "intelligence" },
-      "Perception": { field: "Perception ", ability: "wisdom" },
-      "Performance": { field: "Performance", ability: "charisma" },
-      "Persuasion": { field: "Persuasion", ability: "charisma" },
-      "Religion": { field: "Religion", ability: "intelligence" },
-      "Sleight of Hand": { field: "SleightofHand", ability: "dexterity" },
-      "Stealth": { field: "Stealth ", ability: "dexterity" },
-      "Survival": { field: "Survival", ability: "wisdom" },
-    };
+    // Saving throws column
+    pdf.setFont("helvetica", "bold");
+    pdf.text("Saving Throws:", margin + colWidth + 20, currentY + 12);
+    pdf.setFont("helvetica", "normal");
+    pdf.text(character.savingThrows.join(", "), margin + colWidth + 20, currentY + 24);
 
-    Object.entries(skillFields).forEach(([skillName, { field, ability }]) => {
-      const abilityMod = Math.floor((character.abilityScores[ability] - 10) / 2);
-      const isProficient = character.skills.includes(skillName);
-      const bonus = isProficient ? abilityMod + character.proficiencyBonus : abilityMod;
-      setTextField(field, bonus >= 0 ? `+${bonus}` : String(bonus));
+    currentY += 30 + skillLines.length * 11;
+
+    // Languages
+    pdf.setFont("helvetica", "bold");
+    pdf.setFontSize(9);
+    pdf.text("Languages:", margin, currentY + 12);
+    pdf.setFont("helvetica", "normal");
+    pdf.text(character.languages.join(", "), margin + 60, currentY + 12);
+    currentY += 25;
+
+    // Equipment
+    currentY = drawSectionHeader(currentY, "Equipment");
+    pdf.setFont("helvetica", "normal");
+    pdf.setFontSize(9);
+    const equipmentText = character.equipment.join(", ");
+    const equipmentLines = wrapText(equipmentText, contentWidth - 10, 9);
+    equipmentLines.slice(0, 4).forEach((line, i) => {
+      pdf.text(line, margin + 5, currentY + 12 + i * 12);
     });
+    currentY += 20 + Math.min(equipmentLines.length, 4) * 12;
 
-    // Passive Perception
-    const perceptionMod = Math.floor((character.abilityScores.wisdom - 10) / 2);
-    const perceptionProficient = character.skills.includes("Perception");
-    const passivePerception = 10 + perceptionMod + (perceptionProficient ? character.proficiencyBonus : 0);
-    setTextField("Passive", String(passivePerception));
-
-    // Other Proficiencies & Languages
-    const proficienciesText = [
-      "Languages: " + character.languages.join(", "),
-      "",
-      "Armor: Light, Medium, Heavy, Shields",
-      "Weapons: Simple, Martial",
-    ].join("\n");
-    setMultilineField("ProficienciesLang", proficienciesText);
-
-    // Equipment & Weapons - with damage dice
-    const weaponData: Record<string, { damage: string; type: string; properties?: string }> = {
-      "battleaxe": { damage: "1d8", type: "slashing" },
-      "longsword": { damage: "1d8", type: "slashing" },
-      "shortsword": { damage: "1d6", type: "piercing" },
-      "greatsword": { damage: "2d6", type: "slashing" },
-      "greataxe": { damage: "1d12", type: "slashing" },
-      "handaxe": { damage: "1d6", type: "slashing" },
-      "dagger": { damage: "1d4", type: "piercing" },
-      "rapier": { damage: "1d8", type: "piercing" },
-      "scimitar": { damage: "1d6", type: "slashing" },
-      "longbow": { damage: "1d8", type: "piercing" },
-      "shortbow": { damage: "1d6", type: "piercing" },
-      "light crossbow": { damage: "1d8", type: "piercing" },
-      "heavy crossbow": { damage: "1d10", type: "piercing" },
-      "hand crossbow": { damage: "1d6", type: "piercing" },
-      "mace": { damage: "1d6", type: "bludgeoning" },
-      "warhammer": { damage: "1d8", type: "bludgeoning" },
-      "maul": { damage: "2d6", type: "bludgeoning" },
-      "quarterstaff": { damage: "1d6", type: "bludgeoning" },
-      "spear": { damage: "1d6", type: "piercing" },
-      "javelin": { damage: "1d6", type: "piercing" },
-      "club": { damage: "1d4", type: "bludgeoning" },
-      "greatclub": { damage: "1d8", type: "bludgeoning" },
-      "flail": { damage: "1d8", type: "bludgeoning" },
-      "glaive": { damage: "1d10", type: "slashing" },
-      "halberd": { damage: "1d10", type: "slashing" },
-      "lance": { damage: "1d12", type: "piercing" },
-      "morningstar": { damage: "1d8", type: "piercing" },
-      "pike": { damage: "1d10", type: "piercing" },
-      "trident": { damage: "1d6", type: "piercing" },
-      "war pick": { damage: "1d8", type: "piercing" },
-      "whip": { damage: "1d4", type: "slashing" },
-    };
-
-    const weapons = character.equipment.filter(item =>
-      item.toLowerCase().includes("sword") || item.toLowerCase().includes("axe") ||
-      item.toLowerCase().includes("bow") || item.toLowerCase().includes("dagger") ||
-      item.toLowerCase().includes("mace") || item.toLowerCase().includes("hammer") ||
-      item.toLowerCase().includes("crossbow") || item.toLowerCase().includes("staff") ||
-      item.toLowerCase().includes("spear") || item.toLowerCase().includes("javelin") ||
-      item.toLowerCase().includes("club") || item.toLowerCase().includes("flail") ||
-      item.toLowerCase().includes("glaive") || item.toLowerCase().includes("halberd") ||
-      item.toLowerCase().includes("lance") || item.toLowerCase().includes("morningstar") ||
-      item.toLowerCase().includes("pike") || item.toLowerCase().includes("trident") ||
-      item.toLowerCase().includes("pick") || item.toLowerCase().includes("whip") ||
-      item.toLowerCase().includes("rapier") || item.toLowerCase().includes("scimitar") ||
-      item.toLowerCase().includes("maul")
-    );
-
-    const getWeaponStats = (weaponName: string) => {
-      const lowerName = weaponName.toLowerCase();
-      for (const [key, data] of Object.entries(weaponData)) {
-        if (lowerName.includes(key)) {
-          return data;
+    // Features & Traits
+    currentY = drawSectionHeader(currentY, "Features & Traits");
+    pdf.setFontSize(9);
+    let featY = currentY + 5;
+    const maxFeatY = pageHeight - 60;
+    for (const feat of character.features) {
+      if (featY > maxFeatY) break;
+      pdf.setFont("helvetica", "bold");
+      pdf.text(feat.name, margin + 5, featY + 10);
+      pdf.setFont("helvetica", "normal");
+      const descLines = wrapText(feat.description, contentWidth - 15, 8);
+      descLines.slice(0, 2).forEach((line, i) => {
+        if (featY + 20 + i * 10 < maxFeatY) {
+          pdf.text(line, margin + 5, featY + 20 + i * 10);
         }
-      }
-      return { damage: "1d6", type: "bludgeoning" }; // default
-    };
-
-    const isRangedWeapon = (name: string) => {
-      const lower = name.toLowerCase();
-      return lower.includes("bow") || lower.includes("crossbow");
-    };
-
-    const isFinesseWeapon = (name: string) => {
-      const lower = name.toLowerCase();
-      return lower.includes("dagger") || lower.includes("rapier") || lower.includes("shortsword") || lower.includes("scimitar") || lower.includes("whip");
-    };
-
-    if (weapons[0]) {
-      setTextField("Wpn Name", weapons[0]);
-      const isRanged = isRangedWeapon(weapons[0]);
-      const isFinesse = isFinesseWeapon(weapons[0]);
-      const strMod = Math.floor((character.abilityScores.strength - 10) / 2);
-      const dexMod = Math.floor((character.abilityScores.dexterity - 10) / 2);
-      // Use DEX for ranged, or higher of STR/DEX for finesse, STR otherwise
-      const atkMod = isRanged ? dexMod : (isFinesse ? Math.max(strMod, dexMod) : strMod);
-      const atkBonus = atkMod + character.proficiencyBonus;
-      setTextField("Wpn1 AtkBonus", atkBonus >= 0 ? `+${atkBonus}` : String(atkBonus));
-      const stats = getWeaponStats(weapons[0]);
-      const damageBonus = isRanged ? dexMod : (isFinesse ? Math.max(strMod, dexMod) : strMod);
-      const damageStr = damageBonus >= 0 ? `${stats.damage}+${damageBonus} ${stats.type}` : `${stats.damage}${damageBonus} ${stats.type}`;
-      setTextField("Wpn1 Damage", damageStr);
-    }
-    if (weapons[1]) {
-      setTextField("Wpn Name 2", weapons[1]);
-      const isRanged = isRangedWeapon(weapons[1]);
-      const isFinesse = isFinesseWeapon(weapons[1]);
-      const strMod = Math.floor((character.abilityScores.strength - 10) / 2);
-      const dexMod = Math.floor((character.abilityScores.dexterity - 10) / 2);
-      const atkMod = isRanged ? dexMod : (isFinesse ? Math.max(strMod, dexMod) : strMod);
-      const atkBonus = atkMod + character.proficiencyBonus;
-      setTextField("Wpn2 AtkBonus ", atkBonus >= 0 ? `+${atkBonus}` : String(atkBonus));
-      const stats = getWeaponStats(weapons[1]);
-      const damageBonus = isRanged ? dexMod : (isFinesse ? Math.max(strMod, dexMod) : strMod);
-      const damageStr = damageBonus >= 0 ? `${stats.damage}+${damageBonus} ${stats.type}` : `${stats.damage}${damageBonus} ${stats.type}`;
-      setTextField("Wpn2 Damage ", damageStr);
-    }
-    if (weapons[2]) {
-      setTextField("Wpn Name 3", weapons[2]);
-      const isRanged = isRangedWeapon(weapons[2]);
-      const isFinesse = isFinesseWeapon(weapons[2]);
-      const strMod = Math.floor((character.abilityScores.strength - 10) / 2);
-      const dexMod = Math.floor((character.abilityScores.dexterity - 10) / 2);
-      const atkMod = isRanged ? dexMod : (isFinesse ? Math.max(strMod, dexMod) : strMod);
-      const atkBonus = atkMod + character.proficiencyBonus;
-      setTextField("Wpn3 AtkBonus  ", atkBonus >= 0 ? `+${atkBonus}` : String(atkBonus));
-      const stats = getWeaponStats(weapons[2]);
-      const damageBonus = isRanged ? dexMod : (isFinesse ? Math.max(strMod, dexMod) : strMod);
-      const damageStr = damageBonus >= 0 ? `${stats.damage}+${damageBonus} ${stats.type}` : `${stats.damage}${damageBonus} ${stats.type}`;
-      setTextField("Wpn3 Damage ", damageStr);
+      });
+      featY += 25 + Math.min(descLines.length, 2) * 10;
     }
 
-    // Personality
-    setMultilineField("PersonalityTraits ", character.personality.traits.join(" "));
-    setMultilineField("Ideals", character.personality.ideals.join(" "));
-    setMultilineField("Bonds", character.personality.bonds.join(" "));
-    setMultilineField("Flaws", character.personality.flaws.join(" "));
+    // === PAGE 2: Personality & Backstory ===
+    pdf.addPage();
+    currentY = 40;
 
-    // Features & Traits (combine features with equipment list)
-    const featuresText = character.features.map(f => `${f.name}: ${f.description}`).join("\n\n");
-    setMultilineField("Feat+Traits", featuresText);
+    // Personality header
+    pdf.setFont("helvetica", "bold");
+    pdf.setFontSize(18);
+    pdf.setTextColor(139, 69, 19);
+    pdf.text(character.name, pageWidth / 2, currentY, { align: "center" });
+    pdf.setFontSize(10);
+    pdf.setTextColor(80, 80, 80);
+    pdf.text("Character Details", pageWidth / 2, currentY + 15, { align: "center" });
+    currentY += 35;
 
-    // Equipment list in the equipment section
-    const nonWeaponEquipment = character.equipment.filter(item => !weapons.includes(item));
-    setMultilineField("Equipment", nonWeaponEquipment.join("\n"));
+    // Personality Traits
+    currentY = drawSectionHeader(currentY, "Personality Traits");
+    pdf.setFont("helvetica", "normal");
+    pdf.setFontSize(9);
+    const traitsText = character.personality.traits.join(" ");
+    const traitsLines = wrapText(traitsText, contentWidth - 10, 9);
+    traitsLines.slice(0, 3).forEach((line, i) => {
+      pdf.text(line, margin + 5, currentY + 12 + i * 12);
+    });
+    currentY += 20 + Math.min(traitsLines.length, 3) * 12;
 
-    // === PAGE 2: Character Details ===
-    setTextField("CharacterName 2", character.name);
-    setTextField("Age", "Unknown");
-    setTextField("Eyes", "");
-    setTextField("Hair", "");
-    setTextField("Skin", "");
-    setTextField("Height", "");
-    setTextField("Weight", "");
+    // Ideals
+    currentY = drawSectionHeader(currentY, "Ideals");
+    const idealsText = character.personality.ideals.join(" ");
+    const idealsLines = wrapText(idealsText, contentWidth - 10, 9);
+    idealsLines.slice(0, 2).forEach((line, i) => {
+      pdf.text(line, margin + 5, currentY + 12 + i * 12);
+    });
+    currentY += 20 + Math.min(idealsLines.length, 2) * 12;
 
-    // Character Appearance (this is the large text box on the left of page 2)
-    setMultilineField("Appearance", character.appearance || "");
+    // Bonds
+    currentY = drawSectionHeader(currentY, "Bonds");
+    const bondsText = character.personality.bonds.join(" ");
+    const bondsLines = wrapText(bondsText, contentWidth - 10, 9);
+    bondsLines.slice(0, 2).forEach((line, i) => {
+      pdf.text(line, margin + 5, currentY + 12 + i * 12);
+    });
+    currentY += 20 + Math.min(bondsLines.length, 2) * 12;
+
+    // Flaws
+    currentY = drawSectionHeader(currentY, "Flaws");
+    const flawsText = character.personality.flaws.join(" ");
+    const flawsLines = wrapText(flawsText, contentWidth - 10, 9);
+    flawsLines.slice(0, 2).forEach((line, i) => {
+      pdf.text(line, margin + 5, currentY + 12 + i * 12);
+    });
+    currentY += 20 + Math.min(flawsLines.length, 2) * 12;
+
+    // Appearance
+    currentY = drawSectionHeader(currentY, "Appearance");
+    const appearanceLines = wrapText(character.appearance || "", contentWidth - 10, 9);
+    appearanceLines.slice(0, 4).forEach((line, i) => {
+      pdf.text(line, margin + 5, currentY + 12 + i * 12);
+    });
+    currentY += 20 + Math.min(appearanceLines.length, 4) * 12;
 
     // Backstory
-    setMultilineField("Backstory", character.backstory);
+    currentY = drawSectionHeader(currentY, "Backstory");
+    const backstoryLines = wrapText(character.backstory, contentWidth - 10, 9);
+    const maxBackstoryLines = Math.floor((pageHeight - currentY - 40) / 12);
+    backstoryLines.slice(0, maxBackstoryLines).forEach((line, i) => {
+      pdf.text(line, margin + 5, currentY + 12 + i * 12);
+    });
 
-    // Allies/Organizations - put the features here (Additional Features & Traits on page 2)
-    const alliesText = character.features.map(f => `${f.name}: ${f.description}`).join("\n\n");
-    setMultilineField("Allies", alliesText);
+    // === PAGE 3: Spells (if applicable) ===
+    if (character.spells && (character.spells.cantrips?.length || character.spells.knownSpells?.length)) {
+      pdf.addPage();
+      currentY = 40;
 
-    // === PAGE 3: Spellcasting (if applicable) ===
-    if (character.spells) {
+      pdf.setFont("helvetica", "bold");
+      pdf.setFontSize(18);
+      pdf.setTextColor(139, 69, 19);
+      pdf.text(character.name, pageWidth / 2, currentY, { align: "center" });
+      pdf.setFontSize(10);
+      pdf.setTextColor(80, 80, 80);
+      pdf.text("Spellcasting", pageWidth / 2, currentY + 15, { align: "center" });
+      currentY += 35;
+
+      // Spell Slots
+      if (character.spells.spellSlots && character.spells.spellSlots.length > 0) {
+        currentY = drawSectionHeader(currentY, "Spell Slots");
+        pdf.setFont("helvetica", "normal");
+        pdf.setFontSize(9);
+        const slotsText = character.spells.spellSlots.map(s => `Level ${s.level}: ${s.slots} slots`).join("  |  ");
+        pdf.text(slotsText, margin + 5, currentY + 12);
+        currentY += 30;
+      }
+
       // Cantrips
-      if (character.spells.cantrips) {
-        character.spells.cantrips.forEach((spell, i) => {
-          setTextField(`Spells 10${i}`, spell);
+      if (character.spells.cantrips && character.spells.cantrips.length > 0) {
+        currentY = drawSectionHeader(currentY, "Cantrips");
+        pdf.setFont("helvetica", "normal");
+        pdf.setFontSize(9);
+        const cantripLines = wrapText(character.spells.cantrips.join(", "), contentWidth - 10, 9);
+        cantripLines.forEach((line, i) => {
+          pdf.text(line, margin + 5, currentY + 12 + i * 12);
         });
+        currentY += 20 + cantripLines.length * 12;
       }
 
       // Known Spells by level
-      if (character.spells.knownSpells) {
-        character.spells.knownSpells.forEach((levelSpells) => {
-          levelSpells.spells.forEach((spell, i) => {
-            // Field naming pattern varies, try common patterns
-            setTextField(`Spells 10${levelSpells.level}${i}`, spell);
+      if (character.spells.knownSpells && character.spells.knownSpells.length > 0) {
+        for (const levelSpells of character.spells.knownSpells) {
+          if (currentY > pageHeight - 80) break;
+          currentY = drawSectionHeader(currentY, `Level ${levelSpells.level} Spells`);
+          pdf.setFont("helvetica", "normal");
+          pdf.setFontSize(9);
+          const spellLines = wrapText(levelSpells.spells.join(", "), contentWidth - 10, 9);
+          spellLines.slice(0, 3).forEach((line, i) => {
+            pdf.text(line, margin + 5, currentY + 12 + i * 12);
           });
-        });
-      }
-
-      // Spell slots
-      if (character.spells.spellSlots) {
-        character.spells.spellSlots.forEach((slot) => {
-          setTextField(`SlotsTotal ${slot.level}`, String(slot.slots));
-          setTextField(`SlotsRemaining ${slot.level}`, String(slot.slots));
-        });
+          currentY += 20 + Math.min(spellLines.length, 3) * 12;
+        }
       }
     }
 
-    // Flatten the form so fields are visible in all PDF viewers
-    form.flatten();
-
-    // Generate the PDF bytes
-    const pdfBytes = await pdfDoc.save();
-
-    // Create blob and download
-    const blob = new Blob([pdfBytes.buffer as ArrayBuffer], { type: "application/pdf" });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement("a");
-    link.href = url;
-    link.download = `${character.name.replace(/[^a-zA-Z0-9]/g, "_")}_Character_Sheet.pdf`;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    URL.revokeObjectURL(url);
+    // Download
+    pdf.save(`${character.name.replace(/[^a-zA-Z0-9]/g, "_")}_Character_Sheet.pdf`);
   } catch (error) {
     console.error("Error generating PDF:", error);
     alert("Error generating PDF. Check console for details.");
