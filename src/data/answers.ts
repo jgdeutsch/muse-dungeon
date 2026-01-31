@@ -103,6 +103,39 @@ export const answerPages: AnswerPage[] = [// Placeholder answer to enable static
     "sourceUrl": "https://reddit.com/r/DnD/comments/1qruw8m/tiefling_innate_thaumaturgy_question/",
     "createdAt": "2026-01-31T08:12:58.372Z"
   },
+  {
+    "slug": "can-changelings-mimic-disease-and-injury",
+    "title": "Can changelings mimic disease and injury?",
+    "question": "Can changelings mimic disease and injury?",
+    "category": "character-building",
+    "description": "My take on a common D&D 5e question: Can changelings mimic disease and injury?",
+    "sections": [
+      {
+        "id": "introduction",
+        "title": "Quick Answer",
+        "content": "I see this question come up a lot in my games and online communities. It touches on human. Let me break down how I handle this at my table."
+      },
+      {
+        "id": "original-question",
+        "title": "The Question",
+        "content": "Here's the full context of what was asked:\n\n> So I was wondering how the changeling's shapeshifting ability works with people who are suffering from disease or people who lost bodyparts. \n> \n> The rules say, they can only transform into humanoids with the same baseline bodyplan and same amount of limbs but how does it work when they want to imperso"
+      },
+      {
+        "id": "racial-considerations",
+        "title": "Racial Considerations",
+        "content": "The **[Human](https://musedungeon.comhttps://musedungeon.com/characters/races/human-5e/)** has some unique traits that come into play here. I cover all the racial features, ability score bonuses, and lore in my race guide — it's one of the more popular picks I see at my tables."
+      }
+    ],
+    "relatedPages": [
+      {
+        "name": "Human",
+        "url": "https://musedungeon.com/characters/races/human-5e/",
+        "type": "Race"
+      }
+    ],
+    "sourceUrl": "https://reddit.com/r/dndnext/comments/1qs4u9c/can_changelings_mimic_disease_and_injury/",
+    "createdAt": "2026-01-31T15:28:50.939Z"
+  },
 ];
 
 // Helper to get all answer slugs for static generation
