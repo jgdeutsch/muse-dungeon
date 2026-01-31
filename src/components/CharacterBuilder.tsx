@@ -1140,28 +1140,133 @@ async function exportCharacterToPDF(character: GeneratedCharacter) {
       setTextField(field, bonus >= 0 ? `+${bonus}` : String(bonus));
     });
 
-    // Equipment & Weapons
+    // Passive Perception
+    const perceptionMod = Math.floor((character.abilityScores.wisdom - 10) / 2);
+    const perceptionProficient = character.skills.includes("Perception");
+    const passivePerception = 10 + perceptionMod + (perceptionProficient ? character.proficiencyBonus : 0);
+    setTextField("Passive", String(passivePerception));
+
+    // Other Proficiencies & Languages
+    const proficienciesText = [
+      "Languages: " + character.languages.join(", "),
+      "",
+      "Armor: Light, Medium, Heavy, Shields",
+      "Weapons: Simple, Martial",
+    ].join("\n");
+    setTextField("ProfsAndLangs", proficienciesText);
+
+    // Equipment & Weapons - with damage dice
+    const weaponData: Record<string, { damage: string; type: string; properties?: string }> = {
+      "battleaxe": { damage: "1d8", type: "slashing" },
+      "longsword": { damage: "1d8", type: "slashing" },
+      "shortsword": { damage: "1d6", type: "piercing" },
+      "greatsword": { damage: "2d6", type: "slashing" },
+      "greataxe": { damage: "1d12", type: "slashing" },
+      "handaxe": { damage: "1d6", type: "slashing" },
+      "dagger": { damage: "1d4", type: "piercing" },
+      "rapier": { damage: "1d8", type: "piercing" },
+      "scimitar": { damage: "1d6", type: "slashing" },
+      "longbow": { damage: "1d8", type: "piercing" },
+      "shortbow": { damage: "1d6", type: "piercing" },
+      "light crossbow": { damage: "1d8", type: "piercing" },
+      "heavy crossbow": { damage: "1d10", type: "piercing" },
+      "hand crossbow": { damage: "1d6", type: "piercing" },
+      "mace": { damage: "1d6", type: "bludgeoning" },
+      "warhammer": { damage: "1d8", type: "bludgeoning" },
+      "maul": { damage: "2d6", type: "bludgeoning" },
+      "quarterstaff": { damage: "1d6", type: "bludgeoning" },
+      "spear": { damage: "1d6", type: "piercing" },
+      "javelin": { damage: "1d6", type: "piercing" },
+      "club": { damage: "1d4", type: "bludgeoning" },
+      "greatclub": { damage: "1d8", type: "bludgeoning" },
+      "flail": { damage: "1d8", type: "bludgeoning" },
+      "glaive": { damage: "1d10", type: "slashing" },
+      "halberd": { damage: "1d10", type: "slashing" },
+      "lance": { damage: "1d12", type: "piercing" },
+      "morningstar": { damage: "1d8", type: "piercing" },
+      "pike": { damage: "1d10", type: "piercing" },
+      "trident": { damage: "1d6", type: "piercing" },
+      "war pick": { damage: "1d8", type: "piercing" },
+      "whip": { damage: "1d4", type: "slashing" },
+    };
+
     const weapons = character.equipment.filter(item =>
       item.toLowerCase().includes("sword") || item.toLowerCase().includes("axe") ||
       item.toLowerCase().includes("bow") || item.toLowerCase().includes("dagger") ||
       item.toLowerCase().includes("mace") || item.toLowerCase().includes("hammer") ||
       item.toLowerCase().includes("crossbow") || item.toLowerCase().includes("staff") ||
-      item.toLowerCase().includes("spear")
+      item.toLowerCase().includes("spear") || item.toLowerCase().includes("javelin") ||
+      item.toLowerCase().includes("club") || item.toLowerCase().includes("flail") ||
+      item.toLowerCase().includes("glaive") || item.toLowerCase().includes("halberd") ||
+      item.toLowerCase().includes("lance") || item.toLowerCase().includes("morningstar") ||
+      item.toLowerCase().includes("pike") || item.toLowerCase().includes("trident") ||
+      item.toLowerCase().includes("pick") || item.toLowerCase().includes("whip") ||
+      item.toLowerCase().includes("rapier") || item.toLowerCase().includes("scimitar") ||
+      item.toLowerCase().includes("maul")
     );
+
+    const getWeaponStats = (weaponName: string) => {
+      const lowerName = weaponName.toLowerCase();
+      for (const [key, data] of Object.entries(weaponData)) {
+        if (lowerName.includes(key)) {
+          return data;
+        }
+      }
+      return { damage: "1d6", type: "bludgeoning" }; // default
+    };
+
+    const isRangedWeapon = (name: string) => {
+      const lower = name.toLowerCase();
+      return lower.includes("bow") || lower.includes("crossbow");
+    };
+
+    const isFinesseWeapon = (name: string) => {
+      const lower = name.toLowerCase();
+      return lower.includes("dagger") || lower.includes("rapier") || lower.includes("shortsword") || lower.includes("scimitar") || lower.includes("whip");
+    };
 
     if (weapons[0]) {
       setTextField("Wpn Name", weapons[0]);
-      // Calculate attack bonus (STR for melee, DEX for ranged/finesse)
-      const isRanged = weapons[0].toLowerCase().includes("bow") || weapons[0].toLowerCase().includes("crossbow");
-      const atkMod = isRanged ? character.abilityScores.dexterity : character.abilityScores.strength;
-      const atkBonus = Math.floor((atkMod - 10) / 2) + character.proficiencyBonus;
+      const isRanged = isRangedWeapon(weapons[0]);
+      const isFinesse = isFinesseWeapon(weapons[0]);
+      const strMod = Math.floor((character.abilityScores.strength - 10) / 2);
+      const dexMod = Math.floor((character.abilityScores.dexterity - 10) / 2);
+      // Use DEX for ranged, or higher of STR/DEX for finesse, STR otherwise
+      const atkMod = isRanged ? dexMod : (isFinesse ? Math.max(strMod, dexMod) : strMod);
+      const atkBonus = atkMod + character.proficiencyBonus;
       setTextField("Wpn1 AtkBonus", atkBonus >= 0 ? `+${atkBonus}` : String(atkBonus));
+      const stats = getWeaponStats(weapons[0]);
+      const damageBonus = isRanged ? dexMod : (isFinesse ? Math.max(strMod, dexMod) : strMod);
+      const damageStr = damageBonus >= 0 ? `${stats.damage}+${damageBonus} ${stats.type}` : `${stats.damage}${damageBonus} ${stats.type}`;
+      setTextField("Wpn1 Damage", damageStr);
     }
     if (weapons[1]) {
       setTextField("Wpn Name 2", weapons[1]);
+      const isRanged = isRangedWeapon(weapons[1]);
+      const isFinesse = isFinesseWeapon(weapons[1]);
+      const strMod = Math.floor((character.abilityScores.strength - 10) / 2);
+      const dexMod = Math.floor((character.abilityScores.dexterity - 10) / 2);
+      const atkMod = isRanged ? dexMod : (isFinesse ? Math.max(strMod, dexMod) : strMod);
+      const atkBonus = atkMod + character.proficiencyBonus;
+      setTextField("Wpn2 AtkBonus", atkBonus >= 0 ? `+${atkBonus}` : String(atkBonus));
+      const stats = getWeaponStats(weapons[1]);
+      const damageBonus = isRanged ? dexMod : (isFinesse ? Math.max(strMod, dexMod) : strMod);
+      const damageStr = damageBonus >= 0 ? `${stats.damage}+${damageBonus} ${stats.type}` : `${stats.damage}${damageBonus} ${stats.type}`;
+      setTextField("Wpn2 Damage", damageStr);
     }
     if (weapons[2]) {
       setTextField("Wpn Name 3", weapons[2]);
+      const isRanged = isRangedWeapon(weapons[2]);
+      const isFinesse = isFinesseWeapon(weapons[2]);
+      const strMod = Math.floor((character.abilityScores.strength - 10) / 2);
+      const dexMod = Math.floor((character.abilityScores.dexterity - 10) / 2);
+      const atkMod = isRanged ? dexMod : (isFinesse ? Math.max(strMod, dexMod) : strMod);
+      const atkBonus = atkMod + character.proficiencyBonus;
+      setTextField("Wpn3 AtkBonus", atkBonus >= 0 ? `+${atkBonus}` : String(atkBonus));
+      const stats = getWeaponStats(weapons[2]);
+      const damageBonus = isRanged ? dexMod : (isFinesse ? Math.max(strMod, dexMod) : strMod);
+      const damageStr = damageBonus >= 0 ? `${stats.damage}+${damageBonus} ${stats.type}` : `${stats.damage}${damageBonus} ${stats.type}`;
+      setTextField("Wpn3 Damage", damageStr);
     }
 
     // Personality
@@ -1187,15 +1292,14 @@ async function exportCharacterToPDF(character: GeneratedCharacter) {
     setTextField("Height", "");
     setTextField("Weight", "");
 
+    // Character Appearance (this is the large text box on the left of page 2)
+    setTextField("Appearance", character.appearance || "");
+
     // Backstory
     setTextField("Backstory", character.backstory);
 
-    // Allies/Organizations
-    setTextField("Allies", character.languages.join(", "));
-
-    // Appearance description
-    // Note: The official sheet doesn't have a text field for appearance description,
-    // but we can add it to the backstory or allies section if needed
+    // Allies/Organizations - leave empty or add organization info if available
+    setTextField("Allies", "");
 
     // === PAGE 3: Spellcasting (if applicable) ===
     if (character.spells) {
