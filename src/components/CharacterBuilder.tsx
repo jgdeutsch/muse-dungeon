@@ -181,6 +181,58 @@ export function CharacterBuilder() {
   const [apiStatus, setApiStatus] = useState<"untested" | "testing" | "success" | "failed">("untested");
   const [apiError, setApiError] = useState("");
 
+  // Test function to generate a sample character and export PDF
+  const testPDFExport = () => {
+    const sampleCharacter: GeneratedCharacter = {
+      name: "Thorin Ironforge",
+      race: "Dwarf",
+      classes: [{ name: "Fighter", level: 5 }],
+      background: "Soldier",
+      alignment: "Lawful Good",
+      abilityScores: {
+        strength: 16,
+        dexterity: 12,
+        constitution: 16,
+        intelligence: 10,
+        wisdom: 13,
+        charisma: 8,
+      },
+      hitPoints: 52,
+      armorClass: 18,
+      speed: 25,
+      proficiencyBonus: 3,
+      savingThrows: ["Strength", "Constitution"],
+      skills: ["Athletics", "Intimidation", "Perception", "Survival"],
+      languages: ["Common", "Dwarvish"],
+      equipment: [
+        "Chain mail",
+        "Shield",
+        "Battleaxe",
+        "Handaxes (2)",
+        "Dungeoneer's pack",
+        "Insignia of rank",
+      ],
+      features: [
+        { name: "Fighting Style: Defense", description: "+1 AC when wearing armor." },
+        { name: "Second Wind", description: "Bonus action to regain 1d10+5 HP. Once per short rest." },
+        { name: "Action Surge", description: "Take one additional action. Once per short rest." },
+        { name: "Extra Attack", description: "Attack twice when taking the Attack action." },
+        { name: "Darkvision", description: "See in dim light within 60 feet as if bright light." },
+        { name: "Dwarven Resilience", description: "Advantage on saves vs poison; resistance to poison damage." },
+      ],
+      backstory: "Thorin served for twenty years in the mountain king's elite guard, defending the deep halls against orc incursions and the occasional dragon. When his regiment was disbanded after a treaty with the surface kingdoms, he found himself without purpose. Now he wanders the realm as a sellsword, seeking worthy causes and hoping to reclaim the honor his family lost when his grandfather failed to protect the king's treasure.",
+      personality: {
+        traits: ["I face problems head-on. A simple, direct solution is the best path.", "I can stare down a hell hound without flinching."],
+        ideals: ["Greater Good. Our lot is to lay down our lives in defense of others."],
+        bonds: ["I fight for those who cannot fight for themselves."],
+        flaws: ["I'd rather eat my armor than admit when I'm wrong."],
+      },
+      appearance: "A stout dwarf with a braided red beard streaked with gray, deep-set brown eyes, and a prominent scar across his left cheek from an orc's blade. He wears battered but well-maintained chain mail and carries a battleaxe that has seen better days but remains sharp.",
+    };
+
+    setCharacter(sampleCharacter);
+  };
+
   const currentStep = STEPS[stepIndex];
   const progress = ((stepIndex) / (STEPS.length)) * 100;
 
@@ -813,6 +865,19 @@ export function CharacterBuilder() {
 
         {/* Live Preview Panel */}
         <CharacterPreview choices={choices} />
+      </div>
+
+      {/* Test Button */}
+      <div className="mt-8 pt-6 border-t border-[var(--border)] text-center">
+        <button
+          onClick={testPDFExport}
+          className="px-6 py-3 rounded-lg bg-purple-600 text-white hover:bg-purple-700 transition-colors cursor-pointer font-semibold"
+        >
+          Test: Generate Sample Character
+        </button>
+        <p className="text-xs text-[var(--text-dim)] mt-2">
+          Skips questions and creates a sample dwarf fighter
+        </p>
       </div>
     </div>
   );
