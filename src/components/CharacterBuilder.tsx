@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 
+const GEMINI_API_KEY = "AIzaSyBxvpCeInudM1bs80tApSQ0XrqnKlaOXgk";
+
 type BuilderStep =
   | "level"
   | "name"
@@ -174,6 +176,8 @@ export function CharacterBuilder() {
   const [character, setCharacter] = useState<GeneratedCharacter | null>(null);
   const [error, setError] = useState("");
   const [isGenerating, setIsGenerating] = useState(false);
+  const [apiStatus, setApiStatus] = useState<"untested" | "testing" | "success" | "failed">("untested");
+  const [apiError, setApiError] = useState("");
 
   const currentStep = STEPS[stepIndex];
   const progress = ((stepIndex) / (STEPS.length)) * 100;
@@ -208,6 +212,42 @@ export function CharacterBuilder() {
     setCharacter(null);
     setError("");
     setIsGenerating(false);
+    setApiStatus("untested");
+    setApiError("");
+  };
+
+  const testApiConnection = async () => {
+    setApiStatus("testing");
+    setApiError("");
+    try {
+      const response = await fetch(
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            contents: [{ parts: [{ text: "Say 'ready' and nothing else." }] }],
+            generationConfig: { temperature: 0, maxOutputTokens: 10 },
+          }),
+        }
+      );
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(`API error: ${response.status} - ${errorText.slice(0, 100)}`);
+      }
+
+      const data = await response.json();
+      const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
+      if (text) {
+        setApiStatus("success");
+      } else {
+        throw new Error("No response from API");
+      }
+    } catch (err) {
+      setApiStatus("failed");
+      setApiError(err instanceof Error ? err.message : "Connection failed");
+    }
   };
 
   const generateCharacter = async () => {
@@ -215,28 +255,49 @@ export function CharacterBuilder() {
     setError("");
 
     try {
-      const response = await fetch("/api/generate-character", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(choices),
-      });
+      const prompt = buildPrompt(choices as CharacterChoices);
 
-      const text = await response.text();
+      const response = await fetch(
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            contents: [{ parts: [{ text: prompt }] }],
+            generationConfig: {
+              temperature: 0.8,
+              maxOutputTokens: 4096,
+              responseMimeType: "application/json",
+            },
+          }),
+        }
+      );
 
       if (!response.ok) {
-        let errorMsg = "Failed to generate character";
-        try {
-          const errorData = JSON.parse(text);
-          errorMsg = errorData.error || errorMsg;
-        } catch {
-          // Use default error message
-        }
-        throw new Error(errorMsg);
+        const errorText = await response.text();
+        console.error("Gemini API error:", errorText);
+        throw new Error("Failed to generate character. Please try again.");
       }
 
-      const data = JSON.parse(text);
-      setCharacter(data.character);
+      const data = await response.json();
+      const generatedText = data.candidates?.[0]?.content?.parts?.[0]?.text;
+
+      if (!generatedText) {
+        console.error("No generated text in response:", JSON.stringify(data));
+        throw new Error("No response from AI. Please try again.");
+      }
+
+      // Parse the JSON response from Gemini
+      let cleanedText = generatedText.trim();
+      if (cleanedText.startsWith("```json")) cleanedText = cleanedText.slice(7);
+      if (cleanedText.startsWith("```")) cleanedText = cleanedText.slice(3);
+      if (cleanedText.endsWith("```")) cleanedText = cleanedText.slice(0, -3);
+      cleanedText = cleanedText.trim();
+
+      const character = JSON.parse(cleanedText);
+      setCharacter(character);
     } catch (err) {
+      console.error("Character generation error:", err);
       setError(err instanceof Error ? err.message : "Something went wrong");
       setStepIndex(STEPS.length - 1); // Go back to last question
     } finally {
@@ -339,6 +400,40 @@ export function CharacterBuilder() {
                     Level {l}
                   </button>
                 ))}
+              </div>
+
+              {/* API Test Section */}
+              <div className="mt-6 pt-6 border-t border-[var(--border)]">
+                <div className="flex items-center justify-between">
+                  <div className="text-sm text-[var(--text-dim)]">
+                    {apiStatus === "untested" && "Test AI connection before starting"}
+                    {apiStatus === "testing" && "Testing connection..."}
+                    {apiStatus === "success" && (
+                      <span className="text-green-500 flex items-center gap-1">
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        </svg>
+                        AI ready!
+                      </span>
+                    )}
+                    {apiStatus === "failed" && (
+                      <span className="text-red-500">{apiError}</span>
+                    )}
+                  </div>
+                  <button
+                    onClick={testApiConnection}
+                    disabled={apiStatus === "testing"}
+                    className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors cursor-pointer ${
+                      apiStatus === "testing"
+                        ? "bg-[var(--surface)] text-[var(--text-dim)]"
+                        : apiStatus === "success"
+                        ? "bg-green-500/20 text-green-500 border border-green-500"
+                        : "bg-[var(--surface)] border border-[var(--border)] hover:border-[var(--accent)]"
+                    }`}
+                  >
+                    {apiStatus === "testing" ? "Testing..." : apiStatus === "success" ? "Retest" : "Test API"}
+                  </button>
+                </div>
               </div>
             </QuestionCard>
           )}
@@ -1034,4 +1129,97 @@ function CharacterSheet({
       </div>
     </div>
   );
+}
+
+function buildPrompt(choices: CharacterChoices): string {
+  const combatStyleDesc = {
+    melee: "prefers close combat with melee weapons",
+    ranged: "prefers ranged combat with bows or crossbows",
+    mixed: "is flexible and adapts to any combat situation",
+    avoid: "prefers to avoid direct combat, using stealth, diplomacy, or magic",
+  };
+
+  const magicStyleDesc = {
+    offensive: "focuses on destructive magic like fireballs and lightning",
+    healing: "focuses on healing and supporting allies",
+    utility: "focuses on clever tricks, illusions, and problem-solving spells",
+    nature: "focuses on nature magic, speaking with animals, and controlling plants",
+    dark: "focuses on necromancy, curses, and forbidden powers",
+  };
+
+  let classGuidance = "";
+  if (choices.classHint) {
+    classGuidance = `The player has expressed interest in playing a ${choices.classHint}.`;
+  } else {
+    classGuidance = `Choose the best class based on these preferences: ${combatStyleDesc[choices.combatStyle]}${
+      choices.usesMagic ? ` and uses magic (${choices.magicStyle ? magicStyleDesc[choices.magicStyle] : "any style"})` : " and does not use magic"
+    }.`;
+  }
+
+  return `You are a D&D 5e character creation expert. Create a complete, playable character sheet based on these player choices:
+
+LEVEL: ${choices.level}
+${choices.name ? `PREFERRED NAME: ${choices.name}` : "Generate an appropriate fantasy name for this character."}
+RACE: ${choices.race}
+${choices.concept ? `CHARACTER CONCEPT: ${choices.concept}` : ""}
+
+COMBAT STYLE: ${combatStyleDesc[choices.combatStyle]}
+MAGIC: ${choices.usesMagic ? `Yes - ${choices.magicStyle ? magicStyleDesc[choices.magicStyle] : "general magic user"}` : "No magic, purely martial"}
+
+${classGuidance}
+
+PERSONALITY: ${choices.personality}
+BACKGROUND: ${choices.background}
+MOTIVATION: ${choices.motivation}
+GREATEST STRENGTH: ${choices.strength}
+FATAL FLAW: ${choices.weakness}
+
+Generate a complete D&D 5e character following these rules:
+- Use point buy (27 points) for ability scores, distributed optimally for the chosen class
+- Apply racial ability score bonuses (use 2024 rules: +2/+1 or +1/+1/+1 of player's choice)
+- Calculate HP correctly (max at level 1, average rounded up for subsequent levels + CON modifier per level)
+- Include all class features gained by this level
+- For spellcasters, include appropriate cantrips and spells that match the magic style preference
+- Select thematic equipment appropriate for the class and background
+- Create a compelling 2-3 paragraph backstory incorporating their motivation, background, strength, and flaw
+- The personality traits, ideals, bonds, and flaws should reflect the player's choices
+
+Return ONLY valid JSON (no markdown code blocks, no explanations) matching this exact structure:
+{
+  "name": "Character Name",
+  "race": "Race (including subrace if applicable)",
+  "classes": [{"name": "Class Name", "level": ${choices.level}}],
+  "background": "${choices.background}",
+  "alignment": "Alignment that fits the personality",
+  "abilityScores": {
+    "strength": number,
+    "dexterity": number,
+    "constitution": number,
+    "intelligence": number,
+    "wisdom": number,
+    "charisma": number
+  },
+  "hitPoints": number,
+  "armorClass": number,
+  "speed": number,
+  "proficiencyBonus": number,
+  "savingThrows": ["list of proficient saves"],
+  "skills": ["list of proficient skills"],
+  "languages": ["list of known languages"],
+  "equipment": ["list of equipment items"],
+  "features": [{"name": "Feature Name", "description": "Brief description"}],
+  "spells": {
+    "cantrips": ["list if spellcaster, empty array if not"],
+    "spellSlots": [{"level": 1, "slots": 2}],
+    "knownSpells": [{"level": 1, "spells": ["spell names"]}]
+  },
+  "backstory": "2-3 paragraph backstory incorporating their motivation and flaw",
+  "personality": {
+    "traits": ["2 personality traits based on ${choices.personality}"],
+    "ideals": ["1 ideal"],
+    "bonds": ["1 bond related to their motivation: ${choices.motivation}"],
+    "flaws": ["1 flaw based on: ${choices.weakness}"]
+  },
+  "appearance": "Brief physical description fitting the race and class"
+}`;
 }
