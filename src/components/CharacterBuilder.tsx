@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import jsPDF from "jspdf";
 
 const GEMINI_API_KEY = "AIzaSyBlYNgNuypnwwxTb4JsbU5GvZzP0f3KcJo";
 const GEMINI_MODEL = "gemini-2.0-flash";
@@ -961,6 +962,292 @@ function isStepComplete(step: BuilderStep, choices: Partial<CharacterChoices>): 
   }
 }
 
+function exportCharacterToPDF(character: GeneratedCharacter) {
+  const doc = new jsPDF();
+  const pageWidth = doc.internal.pageSize.getWidth();
+  const margin = 15;
+  const contentWidth = pageWidth - margin * 2;
+  let y = 15;
+
+  const getModifier = (score: number) => {
+    const mod = Math.floor((score - 10) / 2);
+    return mod >= 0 ? `+${mod}` : `${mod}`;
+  };
+
+  const classDisplay = character.classes.map((c) => `${c.name} ${c.level}`).join(" / ");
+  const totalLevel = character.classes.reduce((sum, c) => sum + c.level, 0);
+
+  // Helper for section headers
+  const addSectionHeader = (text: string) => {
+    if (y > 260) {
+      doc.addPage();
+      y = 15;
+    }
+    doc.setFontSize(12);
+    doc.setFont("helvetica", "bold");
+    doc.setTextColor(139, 69, 19); // Brown color for headers
+    doc.text(text, margin, y);
+    y += 7;
+    doc.setTextColor(0, 0, 0);
+    doc.setFont("helvetica", "normal");
+  };
+
+  // Helper for wrapped text
+  const addWrappedText = (text: string, fontSize: number = 10) => {
+    doc.setFontSize(fontSize);
+    const lines = doc.splitTextToSize(text, contentWidth);
+    lines.forEach((line: string) => {
+      if (y > 280) {
+        doc.addPage();
+        y = 15;
+      }
+      doc.text(line, margin, y);
+      y += fontSize * 0.5;
+    });
+    y += 2;
+  };
+
+  // === HEADER ===
+  doc.setFontSize(22);
+  doc.setFont("helvetica", "bold");
+  doc.text(character.name, pageWidth / 2, y, { align: "center" });
+  y += 8;
+
+  doc.setFontSize(12);
+  doc.setFont("helvetica", "normal");
+  doc.setTextColor(100, 100, 100);
+  doc.text(`Level ${totalLevel} ${character.race} ${classDisplay}`, pageWidth / 2, y, { align: "center" });
+  y += 6;
+  doc.text(`${character.background} • ${character.alignment}`, pageWidth / 2, y, { align: "center" });
+  doc.setTextColor(0, 0, 0);
+  y += 10;
+
+  // === CORE STATS ROW ===
+  doc.setFillColor(245, 245, 245);
+  doc.roundedRect(margin, y, contentWidth, 20, 3, 3, "F");
+
+  const statBoxWidth = contentWidth / 3;
+  doc.setFontSize(16);
+  doc.setFont("helvetica", "bold");
+
+  // HP
+  doc.setTextColor(180, 50, 50);
+  doc.text(String(character.hitPoints), margin + statBoxWidth / 2, y + 10, { align: "center" });
+  doc.setFontSize(8);
+  doc.setFont("helvetica", "normal");
+  doc.setTextColor(100, 100, 100);
+  doc.text("Hit Points", margin + statBoxWidth / 2, y + 16, { align: "center" });
+
+  // AC
+  doc.setFontSize(16);
+  doc.setFont("helvetica", "bold");
+  doc.setTextColor(50, 100, 180);
+  doc.text(String(character.armorClass), margin + statBoxWidth * 1.5, y + 10, { align: "center" });
+  doc.setFontSize(8);
+  doc.setFont("helvetica", "normal");
+  doc.setTextColor(100, 100, 100);
+  doc.text("Armor Class", margin + statBoxWidth * 1.5, y + 16, { align: "center" });
+
+  // Speed
+  doc.setFontSize(16);
+  doc.setFont("helvetica", "bold");
+  doc.setTextColor(139, 69, 19);
+  doc.text(`${character.speed} ft`, margin + statBoxWidth * 2.5, y + 10, { align: "center" });
+  doc.setFontSize(8);
+  doc.setFont("helvetica", "normal");
+  doc.setTextColor(100, 100, 100);
+  doc.text("Speed", margin + statBoxWidth * 2.5, y + 16, { align: "center" });
+
+  doc.setTextColor(0, 0, 0);
+  y += 28;
+
+  // === ABILITY SCORES ===
+  const abilityBoxWidth = contentWidth / 6;
+  const abilities = ["STR", "DEX", "CON", "INT", "WIS", "CHA"];
+  const abilityValues = [
+    character.abilityScores.strength,
+    character.abilityScores.dexterity,
+    character.abilityScores.constitution,
+    character.abilityScores.intelligence,
+    character.abilityScores.wisdom,
+    character.abilityScores.charisma,
+  ];
+
+  doc.setFillColor(250, 250, 250);
+  doc.roundedRect(margin, y, contentWidth, 22, 3, 3, "F");
+
+  abilities.forEach((ability, i) => {
+    const x = margin + abilityBoxWidth * i + abilityBoxWidth / 2;
+    doc.setFontSize(8);
+    doc.setTextColor(100, 100, 100);
+    doc.text(ability, x, y + 5, { align: "center" });
+
+    doc.setFontSize(14);
+    doc.setFont("helvetica", "bold");
+    doc.setTextColor(0, 0, 0);
+    doc.text(String(abilityValues[i]), x, y + 13, { align: "center" });
+
+    doc.setFontSize(9);
+    doc.setTextColor(139, 69, 19);
+    doc.text(getModifier(abilityValues[i]), x, y + 19, { align: "center" });
+  });
+
+  doc.setTextColor(0, 0, 0);
+  doc.setFont("helvetica", "normal");
+  y += 30;
+
+  // === SAVING THROWS & PROFICIENCY ===
+  addSectionHeader("Saving Throws");
+  doc.setFontSize(10);
+  doc.text(`Proficiency Bonus: +${character.proficiencyBonus}`, margin, y);
+  y += 5;
+  doc.text(character.savingThrows.join(", "), margin, y);
+  y += 8;
+
+  // === SKILLS ===
+  addSectionHeader("Skills");
+  addWrappedText(character.skills.join(", "));
+  y += 3;
+
+  // === LANGUAGES ===
+  addSectionHeader("Languages");
+  addWrappedText(character.languages.join(", "));
+  y += 3;
+
+  // === EQUIPMENT ===
+  addSectionHeader("Equipment");
+  character.equipment.forEach((item) => {
+    if (y > 280) {
+      doc.addPage();
+      y = 15;
+    }
+    doc.setFontSize(10);
+    doc.text(`• ${item}`, margin, y);
+    y += 5;
+  });
+  y += 3;
+
+  // === FEATURES & TRAITS ===
+  addSectionHeader("Features & Traits");
+  character.features.forEach((feature) => {
+    if (y > 270) {
+      doc.addPage();
+      y = 15;
+    }
+    doc.setFontSize(10);
+    doc.setFont("helvetica", "bold");
+    doc.setTextColor(139, 69, 19);
+    doc.text(feature.name, margin, y);
+    y += 5;
+    doc.setFont("helvetica", "normal");
+    doc.setTextColor(0, 0, 0);
+    addWrappedText(feature.description, 9);
+    y += 2;
+  });
+
+  // === SPELLS (if any) ===
+  if (character.spells && (character.spells.cantrips?.length || character.spells.knownSpells?.length)) {
+    addSectionHeader("Spellcasting");
+
+    if (character.spells.cantrips && character.spells.cantrips.length > 0) {
+      doc.setFontSize(10);
+      doc.setFont("helvetica", "bold");
+      doc.text("Cantrips:", margin, y);
+      y += 5;
+      doc.setFont("helvetica", "normal");
+      addWrappedText(character.spells.cantrips.join(", "), 9);
+    }
+
+    if (character.spells.spellSlots && character.spells.spellSlots.length > 0) {
+      doc.setFontSize(10);
+      doc.setFont("helvetica", "bold");
+      doc.text("Spell Slots:", margin, y);
+      y += 5;
+      doc.setFont("helvetica", "normal");
+      const slots = character.spells.spellSlots.map((s) => `Level ${s.level}: ${s.slots}`).join(", ");
+      addWrappedText(slots, 9);
+    }
+
+    if (character.spells.knownSpells && character.spells.knownSpells.length > 0) {
+      doc.setFontSize(10);
+      doc.setFont("helvetica", "bold");
+      doc.text("Prepared/Known Spells:", margin, y);
+      y += 5;
+      doc.setFont("helvetica", "normal");
+      character.spells.knownSpells.forEach((lvl) => {
+        const levelLabel = lvl.level === 0 ? "Cantrips" : `Level ${lvl.level}`;
+        addWrappedText(`${levelLabel}: ${lvl.spells.join(", ")}`, 9);
+      });
+    }
+    y += 3;
+  }
+
+  // === PERSONALITY ===
+  addSectionHeader("Personality");
+  doc.setFontSize(9);
+  doc.setFont("helvetica", "bold");
+  doc.text("Traits: ", margin, y);
+  doc.setFont("helvetica", "normal");
+  const traitsText = character.personality.traits.join(" ");
+  const traitsLines = doc.splitTextToSize(traitsText, contentWidth - 20);
+  doc.text(traitsLines, margin + 15, y);
+  y += traitsLines.length * 4 + 3;
+
+  doc.setFont("helvetica", "bold");
+  doc.text("Ideals: ", margin, y);
+  doc.setFont("helvetica", "normal");
+  const idealsText = character.personality.ideals.join(" ");
+  const idealsLines = doc.splitTextToSize(idealsText, contentWidth - 20);
+  doc.text(idealsLines, margin + 15, y);
+  y += idealsLines.length * 4 + 3;
+
+  doc.setFont("helvetica", "bold");
+  doc.text("Bonds: ", margin, y);
+  doc.setFont("helvetica", "normal");
+  const bondsText = character.personality.bonds.join(" ");
+  const bondsLines = doc.splitTextToSize(bondsText, contentWidth - 20);
+  doc.text(bondsLines, margin + 15, y);
+  y += bondsLines.length * 4 + 3;
+
+  doc.setFont("helvetica", "bold");
+  doc.text("Flaws: ", margin, y);
+  doc.setFont("helvetica", "normal");
+  const flawsText = character.personality.flaws.join(" ");
+  const flawsLines = doc.splitTextToSize(flawsText, contentWidth - 20);
+  doc.text(flawsLines, margin + 15, y);
+  y += flawsLines.length * 4 + 6;
+
+  // === APPEARANCE ===
+  if (y > 250) {
+    doc.addPage();
+    y = 15;
+  }
+  addSectionHeader("Appearance");
+  addWrappedText(character.appearance, 9);
+  y += 3;
+
+  // === BACKSTORY ===
+  if (y > 240) {
+    doc.addPage();
+    y = 15;
+  }
+  addSectionHeader("Backstory");
+  addWrappedText(character.backstory, 9);
+
+  // === FOOTER ===
+  const totalPages = doc.getNumberOfPages();
+  for (let i = 1; i <= totalPages; i++) {
+    doc.setPage(i);
+    doc.setFontSize(8);
+    doc.setTextColor(150, 150, 150);
+    doc.text(`Generated by Muse Dungeon • Page ${i} of ${totalPages}`, pageWidth / 2, 290, { align: "center" });
+  }
+
+  // Save the PDF
+  const fileName = `${character.name.replace(/[^a-zA-Z0-9]/g, "_")}_Character_Sheet.pdf`;
+  doc.save(fileName);
+}
+
 function CharacterSheet({
   character,
   onReset,
@@ -992,12 +1279,20 @@ function CharacterSheet({
             {character.background} • {character.alignment}
           </p>
         </div>
-        <button
-          onClick={onReset}
-          className="px-4 py-2 rounded-lg bg-[var(--surface)] border border-[var(--border)] hover:border-[var(--accent)] transition-colors cursor-pointer"
-        >
-          Create Another
-        </button>
+        <div className="flex gap-2">
+          <button
+            onClick={() => exportCharacterToPDF(character)}
+            className="px-4 py-2 rounded-lg bg-[var(--accent)] text-white hover:brightness-110 transition-all cursor-pointer font-semibold"
+          >
+            Export PDF
+          </button>
+          <button
+            onClick={onReset}
+            className="px-4 py-2 rounded-lg bg-[var(--surface)] border border-[var(--border)] hover:border-[var(--accent)] transition-colors cursor-pointer"
+          >
+            Create Another
+          </button>
+        </div>
       </div>
 
       {/* Core Stats */}
