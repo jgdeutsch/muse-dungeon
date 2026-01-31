@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import jsPDF from "jspdf";
+import { PDFDocument } from "pdf-lib";
 
 const GEMINI_API_KEY = "AIzaSyBlYNgNuypnwwxTb4JsbU5GvZzP0f3KcJo";
 const GEMINI_MODEL = "gemini-2.0-flash";
@@ -1027,290 +1027,224 @@ function isStepComplete(step: BuilderStep, choices: Partial<CharacterChoices>): 
   }
 }
 
-function exportCharacterToPDF(character: GeneratedCharacter) {
-  const doc = new jsPDF();
-  const pageWidth = doc.internal.pageSize.getWidth();
-  const margin = 15;
-  const contentWidth = pageWidth - margin * 2;
-  let y = 15;
+async function exportCharacterToPDF(character: GeneratedCharacter) {
+  try {
+    // Fetch the official D&D 5e character sheet template
+    const templateUrl = "/dnd_5e_character_sheet.pdf";
+    const templateBytes = await fetch(templateUrl).then((res) => res.arrayBuffer());
+    const pdfDoc = await PDFDocument.load(templateBytes);
+    const form = pdfDoc.getForm();
 
-  const getModifier = (score: number) => {
-    const mod = Math.floor((score - 10) / 2);
-    return mod >= 0 ? `+${mod}` : `${mod}`;
-  };
+    const getModifier = (score: number) => {
+      const mod = Math.floor((score - 10) / 2);
+      return mod >= 0 ? `+${mod}` : `${mod}`;
+    };
 
-  const classDisplay = character.classes.map((c) => `${c.name} ${c.level}`).join(" / ");
-  const totalLevel = character.classes.reduce((sum, c) => sum + c.level, 0);
+    const classDisplay = character.classes.map((c) => `${c.name} ${c.level}`).join(" / ");
+    const totalLevel = character.classes.reduce((sum, c) => sum + c.level, 0);
 
-  // Helper for section headers
-  const addSectionHeader = (text: string) => {
-    if (y > 260) {
-      doc.addPage();
-      y = 15;
-    }
-    doc.setFontSize(12);
-    doc.setFont("helvetica", "bold");
-    doc.setTextColor(139, 69, 19); // Brown color for headers
-    doc.text(text, margin, y);
-    y += 7;
-    doc.setTextColor(0, 0, 0);
-    doc.setFont("helvetica", "normal");
-  };
-
-  // Helper for wrapped text
-  const addWrappedText = (text: string, fontSize: number = 10) => {
-    doc.setFontSize(fontSize);
-    const lines = doc.splitTextToSize(text, contentWidth);
-    lines.forEach((line: string) => {
-      if (y > 280) {
-        doc.addPage();
-        y = 15;
+    // Helper to safely set text field
+    const setTextField = (fieldName: string, value: string) => {
+      try {
+        const field = form.getTextField(fieldName);
+        field.setText(value);
+      } catch {
+        console.log(`Field not found: ${fieldName}`);
       }
-      doc.text(line, margin, y);
-      y += fontSize * 0.5;
+    };
+
+    // === PAGE 1: Main Character Sheet ===
+
+    // Basic Info
+    setTextField("CharacterName", character.name);
+    setTextField("ClassLevel", classDisplay);
+    setTextField("Background", character.background);
+    setTextField("Race ", character.race);
+    setTextField("Alignment", character.alignment);
+    setTextField("XP", "0");
+
+    // Ability Scores
+    setTextField("STR", String(character.abilityScores.strength));
+    setTextField("STRmod", getModifier(character.abilityScores.strength));
+    setTextField("DEX", String(character.abilityScores.dexterity));
+    setTextField("DEXmod ", getModifier(character.abilityScores.dexterity));
+    setTextField("CON", String(character.abilityScores.constitution));
+    setTextField("CONmod", getModifier(character.abilityScores.constitution));
+    setTextField("INT", String(character.abilityScores.intelligence));
+    setTextField("INTmod", getModifier(character.abilityScores.intelligence));
+    setTextField("WIS", String(character.abilityScores.wisdom));
+    setTextField("WISmod", getModifier(character.abilityScores.wisdom));
+    setTextField("CHA", String(character.abilityScores.charisma));
+
+    // Combat Stats
+    setTextField("AC", String(character.armorClass));
+    setTextField("Initiative", getModifier(character.abilityScores.dexterity));
+    setTextField("Speed", String(character.speed));
+    setTextField("HPMax", String(character.hitPoints));
+    setTextField("HPCurrent", String(character.hitPoints));
+    setTextField("ProfBonus", `+${character.proficiencyBonus}`);
+    setTextField("HDTotal", String(totalLevel));
+
+    // Hit Dice - use the primary class's hit die
+    const classHitDice: Record<string, string> = {
+      "Barbarian": "d12", "Fighter": "d10", "Paladin": "d10", "Ranger": "d10",
+      "Bard": "d8", "Cleric": "d8", "Druid": "d8", "Monk": "d8", "Rogue": "d8", "Warlock": "d8",
+      "Sorcerer": "d6", "Wizard": "d6"
+    };
+    const primaryClass = character.classes[0]?.name || "Fighter";
+    setTextField("HD", classHitDice[primaryClass] || "d8");
+
+    // Saving Throws - calculate bonuses
+    const savingThrowFields: Record<string, { field: string; ability: keyof typeof character.abilityScores }> = {
+      "Strength": { field: "ST Strength", ability: "strength" },
+      "Dexterity": { field: "ST Dexterity", ability: "dexterity" },
+      "Constitution": { field: "ST Constitution", ability: "constitution" },
+      "Intelligence": { field: "ST Intelligence", ability: "intelligence" },
+      "Wisdom": { field: "ST Wisdom", ability: "wisdom" },
+      "Charisma": { field: "ST Charisma", ability: "charisma" },
+    };
+
+    Object.entries(savingThrowFields).forEach(([saveName, { field, ability }]) => {
+      const abilityMod = Math.floor((character.abilityScores[ability] - 10) / 2);
+      const isProficient = character.savingThrows.includes(saveName);
+      const bonus = isProficient ? abilityMod + character.proficiencyBonus : abilityMod;
+      setTextField(field, bonus >= 0 ? `+${bonus}` : String(bonus));
     });
-    y += 2;
-  };
 
-  // === HEADER ===
-  doc.setFontSize(22);
-  doc.setFont("helvetica", "bold");
-  doc.text(character.name, pageWidth / 2, y, { align: "center" });
-  y += 8;
+    // Skills - map skill names to form fields
+    const skillFields: Record<string, { field: string; ability: keyof typeof character.abilityScores }> = {
+      "Acrobatics": { field: "Acrobatics", ability: "dexterity" },
+      "Animal Handling": { field: "Animal", ability: "wisdom" },
+      "Arcana": { field: "Arcana", ability: "intelligence" },
+      "Athletics": { field: "Athletics", ability: "strength" },
+      "Deception": { field: "Deception ", ability: "charisma" },
+      "History": { field: "History ", ability: "intelligence" },
+      "Insight": { field: "Insight", ability: "wisdom" },
+      "Intimidation": { field: "Intimidation", ability: "charisma" },
+      "Investigation": { field: "Investigation ", ability: "intelligence" },
+      "Medicine": { field: "Medicine", ability: "wisdom" },
+      "Nature": { field: "Nature", ability: "intelligence" },
+      "Perception": { field: "Perception ", ability: "wisdom" },
+      "Performance": { field: "Performance", ability: "charisma" },
+      "Persuasion": { field: "Persuasion", ability: "charisma" },
+      "Religion": { field: "Religion", ability: "intelligence" },
+      "Sleight of Hand": { field: "SssassasssssMath of Hand", ability: "dexterity" }, // Note: may not exist
+      "Stealth": { field: "Stealth ", ability: "dexterity" },
+      "Survival": { field: "Survival", ability: "wisdom" },
+    };
 
-  doc.setFontSize(12);
-  doc.setFont("helvetica", "normal");
-  doc.setTextColor(100, 100, 100);
-  doc.text(`Level ${totalLevel} ${character.race} ${classDisplay}`, pageWidth / 2, y, { align: "center" });
-  y += 6;
-  doc.text(`${character.background} • ${character.alignment}`, pageWidth / 2, y, { align: "center" });
-  doc.setTextColor(0, 0, 0);
-  y += 10;
+    Object.entries(skillFields).forEach(([skillName, { field, ability }]) => {
+      const abilityMod = Math.floor((character.abilityScores[ability] - 10) / 2);
+      const isProficient = character.skills.includes(skillName);
+      const bonus = isProficient ? abilityMod + character.proficiencyBonus : abilityMod;
+      setTextField(field, bonus >= 0 ? `+${bonus}` : String(bonus));
+    });
 
-  // === CORE STATS ROW ===
-  doc.setFillColor(245, 245, 245);
-  doc.roundedRect(margin, y, contentWidth, 20, 3, 3, "F");
+    // Equipment & Weapons
+    const weapons = character.equipment.filter(item =>
+      item.toLowerCase().includes("sword") || item.toLowerCase().includes("axe") ||
+      item.toLowerCase().includes("bow") || item.toLowerCase().includes("dagger") ||
+      item.toLowerCase().includes("mace") || item.toLowerCase().includes("hammer") ||
+      item.toLowerCase().includes("crossbow") || item.toLowerCase().includes("staff") ||
+      item.toLowerCase().includes("spear")
+    );
 
-  const statBoxWidth = contentWidth / 3;
-  doc.setFontSize(16);
-  doc.setFont("helvetica", "bold");
-
-  // HP
-  doc.setTextColor(180, 50, 50);
-  doc.text(String(character.hitPoints), margin + statBoxWidth / 2, y + 10, { align: "center" });
-  doc.setFontSize(8);
-  doc.setFont("helvetica", "normal");
-  doc.setTextColor(100, 100, 100);
-  doc.text("Hit Points", margin + statBoxWidth / 2, y + 16, { align: "center" });
-
-  // AC
-  doc.setFontSize(16);
-  doc.setFont("helvetica", "bold");
-  doc.setTextColor(50, 100, 180);
-  doc.text(String(character.armorClass), margin + statBoxWidth * 1.5, y + 10, { align: "center" });
-  doc.setFontSize(8);
-  doc.setFont("helvetica", "normal");
-  doc.setTextColor(100, 100, 100);
-  doc.text("Armor Class", margin + statBoxWidth * 1.5, y + 16, { align: "center" });
-
-  // Speed
-  doc.setFontSize(16);
-  doc.setFont("helvetica", "bold");
-  doc.setTextColor(139, 69, 19);
-  doc.text(`${character.speed} ft`, margin + statBoxWidth * 2.5, y + 10, { align: "center" });
-  doc.setFontSize(8);
-  doc.setFont("helvetica", "normal");
-  doc.setTextColor(100, 100, 100);
-  doc.text("Speed", margin + statBoxWidth * 2.5, y + 16, { align: "center" });
-
-  doc.setTextColor(0, 0, 0);
-  y += 28;
-
-  // === ABILITY SCORES ===
-  const abilityBoxWidth = contentWidth / 6;
-  const abilities = ["STR", "DEX", "CON", "INT", "WIS", "CHA"];
-  const abilityValues = [
-    character.abilityScores.strength,
-    character.abilityScores.dexterity,
-    character.abilityScores.constitution,
-    character.abilityScores.intelligence,
-    character.abilityScores.wisdom,
-    character.abilityScores.charisma,
-  ];
-
-  doc.setFillColor(250, 250, 250);
-  doc.roundedRect(margin, y, contentWidth, 22, 3, 3, "F");
-
-  abilities.forEach((ability, i) => {
-    const x = margin + abilityBoxWidth * i + abilityBoxWidth / 2;
-    doc.setFontSize(8);
-    doc.setTextColor(100, 100, 100);
-    doc.text(ability, x, y + 5, { align: "center" });
-
-    doc.setFontSize(14);
-    doc.setFont("helvetica", "bold");
-    doc.setTextColor(0, 0, 0);
-    doc.text(String(abilityValues[i]), x, y + 13, { align: "center" });
-
-    doc.setFontSize(9);
-    doc.setTextColor(139, 69, 19);
-    doc.text(getModifier(abilityValues[i]), x, y + 19, { align: "center" });
-  });
-
-  doc.setTextColor(0, 0, 0);
-  doc.setFont("helvetica", "normal");
-  y += 30;
-
-  // === SAVING THROWS & PROFICIENCY ===
-  addSectionHeader("Saving Throws");
-  doc.setFontSize(10);
-  doc.text(`Proficiency Bonus: +${character.proficiencyBonus}`, margin, y);
-  y += 5;
-  doc.text(character.savingThrows.join(", "), margin, y);
-  y += 8;
-
-  // === SKILLS ===
-  addSectionHeader("Skills");
-  addWrappedText(character.skills.join(", "));
-  y += 3;
-
-  // === LANGUAGES ===
-  addSectionHeader("Languages");
-  addWrappedText(character.languages.join(", "));
-  y += 3;
-
-  // === EQUIPMENT ===
-  addSectionHeader("Equipment");
-  character.equipment.forEach((item) => {
-    if (y > 280) {
-      doc.addPage();
-      y = 15;
+    if (weapons[0]) {
+      setTextField("Wpn Name", weapons[0]);
+      // Calculate attack bonus (STR for melee, DEX for ranged/finesse)
+      const isRanged = weapons[0].toLowerCase().includes("bow") || weapons[0].toLowerCase().includes("crossbow");
+      const atkMod = isRanged ? character.abilityScores.dexterity : character.abilityScores.strength;
+      const atkBonus = Math.floor((atkMod - 10) / 2) + character.proficiencyBonus;
+      setTextField("Wpn1 AtkBonus", atkBonus >= 0 ? `+${atkBonus}` : String(atkBonus));
     }
-    doc.setFontSize(10);
-    doc.text(`• ${item}`, margin, y);
-    y += 5;
-  });
-  y += 3;
-
-  // === FEATURES & TRAITS ===
-  addSectionHeader("Features & Traits");
-  character.features.forEach((feature) => {
-    if (y > 270) {
-      doc.addPage();
-      y = 15;
+    if (weapons[1]) {
+      setTextField("Wpn Name 2", weapons[1]);
     }
-    doc.setFontSize(10);
-    doc.setFont("helvetica", "bold");
-    doc.setTextColor(139, 69, 19);
-    doc.text(feature.name, margin, y);
-    y += 5;
-    doc.setFont("helvetica", "normal");
-    doc.setTextColor(0, 0, 0);
-    addWrappedText(feature.description, 9);
-    y += 2;
-  });
-
-  // === SPELLS (if any) ===
-  if (character.spells && (character.spells.cantrips?.length || character.spells.knownSpells?.length)) {
-    addSectionHeader("Spellcasting");
-
-    if (character.spells.cantrips && character.spells.cantrips.length > 0) {
-      doc.setFontSize(10);
-      doc.setFont("helvetica", "bold");
-      doc.text("Cantrips:", margin, y);
-      y += 5;
-      doc.setFont("helvetica", "normal");
-      addWrappedText(character.spells.cantrips.join(", "), 9);
+    if (weapons[2]) {
+      setTextField("Wpn Name 3", weapons[2]);
     }
 
-    if (character.spells.spellSlots && character.spells.spellSlots.length > 0) {
-      doc.setFontSize(10);
-      doc.setFont("helvetica", "bold");
-      doc.text("Spell Slots:", margin, y);
-      y += 5;
-      doc.setFont("helvetica", "normal");
-      const slots = character.spells.spellSlots.map((s) => `Level ${s.level}: ${s.slots}`).join(", ");
-      addWrappedText(slots, 9);
+    // Personality
+    setTextField("PersonalityTraits ", character.personality.traits.join(" "));
+    setTextField("Ideals", character.personality.ideals.join(" "));
+    setTextField("Bonds", character.personality.bonds.join(" "));
+    setTextField("Flaws", character.personality.flaws.join(" "));
+
+    // Features & Traits (combine features with equipment list)
+    const featuresText = character.features.map(f => `${f.name}: ${f.description}`).join("\n\n");
+    setTextField("Feat+Traits", featuresText);
+
+    // Equipment list in the equipment section
+    const nonWeaponEquipment = character.equipment.filter(item => !weapons.includes(item));
+    setTextField("Equipment", nonWeaponEquipment.join("\n"));
+
+    // === PAGE 2: Character Details ===
+    setTextField("CharacterName 2", character.name);
+    setTextField("Age", "Unknown");
+    setTextField("Eyes", "");
+    setTextField("Hair", "");
+    setTextField("Skin", "");
+    setTextField("Height", "");
+    setTextField("Weight", "");
+
+    // Backstory
+    setTextField("Backstory", character.backstory);
+
+    // Allies/Organizations
+    setTextField("Allies", character.languages.join(", "));
+
+    // Appearance description
+    // Note: The official sheet doesn't have a text field for appearance description,
+    // but we can add it to the backstory or allies section if needed
+
+    // === PAGE 3: Spellcasting (if applicable) ===
+    if (character.spells) {
+      // Cantrips
+      if (character.spells.cantrips) {
+        character.spells.cantrips.forEach((spell, i) => {
+          setTextField(`Spells 10${i}`, spell);
+        });
+      }
+
+      // Known Spells by level
+      if (character.spells.knownSpells) {
+        character.spells.knownSpells.forEach((levelSpells) => {
+          levelSpells.spells.forEach((spell, i) => {
+            // Field naming pattern varies, try common patterns
+            setTextField(`Spells 10${levelSpells.level}${i}`, spell);
+          });
+        });
+      }
+
+      // Spell slots
+      if (character.spells.spellSlots) {
+        character.spells.spellSlots.forEach((slot) => {
+          setTextField(`SlotsTotal ${slot.level}`, String(slot.slots));
+          setTextField(`SlotsRemaining ${slot.level}`, String(slot.slots));
+        });
+      }
     }
 
-    if (character.spells.knownSpells && character.spells.knownSpells.length > 0) {
-      doc.setFontSize(10);
-      doc.setFont("helvetica", "bold");
-      doc.text("Prepared/Known Spells:", margin, y);
-      y += 5;
-      doc.setFont("helvetica", "normal");
-      character.spells.knownSpells.forEach((lvl) => {
-        const levelLabel = lvl.level === 0 ? "Cantrips" : `Level ${lvl.level}`;
-        addWrappedText(`${levelLabel}: ${lvl.spells.join(", ")}`, 9);
-      });
-    }
-    y += 3;
+    // Flatten the form so fields are visible in all PDF viewers
+    form.flatten();
+
+    // Generate the PDF bytes
+    const pdfBytes = await pdfDoc.save();
+
+    // Create blob and download
+    const blob = new Blob([pdfBytes.buffer as ArrayBuffer], { type: "application/pdf" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `${character.name.replace(/[^a-zA-Z0-9]/g, "_")}_Character_Sheet.pdf`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  } catch (error) {
+    console.error("Error generating PDF:", error);
+    alert("Error generating PDF. Check console for details.");
   }
-
-  // === PERSONALITY ===
-  addSectionHeader("Personality");
-  doc.setFontSize(9);
-  doc.setFont("helvetica", "bold");
-  doc.text("Traits: ", margin, y);
-  doc.setFont("helvetica", "normal");
-  const traitsText = character.personality.traits.join(" ");
-  const traitsLines = doc.splitTextToSize(traitsText, contentWidth - 20);
-  doc.text(traitsLines, margin + 15, y);
-  y += traitsLines.length * 4 + 3;
-
-  doc.setFont("helvetica", "bold");
-  doc.text("Ideals: ", margin, y);
-  doc.setFont("helvetica", "normal");
-  const idealsText = character.personality.ideals.join(" ");
-  const idealsLines = doc.splitTextToSize(idealsText, contentWidth - 20);
-  doc.text(idealsLines, margin + 15, y);
-  y += idealsLines.length * 4 + 3;
-
-  doc.setFont("helvetica", "bold");
-  doc.text("Bonds: ", margin, y);
-  doc.setFont("helvetica", "normal");
-  const bondsText = character.personality.bonds.join(" ");
-  const bondsLines = doc.splitTextToSize(bondsText, contentWidth - 20);
-  doc.text(bondsLines, margin + 15, y);
-  y += bondsLines.length * 4 + 3;
-
-  doc.setFont("helvetica", "bold");
-  doc.text("Flaws: ", margin, y);
-  doc.setFont("helvetica", "normal");
-  const flawsText = character.personality.flaws.join(" ");
-  const flawsLines = doc.splitTextToSize(flawsText, contentWidth - 20);
-  doc.text(flawsLines, margin + 15, y);
-  y += flawsLines.length * 4 + 6;
-
-  // === APPEARANCE ===
-  if (y > 250) {
-    doc.addPage();
-    y = 15;
-  }
-  addSectionHeader("Appearance");
-  addWrappedText(character.appearance, 9);
-  y += 3;
-
-  // === BACKSTORY ===
-  if (y > 240) {
-    doc.addPage();
-    y = 15;
-  }
-  addSectionHeader("Backstory");
-  addWrappedText(character.backstory, 9);
-
-  // === FOOTER ===
-  const totalPages = doc.getNumberOfPages();
-  for (let i = 1; i <= totalPages; i++) {
-    doc.setPage(i);
-    doc.setFontSize(8);
-    doc.setTextColor(150, 150, 150);
-    doc.text(`Generated by Muse Dungeon • Page ${i} of ${totalPages}`, pageWidth / 2, 290, { align: "center" });
-  }
-
-  // Save the PDF
-  const fileName = `${character.name.replace(/[^a-zA-Z0-9]/g, "_")}_Character_Sheet.pdf`;
-  doc.save(fileName);
 }
 
 function CharacterSheet({
