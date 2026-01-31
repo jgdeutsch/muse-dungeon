@@ -63,6 +63,24 @@ export default function CharactersIndex() {
         </p>
       </div>
 
+      {/* Character Builder CTA */}
+      <Link
+        href="/character-builder/"
+        className="block my-6 p-6 rounded-xl bg-gradient-to-r from-[var(--accent)] to-purple-600 text-white no-underline hover:brightness-110 transition-all"
+      >
+        <div className="flex items-center justify-between">
+          <div>
+            <h2 className="font-['Cinzel'] text-xl font-bold mb-1">
+              AI Character Builder
+            </h2>
+            <p className="text-white/80 text-sm">
+              Describe your character concept and get a complete, playable character sheet in seconds.
+            </p>
+          </div>
+          <div className="text-3xl">→</div>
+        </div>
+      </Link>
+
       {categories.map((cat) => (
         <section
           key={cat.key}
