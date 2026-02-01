@@ -20,9 +20,9 @@ export async function generateMetadata({
 }) {
   const { category } = await params;
   const info = categoryInfo[category];
-  if (!info) return { title: "Answers" };
+  if (!info) return { title: "D&D 5e Answers" };
   return {
-    title: `${info.label} — D&D 5e Answers`,
+    title: `D&D 5e ${info.label} - Answered`,
     description: info.description,
   };
 }

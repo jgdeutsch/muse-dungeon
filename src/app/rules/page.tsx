@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Breadcrumb } from "@/components/Breadcrumb";
 
 export const metadata = {
-  title: "Rules & Systems — D&D 5e",
+  title: "D&D 5e Rules & Game Mechanics Quick Reference",
   description:
     "D&D 5e rules quick reference: core mechanics, game terms, and external tools.",
 };

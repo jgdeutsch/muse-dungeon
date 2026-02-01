@@ -3,7 +3,7 @@ import { Breadcrumb } from "@/components/Breadcrumb";
 import { CharacterBuilder } from "@/components/CharacterBuilder";
 
 export const metadata: Metadata = {
-  title: "D&D 5e Character Builder — AI-Powered Character Generator",
+  title: "D&D 5e AI Character Builder - Create Characters in Seconds",
   description:
     "Create a complete D&D 5e character in seconds. Just describe who you want to play, and our AI generates stats, equipment, spells, backstory, and more.",
 };

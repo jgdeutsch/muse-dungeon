@@ -17,9 +17,9 @@ export async function generateMetadata({
 }) {
   const { slug } = await params;
   const rule = getRulePageBySlug(slug);
-  if (!rule) return { title: "Rules" };
+  if (!rule) return { title: "D&D 5e Rules" };
   return {
-    title: `${rule.name} — D&D 5e`,
+    title: `${rule.name} - D&D 5e Rules Guide`,
     description: rule.description,
   };
 }

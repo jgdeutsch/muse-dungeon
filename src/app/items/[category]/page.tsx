@@ -20,8 +20,8 @@ export async function generateMetadata({
 }) {
   const { category } = await params;
   const meta = itemCategoryMeta[category];
-  if (meta) return { title: `${meta.title} — D&D 5e`, description: meta.description };
-  return { title: "Items" };
+  if (meta) return { title: `D&D 5e ${meta.title} Quick Reference`, description: meta.description };
+  return { title: "D&D 5e Items" };
 }
 
 export default async function ItemCategoryPage({

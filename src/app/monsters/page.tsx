@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Breadcrumb } from "@/components/Breadcrumb";
 
 export const metadata = {
-  title: "Monsters & Lore — D&D 5e",
+  title: "D&D 5e Monsters & Lore Quick Reference",
   description:
     "D&D 5e monster stat blocks, lore guides, and sourcebook references for Dungeon Masters.",
 };

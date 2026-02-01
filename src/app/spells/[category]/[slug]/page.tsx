@@ -31,7 +31,7 @@ export async function generateMetadata({
     const list = classSpellLists.find((cl) => cl.slug === slug);
     if (list)
       return {
-        title: `${list.name} — D&D 5e`,
+        title: `${list.name} - D&D 5e Spell List`,
         description: list.description,
       };
   }
@@ -39,11 +39,11 @@ export async function generateMetadata({
   const spell = getSpellBySlug(slug);
   if (spell) {
     return {
-      title: `${spell.name} — D&D 5e`,
+      title: `${spell.name} - D&D 5e Spell Guide`,
       description: spell.description,
     };
   }
-  return { title: "Spell" };
+  return { title: "D&D 5e Spell" };
 }
 
 export default async function SpellPageRoute({

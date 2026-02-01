@@ -24,11 +24,11 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
   }
   if (category === "class-spell-lists") {
     return {
-      title: "Class Spell Lists",
+      title: "D&D 5e Class Spell Lists Quick Reference",
       description: "Quick reference spell lists for every spellcasting class in D&D 5e.",
     };
   }
-  return { title: "Spells" };
+  return { title: "D&D 5e Spells" };
 }
 
 export default async function CategoryPage({

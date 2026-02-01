@@ -23,8 +23,8 @@ export async function generateMetadata({
 }) {
   const { category } = await params;
   const meta = monsterCategoryMeta[category];
-  if (meta) return { title: `${meta.title} — D&D 5e`, description: meta.description };
-  return { title: "Monsters" };
+  if (meta) return { title: `D&D 5e ${meta.title} Quick Reference`, description: meta.description };
+  return { title: "D&D 5e Monsters" };
 }
 
 export default async function MonsterCategoryPage({

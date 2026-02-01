@@ -17,10 +17,10 @@ export async function generateMetadata({
 }) {
   const { slug } = await params;
   const result = getItemPageBySlug(slug);
-  if (!result) return { title: "Items" };
+  if (!result) return { title: "D&D 5e Items" };
   const data = result.data as { name: string; description?: string };
   return {
-    title: `${data.name} — D&D 5e`,
+    title: `${data.name} - D&D 5e Item Guide`,
     description: data.description || `Quick reference for ${data.name} in D&D 5e.`,
   };
 }

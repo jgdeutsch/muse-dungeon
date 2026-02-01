@@ -3,7 +3,7 @@ import { Breadcrumb } from "@/components/Breadcrumb";
 import { spellsByCategory, categoryMeta, allSpells } from "@/data/spells-index";
 
 export const metadata = {
-  title: "Spells & Magic",
+  title: "D&D 5e Spells & Magic Quick Reference",
   description:
     "D&D 5e spell quick reference guides for Dungeon Masters. Cantrips, offensive, utility, healing, and defensive spells — all in one place.",
 };

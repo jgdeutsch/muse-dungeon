@@ -9,7 +9,7 @@ import { Toasts } from "@/components/Toasts";
 
 export const metadata: Metadata = {
   title: {
-    default: "Muse Dungeon — D&D 5e Quick Reference for DMs",
+    default: "D&D 5e Quick Reference for DMs | Muse Dungeon",
     template: "%s | Muse Dungeon",
   },
   description:

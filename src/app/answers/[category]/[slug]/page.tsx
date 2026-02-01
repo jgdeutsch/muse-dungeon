@@ -18,7 +18,7 @@ export async function generateMetadata({
   const answer = getAnswerBySlug(slug);
   if (!answer) return { title: "D&D 5e Answers" };
   return {
-    title: `${answer.title} — D&D 5e`,
+    title: `${answer.title} - D&D 5e Answer`,
     description: answer.description,
   };
 }

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { answerPages, getAnswersByCategory } from "@/data/answers";
 
 export const metadata = {
-  title: "D&D 5e Answers — MuseDungeon",
+  title: "D&D 5e Questions & Answers",
   description: "Comprehensive answers to common D&D 5e questions from the community.",
 };
 

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Breadcrumb } from "@/components/Breadcrumb";
 
 export const metadata = {
-  title: "Items & Gear — D&D 5e",
+  title: "D&D 5e Items, Weapons & Magic Items",
   description:
     "D&D 5e equipment, weapons, armor, and magic items quick reference for Dungeon Masters.",
 };

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Breadcrumb } from "@/components/Breadcrumb";
 
 export const metadata = {
-  title: "Character Options — D&D 5e",
+  title: "D&D 5e Character Options - Classes, Races, Feats & More",
   description:
     "D&D 5e character reference guides: classes, subclasses, races, feats, and creation tools.",
 };
